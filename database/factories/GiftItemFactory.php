@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(GiftItem::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'image' => $faker->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker', true),
+        'image' => 'https://www.adobe.com/content/dam/cc/us/en/creativecloud/file-types/image/raster/tiff-file/thumbnail.jpeg',
         'price' => $faker->randomNumber(2),
     ];
 });

@@ -16,6 +16,7 @@ class ItemController extends Controller
     public function index()
     {
         $data = $this->itemService->getAll();
-        return view('admin.item.index', ['data' => $data]);
+        // dd($data);
+        return view('admin.item.index', compact('data'));
     }
 }
