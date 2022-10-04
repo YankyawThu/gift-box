@@ -75,12 +75,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('item') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('box') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
