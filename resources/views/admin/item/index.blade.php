@@ -5,10 +5,10 @@
         <table class="table align-items-center mb-0">
             <thead>
             <tr>
-                <th class="text-uppercase text-xxs font-weight-bolder opacity-7">Author</th>
-                <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">Technology</th>
-                <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">Employed</th>
+                <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
+                <th class="text-xxs font-weight-bolder opacity-7 ps-2">NAME</th>
+                <th class="text-center text-xxs font-weight-bolder opacity-7">PRICE</th>
+                <th class="text-center text-xxs font-weight-bolder opacity-7">CREATED</th>
                 <th class="opacity-7"></th>
             </tr>
             </thead>
