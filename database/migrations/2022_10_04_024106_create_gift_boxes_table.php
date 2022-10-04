@@ -13,7 +13,7 @@ class CreateGiftboxesTable extends Migration
      */
     public function up()
     {
-        Schema::create('giftboxes', function (Blueprint $table) {
+        Schema::create('gift_boxes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('image');
@@ -29,6 +29,8 @@ class CreateGiftboxesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('gift_boxes');
+
         Schema::dropIfExists('giftboxes');
     }
 }
