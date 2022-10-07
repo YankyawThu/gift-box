@@ -26,6 +26,7 @@ class CreateRequest extends FormRequest
         return [
             'name' => 'required',
             'price' => 'numeric|required',
+            'qty' => 'numeric|required',
             'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
         ];
     }

@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('box') }}">
+                    <a class="nav-link" href="{{ route('boxes.index') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
