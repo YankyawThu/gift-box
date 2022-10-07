@@ -32,7 +32,7 @@
                               <input type="file" class="form-control-file" id="item-image">
                             </div>
                       </div>
-                      <img src="{{ asset('img/logo.jpg') }}" id="img_url" alt="your image" width="100" height="100" class="pl-3">
+                      <img src="{{ asset('image/default.png') }}" id="img_url" alt="your image" width="100" height="100" class="pl-3">
                   </div>
               </form>
           </div>

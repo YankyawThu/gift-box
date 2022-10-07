@@ -9,9 +9,13 @@
                 <div class="card bg-gradiant-default px-1">
                     @yield('content-detail')
                 </div>
-                <div class="mt-3">
-                    @yield('content-pagination')                    
-                </div>
+            </div>
+            <div class="mt-3">
+                <nav>
+                    <ul class="pagination justify-content-end">
+                        @yield('content-pagination')
+                    </ul>
+                </nav>                   
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
                 <h3 class="mb-0">{{ __('Gift Items') }}</h3>
             </div>
             <div>
-                <a href="{{ route('item_add') }}" type="button" class="btn btn-success" data-toggle="modal" data-target="#add-form">+ ADD</a>
+                <a type="button" class="btn btn-success text-white" data-toggle="modal" data-target="#add-form">+ ADD</a>
                 @include('admin.item.add')
             </div>
         </div>
@@ -58,11 +58,5 @@
 @endsection
 
 @section('content-pagination')
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end">
-      {{$data}}
-    </ul>
-</nav>
-
+    {{$data}}
 @endsection
