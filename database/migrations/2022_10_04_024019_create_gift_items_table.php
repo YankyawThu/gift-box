@@ -18,6 +18,7 @@ class CreateGiftItemsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->double('price')->default(0);
+            $table->integer('qty');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -2,19 +2,19 @@
 
 namespace App\Services\Admin;
 
-use App\Repositories\Admin\ItemRepository;
+use App\Repositories\Admin\BoxRepository;
 
-class ItemService
+class BoxService
 {
-    public function __construct(ItemRepository $itemRepo)
+    public function __construct(BoxRepository $boxRepo)
     {
-        $this->itemRepo = $itemRepo;
-        $this->uploadPhotoFolder = config('media.giftItemPath');
+        $this->boxRepo = $boxRepo;
+        $this->uploadPhotoFolder = config('media.giftBoxPath');
     }
 
     public function getAll()
     {
-        return $this->itemRepo->getPaginated();
+        return $this->boxRepo->getPaginated();
     }
 
     public function store($request)
@@ -22,14 +22,13 @@ class ItemService
         $data['name'] = $request->name;
         $data['image'] = fileUploadToAkoneyaMedia($request->file('image'), $this->uploadPhotoFolder);
         $data['price'] = $request->price;
-        $data['qty'] = $request->qty;
 
-        return $this->itemRepo->create($data);
+        return $this->boxRepo->create($data);
     }
 
     public function getDetail($id)
     {
-        return $this->itemRepo->getById($id);
+        return $this->boxRepo->getById($id);
     }
 
     public function update($request, $id)
@@ -37,7 +36,7 @@ class ItemService
         $data['name'] = $request->name;
         if ($request->file('new_image')) {
             try {
-                $this->itemRepo->checkImageSizeLimitaion('new_image');
+                $this->boxRepo->checkImageSizeLimitaion('new_image');
             } catch (\Exception $e) {
                 return redirect()->back()->with(['error' => $e->validator])->withInput();
             }
@@ -48,14 +47,13 @@ class ItemService
             $data['image'] = $request->old_image;
         }
         $data['price'] = $request->price;
-        $data['qty'] = $request->qty;
 
-        return $this->itemRepo->update($data, $id);
+        return $this->boxRepo->update($data, $id);
     }
 
     public function delete($id)
     {
-        $this->itemRepo->delete($id);
+        $this->boxRepo->delete($id);
 
         return;
     }

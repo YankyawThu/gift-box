@@ -25,8 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
             Route::resource('items', 'ItemController');
+            Route::resource('boxes', 'BoxController');
 
-            Route::get('/gift-boxes', 'BoxController@index')->name('box');
+            // Route::get('/gift-boxes', 'BoxController@index')->name('box');
         });
     });
 
