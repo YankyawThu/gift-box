@@ -7,7 +7,7 @@
                 <h3 class="mb-0">{{ __('Gift Items') }}</h3>
             </div>
             <div>
-                <a type="button" class="btn btn-success text-white" data-toggle="modal" data-target="#add-form">+ ADD</a>
+                <a type="button" class="btn btn-success text-white" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
                 @include('admin.item.add')
             </div>
         </div>

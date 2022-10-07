@@ -41,7 +41,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateRequest $request)
-    {
+    {   
         $this->itemService->store($request);
 
         return redirect()->back();

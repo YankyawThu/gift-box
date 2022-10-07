@@ -5,7 +5,7 @@
     </div>
     <div class="container-fluid mt--8">
         <div class="row">
-            <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="col-xl-12">
                 <div class="card bg-gradiant-default px-1">
                     @yield('content-detail')
                 </div>
