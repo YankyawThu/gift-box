@@ -19,6 +19,7 @@ class CreateGiftboxesTable extends Migration
             $table->string('image');
             $table->double('price')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
