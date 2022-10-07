@@ -75,7 +75,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('item') }}">
+                    <a class="nav-link" href="{{ route('items.index') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>

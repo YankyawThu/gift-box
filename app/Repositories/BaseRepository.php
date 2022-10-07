@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use Hash;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\ValidationException;
 
 abstract class BaseRepository
 {
@@ -56,5 +56,22 @@ abstract class BaseRepository
     public function delete($id)
     {
         return $this->model->destroy($id);
+    }
+
+    public function checkImageSizeLimitaion($image)
+    {
+        $validator = validator(request()->all(), [
+            $image => 'max:'.config('filesystems.imageSizeLimit'),
+        ], [$image.'.max' => config('message.invalidFileSize')]);
+        if ($validator->fails()) {
+            $error_text = '';
+
+            foreach ($validator->errors()->all() as $error) {
+                $error_text .= $error;
+            }
+            throw new ValidationException($error_text);
+        }
+
+        return null;
     }
 }
