@@ -1,0 +1,19 @@
+.table td {
+    padding: 10px;
+}
+
+.content_detail_header {
+    padding: 16px 24px;
+}
+
+.add_form {
+    padding: 12px 24px;
+}
+
+.has-success:after {
+    top: 35px;
+}
+
+.form_btn_layout {
+    padding: 0 15px;
+}

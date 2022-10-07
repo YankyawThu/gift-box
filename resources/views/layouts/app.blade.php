@@ -17,6 +17,8 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/css.css') }}">
+        <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -34,8 +36,8 @@
         @guest()
             @include('layouts.footers.guest')
         @endguest
-
-        <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         
         @stack('js')
