@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class GiftItemBox extends Model
 {
-    //
+    protected $guarded = [];
 }

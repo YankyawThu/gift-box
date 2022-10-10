@@ -7,7 +7,7 @@
                         <h3 class="mb-0">{{ __('Add Gift Item') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('items.store') }}" method="POST" id="item-store-form">
+                        <form action="{{ route('items.store') }}" method="POST" id="item-store-form" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
@@ -19,7 +19,13 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="example-search-input" class="form-control-label">Price</label>
-                                        <input type="number" placeholder="Price" name="price" class="form-control form-control-alternative is-valid" />
+                                        <input type="text" placeholder="Price" name="price" class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="example-search-input" class="form-control-label">Qty</label>
+                                        <input type="number" placeholder="Qty" name="qty" class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -48,19 +54,19 @@
             $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0]);
         })
 
-        $('#item-store').click(function() {
-            $('#item-store-form').submit()
-        })
-
         $('#item-store-form').validate({
             ignore: [],
-            errorElement: "table",
-            errorClass: "error-help-block",
+            errorElement: 'span',
+            errorClass: 'alert-danger',
             rules: {
                 name: {
                     required: true,
                 },
                 price: {
+                    required: true,
+                    number: true,
+                },
+                qty: {
                     required: true,
                 },
                 image: {
@@ -74,8 +80,21 @@
                 price: {
                     required: "Price is Required."
                 },
-            }
-        });
+                qty: {
+                    required: "Qty is Required."
+                },
+                image: {
+                    required: "Image is Required."
+                },
+            },
+            showErrors: function() {
+                this.defaultShowErrors()
+                $('input[name="name"]').removeClass('alert-danger')
+                $('input[name="price"]').removeClass('alert-danger')
+                $('input[name="image"]').removeClass('alert-danger')
+                $('input[name="qty"]').removeClass('alert-danger')
+            },
+        })
     })
 
 </script>

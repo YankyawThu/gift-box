@@ -10,7 +10,7 @@
                     @yield('content-detail')
                 </div>
             </div>
-            <div class="mt-3">
+            <div class="col-xl-12 mt-3">
                 <nav>
                     <ul class="pagination justify-content-end">
                         @yield('content-pagination')

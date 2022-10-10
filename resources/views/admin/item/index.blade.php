@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @foreach ($data as $key => $item)
                     <tr>
                         <td>
                             <div class="d-flex py-1">
@@ -45,9 +45,10 @@
                             <a href="javascript:;" class="font-weight-bold text-sm px-1" data-toggle="tooltip" data-original-title="Edit item">
                                 Edit
                             </a>
-                            <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-toggle="tooltip" data-original-title="Delete item">
+                            <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-form">
                                 Delete
                             </a>
+                            @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => $data[$key]->id])
                         </td>
                     </tr>
                     @endforeach
@@ -55,6 +56,14 @@
             </table>
         </div>
     </div>
+    <script>
+        $('#delete-form').on('show.bs.modal', function(e) {
+            var button = $(e.relatedTarget);
+            var id = button.data('id');
+            modal = $(this);
+            modal.find('.modal-body #id').val(id);
+        });
+    </script>
 @endsection
 
 @section('content-pagination')

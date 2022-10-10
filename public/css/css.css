@@ -22,9 +22,10 @@
     padding: 0 15px;
 }
 
-.error-help-block {
+.alert-danger {
     padding: 3px 10px;
     color: #f30030;
     font-size: 0.675rem;
     padding-top: 10px;
+    background: transparent;
 }

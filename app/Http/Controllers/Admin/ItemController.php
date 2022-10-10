@@ -58,7 +58,7 @@ class ItemController extends Controller
     {
         $this->itemService->getDetail($id);
 
-        return;
+        return redirect()->back();
     }
 
     /**
@@ -72,7 +72,7 @@ class ItemController extends Controller
     {
         $this->itemService->getDetail($id);
 
-        return;
+        return redirect()->back();
     }
 
     /**
@@ -86,7 +86,7 @@ class ItemController extends Controller
     {
         $this->itemService->update($request, $id);
 
-        return;
+        return redirect()->back();
     }
 
     /**
@@ -100,6 +100,6 @@ class ItemController extends Controller
     {
         $this->itemService->delete($id);
 
-        return;
+        return redirect()->back();
     }
 }
