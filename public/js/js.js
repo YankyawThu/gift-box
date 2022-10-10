@@ -1,6 +1,6 @@
 $(function() {
     $('#item-image').on('change', function() {
-        $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0]);
+        $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })
 
     $('#item-store-form').validate({
@@ -45,10 +45,33 @@ $(function() {
         },
     })
 
-    $('#delete-form').on('show.bs.modal', function(e) {
-        var button = $(e.relatedTarget);
-        var id = button.data('id');
-        modal = $(this);
-        modal.find('.modal-body #id').val(id);
-    });
+    $('#delete-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+    })
+
+    $('#edit-item-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var name = button.data('name')
+        var price = button.data('price')
+        var qty = button.data('qty')
+        var image = button.data('image')
+        if (image){
+            imagePath = button.data('image_path')
+        }
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #name').val(name)
+        modal.find('.modal-body #price').val(price)
+        modal.find('.modal-body #qty').val(qty)
+        modal.find('.modal-body #image').val(image)
+        modal.find('.modal-body #edit_item_img_url').attr("src", imagePath)
+    })
+
+    $('#new-item-image').on('change', function() {
+        $('#edit_item_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
 })

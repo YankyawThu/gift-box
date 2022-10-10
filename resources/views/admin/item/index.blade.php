@@ -16,7 +16,8 @@
                 <thead>
                     <tr>
                         <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
-                        <th class="text-xxs font-weight-bolder opacity-7 ps-2">NAME</th>
+                        <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
+                        <th class="text-xxs font-weight-bolder opacity-7">Quantity</th>
                         <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
                         <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                         <th class="opacity-7"></th>
@@ -36,18 +37,22 @@
                             <p class="text-sm font-weight-bold mb-0">{{$item->name}}</p>
                         </td>
                         <td>
+                            <p class="text-sm font-weight-bold mb-0">{{$item->qty}}</p>
+                        </td>
+                        <td>
                             <p class="text-sm font-weight-bold mb-0">{{$item->price}}</p>
                         </td>
                         <td class="align-middle">
                             <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-toggle="tooltip" data-original-title="Edit item">
-                                Edit
+                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-qty="{{$item->qty}}" data-image="{{$item->image}}" data-image_path="{{ getImageFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-toggle="modal" data-target="#edit-item-modal">
+                                <span data-toggle="tooltip" data-original-title="Edit item">Edit</span>
                             </a>
-                            <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-form">
+                            <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-modal">
                                 <span data-toggle="tooltip" data-original-title="Delete item">Delete</span>
                             </a>
+                            @include('admin.item.edit', ['id' => 0])
                             @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => 0])
                         </td>
                     </tr>

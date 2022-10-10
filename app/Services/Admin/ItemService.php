@@ -35,17 +35,17 @@ class ItemService
     public function update($request, $id)
     {
         $data['name'] = $request->name;
-        if ($request->file('new_image')) {
+        if ($request->file('new-image')) {
             try {
-                $this->itemRepo->checkImageSizeLimitaion('new_image');
+                $this->itemRepo->checkImageSizeLimitaion('new-image');
             } catch (\Exception $e) {
                 return redirect()->back()->with(['error' => $e->validator])->withInput();
             }
 
-            deleteFileFromAkoneyaMedia($request->old_image);
-            $data['image'] = fileUploadToAkoneyaMedia($request->file('new_image'), $this->uploadPhotoFolder);
+            deleteFileFromAkoneyaMedia($request->image);
+            $data['image'] = fileUploadToAkoneyaMedia($request->file('new-image'), $this->uploadPhotoFolder);
         } else {
-            $data['image'] = $request->old_image;
+            $data['image'] = $request->image;
         }
         $data['price'] = $request->price;
         $data['qty'] = $request->qty;

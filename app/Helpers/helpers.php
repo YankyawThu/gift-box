@@ -44,3 +44,16 @@ if (!function_exists('getFileUrlFromAkoneyaMedia')) {
         return Storage::url($filePath);
     }
 }
+
+/*
+ * Get Fiel URL from Akoneya Media
+ */
+if (!function_exists('getImageFromAkoneyaMedia')) {
+    function getImageFromAkoneyaMedia($filePath)
+    {
+        return Storage::url($filePath);
+        // $content = file_get_contents($fileUrl);
+        // return $content;
+    }
+}
+

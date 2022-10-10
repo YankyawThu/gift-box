@@ -1,4 +1,4 @@
-<div class="modal fade" data-backdrop="static" id="delete-form" tabindex="-1" role="dialog" aria-labelledby="delete-form" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
@@ -8,8 +8,8 @@
                     </div>
                     <div class="card-body bg-secondary">
                         <form action="{{ route($route, $id) }}" method="POST" id='delete-row'>
-                            @method('DELETE')
                             @csrf
+                            @method('DELETE')
                             <input type="text" name="id" id="id" hidden>
                         </form>
                         <p class="mb-0">Are you sure you want to delete this item?</p>
