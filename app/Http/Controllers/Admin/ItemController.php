@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftItem\CreateRequest;
 use App\Http\Requests\GiftItem\UpdateRequest;
 use App\Services\Admin\ItemService;
+use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -70,9 +71,6 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        $this->itemService->getDetail($id);
-
-        return redirect()->back();
     }
 
     /**
@@ -96,9 +94,9 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        $this->itemService->delete($id);
+        $this->itemService->delete($request->id);
 
         return redirect()->back();
     }

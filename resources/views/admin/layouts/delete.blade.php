@@ -7,25 +7,15 @@
                         <h3 class="mb-0">{{ __('Delete Gift Item') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route($route,$id) }}" method="DELETE" id="delete-form">
+                        <form action="{{ route($route, $id) }}" method="POST" id='delete-row'>
+                            @method('DELETE')
                             @csrf
-                            {{-- {{$id}} --}}
-                            {{-- <input type="text" value="" name="id" id="id"> --}}
-                            @php
-                                $htmlEle = "<input type='text' value='' name='id' id='id'>";
-                                echo $htmlEle;
-                                $domdoc = new DOMDocument();
-                                $domdoc->loadHTML($htmlEle);
-                                $xp = new DOMXpath($domdoc);
-                                $nodes = $xp->query('//input[@name="id"]/attribute::value');
-                                echo $node = $nodes->item(0)->nodeValue;
-                                // echo $node->getAttribute('value');
-                                // echo $domdoc->getElementById('id')->value;
-                            @endphp
+                            <input type="text" name="id" id="id" hidden>
                         </form>
+                        <p class="mb-0">Are you sure you want to delete this item?</p>
                     </div>
                     <div class="card-footer bg-secondary text-center px-lg-2 px-1">
-                        <button type="submit" form="delete-form" class="btn btn-success text-white">Delete</a>
+                        <button type="submit" form="delete-row" class="btn btn-success text-white">Delete</a>
                         <button type="button" class="btn btn-primary text-white" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

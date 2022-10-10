@@ -46,9 +46,9 @@
                                 Edit
                             </a>
                             <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-form">
-                                Delete
+                                <span data-toggle="tooltip" data-original-title="Delete item">Delete</span>
                             </a>
-                            @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => $data[$key]->id])
+                            @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => 0])
                         </td>
                     </tr>
                     @endforeach
@@ -56,14 +56,6 @@
             </table>
         </div>
     </div>
-    <script>
-        $('#delete-form').on('show.bs.modal', function(e) {
-            var button = $(e.relatedTarget);
-            var id = button.data('id');
-            modal = $(this);
-            modal.find('.modal-body #id').val(id);
-        });
-    </script>
 @endsection
 
 @section('content-pagination')
