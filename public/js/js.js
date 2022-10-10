@@ -74,4 +74,43 @@ $(function() {
     $('#new-item-image').on('change', function() {
         $('#edit_item_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })
+
+    var itemUpdateForm = $('#item-update-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            },
+            price: {
+                required: true,
+                number: true,
+            },
+            qty: {
+                required: true,
+            }
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            },
+            price: {
+                required: "Price is Required."
+            },
+            qty: {
+                required: "Qty is Required."
+            }
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+            $('input[name="price"]').removeClass('alert-danger')
+            $('input[name="qty"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-item-cancel-btn').on('click', function() {
+        itemUpdateForm.resetForm()
+    })
 })

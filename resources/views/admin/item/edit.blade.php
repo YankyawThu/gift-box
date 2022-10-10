@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-footer bg-secondary text-center px-lg-2 px-1">
                         <button type="submit" form="item-update-form" class="btn btn-success text-white">Update</button>
-                        <button type="button" class="btn btn-primary text-white" data-dismiss="modal">Cancel</button>
+                        <button type="button" id="edit-item-cancel-btn" class="btn btn-primary text-white" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
