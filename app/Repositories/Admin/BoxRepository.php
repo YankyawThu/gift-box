@@ -11,4 +11,9 @@ class BoxRepository extends BaseRepository
     {
         $this->model = $model;
     }
+
+    public function getDetail()
+    {
+        // code...
+    }
 }
