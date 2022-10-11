@@ -55,14 +55,14 @@ class BoxController extends Controller
 
     public function update(UpdateRequest $request, $id)
     {
-        $this->boxService->update($request, $id);
+        $this->boxService->update($request, $request->id);
 
         return redirect()->back()->with('status', 'Box Updated Successfully!');
     }
 
     public function destroy($id, Request $request)
     {
-        $this->boxService->delete($id);
+        $this->boxService->delete($request->id);
 
         return redirect()->back()->with('status', 'Box Deleted Successfully!');
     }

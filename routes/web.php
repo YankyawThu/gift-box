@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::resource('items', 'ItemController');
             Route::resource('boxes', 'BoxController');
-            Route::resource('item-box', 'GiftItemBoxController')->only([
+            Route::resource('itemBox', 'GiftItemBoxController')->only([
                 'store', 'update',
             ]);
             Route::resource('category', 'BoxCategoryController');

@@ -271,4 +271,7 @@ $(function() {
     $('#edit-item-cancel-btn').on('click', function() {
         boxUpdateForm.resetForm()
     })
+
+    // box-item
+    
 })

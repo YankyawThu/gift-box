@@ -26,13 +26,17 @@ class GiftItemBoxRepository extends BaseRepository
 
     public function updateItemBox($request)
     {
-        foreach ($request->itemId as $key => $v) {
-            $this->model->where('gift_box_id', $request->boxId)->where('gift_item_id', $v->itemId)->delete();
-            $this->model->create([
-                'gift_box_id' => $request->boxId,
-                'gift_item_id' => $v->itemId,
-            ]);
+        if($request->itemId) {
+            $this->model->where('gift_box_id', $request->boxId)->delete();
+            foreach ($request->itemId as $key => $v) {
+                $this->model->create([
+                    'gift_box_id' => $request->boxId,
+                    'gift_item_id' => $v,
+                ]);
+            }
         }
+        else 
+            $this->model->where('gift_box_id', $request->boxId)->delete();
 
         return true;
     }

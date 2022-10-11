@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'boxId' => 'required',
-            'itemId' => 'required|array',
+            'itemId' => 'array',
         ];
     }
 }

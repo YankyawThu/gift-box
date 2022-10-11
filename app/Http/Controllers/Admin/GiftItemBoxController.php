@@ -22,8 +22,8 @@ class GiftItemBoxController extends Controller
 
     public function update(CreateRequest $request)
     {
-        $this->giftBoxService->update($request);
+        return $this->giftBoxService->update($request);
 
-        return redirect()->back();
+        // return redirect()->back();
     }
 }
