@@ -18,6 +18,7 @@
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/css.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('js/js.js') }}"></script>
     </head>
@@ -40,6 +41,7 @@
         
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="{{asset('js/toastr.min.js')}}"></script>
         
         @stack('js')
         
