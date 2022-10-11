@@ -15,9 +15,9 @@ class BoxCategoryController extends Controller
 
     public function index()
     {
-        $this->boxCatService->getAll();
+        $data = $this->boxCatService->getAll();
 
-        return;
+        return view('admin.category.index', compact('data'));
     }
 
     /**
