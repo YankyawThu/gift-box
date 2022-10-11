@@ -4,7 +4,7 @@ namespace App\Http\Requests\GiftBox;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class CreateRequest extends FormRequest
             'categoryId' => 'required',
             'name' => 'required',
             'price' => 'numeric|required',
-            'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
+            'image' => 'nullable|image|file|max:'.config('filesystems.imageSizeLimit'),
         ];
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GiftBox\CreateRequest;
+use App\Http\Requests\GiftBox\UpdateRequest;
 use App\Services\Admin\BoxService;
 
 class BoxController extends Controller

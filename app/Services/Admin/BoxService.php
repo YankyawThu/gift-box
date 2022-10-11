@@ -19,6 +19,7 @@ class BoxService
 
     public function store($request)
     {
+        $data['category_id'] = $request->categoryId;
         $data['name'] = $request->name;
         $data['image'] = fileUploadToAkoneyaMedia($request->file('image'), $this->uploadPhotoFolder);
         $data['price'] = $request->price;
@@ -33,6 +34,7 @@ class BoxService
 
     public function update($request, $id)
     {
+        $data['category_id'] = $request->categoryId;
         $data['name'] = $request->name;
         if ($request->file('new_image')) {
             try {
