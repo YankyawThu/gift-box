@@ -61,7 +61,7 @@
                                 <span data-toggle="tooltip" data-original-title="Delete item">Delete</span>
                             </a>
                             @include('admin.item.edit', ['id' => 0])
-                            @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => 0])
+                            @include('admin.layouts.delete', ['route' => 'items.destroy', 'id' => 0, 'name' => 'Delete Gift Item'])
                         </td>
                     </tr>
                     @endforeach

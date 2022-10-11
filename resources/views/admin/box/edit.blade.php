@@ -15,7 +15,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="example-search-input" class="form-control-label">Category</label>
-                                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="categoryId">
+                                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" id="categoryId" name="categoryId">
                                             @foreach ($categories as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach

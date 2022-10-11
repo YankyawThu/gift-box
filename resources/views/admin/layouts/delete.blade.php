@@ -4,7 +4,7 @@
             <div class="modal-body p-0">
                 <div class="card shadow border-0"> 
                     <div class="card-header text-left">
-                        <h3 class="mb-0">{{ __('Delete Gift Item') }}</h3>
+                        <h3 class="mb-0">{{ __($name) }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
                         <form action="{{ route($route, $id) }}" method="POST" id='delete-row'>

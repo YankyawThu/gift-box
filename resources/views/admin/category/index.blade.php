@@ -45,7 +45,7 @@
                                 <span data-toggle="tooltip" data-original-title="Delete category">Delete</span>
                             </a>
                             @include('admin.category.edit', ['id' => 0])
-                            @include('admin.layouts.delete', ['route' => 'category.destroy', 'id' => 0])
+                            @include('admin.layouts.delete', ['route' => 'category.destroy', 'id' => 0, 'name' => 'Delete Category'])
                         </td>
                     </tr>
                     @endforeach

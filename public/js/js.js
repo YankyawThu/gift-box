@@ -213,7 +213,7 @@ $(function() {
             $('input[name="name"]').removeClass('alert-danger')
             $('input[name="price"]').removeClass('alert-danger')
             $('input[name="image"]').removeClass('alert-danger')
-            $('input[name="categoryId"]').removeClass('alert-danger')
+            $('select[name="categoryId"]').removeClass('alert-danger')
         },
     })
 

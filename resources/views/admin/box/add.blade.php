@@ -14,9 +14,9 @@
                                     <div class="form-group">
                                         <label for="example-search-input" class="form-control-label">Category</label>
                                         <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="categoryId">
-                                            <option selected>Select Category</option>
+                                            <option value="" selected>Select Category</option>
                                             @foreach ($categories as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
