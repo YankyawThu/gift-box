@@ -14,6 +14,16 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label for="example-search-input" class="form-control-label">Category</label>
+                                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="categoryId">
+                                            @foreach ($categories as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label for="example-search-input" class="form-control-label">Name</label>
                                         <input type="text" placeholder="Name" id="name" name="name" class="form-control form-control-alternative is-valid" />
                                     </div>
@@ -27,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="" class="form-control-label">Image</label>
-                                        <input type="file" class="form-control-file" id="new-box-image" name="new-image" id="new-box-image">
+                                        <input type="file" class="form-control-file" id="new-box-image" name="new_image" id="new-box-image">
                                         <input type="text" name="image" id="image" hidden>
                                     </div>
                                 </div>

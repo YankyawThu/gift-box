@@ -190,6 +190,9 @@ $(function() {
             image: {
                 required: true,
             },
+            categoryId: {
+                required: true,
+            },
         },
         messages: {
             name: {
@@ -201,12 +204,16 @@ $(function() {
             image: {
                 required: "Image is Required."
             },
+            categoryId: {
+                required: "Category is Required."
+            },
         },
         showErrors: function() {
             this.defaultShowErrors()
             $('input[name="name"]').removeClass('alert-danger')
             $('input[name="price"]').removeClass('alert-danger')
             $('input[name="image"]').removeClass('alert-danger')
+            $('input[name="categoryId"]').removeClass('alert-danger')
         },
     })
 
@@ -216,6 +223,7 @@ $(function() {
         var name = button.data('name')
         var price = button.data('price')
         var image = button.data('image')
+        var categoryId = button.data('category_id')
         if (image){
             imagePath = button.data('image_path')
         }
@@ -224,6 +232,7 @@ $(function() {
         modal.find('.modal-body #name').val(name)
         modal.find('.modal-body #price').val(price)
         modal.find('.modal-body #image').val(image)
+        modal.find('.modal-body #categoryId').val(categoryId)
         modal.find('.modal-body #edit_box_img_url').attr("src", imagePath)
     })
 

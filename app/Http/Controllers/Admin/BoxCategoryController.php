@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCategory\CreateRequest;
+use Illuminate\Http\Request;
 use App\Services\Admin\BoxCategoryService;
 
 class BoxCategoryController extends Controller
@@ -36,7 +37,9 @@ class BoxCategoryController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $this->boxCatService->store($request);
+        $this->boxCatService->store($request->all());
+
+        return redirect()->back()->with('status', 'Category Created Successfully!');
     }
 
     /**
@@ -70,7 +73,9 @@ class BoxCategoryController extends Controller
      */
     public function update(CreateRequest $request, $id)
     {
-        $this->boxCatService->update($request, $id);
+        $this->boxCatService->update($request->all(), $request->id);
+
+        return redirect()->back()->with('status', 'Category Updated Successfully!');
     }
 
     /**
@@ -80,8 +85,10 @@ class BoxCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        $this->boxCatService->destroy($id);
+        $this->boxCatService->destroy($request->id);
+
+        return redirect()->back()->with('status', 'Category Deleted Successfully!');
     }
 }

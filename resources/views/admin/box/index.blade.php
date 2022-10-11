@@ -25,6 +25,7 @@
                     <tr>
                         <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
                         <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
+                        <th class="text-xxs font-weight-bolder opacity-7">CATEGORY</th>
                         <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
                         <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                         <th class="opacity-7"></th>
@@ -44,13 +45,16 @@
                             <p class="text-sm font-weight-bold mb-0">{{$item->name}}</p>
                         </td>
                         <td>
+                            <p class="text-sm font-weight-bold mb-0">{{$item->category->name}}</p>
+                        </td>
+                        <td>
                             <p class="text-sm font-weight-bold mb-0">{{$item->price}}</p>
                         </td>
                         <td class="align-middle">
                             <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-image="{{$item->image}}" data-image_path="{{ getImageFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-toggle="modal" data-target="#edit-box-modal">
+                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-image="{{$item->image}}" data-image_path="{{ getImageFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-category_id="{{$item->category->id}}" data-toggle="modal" data-target="#edit-box-modal">
                                 <span data-toggle="tooltip" data-original-title="Edit box">Edit</span>
                             </a>
                             <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-modal">

@@ -43,10 +43,10 @@ class BoxService
                 return redirect()->back()->with(['error' => $e->validator])->withInput();
             }
 
-            deleteFileFromAkoneyaMedia($request->old_image);
+            deleteFileFromAkoneyaMedia($request->image);
             $data['image'] = fileUploadToAkoneyaMedia($request->file('new_image'), $this->uploadPhotoFolder);
         } else {
-            $data['image'] = $request->old_image;
+            $data['image'] = $request->image;
         }
         $data['price'] = $request->price;
 

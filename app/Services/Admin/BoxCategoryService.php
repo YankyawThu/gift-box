@@ -12,6 +12,11 @@ class BoxCategoryService
         $this->itemPerPage = config('enums.itemPerPage');
     }
 
+    public function getAllNoPaginated()
+    {
+        return $this->boxCatRepo->getAll();
+    }
+
     public function getAll()
     {
         return $this->boxCatRepo->getPaginated($this->itemPerPage);

@@ -38,7 +38,7 @@
                             <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-name="{{$item->name}}" data-toggle="modal" data-target="#edit-category-modal">
+                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#edit-category-modal">
                                 <span data-toggle="tooltip" data-original-title="Edit category">Edit</span>
                             </a>
                             <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-modal">

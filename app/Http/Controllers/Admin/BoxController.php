@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftBox\CreateRequest;
 use App\Http\Requests\GiftBox\UpdateRequest;
 use App\Services\Admin\BoxService;
+use Illuminate\Http\Request;
+use App\Services\Admin\BoxCategoryService;
 
 class BoxController extends Controller
 {
-    public function __construct(BoxService $boxService)
+    public function __construct(BoxService $boxService, BoxCategoryService $boxCateService )
     {
         $this->boxService = $boxService;
+        $this->boxCateService = $boxCateService;
     }
 
     public function index()
     {
-        $this->boxService->getAll();
+        $categories = $this->boxCateService->getAllNoPaginated();
+        $data = $this->boxService->getAll();
 
-        return view('admin.box.index');
+        return view('admin.box.index', compact('data', 'categories'));
     }
 
     public function create()
@@ -29,7 +33,7 @@ class BoxController extends Controller
     {
         $this->boxService->store($request);
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Box Created Successfully!');
     }
 
     public function show($id)
@@ -50,13 +54,13 @@ class BoxController extends Controller
     {
         $this->boxService->update($request, $id);
 
-        return;
+        return redirect()->back()->with('status', 'Box Updated Successfully!');
     }
 
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $this->boxService->delete($id);
 
-        return;
+        return redirect()->back()->with('status', 'Box Deleted Successfully!');
     }
 }
