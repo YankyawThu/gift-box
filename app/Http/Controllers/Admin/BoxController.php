@@ -38,7 +38,9 @@ class BoxController extends Controller
 
     public function show($id)
     {
-        return $this->boxService->getDetail($id);
+        $data = $this->boxService->getDetail($id);
+
+        return view('admin.boxItem.index', compact('data'));
     }
 
     public function edit($id)

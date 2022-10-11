@@ -54,7 +54,7 @@
                             <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="" class="font-weight-bold text-sm text-success px-1">
+                            <a href="{{route('boxes.show', $item->id)}}" class="font-weight-bold text-sm text-success px-1">
                                 <span data-toggle="tooltip" data-original-title="View box">View</span>
                             </a>
                             <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-image="{{$item->image}}" data-image_path="{{ getImageFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-category_id="{{optional($item->category)->id}}" data-toggle="modal" data-target="#edit-box-modal">
