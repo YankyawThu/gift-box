@@ -58,7 +58,7 @@
         var boxItems = {!! json_encode($data['boxItems']) !!}
         var boxId = {!! json_encode($data['id']) !!}
         var itemIds = []
-        boxItems.forEach(item => {
+        boxItems.forEach((item,i) => {
             $('.selected_item_area').append("<span class='box_selected_item_short_label remove_item_"+item.id+" mr-2'>"+item.name+"<span class='pl-2 clear' data-id='"+item.id+"'>clear</span></span>")
             itemIds.push(item.id)
         })
@@ -67,19 +67,16 @@
             var name = $(this).data('name')
             if(!itemIds.includes(id)) {
                 itemIds.push(id)
-                $('.selected_item_area').append("<span class='box_selected_item_short_label remove_item_"+id+" mr-2'>"+name+"</span>")
-                $('<span>clear</span>').addClass('pl-2 clear').appendTo('.remove_item_'+id+'')
+                $('.selected_item_area').append("<span class='box_selected_item_short_label remove_item_"+id+" mr-2'>"+name+"<span class='pl-2 clear' data-id='"+id+"'>clear</span></span>")
             }
-            console.log(itemIds)
         })
-        $('.clear').on('click', function() {
+        $(document).on('click','.clear',function() {
             var id = $(this).data('id')
             console.log(id)
             itemIds = $.grep(itemIds, function(value) {
                 $('.remove_item_'+id+'').remove()
                 return value != id
             })
-            console.log(itemIds)
         })
         $('#save_box_item').on('click', function() {
             $.ajax({

@@ -9,6 +9,7 @@ use App\Services\Admin\BoxCategoryService;
 use App\Services\Admin\BoxService;
 use App\Services\Admin\ItemService;
 use Illuminate\Http\Request;
+use App\Filters\GiftBoxFilter;
 
 class BoxController extends Controller
 {
@@ -38,10 +39,10 @@ class BoxController extends Controller
         return redirect()->back()->with('status', 'Box Created Successfully!');
     }
 
-    public function show($id)
+    public function show($id, GiftBoxFilter $filter)
     {
         $data = $this->boxService->getDetail($id);
-        $items = $this->itemService->getAll();
+        $items = $this->itemService->getAll($filter);
 
         return view('admin.boxItem.index', compact('data', 'items'));
     }

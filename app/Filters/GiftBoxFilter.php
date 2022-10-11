@@ -2,7 +2,7 @@
 
 namespace App\Filters;
 
-class BoxCategoryFilter extends Filter
+class GiftBoxFilter extends Filter
 {
     protected $filters = ['name', 'category_id'];
 
