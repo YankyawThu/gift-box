@@ -29,3 +29,20 @@
     padding-top: 10px;
     background: transparent;
 }
+
+.box_selected_item_short_label {
+    background: #efefef;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.box_detail_img img {
+    position: absolute;
+    left: 50%;
+    max-width: 130px;
+    transition: all .15s ease;
+    transform: translate(-50%, -30%);
+    border: 1px solid #f5f5f5;
+}

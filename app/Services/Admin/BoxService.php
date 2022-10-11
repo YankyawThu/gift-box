@@ -36,6 +36,7 @@ class BoxService
         $data['id'] = $box->id;
         $data['name'] = $box->name;
         $data['image'] = $box->image;
+        $data['created'] = $box->created_at;
 
         foreach ($box->giftItemBox as $key => $v) {
             $giftItems[] = $v->giftItems;
