@@ -16,6 +16,8 @@ class BoxController extends Controller
 
     public function index()
     {
+        $this->boxService->getAll();
+
         return view('admin.box.index');
     }
 
