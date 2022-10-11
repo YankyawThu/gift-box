@@ -26,8 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::resource('items', 'ItemController');
             Route::resource('boxes', 'BoxController');
-
-            // Route::get('/gift-boxes', 'BoxController@index')->name('box');
+            Route::resource('item-box', 'GiftItemBoxController');
         });
     });
 
