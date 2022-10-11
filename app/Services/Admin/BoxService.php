@@ -29,7 +29,12 @@ class BoxService
 
     public function getDetail($id)
     {
-        return $this->boxRepo->getById($id);
+        $data = [];
+        $box = $this->boxRepo->getById($id);
+        $data['category'] = $box->category->name;
+        $data['name'] = $box->name;
+        $data['image'] = $box->image;
+        dd($data);
     }
 
     public function update($request, $id)
