@@ -32,9 +32,16 @@ class BoxService
         $data = [];
         $box = $this->boxRepo->getById($id);
         $data['category'] = $box->category->name;
+        $data['id'] = $box->id;
         $data['name'] = $box->name;
         $data['image'] = $box->image;
-        dd($data);
+        // dd($box->giftItemBox);
+        foreach ($box->giftItemBox as $key => $v) {
+            $giftItems[] = $v->giftItems;
+        }
+        $data['giftItems'] = $giftItems;
+
+        return $data;
     }
 
     public function update($request, $id)

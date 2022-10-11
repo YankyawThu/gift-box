@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftBox\CreateRequest;
 use App\Http\Requests\GiftBox\UpdateRequest;
+use App\Services\Admin\BoxCategoryService;
 use App\Services\Admin\BoxService;
 use Illuminate\Http\Request;
-use App\Services\Admin\BoxCategoryService;
 
 class BoxController extends Controller
 {
-    public function __construct(BoxService $boxService, BoxCategoryService $boxCateService )
+    public function __construct(BoxService $boxService, BoxCategoryService $boxCateService)
     {
         $this->boxService = $boxService;
         $this->boxCateService = $boxCateService;
@@ -38,9 +38,7 @@ class BoxController extends Controller
 
     public function show($id)
     {
-        $this->boxService->getDetail($id);
-
-        return;
+        return $this->boxService->getDetail($id);
     }
 
     public function edit($id)
