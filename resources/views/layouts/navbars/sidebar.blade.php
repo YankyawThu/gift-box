@@ -75,20 +75,29 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('category.index') }}">
+                        <i class="ni ni-planet text-blue"></i> {{ __('Box Category') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('items.index') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('boxes.index') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-key-25 text-info"></i> {{ __('Gift Logs') }}
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Users') }}

@@ -1,4 +1,5 @@
 $(function() {
+    // item
     $('#item-image').on('change', function() {
         $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })
@@ -112,5 +113,59 @@ $(function() {
 
     $('#edit-item-cancel-btn').on('click', function() {
         itemUpdateForm.resetForm()
+    })
+
+    // category
+    $('#category-store-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            }
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            }
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+        }
+    })
+
+    $('#edit-category-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var name = button.data('name')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #name').val(name)
+    })
+
+    var categoryUpdateForm = $('#category-update-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            }
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            }
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-category-cancel-btn').on('click', function() {
+        categoryUpdateForm.resetForm()
     })
 })
