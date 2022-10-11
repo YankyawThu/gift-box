@@ -46,3 +46,16 @@
     transform: translate(-50%, -30%);
     border: 1px solid #f5f5f5;
 }
+div.input-group.input-group-alternative.input-group-merge.searching{
+    border: 1px solid #c7c7c7;
+    box-shadow: none !important;
+    border-radius: 0.5rem;
+}
+.searching{
+    padding-left: 10px;
+}
+.category-filter{
+    border: 1px solid #c7c7c7;
+    border-radius: 0.5rem;
+    margin-left: 5px;
+}

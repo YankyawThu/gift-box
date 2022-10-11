@@ -10,4 +10,9 @@ class BoxCategory extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
 }

@@ -10,11 +10,12 @@ class ItemService
     {
         $this->itemRepo = $itemRepo;
         $this->uploadPhotoFolder = config('media.giftItemPath');
+        $this->itemPerPage = config('enums.itemPerPage');
     }
 
-    public function getAll()
+    public function getAll($filter)
     {
-        return $this->itemRepo->getPaginated();
+        return $this->itemRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
     public function store($request)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\GiftItemFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftItem\CreateRequest;
 use App\Http\Requests\GiftItem\UpdateRequest;
@@ -20,9 +21,9 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GiftItemFilter $filter)
     {
-        $data = $this->itemService->getAll();
+        $data = $this->itemService->getAll($filter);
 
         return view('admin.item.index', compact('data'));
     }
@@ -42,7 +43,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateRequest $request)
-    {   
+    {
         $this->itemService->store($request);
 
         return redirect()->back()->with('status', 'Item Created Successfully!');

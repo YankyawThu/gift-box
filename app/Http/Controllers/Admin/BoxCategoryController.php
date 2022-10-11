@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\BoxCategoryFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCategory\CreateRequest;
-use Illuminate\Http\Request;
 use App\Services\Admin\BoxCategoryService;
+use Illuminate\Http\Request;
 
 class BoxCategoryController extends Controller
 {
@@ -14,9 +15,9 @@ class BoxCategoryController extends Controller
         $this->boxCatService = $boxCatService;
     }
 
-    public function index()
+    public function index(BoxCategoryFilter $filter)
     {
-        $data = $this->boxCatService->getAll();
+        $data = $this->boxCatService->getAll($filter);
 
         return view('admin.category.index', compact('data'));
     }

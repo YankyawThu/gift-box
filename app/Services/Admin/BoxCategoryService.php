@@ -17,9 +17,9 @@ class BoxCategoryService
         return $this->boxCatRepo->getAll();
     }
 
-    public function getAll()
+    public function getAll($filter)
     {
-        return $this->boxCatRepo->getPaginated($this->itemPerPage);
+        return $this->boxCatRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
     public function store($request)

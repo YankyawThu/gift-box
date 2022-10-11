@@ -12,14 +12,34 @@
     <div>
         <div class="d-flex justify-content-between content_detail_header">
             <div class="align-self-center">
-                <h3 class="mb-0">{{ __('Gift Box') }}</h3>
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" action="{{route('boxes.index')}}">
+                    <div class="form-group mb-0">
+                      <div class="input-group input-group-alternative input-group-merge searching">
+
+                        <input class="form-control searching" placeholder="Search by name" type="text" name="name" value="{{request('name')}}">
+                        <div class="input-group-prepend" >
+                           <button class="btn input-group-text" type="submit"><i class="fas fa-search"></i></button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-0 category-filter">
+                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="categoryId">
+                            <option value="" selected>Select Category</option>
+                            @foreach ($categories as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </form>
+
             </div>
             <div>
                 <a type="button" class="btn btn-success text-white" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
                 @include('admin.box.add')
             </div>
         </div>
-        <div class="table-responsive">  
+        <div class="table-responsive">
             <table class="table align-items-center mb-0">
                 <thead>
                     <tr>

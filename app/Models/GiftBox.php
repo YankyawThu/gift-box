@@ -20,4 +20,9 @@ class GiftBox extends Model
     {
         return $this->hasMany(GiftItemBox::class);
     }
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
 }

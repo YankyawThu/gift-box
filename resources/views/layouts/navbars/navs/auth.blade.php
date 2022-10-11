@@ -2,7 +2,17 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+
+        @if (Route::currentRouteName()=='home')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+        @elseif(Route::currentRouteName()=='category.index')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('category.index') }}">{{ __('Box Category') }}</a>
+        @elseif(Route::currentRouteName()=='items.index')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('items.index') }}">{{ __('Gift Items') }}</a>
+        @elseif(Route::currentRouteName()=='boxes.index')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{ __('Gift Boxes') }}</a>
+        @endif
+
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">
