@@ -30,16 +30,17 @@ class BoxService
     public function getDetail($id)
     {
         $data = [];
+        $giftItems = [];
         $box = $this->boxRepo->getById($id);
-        $data['category'] = $box->category->name;
+        $data['category'] = optional($box->category)->name;
         $data['id'] = $box->id;
         $data['name'] = $box->name;
         $data['image'] = $box->image;
-        // dd($box->giftItemBox);
+
         foreach ($box->giftItemBox as $key => $v) {
             $giftItems[] = $v->giftItems;
         }
-        $data['giftItems'] = $giftItems;
+        $data['boxItems'] = $giftItems;
 
         return $data;
     }
