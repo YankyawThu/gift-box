@@ -1,4 +1,12 @@
 $(function() {
+
+    $('#delete-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+    })
+
     // item
     $('#item-image').on('change', function() {
         $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
@@ -44,13 +52,6 @@ $(function() {
             $('input[name="image"]').removeClass('alert-danger')
             $('input[name="qty"]').removeClass('alert-danger')
         },
-    })
-
-    $('#delete-modal').on('show.bs.modal', function(e) {
-        var button = $(e.relatedTarget)
-        var id = button.data('id')
-        modal = $(this)
-        modal.find('.modal-body #id').val(id)
     })
 
     $('#edit-item-modal').on('show.bs.modal', function(e) {
@@ -167,5 +168,98 @@ $(function() {
 
     $('#edit-category-cancel-btn').on('click', function() {
         categoryUpdateForm.resetForm()
+    })
+
+    // box
+    $('#box-image').on('change', function() {
+        $('#box_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
+
+    $('#box-store-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            },
+            price: {
+                required: true,
+                number: true,
+            },
+            image: {
+                required: true,
+            },
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            },
+            price: {
+                required: "Price is Required."
+            },
+            image: {
+                required: "Image is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+            $('input[name="price"]').removeClass('alert-danger')
+            $('input[name="image"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-box-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var name = button.data('name')
+        var price = button.data('price')
+        var image = button.data('image')
+        if (image){
+            imagePath = button.data('image_path')
+        }
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #name').val(name)
+        modal.find('.modal-body #price').val(price)
+        modal.find('.modal-body #image').val(image)
+        modal.find('.modal-body #edit_box_img_url').attr("src", imagePath)
+    })
+
+    $('#new-box-image').on('change', function() {
+        $('#edit_box_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
+
+    var boxUpdateForm = $('#box-update-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            },
+            price: {
+                required: true,
+                number: true,
+            }
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            },
+            price: {
+                required: "Price is Required."
+            }
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+            $('input[name="price"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-item-cancel-btn').on('click', function() {
+        boxUpdateForm.resetForm()
     })
 })
