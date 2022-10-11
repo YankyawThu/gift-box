@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BoxCategory\CreateRequest;
 use App\Services\Admin\BoxCategoryService;
-use Illuminate\Http\Request;
 
 class BoxCategoryController extends Controller
 {
@@ -34,8 +34,9 @@ class BoxCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
+        $this->boxCatService->store($request);
     }
 
     /**
@@ -67,8 +68,9 @@ class BoxCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateRequest $request, $id)
     {
+        $this->boxCatService->update($request, $id);
     }
 
     /**
@@ -80,5 +82,6 @@ class BoxCategoryController extends Controller
      */
     public function destroy($id)
     {
+        $this->boxCatService->destroy($id);
     }
 }

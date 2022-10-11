@@ -16,4 +16,19 @@ class BoxCategoryService
     {
         return $this->boxCatRepo->getPaginated($this->itemPerPage);
     }
+
+    public function store($request)
+    {
+        return $this->boxCatRepo->create($request);
+    }
+
+    public function update($request, $id)
+    {
+        return $this->boxCatRepo->update($request, $id);
+    }
+
+    public function destroy($id)
+    {
+        return $this->boxCatRepo->delete($id);
+    }
 }
