@@ -7,14 +7,16 @@ use App\Http\Requests\GiftBox\CreateRequest;
 use App\Http\Requests\GiftBox\UpdateRequest;
 use App\Services\Admin\BoxCategoryService;
 use App\Services\Admin\BoxService;
+use App\Services\Admin\ItemService;
 use Illuminate\Http\Request;
 
 class BoxController extends Controller
 {
-    public function __construct(BoxService $boxService, BoxCategoryService $boxCateService)
+    public function __construct(BoxService $boxService, BoxCategoryService $boxCateService, ItemService $itemService)
     {
         $this->boxService = $boxService;
         $this->boxCateService = $boxCateService;
+        $this->itemService = $itemService;
     }
 
     public function index()
@@ -39,8 +41,9 @@ class BoxController extends Controller
     public function show($id)
     {
         $data = $this->boxService->getDetail($id);
+        $items = $this->itemService->getAll();
 
-        return view('admin.boxItem.index', compact('data'));
+        return view('admin.boxItem.index', compact('data', 'items'));
     }
 
     public function edit($id)
