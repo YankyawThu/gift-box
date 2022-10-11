@@ -13,6 +13,11 @@ class GiftItemBoxController extends Controller
         $this->giftBoxService = $giftBoxService;
     }
 
+    public function index()
+    {
+        $this->giftBoxService->getAll();
+    }
+
     public function store(CreateRequest $request)
     {
         $this->giftBoxService->store($request);

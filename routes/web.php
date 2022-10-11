@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('items', 'ItemController');
             Route::resource('boxes', 'BoxController');
             Route::resource('item-box', 'GiftItemBoxController');
+            Route::resource('category', 'BoxCategoryController');
         });
     });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGiftboxesTable extends Migration
+class CreateBoxCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateGiftboxesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gift_boxes', function (Blueprint $table) {
+        Schema::create('box_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
             $table->string('name');
-            $table->string('image');
-            $table->double('price')->default(0);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,8 +27,6 @@ class CreateGiftboxesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gift_boxes');
-
-        Schema::dropIfExists('giftboxes');
+        Schema::dropIfExists('box_categories');
     }
 }
