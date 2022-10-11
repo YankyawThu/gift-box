@@ -1,6 +1,4 @@
 $(function() {
-    toastr.info('Are you the 6 fingered man?')
-
     $('#item-image').on('change', function() {
         $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })

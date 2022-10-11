@@ -45,7 +45,7 @@ class ItemController extends Controller
     {   
         $this->itemService->store($request);
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Item Created Successfully!');
     }
 
     /**
@@ -84,7 +84,7 @@ class ItemController extends Controller
     {
         $this->itemService->update($request, $request->id);
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Item Updated Successfully!');
     }
 
     /**
@@ -98,6 +98,6 @@ class ItemController extends Controller
     {
         $this->itemService->delete($request->id);
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Item Deleted Successfully!');
     }
 }

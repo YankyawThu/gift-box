@@ -1,6 +1,14 @@
 @extends('admin.layouts.content')
 
 @section('content-detail')
+    <script>
+        $(function() {
+            @if (session('status'))
+                toastr.success('{{ session('status') }}')
+            @endif
+        })
+    </script>
+
     <div>
         <div class="d-flex justify-content-between content_detail_header">
             <div class="align-self-center">
