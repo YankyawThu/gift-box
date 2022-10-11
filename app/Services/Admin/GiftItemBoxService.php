@@ -11,11 +11,6 @@ class GiftItemBoxService
         $this->itemBoxRepo = $itemBoxRepo;
     }
 
-    public function getAll()
-    {
-        // code...
-    }
-
     public function store($request)
     {
         return $this->itemBoxRepo->store($request);
