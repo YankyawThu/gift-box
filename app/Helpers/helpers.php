@@ -10,17 +10,11 @@ use Illuminate\Support\Str;
 if (!function_exists('fileUploadToAkoneyaMedia')) {
     function fileUploadToAkoneyaMedia($file, $directoryName)
     {
-        $fileExtension = $file->getClientOriginalExtension();
+        $fileExtension = $file->extension();
+        $fileName = time().Str::random(10).".$fileExtension";
+        $filePath = Storage::putFileAs($directoryName, new File($file), $fileName);
 
-        $fileName = time().Str::random(6).'.'.$fileExtension;
-
-        $filePath = $directoryName.'/'.$fileName;
-
-        if (Storage::put($filePath, file_get_contents($file->getRealPath()))) {
-            return $filePath;
-        }
-
-        return null;
+        return $filePath;
     }
 }
 
@@ -44,16 +38,3 @@ if (!function_exists('getFileUrlFromAkoneyaMedia')) {
         return Storage::url($filePath);
     }
 }
-
-/*
- * Get Fiel URL from Akoneya Media
- */
-if (!function_exists('getImageFromAkoneyaMedia')) {
-    function getImageFromAkoneyaMedia($filePath)
-    {
-        return Storage::url($filePath);
-        // $content = file_get_contents($fileUrl);
-        // return $content;
-    }
-}
-

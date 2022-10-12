@@ -93,13 +93,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('giftLog.index') }}">
                         <i class="ni ni-key-25 text-info"></i> {{ __('Gift Logs') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Users') }}
                     </a>
                 </li>

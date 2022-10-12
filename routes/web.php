@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             Route::get('/', 'HomeController@index')->name('home');
 
-            Route::resource('user', 'UserController', ['except' => ['show']]);
+            Route::resource('user', 'UserController')->only(['index']);
             Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
             Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
             Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
                 'store', 'update',
             ]);
             Route::resource('category', 'BoxCategoryController');
+            Route::resource('giftLog', 'GiftLogController');
         });
     });
 

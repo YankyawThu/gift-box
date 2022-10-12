@@ -27,7 +27,7 @@
                   </form>
             </div>
             <div>
-                <a type="button" class="btn btn-success text-white" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
+                <a type="button" class="btn btn-success text-white btn-sm" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
                 @include('admin.item.add')
             </div>
         </div>
@@ -45,11 +45,12 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $key => $item)
+
                     <tr>
                         <td>
                             <div class="d-flex py-1">
                                 <div>
-                                    <img src="{{$item->image}}" class="me-3" width="70" height="70">
+                                    <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70" height="70">
                                 </div>
                             </div>
                         </td>
@@ -66,7 +67,7 @@
                             <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-qty="{{$item->qty}}" data-image="{{$item->image}}" data-image_path="{{ getImageFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-toggle="modal" data-target="#edit-item-modal">
+                            <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}" data-name="{{$item->name}}" data-qty="{{$item->qty}}" data-image="{{$item->image}}" data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}" data-price="{{$item->price}}" data-toggle="modal" data-target="#edit-item-modal">
                                 <span data-toggle="tooltip" data-original-title="Edit item">Edit</span>
                             </a>
                             <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}" data-toggle="modal" data-target="#delete-modal">

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\UserAmount;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -39,5 +40,15 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin == true;
+    }
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
+
+    public function amount()
+    {
+        return $this->hasOne(UserAmount::class);
     }
 }

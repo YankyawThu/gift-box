@@ -43,13 +43,36 @@
             <div class="col-xl-8 order-xl-1">
                 <div class="card bg-gradiant-default px-1">
                     <div class="selected_item_area">
+                        @php
+                            foreach ($data['boxItems'] as $key => $item) {
+                                echo "<span class='box_selected_item_img remove_item_".$item->id." mr-2'><img width=50 height=50 src=".getFileUrlFromAkoneyaMedia($item->image)."><span class='pl-2 clear' data-id='".$item->id."'> <i class='ni ni-fat-remove'></i></span></span>";
+                            }
+                        @endphp
                     </div>
                     <hr class="my-4" />
-                    @foreach ($items as $item)
-                        <div class="add_item" data-id="{{$item->id}}" data-name="{{$item->name}}">{{$item->name}}</div>
+                    @foreach ($items as $key => $item)
+                        <div class="col-lg-12 col-md-12">
+                            <button type="button" class="btn-icon-clipboard add_item" data-id="{{$item->id}}" data-name="{{$item->name}}" data-img={{getFileUrlFromAkoneyaMedia($item->image)}}>
+                                <div>
+                                <div class="col-md-12">
+                                    <div class="row justify-content-start">
+                                        <div>
+                                            <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70" height="70">
+                                        </div>
+                                        <div class="ml-3 align-self-center">
+                                            <div> <span>{{$item->name}}</span></div>
+                                            <div><span><b>{{$item->price}}</b></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </button>
+                        </div>
                     @endforeach
                 </div>
-                <a type="button" class="btn btn-success text-white" id="save_box_item">Save</a>
+
+                <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
+
             </div>
         </div>
     </div>
@@ -59,15 +82,18 @@
         var boxId = {!! json_encode($data['id']) !!}
         var itemIds = []
         boxItems.forEach((item,i) => {
-            $('.selected_item_area').append("<span class='box_selected_item_short_label remove_item_"+item.id+" mr-2'>"+item.name+"<span class='pl-2 clear' data-id='"+item.id+"'>clear</span></span>")
+
+
+            //
             itemIds.push(item.id)
         })
         $('.add_item').on('click', function() {
             var id = $(this).data('id')
             var name = $(this).data('name')
+            var image = $(this).data('img')
             if(!itemIds.includes(id)) {
                 itemIds.push(id)
-                $('.selected_item_area').append("<span class='box_selected_item_short_label remove_item_"+id+" mr-2'>"+name+"<span class='pl-2 clear' data-id='"+id+"'>clear</span></span>")
+                $('.selected_item_area').append("<span class='box_selected_item_img remove_item_"+id+" mr-2'><img width=50 height=50 src='"+image+"'><span class='pl-2 clear' data-id='"+id+"'>clear</span></span>")
             }
         })
         $(document).on('click','.clear',function() {

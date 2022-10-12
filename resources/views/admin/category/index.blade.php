@@ -27,7 +27,7 @@
                   </form>
             </div>
             <div>
-                <a type="button" class="btn btn-success text-white" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
+                <a type="button" class="btn btn-success text-white btn-sm" id="show_add_form" data-toggle="modal" data-target="#add-form">+ ADD</a>
                 @include('admin.category.add')
             </div>
         </div>

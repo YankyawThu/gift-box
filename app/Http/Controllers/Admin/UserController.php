@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
-use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
+use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
+use App\Services\Admin\UserService;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the users
-     *
-     * @param  \App\User  $model
-     * @return \Illuminate\View\View
-     */
-    public function index(User $model)
+    public function __construct(UserService $userService)
     {
-        return view('users.index');
+        $this->userService = $userService;
+    }
+
+    public function index(UserFilter $filter)
+    {
+        $data = $this->userService->getAll($filter);
+
+        return view('admin.user.index', compact('data'));
+        // return view('users.index');
     }
 }

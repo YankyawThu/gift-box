@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\GiftItem;
+use App\Models\GiftLog;
 use App\Repositories\BaseRepository;
 
-class ItemRepository extends BaseRepository
+class GiftLogRepository extends BaseRepository
 {
-    public function __construct(GiftItem $model)
+    public function __construct(GiftLog $model)
     {
         $this->model = $model;
     }

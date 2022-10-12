@@ -12,4 +12,9 @@ class GiftItemBox extends Model
     {
         return $this->belongsTo(GiftItem::class, 'gift_item_id');
     }
+
+    public function giftBoxes()
+    {
+        return $this->belongsTo(GiftBox::class, 'gift_box_id');
+    }
 }

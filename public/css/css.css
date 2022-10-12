@@ -59,3 +59,20 @@ div.input-group.input-group-alternative.input-group-merge.searching{
     border-radius: 0.5rem;
     margin-left: 5px;
 }
+.gift-log-filter, .user-filter{
+    margin-left: 5px;
+}
+button.input-group-text.gift-log-search-btn{
+    background-color: rgb(94 114 228 / 50%);
+}
+.gift-log-search{
+    padding: 4px 2px 2px 4px;
+}
+
+.box_selected_item_img {
+    background: #efefef;
+    padding: 17px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+}

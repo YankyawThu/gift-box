@@ -10,7 +10,6 @@ use App\Services\Admin\BoxCategoryService;
 use App\Services\Admin\BoxService;
 use App\Services\Admin\ItemService;
 use Illuminate\Http\Request;
-use App\Filters\GiftBoxFilter;
 
 class BoxController extends Controller
 {

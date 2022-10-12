@@ -11,6 +11,13 @@
             <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('items.index') }}">{{ __('Gift Items') }}</a>
         @elseif(Route::currentRouteName()=='boxes.index')
             <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{ __('Gift Boxes') }}</a>
+        @elseif(Route::currentRouteName()=='boxes.show')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{ __('Gift Boxes') }}</a>
+
+        @elseif(Route::currentRouteName()=='giftLog.index')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('giftLog.index') }}">{{ __('Gift Logs') }}</a>
+        @elseif(Route::currentRouteName()=='user.index')
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('user.index') }}">{{ __('Users') }}</a>
         @endif
 
         <!-- User -->
