@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\GiftBoxFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftBox\CreateRequest;
 use App\Http\Requests\GiftBox\UpdateRequest;
@@ -20,10 +21,10 @@ class BoxController extends Controller
         $this->itemService = $itemService;
     }
 
-    public function index()
+    public function index(GiftBoxFilter $filter)
     {
         $categories = $this->boxCateService->getAllNoPaginated();
-        $data = $this->boxService->getAll();
+        $data = $this->boxService->getAll($filter);
 
         return view('admin.box.index', compact('data', 'categories'));
     }

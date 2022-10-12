@@ -12,7 +12,7 @@
     <div>
         <div class="d-flex justify-content-between content_detail_header">
             <div class="align-self-center">
-                <form class="navbar-search navbar-search-light form-inline mr-sm-3" action="{{route('boxes.index')}}">
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" action="{{route('boxes.index')}}" name="box-search-form">
                     <div class="form-group mb-0">
                       <div class="input-group input-group-alternative input-group-merge searching">
 
@@ -24,10 +24,10 @@
                       </div>
                     </div>
                     <div class="form-group mb-0 category-filter">
-                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="categoryId">
-                            <option value="" selected>Select Category</option>
+                        <select class="form-select form-control form-control-alternative" aria-label="Default select example" name="category_id" id="category_id">
+                            <option value="" @if(request('category_id') === null) selected @endif>Select Category</option>
                             @foreach ($categories as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                <option value="{{$item->id}}" @if(request('category_id') == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -97,3 +97,4 @@
 @section('content-pagination')
     {{$data}}
 @endsection
+

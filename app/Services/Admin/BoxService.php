@@ -10,11 +10,12 @@ class BoxService
     {
         $this->boxRepo = $boxRepo;
         $this->uploadPhotoFolder = config('media.giftBoxPath');
+        $this->itemPerPage = config('enums.itemPerPage');
     }
 
-    public function getAll()
+    public function getAll($filter)
     {
-        return $this->boxRepo->getPaginated();
+        return $this->boxRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
     public function store($request)

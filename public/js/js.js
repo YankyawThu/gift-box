@@ -272,6 +272,8 @@ $(function() {
         boxUpdateForm.resetForm()
     })
 
-    // box-item
-    
+    $('#category_id').on('change', function() {
+        document.forms["box-search-form"].submit();
+    });
+
 })
