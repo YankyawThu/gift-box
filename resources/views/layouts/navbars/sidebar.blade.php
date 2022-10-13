@@ -69,37 +69,37 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='home')active @endif" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category.index') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Box Category') }}
+                    <a class="nav-link @if (Route::currentRouteName()=='category.index')active @endif" href="{{ route('category.index') }}">
+                        <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('items.index') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Gift Items') }}
+                    <a class="nav-link @if (Route::currentRouteName()=='items.index')active @endif" href="{{ route('items.index') }}">
+                        <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('boxes.index') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Gift Boxes') }}
+                    <a class="nav-link @if (Route::currentRouteName()=='boxes.index' || Route::currentRouteName()=='boxes.show')active @endif" href="{{ route('boxes.index') }}">
+                        <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('giftLog.index') }}">
-                        <i class="ni ni-key-25 text-info"></i> {{ __('Gift Logs') }}
+                    <a class="nav-link @if (Route::currentRouteName()=='giftLog.index')active @endif" href="{{ route('giftLog.index') }}">
+                        <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Logs') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='user.index')active @endif" href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Users') }}
                     </a>
                 </li>

@@ -70,9 +70,44 @@ button.input-group-text.gift-log-search-btn{
 }
 
 .box_selected_item_img {
-    background: #efefef;
-    padding: 17px 6px;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: 5px;
+    padding: 17px 5px 22px 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
 }
+.remove-icon{
+    position: absolute;
+    left: -3px;
+    bottom: 20px;
+    font-size: x-large;
+    color: #fb6340;
+}
+.remove-span{
+    position: relative;
+}
+.selected_item_area{
+    padding: 10px 15px;
+}
+.item-img{
+    border-style: solid;
+    border-width: 1px;
+}
+a.nav-link.active{
+    background: #eceff3;
+    box-shadow: none;
+    color: #344767;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.navbar-vertical .navbar-nav .nav-link.active:before {
+    position: absolute !important;
+    top: -0.05rem !important;
+    bottom: 0rem !important;
+    left: auto !important;
+    right: 0 !important;
+    content: ''!important;
+    border-right: 3px solid #5e72e4 !important;
+}
+

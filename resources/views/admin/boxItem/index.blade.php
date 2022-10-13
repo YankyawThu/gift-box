@@ -45,38 +45,37 @@
                     <div class="selected_item_area">
                         @php
                             foreach ($data['boxItems'] as $key => $item) {
-                                echo "<span class='box_selected_item_img remove_item_".$item->id." mr-2'><img width=50 height=50 src=".getFileUrlFromAkoneyaMedia($item->image)."><span class='pl-2 clear' data-id='".$item->id."'> <i class='ni ni-fat-remove'></i></span></span>";
+                                echo "<span class='remove_item_".$item->id." mr-4'><img class='item-img' width=50 height=50 src=".getFileUrlFromAkoneyaMedia($item->image)."><span class='pl-2 clear remove-span' data-id='".$item->id."'> <i class='ni ni-fat-remove remove-icon'></i></span></span>";
                             }
-                        @endphp
+                            @endphp
                     </div>
                     <hr class="my-4" />
-                    @foreach ($items as $key => $item)
-                        <div class="col-lg-12 col-md-12">
-                            <button type="button" class="btn-icon-clipboard add_item" data-id="{{$item->id}}" data-name="{{$item->name}}" data-img={{getFileUrlFromAkoneyaMedia($item->image)}}>
-                                <div>
-                                <div class="col-md-12">
-                                    <div class="row justify-content-start">
-                                        <div>
-                                            <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70" height="70">
-                                        </div>
-                                        <div class="ml-3 align-self-center">
-                                            <div> <span>{{$item->name}}</span></div>
-                                            <div><span><b>{{$item->price}}</b></span></div>
-                                        </div>
+                    <div class="col-lg-12 col-md-12" id="wrapper" >
+                        @forelse ($items as $key => $item)
+
+                        <button type="button" class="btn-icon-clipboard add_item" data-id="{{$item->id}}" data-name="{{$item->name}}" data-img={{getFileUrlFromAkoneyaMedia($item->image)}}>
+                            <div class="col-md-12">
+                                <div class="row justify-content-start">
+                                    <div>
+                                        <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70" height="70">
+                                    </div>
+                                    <div class="ml-3 align-self-center">
+                                        <div> <span>{{$item->name}}</span></div>
+                                        <div><span><b>{{$item->price}}</b></span></div>
                                     </div>
                                 </div>
-                                </div>
-                            </button>
-                        </div>
-                    @endforeach
+                            </div>
+                        </button>
+                        @empty
+                        @endforelse
+                    </div>
                 </div>
+                    <a type="button" class="btn btn-light mt-4 text-white" href="{{route('boxes.index')}}">Back</a>
 
-                <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
-
+                    <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
             </div>
         </div>
     </div>
-
     <script>
         var boxItems = {!! json_encode($data['boxItems']) !!}
         var boxId = {!! json_encode($data['id']) !!}
@@ -93,7 +92,7 @@
             var image = $(this).data('img')
             if(!itemIds.includes(id)) {
                 itemIds.push(id)
-                $('.selected_item_area').append("<span class='box_selected_item_img remove_item_"+id+" mr-2'><img width=50 height=50 src='"+image+"'><span class='pl-2 clear' data-id='"+id+"'>clear</span></span>")
+                $('.selected_item_area').append("<span class='remove_item_"+id+" mr-4'><img class='item-img' width=50 height=50 src='"+image+"'><span class='pl-2 clear remove-span' data-id='"+id+"'><i class='ni ni-fat-remove remove-icon'></i></span></span>")
             }
         })
         $(document).on('click','.clear',function() {
@@ -126,5 +125,6 @@
                 }
             })
         })
+
     </script>
 @endsection
