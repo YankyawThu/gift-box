@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
             Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
+            Route::get('box-items', 'BoxController@allItems')->name('box_items');
             Route::resource('items', 'ItemController');
             Route::resource('boxes', 'BoxController');
             Route::resource('itemBox', 'GiftItemBoxController')->only([

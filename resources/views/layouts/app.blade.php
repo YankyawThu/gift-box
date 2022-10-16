@@ -19,6 +19,7 @@
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/css.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+        <script src="{{ asset('argon/vendor/clipboard/dist/clipboard.min.js') }}"></script>
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('js/js.js') }}"></script>
     </head>

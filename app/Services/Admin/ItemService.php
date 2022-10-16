@@ -18,6 +18,11 @@ class ItemService
         return $this->itemRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
+    public function allItems()
+    {
+        return $this->itemRepo->getPaginated();
+    }
+
     public function store($request)
     {
         $data['name'] = $request->name;

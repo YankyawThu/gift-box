@@ -27,7 +27,7 @@ abstract class BaseRepository
 
     public function getPaginated($page = null)
     {
-        return $this->model->orderBy('id', 'DESC')->paginate($page ? $page : config('enums.itemPerPage'));
+        return $this->model->orderBy('id', 'DESC')->paginate($page ?? config('enums.itemPerPage'));
     }
 
     public function getPaginatedWithFilter($page = null, $filter)

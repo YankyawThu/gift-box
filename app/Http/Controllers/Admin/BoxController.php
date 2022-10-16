@@ -28,6 +28,11 @@ class BoxController extends Controller
         return view('admin.box.index', compact('data', 'categories'));
     }
 
+    public function allItems()
+    {
+       return $this->itemService->allItems();
+    }
+
     public function create()
     {
     }
