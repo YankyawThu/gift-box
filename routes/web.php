@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
             ]);
             Route::resource('category', 'BoxCategoryController');
             Route::resource('giftLog', 'GiftLogController');
+            Route::get('boxes/{id}/items', 'GiftItemBoxController@getItems')->name('gift-items');
         });
     });
 
