@@ -18,7 +18,7 @@ class BoxService
         return $this->boxRepo->getAll();
     }
 
-    public function getById($id)
+    public function getItemsByBoxId($id)
     {
         return $this->boxRepo->getById($id);
     }
