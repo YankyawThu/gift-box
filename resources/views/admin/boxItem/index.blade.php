@@ -141,7 +141,11 @@
 
             function addItems(items) {
                 items.forEach((item,i) => {
-                    $('.items_container').append(`<button type='button' class='btn-icon-clipboard add_item p-2' data-id='${item.id}' data-name='${item.name}' data-img={{getFileUrlFromAkoneyaMedia('${item.image}')}}><div class='d-flex justify-content-start'><div><img src='{{getFileUrlFromAkoneyaMedia('${item.image}')}}' class='me-3' width='70' height='70'></div><div class='ml-2 align-self-center'><div>${item.name}</div><div><b>${item.id}</b></div></div></div></button>`)
+                    if(itemIds.includes(item.id)) {
+                        $('.items_container').append(`<button type='button' class='btn-icon-clipboard add_item p-2 item-active' data-id='${item.id}' data-name='${item.name}' data-img={{getFileUrlFromAkoneyaMedia('${item.image}')}}><div class='d-flex justify-content-start'><div><img src='{{getFileUrlFromAkoneyaMedia('${item.image}')}}' class='me-3' width='70' height='70'></div><div class='ml-2 align-self-center'><div>${item.name}</div><div><b>${item.id}</b></div></div></div></button>`)
+                    }
+                    else
+                        $('.items_container').append(`<button type='button' class='btn-icon-clipboard add_item p-2' data-id='${item.id}' data-name='${item.name}' data-img={{getFileUrlFromAkoneyaMedia('${item.image}')}}><div class='d-flex justify-content-start'><div><img src='{{getFileUrlFromAkoneyaMedia('${item.image}')}}' class='me-3' width='70' height='70'></div><div class='ml-2 align-self-center'><div>${item.name}</div><div><b>${item.id}</b></div></div></div></button>`)
                 })
             }
         })
