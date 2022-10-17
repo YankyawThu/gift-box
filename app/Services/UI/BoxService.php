@@ -20,6 +20,11 @@ class BoxService
 
     public function getItemsByBoxId($id)
     {
+        return $this->boxRepo->getAll();
+    }
+
+    public function getItemsByBoxId($id)
+    {
         return $this->boxRepo->getById($id);
     }
 }
