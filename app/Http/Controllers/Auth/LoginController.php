@@ -46,9 +46,7 @@ class LoginController extends Controller
             // The user is active, not suspended, and exists.
             return redirect()->route('home');
         }
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 0])) {
-            // The user is active, not suspended, and exists.
-            return redirect()->route('luckydraw');
-        }
+
+        return redirect()->route('luckydraw');
     }
 }

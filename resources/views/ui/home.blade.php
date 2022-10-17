@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    This is UI
+@extends('ui.layouts.app')
+@section('content')
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
-    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        <i class="ni ni-user-run"></i>
-        <span>{{ __('Logout') }}</span>
-    </a>
-</body>
-</html>
+    <div class="row">
+            @if(isset($win_value))
+                <?php print($win_value);?>
+            @endif
+            @foreach ($data as $item)
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{getFileUrlFromAkoneyaMedia($item->image)}}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">{{$item->name}}</h5>
+                        <p class="card-text">{{$item->price}}</p>
+                        <a href="{{route('openbox',[$item->id,1])}}" class="btn btn-sm btn-primary">1 time</a>
+                        <a href="#" class="btn btn-sm btn-primary">5 times</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+
+
+    </div>
+
+@endsection
+
