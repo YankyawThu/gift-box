@@ -127,8 +127,8 @@
             })
 
             $('.items_container').on('scroll', function() {
-                var isEnd = $(this).innerHeight() + $(this).scrollTop() >= $(this)[0].scrollHeight
-                if (isEnd && page <= lastPage) {
+                var isEnd = $(this)[0].scrollHeight - ($(this).innerHeight() + $(this).scrollTop())
+                if (isEnd == -15 && page <= lastPage) {
                     $('.loading').show()
                     $.ajax({
                         type: 'GET',
@@ -140,6 +140,7 @@
                         },
                         success: function(response) {
                             $('.loading').hide()
+                            console.log(response.data)
                             addItems(response.data)
                             page++
                             

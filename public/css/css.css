@@ -112,7 +112,8 @@ a.nav-link.active{
 }
 
 .items_container {
-    height: 500px;
+    height: 700px;
     overflow-y: auto;
+    /* overflow-x: hidden; */
 }
 
