@@ -52,21 +52,7 @@
             </div>
             <div class="col-xl-7 order-xl-1">
                 <div class="card bg-gradiant-default px-1">
-                    <div class="items_container">
-                        @forelse ($items as $key => $item)
-                            <button type="button" class="btn-icon-clipboard add_item p-2" data-id="{{$item->id}}" data-name="{{$item->name}}" data-img={{getFileUrlFromAkoneyaMedia($item->image)}}>
-                                <div class="row justify-content-start">
-                                    <div>
-                                        <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70" height="70">
-                                    </div>
-                                    <div class="ml-2 align-self-center">
-                                        <div>{{$item->name}}</div>
-                                        <div><b>{{$item->id}}</b></div>
-                                    </div>
-                                </div>
-                            </button>
-                        @empty
-                        @endforelse
+                    <div class="items_container px-3">
                     </div>
                     <div class="loading text-center py-1">loading...</div>
                 </div>
@@ -87,6 +73,7 @@
             boxItems.forEach((item,i) => {
                 itemIds.push(item.id)
             })
+            addItems(firstTenItems.data)
             $(document).on('click','.add_item',function() {
                 var id = $(this).data('id')
                 var name = $(this).data('name')
@@ -127,8 +114,8 @@
             })
 
             $('.items_container').on('scroll', function() {
-                var isEnd = $(this)[0].scrollHeight - ($(this).innerHeight() + $(this).scrollTop())
-                if (isEnd == -15 && page <= lastPage) {
+                var isEnd = ($(this).innerHeight() + $(this).scrollTop()) >= $(this)[0].scrollHeight
+                if (isEnd && page <= lastPage) {
                     $('.loading').show()
                     $.ajax({
                         type: 'GET',
