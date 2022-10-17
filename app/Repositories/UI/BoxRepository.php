@@ -11,9 +11,4 @@ class BoxRepository extends BaseRepository
     {
         $this->model = $model;
     }
-
-    public function increaseSale($boxId, $times)
-    {
-        return $this->model->where('id', $boxId)->increment('sale', $times);
-    }
 }
