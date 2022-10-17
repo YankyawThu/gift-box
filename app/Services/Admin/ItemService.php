@@ -65,4 +65,9 @@ class ItemService
 
         return;
     }
+
+    public function getItems()
+    {
+        return $this->itemRepo->getPaginated($this->itemPerPage);
+    }
 }

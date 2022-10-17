@@ -142,7 +142,7 @@
                             $('.loading').hide()
                             addItems(response.data)
                             page++
-                            
+
                         },
                         fail: function() {
                             console.log('fail')
