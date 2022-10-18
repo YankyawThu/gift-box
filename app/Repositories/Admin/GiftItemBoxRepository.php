@@ -39,7 +39,6 @@ class GiftItemBoxRepository extends BaseRepository
 
             $data = [];
             foreach ($items as $item) {
-                // dd($item->giftItems);
                 $itemsQty[] = $item->giftItems->qty;
                 $data[] = $item->giftItems;
                 $sum = array_sum($itemsQty);
