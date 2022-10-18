@@ -26,7 +26,7 @@ class GiftItemBoxRepository extends BaseRepository
 
     public function updateItemBox($request)
     {
-        if($request->itemId) {
+        if ($request->itemId) {
             $this->model->where('gift_box_id', $request->boxId)->delete();
             foreach ($request->itemId as $key => $v) {
                 $this->model->create([
@@ -34,9 +34,24 @@ class GiftItemBoxRepository extends BaseRepository
                     'gift_item_id' => $v,
                 ]);
             }
-        }
-        else 
+
+            $items = $this->model->where('gift_box_id', $request->boxId)->get();
+
+            $data = [];
+            foreach ($items as $item) {
+                // dd($item->giftItems);
+                $itemsQty[] = $item->giftItems->qty;
+                $data[] = $item->giftItems;
+                $sum = array_sum($itemsQty);
+
+                foreach ($data as $dt) {
+                    $item->probability = $dt->qty / $sum;
+                    $item->save();
+                }
+            }
+        } else {
             $this->model->where('gift_box_id', $request->boxId)->delete();
+        }
 
         return true;
     }

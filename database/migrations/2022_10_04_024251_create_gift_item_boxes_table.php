@@ -17,6 +17,7 @@ class CreateGiftItemBoxesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('gift_box_id');
             $table->unsignedBigInteger('gift_item_id');
+            $table->double('probability')->default(0);
             $table->timestamps();
         });
     }
