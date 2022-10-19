@@ -46,41 +46,26 @@ class UIController extends Controller
             $max_probability = 0;
             if ($giftBox->giftItemBox) {
                 $rand = (rand(0, 1000) / 1000) * $giftBox->giftItemBox->sum('probability');
-                // dd($giftBox->giftItemBox);
-
-                // foreach ($giftBox->giftItemBox as $giftItemBox) {
-
                 for ($i = 0; $i < count($giftBox->giftItemBox); ++$i) {
                     if ($giftBox->giftItemBox[$i]->probability > $max_probability) {
                         $max_probability = $giftBox->giftItemBox[$i]->probability;
                     }
-
-                    // $items[] = $giftItemBox->giftItems;
-
-                    // dd($giftItemBox->giftItems->where('id', $max_pro_val->gift_item_id)->first());
-                    // if ($giftItemBox->max('probability') >= $rand) {
-                    //     $win_value = $max_pro_val;
-
-                    //     break;
-                    // }
-                    // }
                 }
-
                 $itemId = $this->itemBoxService->getByIdAndProbability($id, $max_probability);
-                if ($max_probability >= $rand) {
-                    $win_value = $itemId; // to edit
+                $itemByMaxProbability = $this->itemService->getById($itemId);
+
+                if ($itemByMaxProbability->qty <= 0) {
+                    echo 'No items';
+                }
+                if ($max_probability <= $rand) {
+                    $win_value = $itemByMaxProbability;
                 }
             }
-
-            // if ($max_pro_val->qty <= 0) {
-            //     echo 'No items';
-            // }
-
-            // if ($win_value) {
-            //     $this->itemService->updateQty($win_value->gift_item_id);
-            //     $this->itemBoxService->updateProbability($id);
-            // }
-            // echo $win_value;
+            if ($win_value) {
+                $this->itemService->updateQty($win_value->id);
+                $this->itemBoxService->updateProbability($id);
+            }
+            echo $win_value;
 
             return view('ui.home', compact('data', 'win_value'));
         } else {
