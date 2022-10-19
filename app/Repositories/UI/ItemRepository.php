@@ -16,4 +16,8 @@ class ItemRepository extends BaseRepository
     {
         return $this->model->where('id', $id)->decrement('qty');
     }
+    public function getById($id)
+    {
+        return $this->model->where('id', $id)->first();
+    }
 }

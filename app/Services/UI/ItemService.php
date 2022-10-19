@@ -15,4 +15,9 @@ class ItemService
     {
         return $this->itemRepo->updateQty($id);
     }
+
+    public function getById($id)
+    {
+        return $this->itemRepo->getById($id);
+    }
 }
