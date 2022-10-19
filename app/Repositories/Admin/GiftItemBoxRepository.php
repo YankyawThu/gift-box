@@ -41,12 +41,13 @@ class GiftItemBoxRepository extends BaseRepository
             foreach ($items as $item) {
                 $itemsQty[] = $item->giftItems->qty;
                 $data[] = $item->giftItems;
-                $sum = array_sum($itemsQty);
+            }
+            $sum = array_sum($itemsQty);
 
-                foreach ($data as $dt) {
-                    $item->probability = $dt->qty / $sum;
-                    $item->save();
-                }
+            foreach ($data as $dt) {
+                $probability = $dt->qty == 0 ? 0 : $dt->qty / $sum;
+
+                $this->model->where('gift_box_id', $request->boxId)->where('gift_item_id', $dt->id)->update(['probability' => $probability]);
             }
         } else {
             $this->model->where('gift_box_id', $request->boxId)->delete();
