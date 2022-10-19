@@ -4,6 +4,8 @@ namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
 use App\Services\UI\BoxService;
+use App\Services\UI\GiftItemBoxService;
+use App\Services\UI\ItemService;
 use Illuminate\Support\Facades\Auth;
 
 class UIController extends Controller
@@ -13,10 +15,12 @@ class UIController extends Controller
      *
      * @return void
      */
-    public function __construct(BoxService $boxService)
+    public function __construct(BoxService $boxService, ItemService $itemService, GiftItemBoxService $itemBoxService)
     {
         // $this->middleware('auth');
         $this->boxService = $boxService;
+        $this->itemService = $itemService;
+        $this->itemBoxService = $itemBoxService;
     }
 
     /**
@@ -33,45 +37,50 @@ class UIController extends Controller
 
     public function openBox($id, $times)
     {
-        // dd($times);
         $data = $this->boxService->getAll();
 
         if (Auth::check()) {
             $giftBox = $this->boxService->getItemsByBoxId($id);
-
             $win_value = null;
             $itemsQty = [];
+            $max_probability = 0;
             if ($giftBox->giftItemBox) {
-                foreach ($giftBox->giftItemBox as $giftItemBox) {
-                    $itemsQty[] = $giftItemBox->giftItems->qty;
-                    $sum = array_sum($itemsQty);
-                    $items[] = $giftItemBox->giftItems;
+                $rand = (rand(0, 1000) / 1000) * $giftBox->giftItemBox->sum('probability');
+                // dd($giftBox->giftItemBox);
 
-                    $rand = rand(0, round($giftItemBox->probability, 2));
+                // foreach ($giftBox->giftItemBox as $giftItemBox) {
 
-                    for ($i = 0; $i < count($itemsQty); ++$i) {
-                        if ($giftItemBox->probability >= $rand) {
-                            $win_value = $items[$i];
-                            break;
-                        }
+                for ($i = 0; $i < count($giftBox->giftItemBox); ++$i) {
+                    if ($giftBox->giftItemBox[$i]->probability > $max_probability) {
+                        $max_probability = $giftBox->giftItemBox[$i]->probability;
                     }
+
+                    // $items[] = $giftItemBox->giftItems;
+
+                    // dd($giftItemBox->giftItems->where('id', $max_pro_val->gift_item_id)->first());
+                    // if ($giftItemBox->max('probability') >= $rand) {
+                    //     $win_value = $max_pro_val;
+
+                    //     break;
+                    // }
+                    // }
+                }
+
+                $itemId = $this->itemBoxService->getByIdAndProbability($id, $max_probability);
+                if ($max_probability >= $rand) {
+                    $win_value = $itemId; // to edit
                 }
             }
-            // $sum = array_sum($itemsQty);
 
-            // $rand = (rand(0, 1000) / 1000) * $sum;
-            // dd($rand);
-            // $partialSum = 0;
-            // for ($i = 0; $i < count($itemsQty); ++$i) {
-            //     $partialSum += $itemsQty[$i];
-            //     echo "ran : $rand";
-            //     echo "partial sum : $partialSum \n";
-            //     if ($partialSum >= $rand) {
-            //         dd($items[$i]);
-            //         $win_value = $items[$i];
-            //         break;
-            //     }
+            // if ($max_pro_val->qty <= 0) {
+            //     echo 'No items';
             // }
+
+            // if ($win_value) {
+            //     $this->itemService->updateQty($win_value->gift_item_id);
+            //     $this->itemBoxService->updateProbability($id);
+            // }
+            // echo $win_value;
 
             return view('ui.home', compact('data', 'win_value'));
         } else {

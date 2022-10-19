@@ -2,9 +2,7 @@
 @section('content')
 
     <div class="row">
-            @if(isset($win_value))
-                <?php print($win_value);?>
-            @endif
+           
             @foreach ($data as $item)
 
                 <div class="col-xl-3 col-md-6">
