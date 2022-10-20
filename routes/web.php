@@ -43,8 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Route::group(['namespace' => 'UI'], function () {
     Route::get('/', 'UIController@index')->name('luckydraw');
-    Route::get('/open-box/{id}/times/{times}', 'UIController@openBox')->name('openbox');
+    Route::get('/open-box/{id}/times/{times}', 'UIController@openBox')->name('openbox'); // testing
+    Route::get('/bind-box-open/{id}/times/{times}', 'UIController@openBlindBox')->name('openblindbox'); // testing
 });
+/* testing */
 function randSelect($a)
 {
     $values = array_values($a);
@@ -119,3 +121,16 @@ Route::get('/test', function () {
     // // }
 >>>>>>> calculate probability
 });
+
+Route::get('bind-box-open-testing', function () {
+    $qty = [100, 20, 10, 1];
+    $arr = [];
+    foreach ($qty as $q) {
+        for ($i = 1; $i <= $q; ++$i) {
+            $arr[] = $i;
+        }
+    }
+
+    print_r(array_rand($arr, 1));
+});
+/* end testing */
