@@ -72,4 +72,21 @@ class UIController extends Controller
             return redirect()->route('login');
         }
     }
+
+    public function openBlindBox($id, $times)
+    {
+        $giftBox = $this->boxService->getItemsByBoxId($id);
+        $arr = [];
+        for ($i = 0; $i < count($giftBox->giftItemBox); ++$i) {
+            $qty[] = $giftBox->giftItemBox[$i]->giftItems->qty;
+        }
+        // print_r($qty);
+        foreach ($qty as $q) {
+            for ($j = 1; $j <= $q; ++$j) {
+                $arr[] = $j;
+            }
+        }
+        print_r($arr);
+        // print_r(array_rand($arr, 1));
+    }
 }
