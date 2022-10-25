@@ -8,6 +8,7 @@ use App\Services\UI\BoxService;
 use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\ItemService;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class UIController extends Controller
 {
@@ -32,8 +33,7 @@ class UIController extends Controller
     public function index()
     {
         $data = $this->boxService->getAll();
-
-        return view('ui.home', compact('data'));
+        return Inertia::render('Test', compact('data'));
     }
 
     public function openBox($id, $times)
