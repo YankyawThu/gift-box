@@ -2441,7 +2441,7 @@ var render = function render() {
     staticClass: "font-bold text-sm"
   }, [_vm._v("All")]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-around"
-  }, _vm._l(_vm.data, function (box, i) {
+  }, _vm._l(_vm.data.data, function (box, i) {
     return _c("div", {
       key: i,
       staticClass: "w-96 rounded-xl shadow-sm my-2"
@@ -2453,10 +2453,12 @@ var render = function render() {
       staticClass: "font-bold"
     }, [_vm._v(_vm._s(box.price))]), _c("span", {
       staticClass: "text-xs"
-    }, [_vm._v(" coins/draw")])])]), _vm._v(" "), _vm._l(box.items, function (item, j) {
+    }, [_vm._v(" coins/draw")])])]), _vm._v(" "), _c("div", {
+      staticClass: "px-3"
+    }, _vm._l(box.items, function (item, j) {
       return _c("div", {
         key: j,
-        staticClass: "px-3"
+        staticClass: "inline-block px-1 py-3"
       }, [_c("img", {
         attrs: {
           src: item.image,
@@ -2464,11 +2466,11 @@ var render = function render() {
           height: "50"
         }
       })]);
-    }), _vm._v(" "), _c("div", {
+    }), 0), _vm._v(" "), _c("div", {
       staticClass: "flex justify-between py-2 px-3"
     }, [_c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("A total of products")]), _vm._v(" "), _c("div")])], 2);
+    }, [_vm._v("A total of products")]), _vm._v(" "), _c("div")])]);
   }), 0)])]);
 };
 
