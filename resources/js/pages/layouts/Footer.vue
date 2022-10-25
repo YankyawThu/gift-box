@@ -1,14 +1,11 @@
 <template>
     <div>
-        Test
-        {{data}}
+        footer
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        data: ''
-    }
+    
 }
 </script>
