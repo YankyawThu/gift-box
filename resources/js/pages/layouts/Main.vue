@@ -1,9 +1,9 @@
 <template>
-    <div class="p-3 layout postion-relative">
+    <div class="h-screen bg-gray-50">
         <header>
             <top></top>
         </header>
-        <main>
+        <main class="py-14 px-3">
             <slot></slot>
         </main>
         <footer>

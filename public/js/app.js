@@ -2437,7 +2437,39 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("main-layout", [_vm._v("\n    home\n")]);
+  return _c("main-layout", [_c("div", [_c("div", {
+    staticClass: "font-bold text-sm"
+  }, [_vm._v("All")]), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap justify-around"
+  }, _vm._l(_vm.data, function (box, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "w-96 rounded-xl shadow-sm my-2"
+    }, [_c("div", {
+      staticClass: "flex justify-between py-2 bg-gradient-to-r from-blue-100 to-purple-100 px-3 rounded-t-xl"
+    }, [_c("div", [_vm._v(_vm._s(box.name))]), _vm._v(" "), _c("div", {
+      staticClass: "self-end text-yellow-500"
+    }, [_c("span", {
+      staticClass: "font-bold"
+    }, [_vm._v(_vm._s(box.price))]), _c("span", {
+      staticClass: "text-xs"
+    }, [_vm._v(" coins/draw")])])]), _vm._v(" "), _vm._l(box.items, function (item, j) {
+      return _c("div", {
+        key: j,
+        staticClass: "px-3"
+      }, [_c("img", {
+        attrs: {
+          src: item.image,
+          width: "50",
+          height: "50"
+        }
+      })]);
+    }), _vm._v(" "), _c("div", {
+      staticClass: "flex justify-between py-2 px-3"
+    }, [_c("div", {
+      staticClass: "text-xs text-gray-400"
+    }, [_vm._v("A total of products")]), _vm._v(" "), _c("div")])], 2);
+  }), 0)])]);
 };
 
 var staticRenderFns = [];
@@ -2461,10 +2493,33 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._v("\n    footer\n")]);
+  return _vm._m(0);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "grid grid-cols-4 fixed w-full bg-white bottom-0"
+  }, [_c("div", {
+    staticClass: "text-lg p-3 text-center cursor-pointer"
+  }, [_c("i", {
+    staticClass: "fas fa-home"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-lg p-3 text-center cursor-pointer"
+  }, [_c("i", {
+    staticClass: "fas fa-recycle"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-lg p-3 text-center cursor-pointer"
+  }, [_c("i", {
+    staticClass: "fas fa-print"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-lg p-3 text-center cursor-pointer"
+  }, [_c("i", {
+    staticClass: "fas fa-user"
+  })])]);
+}];
 render._withStripped = true;
 
 
@@ -2485,10 +2540,27 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._v("\n    header\n")]);
+  return _vm._m(0);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "flex justify-between px-3 py-2 fixed w-full bg-white"
+  }, [_c("div", {
+    staticClass: "self-center text-lg"
+  }, [_c("i", {
+    staticClass: "fas fa-home"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-lg font-bold"
+  }, [_vm._v("\n        Blind Box\n    ")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center text-lg"
+  }, [_c("i", {
+    staticClass: "fas fa-volume-up"
+  })])]);
+}];
 render._withStripped = true;
 
 
@@ -2510,8 +2582,10 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "p-3 layout postion-relative"
-  }, [_c("header", [_c("top")], 1), _vm._v(" "), _c("main", [_vm._t("default")], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
+    staticClass: "h-screen bg-gray-50"
+  }, [_c("header", [_c("top")], 1), _vm._v(" "), _c("main", {
+    staticClass: "py-14 px-3"
+  }, [_vm._t("default")], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 
 var staticRenderFns = [];
