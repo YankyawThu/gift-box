@@ -35,27 +35,10 @@ class UIController extends Controller
      */
     public function index()
     {
-        $data = $this->boxService->getAll();
-        // $values = [];
-        // foreach ($data as $key => $v) {
-        //     // print_r($v->giftItemBox->giftItems);
-        //     $values = $v->id;
-        //     $values[$key]['name'] = $v->name;
-        //     $values[$key]['price'] = $v->price;
-        //     foreach ($v->giftItemBox as $k => $item) {
-        //         // print_r($item->giftItems);
-        //         // $values[$key]['items']['id'] = optional($item->giftItems)->id;
-        //         // $values[$key]['items']['name'] = optional($item->giftItems)->name;
-        //         // $values[$key]['items']['image'] = optional($item->giftItems)->image ? getFileUrlFromAkoneyaMedia(optional($item->giftItems)->image) : null;
-        //         $values[$key][$k]['items'] = $item->giftItemList;
-        //     }
-        // }
-        // dd(HomePageResource::collection($data));
-        $dd = new HomePageResourceCollection($data);
+        $result = $this->boxService->getAll();
+        $data = new HomePageResourceCollection($result);
 
-        return $dd;
-
-        // return Inertia::render('Home', compact('data'));
+        return Inertia::render('Home', compact('data'));
     }
 
     public function openBox($id, $times)
