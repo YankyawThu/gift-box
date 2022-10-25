@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\HomePageResource;
+use App\Http\Resources\HomePageResourceCollection;
 use App\Models\GiftItem;
 use App\Services\UI\BoxService;
 use App\Services\UI\GiftItemBoxService;
@@ -23,6 +25,7 @@ class UIController extends Controller
         $this->boxService = $boxService;
         $this->itemService = $itemService;
         $this->itemBoxService = $itemBoxService;
+        $this->nextId = null;
     }
 
     /**
@@ -33,7 +36,26 @@ class UIController extends Controller
     public function index()
     {
         $data = $this->boxService->getAll();
-        return Inertia::render('Home', compact('data'));
+        // $values = [];
+        // foreach ($data as $key => $v) {
+        //     // print_r($v->giftItemBox->giftItems);
+        //     $values = $v->id;
+        //     $values[$key]['name'] = $v->name;
+        //     $values[$key]['price'] = $v->price;
+        //     foreach ($v->giftItemBox as $k => $item) {
+        //         // print_r($item->giftItems);
+        //         // $values[$key]['items']['id'] = optional($item->giftItems)->id;
+        //         // $values[$key]['items']['name'] = optional($item->giftItems)->name;
+        //         // $values[$key]['items']['image'] = optional($item->giftItems)->image ? getFileUrlFromAkoneyaMedia(optional($item->giftItems)->image) : null;
+        //         $values[$key][$k]['items'] = $item->giftItemList;
+        //     }
+        // }
+        // dd(HomePageResource::collection($data));
+        $dd = new HomePageResourceCollection($data);
+
+        return $dd;
+
+        // return Inertia::render('Home', compact('data'));
     }
 
     public function openBox($id, $times)
