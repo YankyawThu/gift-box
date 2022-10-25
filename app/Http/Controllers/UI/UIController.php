@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
+use App\Models\GiftItem;
 use App\Services\UI\BoxService;
 use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\ItemService;
@@ -77,16 +78,29 @@ class UIController extends Controller
     {
         $giftBox = $this->boxService->getItemsByBoxId($id);
         $arr = [];
+        $giftItems = [];
         for ($i = 0; $i < count($giftBox->giftItemBox); ++$i) {
-            $qty[] = $giftBox->giftItemBox[$i]->giftItems->qty;
+            $qty[$giftBox->giftItemBox[$i]->giftItems->id] = $giftBox->giftItemBox[$i]->giftItems->qty;
+            $giftItems[] = $giftBox->giftItemBox[$i]->giftItems;
         }
-        // print_r($qty);
-        foreach ($qty as $q) {
-            for ($j = 1; $j <= $q; ++$j) {
-                $arr[] = $j;
+
+        foreach ($qty as $key => $q) {
+            for ($i = 1; $i <= $q; ++$i) {
+                $arr[] = GiftItem::where('id', $key)->first();
             }
         }
-        print_r($arr);
-        // print_r(array_rand($arr, 1));
+        $k = array_rand($arr, $times);
+        if (is_array($k)) {
+            for ($i = 0; $i < count($k); ++$i) {
+                print_r($arr[$k[$i]]);
+            }
+        } else {
+            $win_value = $arr[$k];
+            echo $win_value;
+        }
+
+        $data = $this->boxService->getAll();
+
+        return view('ui.home', compact('data'));
     }
 }
