@@ -33,7 +33,7 @@ class UIController extends Controller
     public function index()
     {
         $data = $this->boxService->getAll();
-        return Inertia::render('Test', compact('data'));
+        return Inertia::render('Home', compact('data'));
     }
 
     public function openBox($id, $times)
