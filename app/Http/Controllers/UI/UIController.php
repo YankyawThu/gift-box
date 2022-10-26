@@ -35,10 +35,14 @@ class UIController extends Controller
      */
     public function index()
     {
+        return Inertia::render('Home');
+    }
+
+    public function getAll()
+    {
         $result = $this->boxService->getAll();
         $data = new HomePageResourceCollection($result);
-
-        return Inertia::render('Home', compact('data'));
+        return response()->json($data);
     }
 
     public function openBox($id, $times)
