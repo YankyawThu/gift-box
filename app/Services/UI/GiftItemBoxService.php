@@ -20,4 +20,9 @@ class GiftItemBoxService
     {
         return $this->itemBoxRepo->getByIdAndProbability($id, $probility);
     }
+
+    public function getItemsByBoxId($boxId)
+    {
+        return $this->itemBoxRepo->getItemsByBoxId($boxId);
+    }
 }
