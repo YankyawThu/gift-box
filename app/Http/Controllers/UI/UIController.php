@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Models\GiftItem;
 use App\Services\UI\BoxService;
@@ -51,6 +50,15 @@ class UIController extends Controller
         return response()->json($data);
     }
 
+    public function openLuckyBox($boxId, $times)
+    {
+        if ($times == 1) {
+            $goodsIds = $this->itemBoxService->getItemsByBoxId($boxId);
+            $this->itemService->getOne($boxId, $goodsIds, $except = []);
+        }
+    }
+
+    /* testing */
     public function openBox($id, $times)
     {
         $data = $this->boxService->getAll();
@@ -118,4 +126,5 @@ class UIController extends Controller
 
         return view('ui.home', compact('data'));
     }
+     /* testing */
 }
