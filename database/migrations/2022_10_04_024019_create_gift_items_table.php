@@ -19,6 +19,8 @@ class CreateGiftItemsTable extends Migration
             $table->string('image');
             $table->double('price')->default(0);
             $table->integer('qty');
+            $table->double('delivery_fee')->default(0);
+            $table->enum('status', ['online', 'offline']);
             $table->timestamps();
             $table->softDeletes();
         });

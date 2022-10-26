@@ -16,9 +16,13 @@ class CreateGiftLogsTable extends Migration
         Schema::create('gift_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('gift_item_box_id');
-            $table->enum('times', [1, 2, 3, 4, 5]);
+            $table->unsignedBigInteger('gift_box_id');
+            $table->enum('times', [1, 5]);
+            $table->double('amount')->default(0);
+            $table->enum('payment_method', ['coin', 'wechat', 'alipay'])->nullable();
+            $table->enum('status', ['unpay', 'unused', 'used', 'refund']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
