@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 Route::group(['namespace' => 'UI'], function () {
-    Route::get('/', 'UIController@index')->name('luckydraw');
+    Route::get('/', 'UIController@index');
+    Route::post('/', 'UIController@getAll');
     Route::get('/open-box/{id}/times/{times}', 'UIController@openBox')->name('openbox'); // testing
     Route::get('/bind-box-open/{id}/times/{times}', 'UIController@openBlindBox')->name('openblindbox'); // testing
 });
