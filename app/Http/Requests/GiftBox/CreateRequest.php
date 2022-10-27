@@ -27,7 +27,10 @@ class CreateRequest extends FormRequest
             'categoryId' => 'required',
             'name' => 'required',
             'price' => 'numeric|required',
-            'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
+            'image' => 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
+            'sort' => 'nullable|numeric',
+            'is_hot' => 'required|boolean',
+            'is_cheap' => 'required|boolean',
         ];
     }
 }

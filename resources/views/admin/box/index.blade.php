@@ -3,10 +3,14 @@
 @section('content-detail')
 <script>
     $(function() {
-            @if (session('status'))
-                toastr.success('{{ session('status') }}')
-            @endif
-        })
+        @if (session('status'))
+            toastr.success('{{ session('status') }}')
+        @endif
+
+        @if ($errors->any())
+            toastr.error('{{ $errors->all()[0] }}')
+        @endif
+    })
 </script>
 
 <div>
@@ -95,7 +99,7 @@
                             data-toggle="modal" data-target="#delete-modal">
                             <span data-toggle="tooltip" data-original-title="Delete box">Delete</span>
                         </a>
-                        @include('admin.box.edit', ['id' => 0])
+                        @include('admin.box.edit', ['id' => $item->id, 'box' => $item])
                         @include('admin.layouts.delete', ['route' => 'boxes.destroy', 'id' => 0, 'name' => 'Delete Gift
                         Box'])
                     </td>

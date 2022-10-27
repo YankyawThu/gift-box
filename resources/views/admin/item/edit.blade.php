@@ -52,8 +52,9 @@
                                     <div class="form-group">
                                         <label for="delivery_fee" class="form-control-label">Delivery
                                             Fee</label>
-                                        <input type="number" placeholder="Delivery Fee" name="delivery_fee" value="0"
-                                            id="delivery_fee" class="form-control form-control-alternative is-valid" />
+                                        <input type="number" placeholder="Delivery Fee" name="delivery_fee"
+                                            id="delivery-fee" value="{{ $item->delivery_fee }}"
+                                            class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
 
@@ -61,14 +62,17 @@
                                     <div class="form-group">
                                         <label for="option1" class="form-control-label">Status</label>
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary active">
-                                                <input type="radio" name="status" value="online" id="option1"
-                                                    autocomplete="off">
+                                            <label
+                                                class="btn btn-secondary @if($item->status == 'online')active @endif">
+                                                <input type="radio" name="status" value="online" id="status"
+                                                    autocomplete="off" @if($item->status == 'online') checked="" @endif>
                                                 Online
                                             </label>
-                                            <label class="btn btn-secondary">
-                                                <input type="radio" name="status" value="offline" id="option2"
-                                                    autocomplete="off">
+                                            <label
+                                                class="btn btn-secondary @if($item->status == 'offline')active @endif">
+                                                <input type="radio" name="status" value="offline" id="status"
+                                                    autocomplete="off" @if($item->status == 'offline') checked=""
+                                                @endif>
                                                 Offline
                                             </label>
                                         </div>

@@ -27,7 +27,9 @@ class UpdateRequest extends FormRequest
             'name' => 'required',
             'price' => 'numeric|required',
             'qty' => 'numeric|required',
-            // 'image' => 'nullable|image|file|max:'.config('filesystems.imageSizeLimit'),
+            // 'image' => 'nullable|image|file|max:' . config('filesystems.imageSizeLimit'),
+            'delivery_fee' => 'required|numeric|min:0',
+            'status' => 'required'
         ];
     }
 }

@@ -28,6 +28,9 @@ class UpdateRequest extends FormRequest
             'name' => 'required',
             'price' => 'numeric|required',
             // 'image' => 'nullable|image|file|max:'.config('filesystems.imageSizeLimit'),
+            'sort' => 'nullable|numeric',
+            'is_hot' => 'required|boolean',
+            'is_cheap' => 'required|boolean',
         ];
     }
 }

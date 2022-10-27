@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Category</label>
+                                        <label for="categoryId" class="form-control-label">Category</label>
                                         <select class="form-select form-control form-control-alternative"
                                             aria-label="Default select example" id="categoryId" name="categoryId">
                                             @foreach ($categories as $item)
@@ -27,21 +27,14 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Name</label>
+                                        <label for="name" class="form-control-label">Name</label>
                                         <input type="text" placeholder="Name" id="name" name="name"
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Price</label>
-                                        <input type="text" placeholder="Price" id="price" name="price"
-                                            class="form-control form-control-alternative is-valid" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="" class="form-control-label">Image</label>
+                                        <label for="new-box-image" class="form-control-label">Image</label>
                                         <input type="file" class="form-control-file" id="new-box-image" name="new_image"
                                             id="new-box-image">
                                         <input type="text" name="image" id="image" hidden>
@@ -49,6 +42,56 @@
                                 </div>
                                 <img src="" id="edit_box_img_url" alt="your image" width="100" height="100"
                                     class="pl-3">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="price" class="form-control-label">Price</label>
+                                        <input type="text" placeholder="Price" id="price" name="price"
+                                            class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="sort" class="form-control-label">Sort</label>
+                                        <input type="number" placeholder="Sort" name="sort" id="sort"
+                                            value="{{ $box->sort }}"
+                                            class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="is_hot" class="form-control-label">Is Hot</label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary @if($box->is_hot)active @endif">
+                                                <input type="radio" name="is_hot" value="1" id="is_hot"
+                                                    autocomplete="off" checked=""> Yes
+                                            </label>
+                                            <label class="btn btn-secondary @if(!$box->is_hot)active @endif">
+                                                <input type="radio" name="is_hot" value="0" autocomplete="off"
+                                                    @if(!$box->is_hot) checked="" @endif>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="is_cheap" class="form-control-label">Is Cheap</label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary @if($box->is_cheap)active @endif">
+                                                <input type="radio" name="is_cheap" id="is_cheap" value="1"
+                                                    autocomplete="off" @if($box->is_cheap) checked="" @endif>Yes
+                                            </label>
+                                            <label class="btn btn-secondary @if(!$box->is_cheap)active @endif">
+                                                <input type="radio" name="is_cheap" value="0" autocomplete="off"
+                                                    @if(!$box->is_cheap) checked="" @endif>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </form>
                     </div>

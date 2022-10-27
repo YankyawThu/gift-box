@@ -52,6 +52,15 @@
 
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+
+    <script>
+        //close the alert after 3 seconds.
+            $(document).ready(function(){
+    	    setTimeout(function() {
+    	        $(".alert").alert('close');
+    	    }, 6000);
+        	});
+    </script>
 </body>
 
 </html>
