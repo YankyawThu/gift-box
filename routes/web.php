@@ -25,9 +25,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('boxes/{id}/items', 'GiftItemBoxController@getItems')->name('gift-items');
         });
     });
-});
-Route::group(['namespace' => 'UI'], function () {
-    Route::get('/', 'UIController@index');
-    Route::post('/', 'UIController@getAll');
-    Route::get('/box/{id}', 'UIController@detail');
+    Route::group(['namespace' => 'UI'], function () {
+        Route::get('/', 'UIController@index')->name('luckydraw');
+        Route::post('/', 'UIController@getAll');
+        Route::get('/box/{id}', 'UIController@detail');
+        Route::post('/box/{id}/times/{num}', 'UIController@createOrder');
+        Route::any('/box-open', 'UIController@openLuckyBox');
+    });
 });

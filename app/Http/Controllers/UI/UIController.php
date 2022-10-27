@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OpenBoxRequest;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Models\GiftItem;
@@ -46,6 +47,7 @@ class UIController extends Controller
     public function detail($id)
     {
         $data = new HomePageResource($this->boxService->getById($id));
+
         return Inertia::render('BoxDetail', compact('data'));
     }
 
@@ -57,9 +59,16 @@ class UIController extends Controller
         return response()->json($data);
     }
 
-    public function openLuckyBox($boxId, $times)
+    public function createOrder($boxId, $times)
     {
         $box = $this->boxService->getById($boxId);
+
+        return $this->giftLogService->store($box, $times);
+    }
+
+    public function openLuckyBox(OpenBoxRequest $request)
+    {
+        $box = $this->boxService->getById($request->boxId);
         if (!$box) {
             throw new BadRequestException('Wrong box number!');
         }
@@ -67,7 +76,7 @@ class UIController extends Controller
             throw new BadRequestException('Wrong number of unpacked!');
         }
 
-        $log = $this->giftLogService->store($box, $times);
+        $log = $this->giftLogService->store($box, $request->times);
         $goodsIds = $this->itemBoxService->getItemsByBoxId($boxId);
         if ($times == 1) {
             $itemIds = [$this->itemService->getOne($boxId, $goodsIds, $except = [])];
