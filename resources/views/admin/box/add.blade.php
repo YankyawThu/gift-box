@@ -14,9 +14,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Category</label>
+                                        <label for="categoryId" class="form-control-label">Category</label>
                                         <select class="form-select form-control form-control-alternative"
-                                            aria-label="Default select example" name="categoryId">
+                                            aria-label="Default select example" name="categoryId" name="categoryId">
                                             <option value="" selected>Select Category</option>
                                             @foreach ($categories as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
@@ -26,26 +26,65 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Name</label>
-                                        <input type="text" placeholder="Name" name="name"
+                                        <label for="name" class="form-control-label">Name</label>
+                                        <input type="text" placeholder="Name" name="name" id="name"
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-search-input" class="form-control-label">Price</label>
-                                        <input type="text" placeholder="Price" name="price"
-                                            class="form-control form-control-alternative is-valid" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="" class="form-control-label">Image</label>
+                                        <label for="" class="box-image">Image</label>
                                         <input type="file" class="form-control-file" name="image" id="box-image">
                                     </div>
                                 </div>
                                 <img src="{{ asset('image/default.png') }}" id="box_img_url" alt="your image"
                                     width="100" height="100" class="pl-3">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="price" class="form-control-label">Price</label>
+                                        <input type="text" placeholder="Price" name="price" id="price"
+                                            class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="sort" class="form-control-label">Sort</label>
+                                        <input type="number" placeholder="sort" name="sort" id="sort" value="1"
+                                            class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="is_hot" class="form-control-label">Is Hot</label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary active">
+                                                <input type="radio" name="is_hot" value="1" id="is_hot"
+                                                    autocomplete="off" checked="">Yes
+                                            </label>
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="is_hot" value="0" autocomplete="off">No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="is_cheap" class="form-control-label">Is Cheap</label>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary active">
+                                                <input type="radio" name="is_cheap" value="1" id="is_cheap"
+                                                    autocomplete="off" checked=""> Yes
+                                            </label>
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="is_cheap" value="0" autocomplete="off">No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </form>
                     </div>

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 class BoxController extends Controller
 {
+    private $boxService;
     public function __construct(BoxService $boxService, BoxCategoryService $boxCateService, ItemService $itemService)
     {
         $this->boxService = $boxService;
@@ -30,7 +31,7 @@ class BoxController extends Controller
 
     public function allItems()
     {
-       return $this->itemService->allItems();
+        return $this->itemService->allItems();
     }
 
     public function create()

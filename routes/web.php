@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\BoxCategoryController;
+use App\Http\Controllers\Admin\BoxController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
     //Login Routes
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
@@ -30,12 +33,12 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
         Route::get('box-items', 'BoxController@allItems')->name('box_items');
-        Route::resource('items', 'ItemController');
-        Route::resource('boxes', 'BoxController');
+        Route::resource('items', ItemController::class);
+        Route::resource('boxes', BoxController::class);
         Route::resource('itemBox', 'GiftItemBoxController')->only([
             'store', 'update',
         ]);
-        Route::resource('category', 'BoxCategoryController');
+        Route::resource('category', BoxCategoryController::class);
         Route::resource('giftLog', 'GiftLogController');
         Route::get('boxes/{id}/items', 'GiftItemBoxController@getItems')->name('gift-items');
     });

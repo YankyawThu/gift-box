@@ -124,3 +124,7 @@ a.nav-link.active{
 .item-active{
     border: 1px solid #344767;
 }
+
+.btn.btn-secondary.focus.active, .btn.btn-secondary.active{
+    background-color: aquamarine !important;
+}
