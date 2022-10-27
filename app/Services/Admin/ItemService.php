@@ -6,6 +6,7 @@ use App\Repositories\Admin\ItemRepository;
 
 class ItemService
 {
+    private $itemRepo;
     public function __construct(ItemRepository $itemRepo)
     {
         $this->itemRepo = $itemRepo;
@@ -29,6 +30,8 @@ class ItemService
         $data['image'] = fileUploadToAkoneyaMedia($request->file('image'), $this->uploadPhotoFolder);
         $data['price'] = $request->price;
         $data['qty'] = $request->qty;
+        $data['delivery_fee'] = $request->delivery_fee;
+        $data['status'] = $request->status;
 
         return $this->itemRepo->create($data);
     }
@@ -55,6 +58,8 @@ class ItemService
         }
         $data['price'] = $request->price;
         $data['qty'] = $request->qty;
+        $data['delivery_fee'] = $request->delivery_fee;
+        $data['status'] = $request->status;
 
         return $this->itemRepo->update($data, $id);
     }

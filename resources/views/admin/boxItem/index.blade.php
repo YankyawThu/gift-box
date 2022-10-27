@@ -1,68 +1,71 @@
 @extends('admin.layouts.content')
 
 @section('content')
-    <div class="header bg-gradient-primary pb-7 pt-5 pt-md-8">
-    </div>
-    <div class="container-fluid mt--8">
-        <div class="row">
-            <div class="col-xl-5 order-xl-2 mb-5 mb-xl-0">
-                <div class="card bg-gradiant-default px-1">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-3 order-lg-2">
-                            <div class="box_detail_img">
-                                <a href="#">
-                                    <img src="{{ $data['image'] }}" class="rounded-circle">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                    </div>
-                    <div class="card-body pt-0 pt-md-5">
-                        <div class="text-center">
-                            <h3>
-                                {{ $data['name'] }}
-                            </h3>
-                            <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>{{ $data['category'] }}
-                            </div>
-                            <div>
-                                <i class="ni education_hat mr-2"></i>{{ $data['created'] }}
-                            </div>
-                            <hr class="my-4" />
-                            <div>
-                                @foreach($data['boxItems'] as $item)
-                                    <span class="box_selected_item_short_label">{{$item->name}}</span>
-                                @endforeach
-                            </div>
+<div class="header bg-gradient-primary pb-7 pt-5 pt-md-8">
+</div>
+<div class="container-fluid mt--8">
+    <div class="row">
+        <div class="col-xl-5 order-xl-2 mb-5 mb-xl-0">
+            <div class="card bg-gradiant-default px-1">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 order-lg-2">
+                        <div class="box_detail_img">
+                            <a href="#">
+                                <img src="{{ $data['image'] }}" class="rounded-circle">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="card bg-gradiant-default px-1 mt-2">
-                    <div class="card-body">
-                        <div class="selected_item_area">
-                            @php
-                                foreach ($data['boxItems'] as $key => $item) {
-                                    echo "<div class='remove_item_".$item->id." mr-3 mb-2 d-inline-block'><img class='item-img' width=50 height=50 src=".getFileUrlFromAkoneyaMedia($item->image)."><span class='pl-2 clear remove-span' data-id='".$item->id."'> <i class='ni ni-fat-remove remove-icon'></i></span></div>";
-                                }
-                            @endphp
+                <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                </div>
+                <div class="card-body pt-0 pt-md-5">
+                    <div class="text-center">
+                        <h3>
+                            {{ $data['name'] }}
+                        </h3>
+                        <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>{{ $data['category'] }}
+                        </div>
+                        <div>
+                            <i class="ni education_hat mr-2"></i>{{ $data['created'] }}
+                        </div>
+                        <hr class="my-4" />
+                        <div>
+                            @foreach($data['boxItems'] as $item)
+                            <span class="box_selected_item_short_label">{{$item->name}}</span>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-7 order-xl-1">
-                <div class="card bg-gradiant-default px-1">
-                    <div class="items_container px-3">
+            <div class="card bg-gradiant-default px-1 mt-2">
+                <div class="card-body">
+                    <div class="selected_item_area">
+                        @php
+                        foreach ($data['boxItems'] as $key => $item) {
+                        echo "<div class='remove_item_".$item->id." mr-3 mb-2 d-inline-block'><img class='item-img'
+                                width=50 height=50 src=".getFileUrlFromAkoneyaMedia($item->image)."><span
+                                class='pl-2 clear remove-span' data-id='".$item->id."'> <i
+                                    class='ni ni-fat-remove remove-icon'></i></span></div>";
+                        }
+                        @endphp
                     </div>
-                    <div class="loading text-center py-1">loading...</div>
                 </div>
-                <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
-                <a type="button" class="btn btn-light mt-4 text-white" href="{{route('boxes.index')}}">Back</a>
             </div>
         </div>
+        <div class="col-xl-7 order-xl-1">
+            <div class="card bg-gradiant-default px-1">
+                <div class="items_container px-3">
+                </div>
+                <div class="loading text-center py-1">loading...</div>
+            </div>
+            <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
+            <a type="button" class="btn btn-light mt-4 text-white" href="{{route('admin.boxes.index')}}">Back</a>
+        </div>
     </div>
-    <script>
-        $(function() {
+</div>
+<script>
+    $(function() {
             var boxItems = {!! json_encode($data['boxItems']) !!}
             var boxId = {!! json_encode($data['id']) !!}
             var firstTenItems = {!! json_encode($items) !!}
@@ -94,7 +97,7 @@
                 $.ajax({
                     type: "PUT",
                     dataType: "json",
-                    url: "{{route('itemBox.update',$data['id'])}}",
+                    url: "{{route('admin.itemBox.update',$data['id'])}}",
                     data: {
                         'boxId': boxId,
                         'itemId': itemIds,
@@ -120,7 +123,7 @@
                     $.ajax({
                         type: 'GET',
                         dataType: 'json',
-                        url: "{{ route('box_items') }}",
+                        url: "{{ route('admin.box_items') }}",
                         data: {
                             "page": page,
                             "_token": "{{ csrf_token() }}"
@@ -150,5 +153,5 @@
             }
         })
 
-    </script>
+</script>
 @endsection

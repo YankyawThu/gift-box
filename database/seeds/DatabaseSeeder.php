@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GiftItemSeeder::class);
         $this->call(GiftItemBoxSeeder::class);
         $this->call(GiftLogSeeder::class);
+        $this->call(AdminSeeder::class);
     }
 }

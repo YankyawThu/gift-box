@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+    private $itemService;
     public function __construct(ItemService $itemService)
     {
         $this->itemService = $itemService;
