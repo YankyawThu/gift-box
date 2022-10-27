@@ -25,4 +25,9 @@ class ItemService
     {
         return $this->itemRepo->getOne($boxId, $goodsIds, $except);
     }
+
+    public function getMore($boxId, $goodsIds, $times)
+    {
+        return $this->itemRepo->getMore($boxId, $goodsIds, $times);
+    }
 }

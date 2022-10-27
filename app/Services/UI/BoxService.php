@@ -18,8 +18,13 @@ class BoxService
         return $this->boxRepo->getPaginated($this->itemPerPage);
     }
 
-    public function getItemsByBoxId($id)
+    public function getById($id)
     {
         return $this->boxRepo->getById($id);
+    }
+
+    public function increaseSale($boxId, $times)
+    {
+        return $this->boxRepo->increaseSale($boxId, $times);
     }
 }

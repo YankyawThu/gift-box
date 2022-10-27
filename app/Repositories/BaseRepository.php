@@ -74,4 +74,31 @@ abstract class BaseRepository
 
         return null;
     }
+
+    public function random_func($rate = [], $goods = [])
+    {
+        array_multisort($rate, SORT_DESC, $goods);
+        foreach ($rate as &$item) {
+            $item = round($item, 2) * 100;
+        }
+
+        $total = array_sum($rate);
+
+        $notice = 0;
+        foreach ($rate as $key => $value) {
+            $randNumber = mt_rand(1, $total);
+            // echo $randNumber."\n";
+            // echo $value."\n";
+            if ($randNumber <= $value) {
+                $notice = $goods[$key];
+                // echo $notice;
+                break;
+            } else {
+                $total -= $value;
+            }
+            // echo $total;
+        }
+
+        return $notice;
+    }
 }

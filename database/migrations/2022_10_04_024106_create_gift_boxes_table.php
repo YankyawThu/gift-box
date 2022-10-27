@@ -21,7 +21,7 @@ class CreateGiftboxesTable extends Migration
             $table->double('price')->default(0);
             $table->boolean('is_hot')->default(0);
             $table->boolean('is_cheap')->default(0);
-            $table->integer('sale')->default(1);
+            $table->integer('sale')->default(0);
             $table->integer('sort')->default(0);
             $table->timestamps();
             $table->softDeletes();
