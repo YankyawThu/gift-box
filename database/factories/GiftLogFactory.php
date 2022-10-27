@@ -10,9 +10,9 @@ $factory->define(GiftLog::class, function (Faker $faker) {
         'user_id' => function () {
             return App\User::inRandomOrder()->first()->id;
         },
-        'gift_item_box_id' => function () {
-            return App\Models\GiftItemBox::inRandomOrder()->first()->id;
+        'gift_box_id' => function () {
+            return App\Models\GiftBox::inRandomOrder()->first()->id;
         },
-        'times' => $faker->randomElement([1, 2, 3, 4, 5]),
+        'times' => 1,
     ];
 });

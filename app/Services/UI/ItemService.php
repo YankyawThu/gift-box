@@ -20,4 +20,14 @@ class ItemService
     {
         return $this->itemRepo->getById($id);
     }
+
+    public function getOne($boxId, $goodsIds, array $except = [])
+    {
+        return $this->itemRepo->getOne($boxId, $goodsIds, $except);
+    }
+
+    public function getMore($boxId, $goodsIds, $times)
+    {
+        return $this->itemRepo->getMore($boxId, $goodsIds, $times);
+    }
 }

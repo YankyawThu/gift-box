@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWinningGiftItemsTable extends Migration
+class CreateGiftPrizeRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateWinningGiftItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('winning_gift_items', function (Blueprint $table) {
+        Schema::create('gift_prize_records', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('gift_log_id');
             $table->unsignedBigInteger('gift_item_id');
+            $table->enum('status', ['bag', 'exchange', 'delivery', 'received'])->nullable();
+            $table->timestamp('delivery_time')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +32,6 @@ class CreateWinningGiftItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('winning_gift_items');
+        Schema::dropIfExists('gift_prize_records');
     }
 }
