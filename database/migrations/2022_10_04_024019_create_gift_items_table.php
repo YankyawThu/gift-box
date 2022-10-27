@@ -16,6 +16,7 @@ class CreateGiftItemsTable extends Migration
         Schema::create('gift_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('tag', ['normal', 'rare', 'supreme']);
             $table->string('image');
             $table->double('price')->default(0);
             $table->integer('qty');
