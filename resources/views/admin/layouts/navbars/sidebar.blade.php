@@ -23,7 +23,11 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+<<<<<<< HEAD
                     <div class="dropdown-header noti-title">
+=======
+                    <div class=" dropdown-header noti-title">
+>>>>>>> add admin guard section
                         <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                     </div>
                     <a href="{{ route('admin.profile.edit') }}" class="dropdown-item">
@@ -75,40 +79,62 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='home')active @endif"
+                        href="{{ route('admin.home') }}">
+>>>>>>> add admin guard section
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ activeSegment(2, 'category') == 'active' ? 'active' : '' }}"
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='category.index')active @endif"
+>>>>>>> add admin guard section
                         href="{{ route('admin.category.index') }}">
                         <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ activeSegment(2, 'items') == 'active' ? 'active' : '' }}"
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='items.index')active @endif"
+>>>>>>> add admin guard section
                         href="{{ route('admin.items.index') }}">
                         <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ activeSegment(2, 'boxes') == 'active' ? 'active' : '' }}"
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='boxes.index' || Route::currentRouteName()=='boxes.show')active @endif"
+>>>>>>> add admin guard section
                         href="{{ route('admin.boxes.index') }}">
                         <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ activeSegment(2, 'giftLog') == 'active' ? 'active' : '' }}"
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='giftLog.index')active @endif"
+>>>>>>> add admin guard section
                         href="{{ route('admin.giftLog.index') }}">
                         <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Logs') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link {{ activeSegment(2, 'users') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.users.index') }}">
                         <i class="fas fa-users text-blue"></i> {{ __('Users') }}
@@ -119,10 +145,18 @@
                     <a class="nav-link {{ activeSegment(2, 'admins') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.admins.index') }}">
                         <i class="fa fa-user-cog text-blue"></i> {{ __('Admins') }}
+=======
+                    <a class="nav-link @if (Route::currentRouteName()=='user.index')active @endif"
+                        href="{{ route('admin.user.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Users') }}
+>>>>>>> add admin guard section
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<<<<<<< HEAD
 @endauth
+=======
+>>>>>>> add admin guard section
