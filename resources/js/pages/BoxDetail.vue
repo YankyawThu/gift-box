@@ -28,7 +28,7 @@
         </div>
         <div class="flex justify-around -mt-32">
             <div class="relative">
-                <Link href="">
+                <Link href="" as="button">
                     <img src="/image/ui/GetOneButton.svg">
                     <div class="absolute top-6 right-10 font-semibold">Get One</div>
                     <div class="absolute top-10 right-14">$ {{data.data.price}}</div>
