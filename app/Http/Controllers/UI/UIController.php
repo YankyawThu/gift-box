@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Models\GiftItem;
 use App\Services\UI\BoxService;
@@ -39,7 +40,7 @@ class UIController extends Controller
 
     public function detail($id)
     {
-        $data = new HomePageResource($this->boxService->getItemsByBoxId($id));
+        $data = new HomePageResource($this->boxService->getById($id));
         return Inertia::render('BoxDetail', compact('data'));
     }
 

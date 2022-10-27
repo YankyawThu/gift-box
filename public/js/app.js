@@ -4360,7 +4360,8 @@ var render = function render() {
     staticClass: "relative"
   }, [_c("Link", {
     attrs: {
-      href: ""
+      href: "",
+      as: "button"
     }
   }, [_c("img", {
     attrs: {
