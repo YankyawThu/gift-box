@@ -49,8 +49,8 @@ class User extends Authenticatable
         $filters->apply($query);
     }
 
-    public function amount()
-    {
-        return $this->hasOne(UserAmount::class);
-    }
+    // public function amount()
+    // {
+    //     return $this->hasOne(UserAmount::class);
+    // }
 }

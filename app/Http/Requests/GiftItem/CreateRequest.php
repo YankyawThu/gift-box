@@ -27,7 +27,9 @@ class CreateRequest extends FormRequest
             'name' => 'required',
             'price' => 'numeric|required',
             'qty' => 'numeric|required',
-            'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
+            'image' => 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
+            'delivery_fee' => 'required|numeric|min:0',
+            'status' => 'required'
         ];
     }
 }
