@@ -38,6 +38,12 @@ class UIController extends Controller
         return Inertia::render('Home');
     }
 
+    public function detail($id)
+    {
+        $data = new HomePageResource($this->boxService->getItemsByBoxId($id));
+        return Inertia::render('BoxDetail', compact('data'));
+    }
+
     public function getAll()
     {
         $result = $this->boxService->getAll();
