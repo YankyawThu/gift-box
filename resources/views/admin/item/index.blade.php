@@ -77,7 +77,13 @@
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->delivery_fee }}</p>
                     </td>
                     <td>
-                        <p class="font-weight-bold mb-0 text-sm">{{ $item->status }}</p>
+                        <p class="font-weight-bold mb-0 text-sm">
+                            @if ($item->status == 'online')
+                            <span class="badge badge-success">Online</span>
+                            @else
+                            <span class="badge badge-danger">Offline</span>
+                            @endif
+                        </p>
                     </td>
                     <td class="align-middle">
                         <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
@@ -87,11 +93,15 @@
                             data-name="{{ $item->name }}" data-qty="{{ $item->qty }}" data-image="{{ $item->image }}"
                             data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
                             data-price="{{ $item->price }}" data-toggle="modal" data-target="#edit-item-modal">
-                            <span data-toggle="tooltip" data-original-title="Edit item">Edit</span>
+                            <span class="btn btn-lg btn-success" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-edit"></i>
+                            </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-danger px-1 text-sm"
                             data-id="{{ $item->id }}" data-toggle="modal" data-target="#delete-modal">
-                            <span data-toggle="tooltip" data-original-title="Delete item">Delete</span>
+                            <span class="btn btn-lg btn-danger" data-toggle="tooltip" data-original-title="Delete item">
+                                <i class="fas fa-trash"></i>
+                            </span>
                         </a>
                         @include('admin.item.edit', ['id' => $item->id, 'item' => $item])
                         @include('admin.layouts.delete', [

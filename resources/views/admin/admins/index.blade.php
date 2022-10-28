@@ -10,19 +10,20 @@
 <div>
     <div class="d-flex justify-content-between content_detail_header">
         <div class="align-self-center">
-            <form class="navbar-search navbar-search-light form-inline mr-sm-3" action="{{route('admin.user.index')}}">
+            <form class="navbar-search navbar-search-light form-inline mr-sm-3"
+                action="{{route('admin.admins.index')}}">
                 <div class="form-group mb-0">
                     <div class="input-group input-group-alternative input-group-merge searching">
-                        <input class="form-control searching" placeholder="Search by user name" type="text" name="name"
-                            value="{{request('name')}}">
+                        <input class="form-control searching" placeholder="Search by user name" type="text"
+                            name="username" value="{{request('username')}}">
                     </div>
                     <div class="input-group input-group-alternative input-group-merge searching user-filter">
                         <input class="form-control searching" placeholder="Search by email" type="text" name="email"
                             value="{{request('email')}}">
                     </div>
                     <div class="input-group input-group-alternative input-group-merge searching user-filter">
-                        <input class="form-control searching" placeholder="Search by user amount" type="text"
-                            name="amount" value="{{request('amount')}}">
+                        <input class="form-control searching" placeholder="Search by nickname" type="text"
+                            name="nickname" value="{{request('nickname')}}">
                     </div>
                     <div class="gift-log-filter">
                         <button class="input-group-text gift-log-search-btn" type="submit"><i
@@ -38,8 +39,9 @@
                 <tr>
                     <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">EMAIL</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">PHONE</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">AMOUNT</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">STATUS</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">LAST LOGIN</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,16 +49,20 @@
                 @foreach ($data as $key => $item)
                 <tr>
                     <td>
-                        <p class="text-sm font-weight-bold mb-0">{{$item->name}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{$item->username}}</p>
                     </td>
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{$item->email}}</p>
                     </td>
                     <td>
-                        <p class="text-sm font-weight-bold mb-0">{{$item->phone}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{$item->nickname}}</p>
                     </td>
                     <td>
-                        <p class="text-sm font-weight-bold mb-0">{{optional($item->amount)->amount}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{($item->status ? 'Active' : 'In-Active')}}</p>
+                    </td>
+                    <td>
+                        <p class="text-sm font-weight-bold mb-0">{{($item->logintime ? $item->logintime->diffForHumans()
+                            : '')}}</p>
                     </td>
                 </tr>
                 @endforeach
