@@ -10,7 +10,8 @@
 <div>
     <div class="d-flex justify-content-between content_detail_header">
         <div class="align-self-center">
-            <form class="navbar-search navbar-search-light form-inline mr-sm-3" action="{{route('admin.user.index')}}">
+            <form class="navbar-search navbar-search-light form-inline mr-sm-3"
+                action="{{route('admin.admins.index')}}">
                 <div class="form-group mb-0">
                     <div class="input-group input-group-alternative input-group-merge searching">
                         <input class="form-control searching" placeholder="Search by user name" type="text" name="name"
@@ -47,7 +48,7 @@
                 @foreach ($data as $key => $item)
                 <tr>
                     <td>
-                        <p class="text-sm font-weight-bold mb-0">{{$item->name}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{ $item->name }}</p>
                     </td>
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{$item->email}}</p>
