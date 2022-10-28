@@ -42,11 +42,9 @@ class LoginController extends Controller
 
     public function authenticated(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // The user is active, not suspended, and exists.
             return redirect()->route('home');
         }
-
-        return redirect()->route('luckydraw');
     }
 }

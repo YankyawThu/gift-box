@@ -4,26 +4,34 @@
         <!-- Brand -->
 
         @if (Route::currentRouteName()=='home')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">{{
+            __('Dashboard') }}</a>
         @elseif(Route::currentRouteName()=='category.index')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('category.index') }}">{{ __('Box Category') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('category.index') }}">{{
+            __('Box Category') }}</a>
         @elseif(Route::currentRouteName()=='items.index')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('items.index') }}">{{ __('Gift Items') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('items.index') }}">{{
+            __('Gift Items') }}</a>
         @elseif(Route::currentRouteName()=='boxes.index')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{ __('Gift Boxes') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{
+            __('Gift Boxes') }}</a>
         @elseif(Route::currentRouteName()=='boxes.show')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{ __('Gift Boxes') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('boxes.index') }}">{{
+            __('Gift Boxes') }}</a>
 
         @elseif(Route::currentRouteName()=='giftLog.index')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('giftLog.index') }}">{{ __('Gift Logs') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('giftLog.index') }}">{{
+            __('Gift Logs') }}</a>
         @elseif(Route::currentRouteName()=='user.index')
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('user.index') }}">{{ __('Users') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('user.index') }}">{{
+            __('Users') }}</a>
         @endif
 
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">
-                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
                             <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">

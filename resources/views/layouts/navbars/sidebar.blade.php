@@ -1,7 +1,8 @@
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+            aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
@@ -11,10 +12,11 @@
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg">
+                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg">
                         </span>
                     </div>
                 </a>
@@ -58,7 +60,9 @@
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                            data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                            aria-label="Toggle sidenav">
                             <span></span>
                             <span></span>
                         </button>
@@ -75,31 +79,36 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::currentRouteName()=='category.index')active @endif" href="{{ route('category.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='category.index')active @endif"
+                        href="{{ route('category.index') }}">
                         <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::currentRouteName()=='items.index')active @endif" href="{{ route('items.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='items.index')active @endif"
+                        href="{{ route('items.index') }}">
                         <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::currentRouteName()=='boxes.index' || Route::currentRouteName()=='boxes.show')active @endif" href="{{ route('boxes.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='boxes.index' || Route::currentRouteName()=='boxes.show')active @endif"
+                        href="{{ route('boxes.index') }}">
                         <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::currentRouteName()=='giftLog.index')active @endif" href="{{ route('giftLog.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='giftLog.index')active @endif"
+                        href="{{ route('giftLog.index') }}">
                         <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Logs') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::currentRouteName()=='user.index')active @endif" href="{{ route('user.index') }}">
+                    <a class="nav-link @if (Route::currentRouteName()=='user.index')active @endif"
+                        href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Users') }}
                     </a>
                 </li>

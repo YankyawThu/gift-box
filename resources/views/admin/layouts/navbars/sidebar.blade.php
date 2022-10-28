@@ -1,3 +1,5 @@
+@auth('admin')
+
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
@@ -123,3 +125,4 @@
         </div>
     </div>
 </nav>
+@endauth
