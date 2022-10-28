@@ -87,16 +87,12 @@ abstract class BaseRepository
         $notice = 0;
         foreach ($rate as $key => $value) {
             $randNumber = mt_rand(1, $total);
-            // echo $randNumber."\n";
-            // echo $value."\n";
             if ($randNumber <= $value) {
                 $notice = $goods[$key];
-                // echo $notice;
                 break;
             } else {
                 $total -= $value;
             }
-            // echo $total;
         }
 
         return $notice;
