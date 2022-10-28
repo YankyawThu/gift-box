@@ -56,6 +56,8 @@
                     <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CATEGORY</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">Is-Hot</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">Is-Cheap</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                     <th class="opacity-7"></th>
                 </tr>
@@ -80,24 +82,48 @@
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{$item->price}}</p>
                     </td>
+                    <td>
+                        <p class="text-sm font-weight-bold mb-0">
+                            @if ($item->is_hot)
+                            <span class="badge badge-success">Yes</span>
+                            @else
+                            <span class="badge badge-danger">No</span>
+                            @endif
+                        </p>
+                    </td>
+                    <td>
+                        <p class="text-sm font-weight-bold mb-0">
+                            @if ($item->is_cheap)
+                            <span class="badge badge-success">Yes</span>
+                            @else
+                            <span class="badge badge-danger">No</span>
+                            @endif
+                        </p>
+                    </td>
                     <td class="align-middle">
                         <span class="text-sm font-weight-bold">{{$item->created_at}}</span>
                     </td>
                     <td class="align-middle">
                         <a href="{{route('admin.boxes.show', $item->id)}}"
                             class="font-weight-bold text-sm text-success px-1">
-                            <span data-toggle="tooltip" data-original-title="View box">View</span>
+                            <span class="btn btn-lg btn-info" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-eye"></i>
+                            </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}"
                             data-name="{{$item->name}}" data-image="{{$item->image}}"
                             data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
                             data-price="{{$item->price}}" data-category_id="{{optional($item->category)->id}}"
                             data-toggle="modal" data-target="#edit-box-modal">
-                            <span data-toggle="tooltip" data-original-title="Edit box">Edit</span>
+                            <span class="btn btn-lg btn-success" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-edit"></i>
+                            </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}"
                             data-toggle="modal" data-target="#delete-modal">
-                            <span data-toggle="tooltip" data-original-title="Delete box">Delete</span>
+                            <span class="btn btn-lg btn-danger" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-trash"></i>
+                            </span>
                         </a>
                         @include('admin.box.edit', ['id' => $item->id, 'box' => $item])
                         @include('admin.layouts.delete', ['route' => 'boxes.destroy', 'id' => 0, 'name' => 'Delete Gift

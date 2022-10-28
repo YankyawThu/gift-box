@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use Notifiable;
+
+    protected $dates = ['created_at', 'updated_at', 'logintime', 'createtime'];
     /**
      * The attributes that are mass assignable.
      *
@@ -25,4 +27,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'token',
     ];
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
 }

@@ -22,13 +22,14 @@
         @elseif(Route::currentRouteName()=='giftLog.index')
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
             href="{{ route('admin.giftLog.index') }}">{{ __('Gift Logs') }}</a>
-        @elseif(Route::currentRouteName()=='user.index')
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('admin.user.index') }}">{{
+        @elseif(Route::currentRouteName()=='admins.index')
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
+            href="{{ route('admin.admins.index') }}">{{
             __('Users') }}</a>
         @endif
 
         <!-- User -->
-        <ul class="navbar-nav align-items-center d-none d-md-flex">
+        <ul class="navbar-nav align-items-center ml-lg-auto d-none d-md-flex">
             <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">

@@ -55,11 +55,15 @@
                     <td class="align-middle">
                         <a href="javascript:;" class="font-weight-bold text-sm px-1" data-id="{{$item->id}}"
                             data-name="{{$item->name}}" data-toggle="modal" data-target="#edit-category-modal">
-                            <span data-toggle="tooltip" data-original-title="Edit category">Edit</span>
+                            <span class="btn btn-lg btn-success" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-edit"></i>
+                            </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}"
                             data-toggle="modal" data-target="#delete-modal">
-                            <span data-toggle="tooltip" data-original-title="Delete category">Delete</span>
+                            <span class="btn btn-lg btn-danger" data-toggle="tooltip" data-original-title="Edit item">
+                                <i class="fas fa-trash"></i>
+                            </span>
                         </a>
                         @include('admin.category.edit', ['id' => 0])
                         @include('admin.layouts.delete', ['route' => 'category.destroy', 'id' => 0, 'name' => 'Delete

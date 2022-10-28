@@ -15,6 +15,6 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next)
     {
-        return auth()->user()->isAdmin() ? $next($request) : abort(403, 'Access denied');
+        return auth()->guard('admin') ? $next($request) : abort(403, 'Access denied');
     }
 }
