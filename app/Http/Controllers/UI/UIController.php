@@ -65,7 +65,7 @@ class UIController extends Controller
         if (!$box) {
             throw new BadRequestException('Wrong box number!');
         }
-        if (!in_array($request->times, [1, 5])) {
+        if (!in_array($times, [1, 5])) {
             throw new BadRequestException('Wrong number of unpacked!');
         }
 
