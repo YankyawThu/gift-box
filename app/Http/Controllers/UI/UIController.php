@@ -62,6 +62,12 @@ class UIController extends Controller
     public function createOrder($boxId, $times)
     {
         $box = $this->boxService->getById($boxId);
+        if (!$box) {
+            throw new BadRequestException('Wrong box number!');
+        }
+        if (!in_array($request->times, [1, 5])) {
+            throw new BadRequestException('Wrong number of unpacked!');
+        }
 
         return $this->giftLogService->store($box, $times);
     }
@@ -69,27 +75,34 @@ class UIController extends Controller
     public function openLuckyBox(OpenBoxRequest $request)
     {
         $box = $this->boxService->getById($request->boxId);
+
         if (!$box) {
             throw new BadRequestException('Wrong box number!');
         }
-        if (!in_array($times, [1, 5])) {
+        if (!in_array($request->times, [1, 5])) {
             throw new BadRequestException('Wrong number of unpacked!');
         }
 
-        $log = $this->giftLogService->store($box, $request->times);
-        $goodsIds = $this->itemBoxService->getItemsByBoxId($boxId);
-        if ($times == 1) {
-            $itemIds = [$this->itemService->getOne($boxId, $goodsIds, $except = [])];
+        $log = $this->giftLogService->getById($request->orderId);
+
+        $log->payment_method = 1;
+        $log->status = 2;
+        $log->save();
+
+        $goodsIds = $this->itemBoxService->getItemsByBoxId($request->boxId);
+
+        if ($request->times == 1) {
+            $itemIds = [$this->itemService->getOne($request->boxId, $goodsIds, $except = [])];
         } else {
-            $itemIds = $this->itemService->getMore($boxId, $goodsIds, $times);
-            // dd($itemIds);
+            $itemIds = $this->itemService->getMore($request->boxId, $goodsIds, $request->times);
         }
+
         foreach ($itemIds as $itemId) {
             $goodsInfo[] = $this->itemService->getById($itemId);
         }
 
         $prize = $this->prizeService->store($goodsInfo, $log);
-        $this->boxService->increaseSale($boxId, $times);
+        $this->boxService->increaseSale($request->boxId, $request->times);
 
         return $prize;
     }

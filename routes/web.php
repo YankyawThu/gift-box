@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'UIController@index')->name('luckydraw');
         Route::post('/', 'UIController@getAll');
         Route::get('/box/{id}', 'UIController@detail');
-        Route::post('/box/{id}/times/{num}', 'UIController@createOrder');
-        Route::any('/box-open', 'UIController@openLuckyBox');
+        Route::any('/box/{id}/times/{num}', 'UIController@createOrder');
+        Route::any('/open-box', 'UIController@openLuckyBox');
     });
 });

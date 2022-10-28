@@ -41,4 +41,9 @@ class GiftItemBoxRepository extends BaseRepository
     {
         return $this->model->where('gift_box_id', $id)->where('probability', $probability)->pluck('gift_item_id');
     }
+
+    public function getItemInfoByBoxId($boxId)
+    {
+        return $this->model->where('gift_box_id', $boxId)->get();
+    }
 }

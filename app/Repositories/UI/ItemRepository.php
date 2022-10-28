@@ -50,6 +50,7 @@ class ItemRepository extends BaseRepository
         $goodsNum = [];
         $itemIds = [];
         $except = [];
+
         while (--$times >= 0) {
             $goods_id = $this->getOne($boxId, $goodsIds);
 
@@ -60,12 +61,12 @@ class ItemRepository extends BaseRepository
             ++$goodsNum[$goods_id];
 
             $need = $goodsNum[$goods_id];
+
             $getNew = false;
 
             while (!self::checkStock($goods_id, $need)) {
                 $except[] = $goods_id;
                 $goods_id = self::getOne($boxId, $goodsIds, $except);
-
                 $getNew = true;
                 $need = isset($goodsNum[$goods_id]) ? $goodsNum[$goods_id] + 1 : 1;
             }
@@ -83,11 +84,12 @@ class ItemRepository extends BaseRepository
 
     private static function checkStock($goods_id, $need)
     {
-        if (1 == $need) {
+        if ($need == 1) {
             return true;
         }
 
         $stock = GiftItem::where('id', $goods_id)->value('qty');
+
         if (empty($stock) || $stock < $need) {
             return false;
         }

@@ -15,4 +15,9 @@ class GiftLogService
     {
         return $this->giftLogRepo->store($box, $times);
     }
+
+    public function getById($id)
+    {
+        return $this->giftLogRepo->getById($id);
+    }
 }
