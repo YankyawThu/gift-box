@@ -28,6 +28,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['namespace' => 'UI'], function () {
-        Route::get('ui', [UIController::class, 'index'])->name('luckydraw');
+        Route::get('ui', [UIController::class, 'index'])->name('home');
+        Route::post('ui', [UIController::class, 'getAll']);
+        Route::get('/box/{id}', [UIController::class, 'detail']);
+        Route::any('/box/{id}/times/{num}', [UIController::class, 'createOrder']);
+        Route::any('/open-box', [UIController::class, 'openLuckyBox']);
     });
 });
