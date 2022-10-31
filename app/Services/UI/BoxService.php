@@ -23,7 +23,7 @@ class BoxService
         return $this->boxRepo->getAll();
     }
 
-    public function getItemsByBoxId($id)
+    public function getById($id)
     {
         return $this->boxRepo->getById($id);
     }
