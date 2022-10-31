@@ -49,7 +49,6 @@ class BoxController extends Controller
     {
         $data = $this->boxService->getDetail($id);
         $items = $this->itemService->getAll($filter);
-
         return view('admin.boxItem.index', compact('data', 'items'));
     }
 

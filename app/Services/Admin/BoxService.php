@@ -36,6 +36,7 @@ class BoxService
     {
         $data = [];
         $giftItems = [];
+        $giftItemBoxes = [];
         $box = $this->boxRepo->getById($id);
         $data['category'] = optional($box->category)->name;
         $data['id'] = $box->id;
@@ -48,8 +49,11 @@ class BoxService
 
         foreach ($box->giftItemBox as $key => $v) {
             $giftItems[] = $v->giftItems;
+            $giftItemBoxes[$key]['id'] = $v->id;
+            $giftItemBoxes[$key]['probability'] = $v->probability;
         }
         $data['boxItems'] = $giftItems;
+        $data['giftBoxItems'] = $giftItemBoxes;
 
         return $data;
     }

@@ -30,10 +30,44 @@
                             <i class="ni education_hat mr-2"></i>{{ $data['created'] }}
                         </div>
                         <hr class="my-4" />
-                        <div>
-                            @foreach($data['boxItems'] as $item)
-                            <span class="box_selected_item_short_label">{{$item->name}}</span>
-                            @endforeach
+                        <div class="edit_item_area">
+                            <table class="table">
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Name</td>
+                                    <td>Probability</td>
+                                    <td></td>
+                                </tr>
+                                @foreach($data['boxItems'] as $k => $item)
+                                <tr class="remove_item_{{ $item->id }}">
+                                    <td>
+                                        {{ $loop->iteration }}
+                                    </td>
+                                    <td>
+                                        {{ $data['giftBoxItems'][$k]['probability'] }}
+                                    </td>
+                                    <td>
+                                        <span class="box_selected_item_short_label mx-1">{{$item->name}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1"
+                                            data-id="{{ $data['giftBoxItems'][$k]['id'] }}"
+                                            data-probability="{{ $data['giftBoxItems'][$k]['probability'] }}"
+                                            data-toggle="modal" data-target="#edit-gbox-modal">
+                                            <span class="btn btn-sm btn-success" data-toggle="tooltip"
+                                                data-original-title="Edit Gift Item Box">
+                                                <i class="fas fa-edit"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    @include('admin.boxItem.gift_box_item_edit', [
+                                    'boxItems' => $data['boxItems'], 'id' => $data['giftBoxItems'][$k]['id']
+                                    ])
+                                </tr>
+                                @endforeach
+                            </table>
+
                         </div>
                     </div>
                 </div>
@@ -59,6 +93,8 @@
                 </div>
                 <div class="loading text-center py-1">loading...</div>
             </div>
+        </div>
+        <div class="col-md-12 order-xl-3 text-center">
             <a type="button" class="btn btn-success mt-4 text-white" id="save_box_item">Save</a>
             <a type="button" class="btn btn-light mt-4 text-white" href="{{route('admin.boxes.index')}}">Back</a>
         </div>
@@ -84,6 +120,10 @@
                 if(!itemIds.includes(id)) {
                     itemIds.push(id)
                     $('.selected_item_area').append(`<div class='remove_item_${id} mr-3 mb-2 d-inline-block'><img class='item-img' width=50 height=50 src='${image}'><span class='pl-2 clear remove-span' data-id='${id}'><i class='ni ni-fat-remove remove-icon'></i></span></div>`)
+                    // $('.edit_item_area').append(`
+                    // <td class="remove_item_${id} box_selected_item_short_label mx-1">${name}
+                    // </td>
+                    // `)
                 }
             })
             $(document).on('click','.clear',function() {

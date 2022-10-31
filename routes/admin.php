@@ -32,7 +32,7 @@ Route::name('admin.')->group(function () {
         Route::resource('items', ItemController::class);
         Route::resource('boxes', BoxController::class);
         Route::resource('itemBox', GiftItemBoxController::class)->only([
-            'store', 'update',
+            'store', 'update', 'edit',
         ]);
         Route::resource('category', BoxCategoryController::class);
         Route::resource('giftLog', GiftLogController::class);

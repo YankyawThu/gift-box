@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth Routes
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index']);
 
     Route::resource('user', 'UserController')->only(['index']);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
