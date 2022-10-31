@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    // Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::resource('user', 'UserController')->only(['index']);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
@@ -28,8 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['namespace' => 'UI'], function () {
-        Route::get('ui', [UIController::class, 'index'])->name('luckydraw');
-        Route::post('/', [UIController::class, 'getAll']);
+        Route::get('ui', [UIController::class, 'index'])->name('home');
+        Route::post('ui', [UIController::class, 'getAll']);
         Route::get('/box/{id}', [UIController::class, 'detail']);
         Route::any('/box/{id}/times/{num}', [UIController::class, 'createOrder']);
         Route::any('/open-box', [UIController::class, 'openLuckyBox']);
