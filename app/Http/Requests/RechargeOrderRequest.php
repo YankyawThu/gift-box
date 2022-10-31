@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Http\Requests\GiftItemBox;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class RechargeOrderRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
@@ -24,8 +19,8 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
+            'amount' => 'required',
             'boxId' => 'required',
-            'itemId' => 'array',
         ];
     }
 }

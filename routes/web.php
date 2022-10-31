@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/box/{id}', [UIController::class, 'detail']);
         Route::any('/box/{id}/times/{num}', [UIController::class, 'createOrder']);
         Route::any('/open-box', [UIController::class, 'openLuckyBox']);
+        Route::get('/recharge-list', [RechargeController::class, 'index']);
+        Route::any('/recharge-order', [RechargeController::class, 'rechargeOrder']);
     });
 });
