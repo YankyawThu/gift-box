@@ -19,7 +19,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
 
@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $_redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -48,18 +48,18 @@ class LoginController extends Controller
         }
     }
 
-     public function logout(Request $request)
-     {
-         $this->guard()->logout();
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
 
-         $request->session()->invalidate();
+        $request->session()->invalidate();
 
-         $request->session()->regenerateToken();
+        $request->session()->regenerateToken();
 
-         if ($response = $this->loggedOut($request)) {
-             return $response;
-         }
+        if ($response = $this->loggedOut($request)) {
+            return $response;
+        }
 
-         return redirect()->route('login');
-     }
+        return redirect()->route('login');
+    }
 }

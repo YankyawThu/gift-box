@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /**
+    public function __construct()
+    {
+        $this->middleware('admin.guest:admin')->except('logout');
+    }    /**
      * Show the login form.
      *
      * @return \Illuminate\Http\Response
