@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RechargeListController;
+use App\Http\Controllers\Admin\RechargeOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->group(function () {
@@ -41,5 +42,7 @@ Route::name('admin.')->group(function () {
         Route::get('boxes/{id}/items', [GiftItemBoxController::class, 'getItems'])->name('gift-items');
 
         Route::resource('rechargeLists', RechargeListController::class);
+
+        Route::resource('rechargeOrders', RechargeOrderController::class);
     });
 });
