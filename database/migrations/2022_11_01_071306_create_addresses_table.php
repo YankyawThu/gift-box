@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->string('phone');
             $table->unsignedBigInteger('township_id');
             $table->string('address');
-            $table->boolean('is_default')->comment('0=no default,1=default');
+            $table->boolean('is_default')->default(0)->comment('0=no default,1=default');
             $table->softDeletes();
             $table->timestamps();
         });
