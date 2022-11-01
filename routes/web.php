@@ -26,10 +26,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['namespace' => 'UI'], function () {
-        Route::get('ui', [UIController::class, 'index'])->name('home');
-        Route::post('ui', [UIController::class, 'getAll']);
-        Route::get('/box/{id}', [UIController::class, 'detail']);
-        Route::any('/box/{id}/times/{num}', [UIController::class, 'createOrder']);
+        Route::prefix('box')->group(function () {
+            Route::get('/', [UIController::class, 'index'])->name('home');
+            Route::post('/', [UIController::class, 'getAll']);
+            Route::get('/{id}', [UIController::class, 'detail']);
+            Route::any('/{id}/times/{num}', [UIController::class, 'createOrder']);
+        });
+
         Route::any('/open-box', [UIController::class, 'openLuckyBox']);
         Route::get('/recharge-list', [RechargeController::class, 'index']);
         Route::any('/recharge-order', [RechargeController::class, 'rechargeOrder']);
