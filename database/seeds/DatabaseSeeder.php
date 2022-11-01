@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GiftLogSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(RechargeListSeeder::class);
+        $this->call(TownshipSeeder::class);
     }
 }
