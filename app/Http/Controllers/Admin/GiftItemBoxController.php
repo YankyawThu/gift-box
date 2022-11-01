@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GiftItemBox\CreateRequest;
+use App\Http\Requests\GiftItemBox\UpdateRequest;
 use App\Services\Admin\BoxCategoryService;
 use App\Services\Admin\GiftItemBoxService;
 use App\Services\Admin\ItemService;
 
 class GiftItemBoxController extends Controller
 {
-    private $giftBoxService, $itemService, $boxCateService;
+    private $giftBoxService;
+    private $itemService;
+    private $boxCateService;
     public function __construct(GiftItemBoxService $giftBoxService, ItemService $itemService, BoxCategoryService $boxCateService)
     {
         $this->giftBoxService = $giftBoxService;
@@ -40,6 +43,13 @@ class GiftItemBoxController extends Controller
     public function update(CreateRequest $request)
     {
         return $this->giftBoxService->update($request);
+    }
+
+    public function detailUpdate(UpdateRequest $request)
+    {
+        if ($this->giftBoxService->detailUpdate($request)) {
+            return redirect()->back()->with('status', 'Updated Successfully!');
+        }
     }
 
     public function getItems($id)

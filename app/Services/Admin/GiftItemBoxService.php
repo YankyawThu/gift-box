@@ -22,6 +22,11 @@ class GiftItemBoxService
         return $this->itemBoxRepo->updateItemBox($request);
     }
 
+    public function detailUpdate($request)
+    {
+        return $this->itemBoxRepo->detailUpdate($request);
+    }
+
     public function getDetail($id)
     {
         $data = [];

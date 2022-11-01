@@ -1,6 +1,18 @@
 @extends('admin.layouts.content')
 
 @section('content')
+<script>
+    $(function(){
+        @if (session('status'))
+            toastr.success('{{ session('status') }}')
+        @endif
+
+        @if ($errors->any())
+            toastr.error('{{ $errors->all()[0] }}')
+        @endif
+    })
+</script>
+
 <div class="header bg-gradient-primary pb-7 pt-5 pt-md-8">
 </div>
 <div class="container-fluid mt--8">
@@ -34,8 +46,8 @@
                             <table class="table">
                                 <tr>
                                     <td>Id</td>
-                                    <td>Name</td>
                                     <td>Probability</td>
+                                    <td>Name</td>
                                     <td></td>
                                 </tr>
                                 @foreach($data['boxItems'] as $k => $item)
@@ -52,9 +64,11 @@
                                     </td>
                                     <td>
                                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1"
+                                            data-toggle="modal" data-target="#edit-gbox-modal"
                                             data-id="{{ $data['giftBoxItems'][$k]['id'] }}"
-                                            data-probability="{{ $data['giftBoxItems'][$k]['probability'] }}"
-                                            data-toggle="modal" data-target="#edit-gbox-modal">
+                                            data-gift-box-id="{{ $data['giftBoxItems'][$k]['giftBoxId'] }}"
+                                            data-gift_item_id="{{ $item->id }}"
+                                            data-probability="{{ $data['giftBoxItems'][$k]['probability'] }}">
                                             <span class="btn btn-sm btn-success" data-toggle="tooltip"
                                                 data-original-title="Edit Gift Item Box">
                                                 <i class="fas fa-edit"></i>
@@ -62,7 +76,8 @@
                                         </a>
                                     </td>
                                     @include('admin.boxItem.gift_box_item_edit', [
-                                    'boxItems' => $data['boxItems'], 'id' => $data['giftBoxItems'][$k]['id']
+                                    'id' => 0,
+                                    'items' => $items
                                     ])
                                 </tr>
                                 @endforeach

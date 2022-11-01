@@ -236,6 +236,20 @@ $(function() {
         modal.find('.modal-body #edit_box_img_url').attr("src", imagePath)
     })
 
+    $('#edit-gbox-modal').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var giftBoxId = button.data('gift-box-id')
+        var probability = button.data('probability')
+        var giftItemId = button.data('gift_item_id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #giftBoxId').val(giftBoxId)
+        modal.find('.modal-body #probability').val(probability)
+        modal.find('.modal-body #giftItemId').val(giftItemId)
+
+    })
+
     $('#new-box-image').on('change', function() {
         $('#edit_box_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })
@@ -268,8 +282,40 @@ $(function() {
         },
     })
 
+    var gBoxUpdateForm = $('#gbox-update-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            giftItemId: {
+                required: true,
+            },
+            probability: {
+                required: true,
+                number: true,
+            }
+        },
+        messages: {
+            name: {
+                required: "Gift Item is Required."
+            },
+            price: {
+                required: "Probability is Required."
+            }
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="giftItemId"]').removeClass('alert-danger')
+            $('input[name="probability"]').removeClass('alert-danger')
+        },
+    })
+
     $('#edit-item-cancel-btn').on('click', function() {
         boxUpdateForm.resetForm()
+    })
+
+    $('#edit-gbox-cancel-btn').on('click', function() {
+        gBoxUpdateForm.resetForm()
     })
 
     $('#category_id').on('change', function() {

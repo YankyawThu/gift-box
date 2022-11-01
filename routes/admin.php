@@ -34,6 +34,7 @@ Route::name('admin.')->group(function () {
         Route::resource('itemBox', GiftItemBoxController::class)->only([
             'store', 'update', 'edit',
         ]);
+        Route::put('itemBoxes/detailUpdate/{id}', [GiftItemBoxController::class, 'detailUpdate'])->name('itemBoxes.detailUpdate');
         Route::resource('category', BoxCategoryController::class);
         Route::resource('giftLog', GiftLogController::class);
         Route::get('boxes/{id}/items', [GiftItemBoxController::class, 'getItems'])->name('gift-items');

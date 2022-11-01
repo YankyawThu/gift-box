@@ -8,26 +8,29 @@
                         <h3 class="mb-0">{{ __('Update Gift Item Box') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.itemBox.update', $id) }}" method="POST" id="box-update-form"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('admin.itemBoxes.detailUpdate', $id) }}" method="POST"
+                            id="gbox-update-form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+                            <input type="text" name="id" id="id" hidden>
+                            <input type="text" name="giftBoxId" id="giftBoxId" hidden>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="categoryId" class="form-control-label">Category</label>
+                                        <label for="giftItemId" class="form-control-label">Item Name</label>
                                         <select class="form-select form-control form-control-alternative"
-                                            aria-label="Default select example" id="categoryId" name="categoryId">
-                                            @foreach ($boxItems as $item)
+                                            aria-label="Default select example" id="giftItemId" name="giftItemId">
+                                            @foreach ($items as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="probability" class="form-control-label">probability</label>
-                                        <input type="text" placeholder="probability" id="probability" name="probability"
+                                        <input type="text" placeholder="probability" name="probability" id="probability"
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
@@ -36,8 +39,8 @@
                         </form>
                     </div>
                     <div class="card-footer bg-secondary text-center px-lg-2 px-1">
-                        <button type="submit" form="box-update-form" class="btn btn-success text-white">Update</button>
-                        <button type="button" id="edit-item-cancel-btn" class="btn btn-primary text-white"
+                        <button type="submit" form="gbox-update-form" class="btn btn-success text-white">Update</button>
+                        <button type="button" id="edit-gbox-cancel-btn" class="btn btn-primary text-white"
                             data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

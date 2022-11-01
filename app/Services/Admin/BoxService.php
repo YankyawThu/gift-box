@@ -51,6 +51,7 @@ class BoxService
             $giftItems[] = $v->giftItems;
             $giftItemBoxes[$key]['id'] = $v->id;
             $giftItemBoxes[$key]['probability'] = $v->probability;
+            $giftItemBoxes[$key]['giftBoxId'] = $v->gift_box_id;
         }
         $data['boxItems'] = $giftItems;
         $data['giftBoxItems'] = $giftItemBoxes;
