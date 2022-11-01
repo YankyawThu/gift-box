@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\GiftLogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\RechargeListController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->group(function () {
@@ -38,5 +39,7 @@ Route::name('admin.')->group(function () {
         Route::resource('category', BoxCategoryController::class);
         Route::resource('giftLog', GiftLogController::class);
         Route::get('boxes/{id}/items', [GiftItemBoxController::class, 'getItems'])->name('gift-items');
+
+        Route::resource('rechargeLists', RechargeListController::class);
     });
 });

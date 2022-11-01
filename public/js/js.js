@@ -116,6 +116,60 @@ $(function() {
         itemUpdateForm.resetForm()
     })
 
+     // recharge
+    $('#recharge-store-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            amount: {
+                required: true,
+            },
+        },
+        messages: {
+            amount: {
+                required: "Amount is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="amount"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-recharge-modal').on('show.bs.modal', function(e) {
+    var button = $(e.relatedTarget)
+    var id = button.data('id')
+    var amount = button.data('amount')
+    modal = $(this)
+    modal.find('.modal-body #id').val(id)
+    modal.find('.modal-body #amount').val(amount)
+    })
+
+    var rechargeUpdateForm = $('#edit-recharge-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            amount: {
+                required: true,
+            },
+        },
+        messages: {
+            amount: {
+                required: "Amount is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="amount"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-recharge-cancel-btn').on('click', function() {
+        rechargeUpdateForm.resetForm()
+    })
+
     // category
     $('#category-store-form').validate({
         ignore: [],

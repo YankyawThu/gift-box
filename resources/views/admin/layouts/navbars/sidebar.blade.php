@@ -109,6 +109,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'rechargeLists') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.rechargeLists.index') }}">
+                        <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'users') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.users.index') }}">
                         <i class="fas fa-users text-blue"></i> {{ __('Users') }}
