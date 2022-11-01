@@ -16,7 +16,7 @@ class AdminAuthenticate
     public function handle($request, Closure $next)
     {
         if (auth()->guard('admin') == null or auth()->user() == null) {
-            dd(1);
+           
             return redirect('admin.login');
         } else {
             return auth()->guard('admin') ? $next($request) : abort(403, 'Access denied');

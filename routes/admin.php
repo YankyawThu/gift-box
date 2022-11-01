@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BoxCategoryController;
 use App\Http\Controllers\Admin\BoxController;
@@ -15,7 +14,7 @@ use App\Http\Controllers\Admin\RechargeOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->group(function () {
-    //Login Routes
+    // Login Routes
     Route::get('login', [AdminLoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [AdminLoginController::class, 'login']);
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');

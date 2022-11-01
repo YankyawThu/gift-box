@@ -23,7 +23,9 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+
                     <div class="dropdown-header noti-title">
+
                         <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                     </div>
                     <a href="{{ route('admin.profile.edit') }}" class="dropdown-item">
@@ -76,12 +78,15 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
+
                     <a class="nav-link {{ activeSegment(2, 'category') == 'active' ? 'active' : '' }}"
+
                         href="{{ route('admin.category.index') }}">
                         <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
                     </a>
@@ -89,6 +94,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'items') == 'active' ? 'active' : '' }}"
+
                         href="{{ route('admin.items.index') }}">
                         <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
                     </a>
@@ -96,6 +102,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'boxes') == 'active' ? 'active' : '' }}"
+
                         href="{{ route('admin.boxes.index') }}">
                         <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
                     </a>

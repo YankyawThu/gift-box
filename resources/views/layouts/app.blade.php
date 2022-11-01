@@ -43,8 +43,6 @@
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
         <script src="{{asset('js/toastr.min.js')}}"></script>
-        <script src="{{asset('js/jquery.jscroll.min.js')}}"></script>
-
 
         @stack('js')
 

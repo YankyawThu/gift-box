@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,8 +27,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
-
     Route::group(['namespace' => 'UI'], function () {
-        Route::get('ui', [UIController::class, 'index'])->name('luckydraw');
+        Route::prefix('box')->group(function () {
+            Route::get('/', [UIController::class, 'index'])->name('home');
+            Route::post('/', [UIController::class, 'getAll']);
+            Route::get('/{id}', [UIController::class, 'detail']);
+            Route::any('/{id}/times/{num}', [UIController::class, 'createOrder']);
+        });
+
+        Route::any('/open-box', [UIController::class, 'openLuckyBox']);
+        Route::get('/recharge-list', [RechargeController::class, 'index']);
+        Route::any('/recharge-order', [RechargeController::class, 'rechargeOrder']);
     });
 });
