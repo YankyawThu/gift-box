@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BoxCategoryController;
 use App\Http\Controllers\Admin\BoxController;
@@ -10,10 +9,11 @@ use App\Http\Controllers\Admin\GiftLogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->group(function () {
-    //Login Routes
+    // Login Routes
     Route::get('login', [AdminLoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [AdminLoginController::class, 'login']);
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');
@@ -32,7 +32,7 @@ Route::name('admin.')->group(function () {
         Route::resource('items', ItemController::class);
         Route::resource('boxes', BoxController::class);
         Route::resource('itemBox', GiftItemBoxController::class)->only([
-            'store', 'update',
+            'store', 'update', 'edit',
         ]);
         Route::resource('category', BoxCategoryController::class);
         Route::resource('giftLog', GiftLogController::class);
