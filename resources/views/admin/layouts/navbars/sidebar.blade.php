@@ -86,7 +86,6 @@
                 <li class="nav-item">
 
                     <a class="nav-link {{ activeSegment(2, 'category') == 'active' ? 'active' : '' }}"
-
                         href="{{ route('admin.category.index') }}">
                         <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
                     </a>
@@ -94,7 +93,6 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'items') == 'active' ? 'active' : '' }}"
-
                         href="{{ route('admin.items.index') }}">
                         <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
                     </a>
@@ -102,7 +100,6 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'boxes') == 'active' ? 'active' : '' }}"
-
                         href="{{ route('admin.boxes.index') }}">
                         <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
                     </a>
@@ -118,7 +115,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'rechargeLists') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.rechargeLists.index') }}">
-                        <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges') }}
+                        <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges Lists') }}
                     </a>
                 </li>
 

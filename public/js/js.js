@@ -116,7 +116,7 @@ $(function() {
         itemUpdateForm.resetForm()
     })
 
-     // recharge
+    // recharge
     $('#recharge-store-form').validate({
         ignore: [],
         errorElement: 'span',
@@ -375,5 +375,66 @@ $(function() {
     $('#category_id').on('change', function() {
         document.forms["box-search-form"].submit();
     });
+
+    //User
+   $('#edit-user-modal').on('show.bs.modal', function(e) {
+    var button = $(e.relatedTarget)
+    var id = button.data('id')
+    var name = button.data('name')
+    var phone = button.data('phone')
+    var coin = button.data('coin')
+    var money = button.data('money')
+    modal = $(this)
+    modal.find('.modal-body #id').val(id)
+    modal.find('.modal-body #name').val(name)
+    modal.find('.modal-body #phone').val(phone)
+    modal.find('.modal-body #coin').val(coin)
+    modal.find('.modal-body #money').val(money)
+    })
+
+    var userUpdateForm = $('#edit-user-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            name: {
+                required: true,
+            },
+            phone: {
+                required: true,
+            },
+            coin: {
+                required: true,
+            },
+            money: {
+                required: true,
+            },
+        },
+        messages: {
+            name: {
+                required: "Name is Required."
+            },
+            phone: {
+                required: "Phone is Required."
+            },
+            coin: {
+                required: "Coin is Required."
+            },
+            money: {
+                required: "Money is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="name"]').removeClass('alert-danger')
+            $('input[name="phone"]').removeClass('alert-danger')
+            $('input[name="coin"]').removeClass('alert-danger')
+            $('input[name="money"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-user-cancel-btn').on('click', function() {
+        userUpdateForm.resetForm()
+    })
 
 })

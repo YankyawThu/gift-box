@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RechargeListController;
 use App\Http\Controllers\Admin\RechargeOrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 
 Route::name('admin.')->group(function () {
     // Login Routes
@@ -23,7 +24,7 @@ Route::name('admin.')->group(function () {
         Route::get('/', [AdminHomeController::class, 'index'])->name('home');
 
         Route::resource('admins', AdminController::class)->only(['index']);
-        Route::resource('users', UserController::class)->only(['index']);
+        Route::resource('users', UserController::class);
 
         Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');

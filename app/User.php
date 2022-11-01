@@ -18,7 +18,7 @@ class User extends Authenticatable
      */
     use SoftDeletes;
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'coin', 'money', 'phone'
     ];
 
     /**
@@ -39,18 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin()
-    {
-        return $this->is_admin == true;
-    }
-
     public function scopeFilter($query, $filters)
     {
         $filters->apply($query);
     }
-
-    // public function amount()
-    // {
-    //     return $this->hasOne(UserAmount::class);
-    // }
 }

@@ -93,13 +93,13 @@
                             data-name="{{ $item->name }}" data-qty="{{ $item->qty }}" data-image="{{ $item->image }}"
                             data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
                             data-price="{{ $item->price }}" data-toggle="modal" data-target="#edit-item-modal">
-                            <span class="btn btn-lg btn-success" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-success" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-edit"></i>
                             </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-danger px-1 text-sm"
                             data-id="{{ $item->id }}" data-toggle="modal" data-target="#delete-modal">
-                            <span class="btn btn-lg btn-danger" data-toggle="tooltip" data-original-title="Delete item">
+                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Delete item">
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>

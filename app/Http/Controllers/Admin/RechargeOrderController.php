@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Filters\Admin\RechargeListFilter;
+use App\Filters\Admin\RechargeOrderFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RechargeCreateRequest;
 use App\Http\Requests\Admin\RechargeUpdateRequest;
@@ -22,7 +22,7 @@ class RechargeOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(RechargeListFilter $filter)
+    public function index(RechargeOrderFilter $filter)
     {
         $data = $this->rechargeOrderService->getAll($filter);
 

@@ -106,7 +106,7 @@
                     <td class="align-middle">
                         <a href="{{route('admin.boxes.show', $item->id)}}"
                             class="font-weight-bold text-sm text-success px-1">
-                            <span class="btn btn-lg btn-info" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-info" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-eye"></i>
                             </span>
                         </a>
@@ -115,13 +115,13 @@
                             data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
                             data-price="{{$item->price}}" data-category_id="{{optional($item->category)->id}}"
                             data-toggle="modal" data-target="#edit-box-modal">
-                            <span class="btn btn-lg btn-success" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-success" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-edit"></i>
                             </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}"
                             data-toggle="modal" data-target="#delete-modal">
-                            <span class="btn btn-lg btn-danger" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>

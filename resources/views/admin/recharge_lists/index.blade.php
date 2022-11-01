@@ -62,14 +62,14 @@
                     <td class="align-middle">
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                             data-amount="{{ $item->amount }}" data-toggle="modal" data-target="#edit-recharge-modal">
-                            <span class="btn btn-lg btn-success" data-toggle="tooltip"
+                            <span class="btn btn-sm btn-success" data-toggle="tooltip"
                                 data-original-title="Edit Recharge">
                                 <i class="fas fa-edit"></i>
                             </span>
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-danger px-1 text-sm"
                             data-id="{{ $item->id }}" data-toggle="modal" data-target="#delete-modal">
-                            <span class="btn btn-lg btn-danger" data-toggle="tooltip"
+                            <span class="btn btn-sm btn-danger" data-toggle="tooltip"
                                 data-original-title="Delete Recharge">
                                 <i class="fas fa-trash"></i>
                             </span>

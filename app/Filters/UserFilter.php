@@ -4,24 +4,29 @@ namespace App\Filters;
 
 class UserFilter extends Filter
 {
-    protected $filters = ['name', 'email', 'amount'];
+    protected $filters = ['name', 'email', 'money', 'coin'];
 
     public function name($value)
     {
-        return $this->builder->where('users.name', 'LIKE', "%$value%");
+        return $this->builder->where('name', 'LIKE', "%{$value}%");
     }
 
     public function email($value)
     {
-        return $this->builder->where('users.email', $value);
+        return $this->builder->where('email', 'like', "%{$value}%");
     }
 
-    public function amount($value)
+    public function money($value)
     {
         if ($value) {
-            return $this->builder->whereHas('amount', function ($q) use ($value) {
-                $q->where('user_amounts.amount', $value);
-            });
+            return $this->builder->where('money', '>=', $value);
+        }
+    }
+
+    public function coin($value)
+    {
+        if ($value) {
+            return $this->builder->where('money', '>=', $value);
         }
     }
 }

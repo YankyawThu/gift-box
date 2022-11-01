@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Services\Admin\UserService;
 use App\User;
 use Illuminate\Http\Request;
@@ -78,9 +79,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $this->userService->update($request->validated(), $user->id);
+
+        return redirect()->back()->with('status', 'User Updated Successfully!');
     }
 
     /**
@@ -91,6 +94,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->userService->delete($user->id);
+
+        return redirect()->back()->with('status', 'Recharge Deleted Successfully!');
     }
 }
