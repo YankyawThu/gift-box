@@ -22,9 +22,6 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'UserController')->only(['index']);
-    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-    Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['namespace' => 'UI'], function () {
         Route::prefix('box')->group(function () {
@@ -40,5 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/order-list', [OrderController::class, 'index']);
 
         Route::resource('shipping-address', ShippingAddressController::class);
+        Route::prefix('user')->group(function () {
+            Route::any('/change-avatar', 'UserConroller@changeAvatar');
+            Route::any('/change-nickname', 'UserConroller@changeNickname');
+        });
     });
 });
