@@ -466,6 +466,7 @@ $(function() {
             },
             delivery_number: {
                 required: true,
+                number: true,
             },
         },
         messages: {
@@ -473,7 +474,8 @@ $(function() {
                 required: "Post Name is Required."
             },
             delivery_number: {
-                required: "Deliver Number is Required."
+                required: "Deliver Number is Required.",
+                number: "Deliver Number must be number.",
             },
         },
         showErrors: function() {

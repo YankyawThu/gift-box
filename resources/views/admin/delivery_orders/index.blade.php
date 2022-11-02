@@ -4,6 +4,17 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 @endpush
 @section('content-detail')
+<script>
+    $(function(){
+        @if (session('status'))
+            toastr.success('{{ session('status') }}')
+        @endif
+
+        @if ($errors->any())
+            toastr.error('{{ $errors->all()[0] }}')
+        @endif
+    })
+</script>
 <div>
     <div class="d-flex justify-content-between content_detail_header">
         <div class="align-self-center">
@@ -111,6 +122,7 @@
                     <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>
                 </td>
                 <td class="align-middle">
+                    @if ($item->status == 'undelivered')
                     <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                         data-goods-name="{{ $item->gift_prize_id }}" data-name={{ optional($item->user)->name }}
                         data-phone="{{ optional($item->user)->phone }}" data-address="{{
@@ -122,6 +134,7 @@
                     </a>
 
                     @include('admin.delivery_orders.edit', ['id' => $item->id, 'item' => $item, 'posts' => $posts])
+                    @endif
                 </td>
             </tr>
             @endforeach
