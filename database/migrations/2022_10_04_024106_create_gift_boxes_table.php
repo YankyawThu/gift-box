@@ -37,7 +37,5 @@ class CreateGiftboxesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('gift_boxes');
-
-        Schema::dropIfExists('giftboxes');
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
