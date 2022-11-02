@@ -33,13 +33,13 @@
                         <div class="flex-none w-12 self-center text-right font-bold" style="color:#FFC042;">$ {{box.price}}</div>
                     </div>
                     <div class="">
-                        <div v-for="(item,j) in box.items" :key="j" class="inline-block pr-1 py-3">
-                            <img :src="item.image" width="35" height="35">
+                        <div v-for="j in 3" :key="j" class="inline-block pr-1 py-3">
+                            <img :src="box.items[j]" width="35" height="35">
                         </div>
                     </div>
                     <div class="flex justify-between py-2">
                         <div style="color: #FFC042;"><span>{{box.coin}} coins/draw</span></div>
-                        <div class="self-center"><img src="/image/ui/Arrow.svg"></div>
+                        <div class="self-center"><img src="/image/ui/Arrow.svg"> {{box.id}}</div>
                     </div>
                 </Link>
             </div>
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         fetchData () {
-            axios.post(`?page=${this.page}`)
+            axios.post(`/box?page=${this.page}`)
                 .then((res) => {
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages

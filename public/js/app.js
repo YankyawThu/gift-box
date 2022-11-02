@@ -2163,7 +2163,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   methods: {
     fetchData: function fetchData() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("?page=".concat(this.page)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page)).then(function (res) {
         var _this$boxes;
         (_this$boxes = _this.boxes).push.apply(_this$boxes, _toConsumableArray(res.data.data));
         _this.lastPage = res.data.pagination.total_pages;
@@ -2778,13 +2778,13 @@ var render = function render() {
       staticStyle: {
         color: "#FFC042"
       }
-    }, [_vm._v("$ " + _vm._s(box.price))])]), _vm._v(" "), _c("div", {}, _vm._l(box.items, function (item, j) {
+    }, [_vm._v("$ " + _vm._s(box.price))])]), _vm._v(" "), _c("div", {}, _vm._l(3, function (j) {
       return _c("div", {
         key: j,
         staticClass: "inline-block pr-1 py-3"
       }, [_c("img", {
         attrs: {
-          src: item.image,
+          src: box.items[j],
           width: "35",
           height: "35"
         }
@@ -2801,7 +2801,7 @@ var render = function render() {
       attrs: {
         src: "/image/ui/Arrow.svg"
       }
-    })])])]);
+    }), _vm._v(" " + _vm._s(box.id))])])]);
   }), 1)])]);
 };
 var staticRenderFns = [];
