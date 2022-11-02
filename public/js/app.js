@@ -2795,7 +2795,7 @@ var render = function render() {
       staticStyle: {
         color: "#FFC042"
       }
-    }, [_c("span", [_vm._v(" coins/draw")])]), _vm._v(" "), _c("div", {
+    }, [_c("span", [_vm._v(_vm._s(box.coin) + " coins/draw")])]), _vm._v(" "), _c("div", {
       staticClass: "self-center"
     }, [_c("img", {
       attrs: {

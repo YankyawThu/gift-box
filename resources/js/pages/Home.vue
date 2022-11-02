@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="flex justify-between py-2">
-                        <div style="color: #FFC042;"><span> coins/draw</span></div>
+                        <div style="color: #FFC042;"><span>{{box.coin}} coins/draw</span></div>
                         <div class="self-center"><img src="/image/ui/Arrow.svg"></div>
                     </div>
                 </Link>

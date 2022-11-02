@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class HomePageResource extends JsonResource
+class ShippingAddressResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,17 +15,12 @@ class HomePageResource extends JsonResource
      */
     public function toArray($request)
     {
-        $items = [];
-        foreach ($this->giftItemBox as $v) {
-            $items[] = $v->giftItems;
-        }
-
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'price' => $this->price,
-            'coin' => $this->coin,
-            'items' => GiftItemResource::collection($items),
+            'phone' => $this->phone,
+            'township' => optional($this->township)->name,
+            'district' => config('zones.zoneSelections.'.optional($this->township)->zone_id)['name'],
+            'address' => $this->address,
         ];
     }
 }
