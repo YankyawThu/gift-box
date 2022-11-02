@@ -20,13 +20,7 @@ class GiftLogRepositroy extends BaseRepository
            'times' => $times,
            'amount' => ($box->price * $times),
         ]);
-        $ret = [
-            'orderId' => intval($result->id),
-            'boxId' => $result->gift_box_id,
-            'times' => $times,
-            'coinNotEnough' => (bool) (intval(auth()->user()->money) < intval($result->amount)),
-        ];
 
-        return $ret;
+        return $result;
     }
 }

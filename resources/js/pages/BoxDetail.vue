@@ -19,25 +19,23 @@
         </div>
         <div class="blind_box_underline my-1 w-56 mx-auto"></div>
         <div class="box_wish text-center py-2 px-4">Save the wish value and redeem the happy wish prize</div>
-        <div class="-mt-32 flex justify-around">
-            <div></div>
-            <div>
-                <img src="/image/ui/Box.svg">
-            </div>
-            <div></div>
+        <div class="-mt-32">
+            <img src="/image/ui/Box.svg" class="m-auto">
         </div>
         <div class="flex justify-around -mt-32">
             <div class="relative">
-                <Link href="" as="button">
+                <Link :href="'/box/'+data.data.id+'/open/1'" as="button">
                     <img src="/image/ui/GetOneButton.svg">
                     <div class="absolute top-6 right-10 font-semibold">Get One</div>
                     <div class="absolute top-10 right-14">$ {{data.data.price}}</div>
                 </Link>
             </div>
             <div class="relative">
-                <img src="/image/ui/GetAllButton.svg">
-                <div class="absolute top-6 right-14 font-semibold">Get Five</div>
-                <div class="absolute top-10 right-16">$ {{data.data.price * 5}}</div>
+                <Link :href="'/box/'+data.data.id+'/open/5'" as="button">
+                    <img src="/image/ui/GetAllButton.svg">
+                    <div class="absolute top-6 right-14 font-semibold">Get Five</div>
+                    <div class="absolute top-10 right-16">$ {{data.data.price * 5}}</div>
+                </Link>
             </div>
         </div>
         <div class="px-2 py-1 detail_itembox mx-4">

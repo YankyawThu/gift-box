@@ -59,6 +59,11 @@ class UIController extends Controller
         return response()->json($data);
     }
 
+    public function boxOpen($id, $time)
+    {
+        return Inertia::render('OpenBox',['id' => $id, 'time' => $time]);
+    }
+
     public function createOrder($boxId, $times)
     {
         $box = $this->boxService->getById($boxId);
@@ -68,8 +73,14 @@ class UIController extends Controller
         if (!in_array($times, [1, 5])) {
             throw new BadRequestException('Wrong number of unpacked!');
         }
-
-        return $this->giftLogService->store($box, $times);
+        $data = new HomePageResource($box);
+        $order = $this->giftLogService->store($box, $times);
+        $result = [
+            'orderId' => intval($order->id),
+            'coinNotEnough' => (bool) (intval(auth()->user()->money) < intval($order->amount)),
+            'data' => $data
+        ];
+        return $result;
     }
 
     public function openLuckyBox(OpenBoxRequest $request)

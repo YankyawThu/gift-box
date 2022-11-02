@@ -172,4 +172,17 @@
     background-size: cover;
 }
 
+.prize_container {
+    top: -1.25rem;
+    left: 2rem;
+}
+
+.prize_box {
+    margin-bottom: -0.2rem;
+    margin-top: 4rem;
+}
+
+.nav_link_active {
+    color: #493B83;
+}
 
