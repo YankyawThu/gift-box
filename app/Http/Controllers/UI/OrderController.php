@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderListRequest;
+use App\Http\Resources\OrderListResourceCollection;
 use App\Services\UI\OrderService;
 
 class OrderController extends Controller
@@ -15,6 +16,6 @@ class OrderController extends Controller
 
     public function index(OrderListRequest $request)
     {
-        return $this->orderService->getOrders($request);
+        return new OrderListResourceCollection($this->orderService->getOrders($request));
     }
 }

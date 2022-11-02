@@ -16,10 +16,8 @@ class OrderRepository extends BaseRepository
     {
         $status = $request->status;
         $statusList = [1 => 'undelivered', 2 => 'unreceived', 3 => 'finished'];
-        $statusListText = ['undelivered' => 'to be delivered', 'unreceived' => 'Shipped', 'finished' => 'completed'];
         $status = $statusList[$status];
 
-        $datas = $this->model->orderBy('id', 'DESC')->where('status', $status)->paginate($page ?? config('enums.itemPerPage'));
-        dd($datas);
+        return $this->model->orderBy('id', 'DESC')->where('status', $status)->paginate($page ?? config('enums.itemPerPage'));
     }
 }
