@@ -31,12 +31,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/', [UIController::class, 'index'])->name('home');
             Route::post('/', [UIController::class, 'getAll']);
             Route::get('/{id}', [UIController::class, 'detail']);
-            Route::any('/{id}/times/{num}', [UIController::class, 'createOrder']);
+            Route::post('/{id}/times/{num}', [UIController::class, 'createOrder']);
         });
 
-        Route::any('/open-box', [UIController::class, 'openLuckyBox']);
+        Route::post('/open-box', [UIController::class, 'openLuckyBox']);
         Route::get('/recharge-list', [RechargeController::class, 'index']);
-        Route::any('/recharge-order', [RechargeController::class, 'rechargeOrder']);
+        Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/order-list', [OrderController::class, 'index']);
+
+        Route::resource('shipping-address', ShippingAddressController::class);
     });
 });

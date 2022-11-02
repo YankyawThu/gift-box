@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="flex justify-between py-2">
-                        <div style="color: #FFC042;"><span> coins/draw</span></div>
+                        <div style="color: #FFC042;">{{box.coin}}<span> coins/draw</span></div>
                         <div></div>
                     </div>
                 </Link>
