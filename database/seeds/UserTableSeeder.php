@@ -22,7 +22,8 @@ class UserTableSeeder extends Seeder
                     'password' => Hash::make('12345'),
                     'gender' => 1,
                     'level' => 1,
-                    'status' => 'active'
+                    'status' => 'active',
+                    'created_at' => now()
                 ],
             ]
         );
