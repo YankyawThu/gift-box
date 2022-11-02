@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BoxCategoryController;
 use App\Http\Controllers\Admin\BoxController;
+use App\Http\Controllers\Admin\DeliveryOrderController;
 use App\Http\Controllers\Admin\GiftItemBoxController;
 use App\Http\Controllers\Admin\GiftLogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -44,5 +45,7 @@ Route::name('admin.')->group(function () {
         Route::resource('rechargeLists', RechargeListController::class);
 
         Route::resource('rechargeOrders', RechargeOrderController::class);
+
+        Route::resource('delivery-orders', DeliveryOrderController::class);
     });
 });

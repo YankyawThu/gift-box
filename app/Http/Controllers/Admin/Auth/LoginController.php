@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,9 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('admin.guest:admin')->except('logout');
-    }    /**
+    }
+
+    /**
      * Show the login form.
      *
      * @return \Illuminate\Http\Response
@@ -35,6 +38,10 @@ class LoginController extends Controller
         $this->validator($request);
         if (Auth::guard('admin')->attempt($request->only('email', 'password'), $request->filled('token'))) {
             // Authentication passed...
+
+            // update login time
+            Admin::updateTime();
+
             return redirect()
                 ->intended(route('admin.home'))
                 ->with('status', 'You are Logged in as Admin!');

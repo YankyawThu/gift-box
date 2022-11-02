@@ -21,6 +21,8 @@ class CreateDeliveryOrdersTable extends Migration
             $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('gift_prize_id');
             $table->enum('status', ['undelivered', 'unreceived', 'finished', 'unpay'])->comment('unpay=to be paid, undelivered=to be delivered, unreceived=to be received, finished=completed');
+            $table->unsignedBigInteger('post_id');
+            $table->string('delivery_number', 100)->nullable();
             $table->timestamp('delivery_time')->nullable();
             $table->timestamp('receive_time')->nullable();
             $table->softDeletes();

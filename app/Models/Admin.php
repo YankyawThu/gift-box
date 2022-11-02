@@ -32,4 +32,11 @@ class Admin extends Authenticatable
     {
         $filters->apply($query);
     }
+
+    public static function updateTime()
+    {
+        self::where('id', auth('admin')->user()->id)->update([
+            'logintime' => now()
+        ]);
+    }
 }

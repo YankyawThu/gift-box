@@ -120,6 +120,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'delivery-orders') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.delivery-orders.index') }}">
+                        <i class="fas fa-truck text-blue"></i> {{ __('Shipping Orders') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'rechargeOrders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.rechargeOrders.index') }}">
                         <i class="fas fa-battery-full text-blue"></i> {{ __('Recharge Orders') }}

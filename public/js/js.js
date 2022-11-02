@@ -437,4 +437,54 @@ $(function() {
         userUpdateForm.resetForm()
     })
 
+    //delivery order
+   $('#edit-delivery-order-modal').on('show.bs.modal', function(e) {
+    var button = $(e.relatedTarget)
+    var id = button.data('id')
+    var goods_name = button.data('goods_name')
+    var goods_image = button.data('goods_image')
+    var name = button.data('name')
+    var phone = button.data('phone')
+    var address = button.data('address')
+
+    modal = $(this)
+    modal.find('.modal-body #id').val(id)
+    modal.find('.modal-body #goods_name').val(goods_name)
+    modal.find('.modal-body #goods_image').val(goods_image)
+    modal.find('.modal-body #name').val(name)
+    modal.find('.modal-body #phone').val(phone)
+    modal.find('.modal-body #address').val(address)
+    })
+
+    var deliveryOrderUpdateForm = $('#edit-delivery-order-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            post_name: {
+                required: true,
+            },
+            delivery_number: {
+                required: true,
+            },
+        },
+        messages: {
+            post_name: {
+                required: "Post Name is Required."
+            },
+            delivery_number: {
+                required: "Deliver Number is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="post_name"]').removeClass('alert-danger')
+            $('input[name="delivery_number"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-delivery-order-cancel-btn').on('click', function() {
+        deliveryOrderUpdateForm.resetForm()
+    })
+
 })
