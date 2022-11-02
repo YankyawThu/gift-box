@@ -113,8 +113,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ activeSegment(2, 'rechargeLists') == 'active' ? 'active' : '' }}"
-                        href="{{ route('admin.rechargeLists.index') }}">
+                    <a class="nav-link {{ activeSegment(2, 'recharge-lists') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.recharge-lists.index') }}">
                         <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges Lists') }}
                     </a>
                 </li>
@@ -127,8 +127,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ activeSegment(2, 'rechargeOrders') == 'active' ? 'active' : '' }}"
-                        href="{{ route('admin.rechargeOrders.index') }}">
+                    <a class="nav-link {{ activeSegment(2, 'recharge-orders') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.recharge-orders.index') }}">
                         <i class="fas fa-battery-full text-blue"></i> {{ __('Recharge Orders') }}
                     </a>
                 </li>

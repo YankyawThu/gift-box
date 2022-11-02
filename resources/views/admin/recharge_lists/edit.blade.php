@@ -8,7 +8,7 @@
                         <h3 class="mb-0">{{ __('Update Recharge') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.rechargeLists.update', $id) }}" method="POST"
+                        <form action="{{ route('admin.recharge-lists.update', $id) }}" method="POST"
                             id="edit-recharge-form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

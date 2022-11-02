@@ -16,7 +16,7 @@
     <div class="d-flex justify-content-between content_detail_header">
         <div class="align-self-center">
             <form class="navbar-search navbar-search-light form-inline mr-sm-3"
-                action="{{ route('admin.rechargeLists.index') }}">
+                action="{{ route('admin.recharge-lists.index') }}">
                 <div class="form-group mb-0">
                     <div class="input-group input-group-alternative input-group-merge searching">
                         <input class="form-control searching" placeholder="Search by Amount" type="number" name="amount"
@@ -77,7 +77,7 @@
                         </a>
                         @include('admin.recharge_lists.edit', ['id' => $item->id, 'item' => $item])
                         @include('admin.layouts.delete', [
-                        'route' => 'rechargeLists.destroy',
+                        'route' => 'recharge-lists.destroy',
                         'id' => $item->id,
                         'name' => 'Delete Recharge',
                         ])

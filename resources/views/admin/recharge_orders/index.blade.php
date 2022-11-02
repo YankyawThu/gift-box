@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-between content_detail_header">
         <div class="align-self-center">
             <form class="navbar-search navbar-search-light form-inline mr-sm-3"
-                action="{{ route('admin.rechargeOrders.index') }}">
+                action="{{ route('admin.recharge-orders.index') }}">
                 <div class="col-md-12 form-group mb-0">
                     <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
                         <input class="form-control searching" placeholder="Search by User Name" type="text" name="name"

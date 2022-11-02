@@ -44,9 +44,10 @@
                                         <label for="post_id" class="form-control-label">Post Name</label>
                                         <select class="form-select form-control form-control-alternative"
                                             aria-label="Select Post Name" id="post_id" name="post_id">
+                                            <option value="">Select Post</option>
                                             @foreach ($posts as $post)
-                                            <option value="{{ $post->id }}">{{ $post->post_name."(".$post->post_code.")"
-                                                }}
+                                            <option value="{{ $post->id }}">
+                                                {{ $post->post_name . '(' .$post->post_code . ')' }}
                                             </option>
                                             @endforeach
                                         </select>

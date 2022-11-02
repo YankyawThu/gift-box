@@ -8,7 +8,7 @@
                         <h3 class="mb-0">{{ __('Add Recharge') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.rechargeLists.store') }}" method="POST" id="recharge-store-form"
+                        <form action="{{ route('admin.recharge-lists.store') }}" method="POST" id="recharge-store-form"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">

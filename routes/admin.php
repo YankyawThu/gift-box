@@ -42,9 +42,9 @@ Route::name('admin.')->group(function () {
         Route::resource('giftLog', GiftLogController::class);
         Route::get('boxes/{id}/items', [GiftItemBoxController::class, 'getItems'])->name('gift-items');
 
-        Route::resource('rechargeLists', RechargeListController::class);
+        Route::resource('recharge-lists', RechargeListController::class);
 
-        Route::resource('rechargeOrders', RechargeOrderController::class);
+        Route::resource('recharge-orders', RechargeOrderController::class);
 
         Route::resource('delivery-orders', DeliveryOrderController::class);
     });
