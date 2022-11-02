@@ -26,7 +26,7 @@
                     <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
                         <select class="form-select form-control form-control-alternative" aria-label="Select paymethod"
                             name="pay_method" id="pay_method">
-                            <option value="" @if(request('pay_method')===null) selected @endif>Pay Method
+                            <option value="" @if(request('pay_method')===null) selected @endif>Select Pay Method
                             </option>
                             @foreach (config('config.payMethod') as $k => $v)
                             <option value="{{ $k }}" @if(request('pay_method')==$k) selected @endif>{{$v}}
@@ -46,7 +46,8 @@
                         </select>
                     </div>
                     <div class="input-group-prepend">
-                        <button class="btn input-group-text" type="submit"><i class="fas fa-search"></i></button>
+                        <button class="btn input-group-text gift-log-search-btn" type="submit">
+                            <i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </form>
@@ -100,7 +101,10 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_time? $item->pay_time : '-' }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ $item->status }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">
+                        <span class="badge badge-{{ ($item->status == 'pay') ? 'success' : 'warning' }}">{{
+                            $item->status }}</span>
+                    </p>
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>

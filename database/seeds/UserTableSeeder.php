@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -15,9 +17,12 @@ class UserTableSeeder extends Seeder
             [
                 [
                     'name' => 'client',
+                    'nickname' => 'client',
                     'email' => 'client@gmail.com',
                     'password' => Hash::make('12345'),
-                    'is_admin' => false,
+                    'gender' => 1,
+                    'level' => 1,
+                    'status' => 'active'
                 ],
             ]
         );

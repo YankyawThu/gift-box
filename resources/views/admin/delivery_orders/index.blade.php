@@ -1,5 +1,8 @@
 @extends('admin.layouts.content')
 
+@push('css')
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+@endpush
 @section('content-detail')
 <div>
     <div class="d-flex justify-content-between content_detail_header">
@@ -21,11 +24,11 @@
                     </div>
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Delivery Time" type="text"
-                            name="delivery_time" value="{{ request('delivery_time') }}">
+                            name="delivery_time" value="{{ request('delivery_time') }}" autocomplete="off">
                     </div>
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Receive Time" type="text"
-                            name="receive_time" value="{{ request('receive_time') }}">
+                            name="receive_time" value="{{ request('receive_time') }}" autocomplete="off">
                     </div>
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <select class="form-select form-control form-control-alternative" aria-label="Select paymethod"
@@ -40,7 +43,8 @@
                         </select>
                     </div>
                     <div class="input-group-prepend">
-                        <button class="btn input-group-text" type="submit"><i class="fas fa-search"></i></button>
+                        <button class="btn input-group-text gift-log-search-btn" type="submit">
+                            <i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </form>
@@ -63,6 +67,8 @@
                 <th class="text-xxs font-weight-bolder opacity-7">MOBILE</th>
                 <th class="text-xxs font-weight-bolder opacity-7">ADDRESS</th>
                 <th class="text-xxs font-weight-bolder opacity-7">STAUS</th>
+                <th class="text-xxs font-weight-bolder opacity-7">DELIVERY TIME</th>
+                <th class="text-xxs font-weight-bolder opacity-7">RECEIVED TIME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">CREATED TIME</th>
                 <th class="opacity-7"></th>
             </tr>
@@ -94,6 +100,14 @@
                     </p>
                 </td>
                 <td class="align-middle">
+                    <span class="font-weight-bold text-sm">
+                        {{ $item->delivery_time ? $item->delivery_time->diffForHumans() : "-" }}</span>
+                </td>
+                <td class="align-middle">
+                    <span class="font-weight-bold text-sm">
+                        {{ $item->receive_time ? $item->receive_time->diffForHumans() : "-" }}</span>
+                </td>
+                <td class="align-middle">
                     <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>
                 </td>
                 <td class="align-middle">
@@ -120,3 +134,47 @@
 @section('content-pagination')
 {{ $data }}
 @endsection
+
+@push('js')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        // deli time daterange
+        $('input[name="delivery_time"]').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            format: 'DD/MM/YY',
+            cancelLabel: 'Clear'
+        }
+        });
+
+        $('input[name="delivery_time"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+        });
+
+        $('input[name="delivery_time"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+
+        // receive time daterange
+        $('input[name="receive_time"]').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            format: 'DD/MM/YY',
+            cancelLabel: 'Clear'
+        }
+        });
+
+        $('input[name="receive_time"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+        });
+
+        $('input[name="receive_time"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+
+    });
+</script>
+@endpush

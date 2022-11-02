@@ -23,6 +23,7 @@
     <script src="{{ asset('argon/vendor/clipboard/dist/clipboard.min.js') }}"></script>
     <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ asset('js/js.js') }}"></script>
+    @stack('css')
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -47,20 +48,10 @@
     <script src="{{asset('js/toastr.min.js')}}"></script>
     <script src="{{asset('js/jquery.jscroll.min.js')}}"></script>
 
-
     @stack('js')
 
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
-
-    <script>
-        //close the alert after 3 seconds.
-            $(document).ready(function(){
-    	    setTimeout(function() {
-    	        $(".alert").alert('close');
-    	    }, 6000);
-        	});
-    </script>
 </body>
 
 </html>

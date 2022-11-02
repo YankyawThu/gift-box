@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
 use Illuminate\Support\Facades\Auth;

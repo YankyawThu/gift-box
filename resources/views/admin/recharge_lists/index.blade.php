@@ -22,7 +22,8 @@
                         <input class="form-control searching" placeholder="Search by Amount" type="number" name="amount"
                             value="{{ request('amount') }}">
                         <div class="input-group-prepend">
-                            <button class="btn input-group-text" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="btn input-group-text gift-log-search-btn" type="submit">
+                                <i class="fas fa-search"></i></button>
                         </div>
                     </div>
                 </div>

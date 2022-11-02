@@ -41,7 +41,6 @@ if (!function_exists('getFileUrlFromAkoneyaMedia')) {
 }
 
 if (!function_exists('activeSegment')) {
-
     function activeSegment($index, $path)
     {
         return request()->segment($index) == $path ? 'active' : '';
@@ -49,7 +48,6 @@ if (!function_exists('activeSegment')) {
 }
 
 if (!function_exists('activePath')) {
-
     function activePath($path = null)
     {
         $path = is_null($path)
@@ -61,9 +59,26 @@ if (!function_exists('activePath')) {
 }
 
 if (!function_exists('showSegment')) {
-
     function showSegment($index, $path)
     {
         return request()->segment($index) == $path ? 'show' : '';
+    }
+}
+
+
+if (!function_exists('splitDaterange')) {
+    function splitDaterange($date)
+    {
+        if (!$date) {
+            return null;
+        }
+
+        $date = explode(' - ', $date);
+        $from = $date[0];
+        $to = $date[1];
+        $from = str_replace('/', '-', $from);
+        $to = str_replace('/', '-', $to);
+
+        return ['from' => $from, 'to' => $to];
     }
 }

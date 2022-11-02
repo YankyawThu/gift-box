@@ -32,12 +32,16 @@ class DeliveryOrderFilter extends Filter
 
     public function delivery_time($value)
     {
-        return $this->builder->where('delivery_time', "$value");
+        $date = splitDaterange($value);
+        return $this->builder->whereDate('delivery_time', '>=', date('Y-m-d', strtotime($date['from'])))
+            ->whereDate('delivery_time', '<=', date('Y-m-d', strtotime($date['to'])));
     }
 
     public function receive_time($value)
     {
-        return $this->builder->where('receive_time', "$value");
+        $date = splitDaterange($value);
+        return $this->builder->whereDate('receive_time', '>=', date('Y-m-d', strtotime($date['from'])))
+            ->whereDate('receive_time', '<=', date('Y-m-d', strtotime($date['to'])));
     }
 
     public function status($value)
