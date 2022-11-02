@@ -39,7 +39,7 @@
                     </div>
                     <div class="flex justify-between py-2">
                         <div style="color: #FFC042;"><span>{{box.coin}} coins/draw</span></div>
-                        <div class="self-center"><img src="/image/ui/Arrow.svg"> {{box.id}}</div>
+                        <div class="self-center"><img src="/image/ui/Arrow.svg"></div>
                     </div>
                 </Link>
             </div>
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         fetchData () {
-            axios.post(`?page=${this.page}`)
+            axios.post(`/box?page=${this.page}`)
                 .then((res) => {
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
@@ -80,7 +80,7 @@ export default {
     },
     mounted () {
         window.onscroll = () => {
-            let isEnd = window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight - 1
+            let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
             if(isEnd && this.page <= this.lastPage) {
                 this.fetchData()
             }
