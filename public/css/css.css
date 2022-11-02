@@ -1,0 +1,130 @@
+.table td {
+    padding: 20px;
+}
+
+.content_detail_header {
+    padding: 16px 24px;
+}
+
+.add_form {
+    padding: 12px 24px;
+}
+
+.has-success:after {
+    top: 35px;
+}
+
+.has-danger:after {
+    top: 35px;
+}
+
+.form_btn_layout {
+    padding: 0 15px;
+}
+
+.alert-danger {
+    padding: 3px 10px;
+    color: #f30030;
+    font-size: 0.675rem;
+    padding-top: 10px;
+    background: transparent;
+}
+
+.box_selected_item_short_label {
+    background: #efefef;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.box_detail_img img {
+    position: absolute;
+    left: 50%;
+    max-width: 130px;
+    transition: all .15s ease;
+    transform: translate(-50%, -30%);
+    border: 1px solid #f5f5f5;
+}
+div.input-group.input-group-alternative.input-group-merge.searching{
+    border: 1px solid #c7c7c7;
+    box-shadow: none !important;
+    border-radius: 0.5rem;
+}
+.searching{
+    padding-left: 10px;
+}
+.category-filter{
+    border: 1px solid #c7c7c7;
+    border-radius: 0.5rem;
+    margin-left: 5px;
+}
+.gift-log-filter, .user-filter{
+    margin-left: 5px;
+}
+button.input-group-text.gift-log-search-btn{
+    background-color: rgb(94 114 228 / 50%);
+}
+.gift-log-search{
+    padding: 4px 2px 2px 4px;
+}
+
+.box_selected_item_img {
+    padding: 17px 5px 22px 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
+}
+.remove-icon{
+    position: absolute;
+    left: -3px;
+    bottom: 20px;
+    font-size: x-large;
+    color: #fb6340;
+}
+.remove-span{
+    position: relative;
+}
+.selected_item_area{
+    padding: 10px 15px;
+}
+.item-img{
+    border-style: solid;
+    border-width: 1px;
+}
+a.nav-link.active{
+    background: #eceff3;
+    box-shadow: none;
+    color: #344767;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.navbar-vertical .navbar-nav .nav-link.active:before {
+    position: absolute !important;
+    top: -0.05rem !important;
+    bottom: 0rem !important;
+    left: auto !important;
+    right: 0 !important;
+    content: ''!important;
+    border-right: 3px solid #5e72e4 !important;
+}
+
+.box-item-div{
+    max-height: 500px;
+    overflow: auto;
+}
+
+.items_container {
+    height: 700px;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+}
+.item-active{
+    border: 1px solid #344767;
+}
+
+.btn.btn-secondary.focus.active, .btn.btn-secondary.active{
+    background-color: aquamarine !important;
+}
