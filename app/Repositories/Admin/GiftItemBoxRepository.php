@@ -55,15 +55,4 @@ class GiftItemBoxRepository extends BaseRepository
 
         return true;
     }
-
-    public function detailUpdate($request)
-    {
-        $model = $this->model->find($request->id);
-        $model->update([
-            'probability' => $request->probability,
-            'gift_item_id' => $request->giftItemId,
-        ]);
-
-        return true;
-    }
 }

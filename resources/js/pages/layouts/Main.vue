@@ -1,15 +1,15 @@
 <template>
-    <div class="h-screen bg-gray-50">
-        <header>
+    <main class="h-screen bg-gray-50">
+        <!-- <header>
             <top></top>
-        </header>
-        <main class="py-14 px-3">
+        </header> -->
+        <main class="pb-20 pt-4 px-3">
             <slot></slot>
         </main>
         <footer>
             <bot></bot>
         </footer>
-    </div>
+    </main>
 </template>
 
 <script>

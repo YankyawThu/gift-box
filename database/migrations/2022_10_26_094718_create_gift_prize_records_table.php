@@ -19,7 +19,7 @@ class CreateGiftPrizeRecordsTable extends Migration
             $table->unsignedBigInteger('gift_log_id');
             $table->unsignedBigInteger('gift_item_id');
             $table->enum('status', ['bag', 'exchange', 'delivery', 'received'])->nullable();
-            $table->integer('delivery_time')->nullable();
+            $table->timestamp('delivery_time')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -45,4 +45,9 @@ class DeliveryOrder extends Model
                 break;
         }
     }
+    
+    public function giftPrize()
+    {
+        return $this->belongsTo(GiftPrizeRecord::class, 'gift_prize_id');
+    }
 }

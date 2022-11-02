@@ -1,21 +1,45 @@
 <template>
     <main-layout>
         <div>
-            <div class="font-bold text-sm">All</div>
-            <div class="flex flex-wrap justify-around">
-                <Link :href="'/box/'+box.id" v-for="(box,i) in boxes" :key="i" class="w-96 rounded-xl shadow-sm my-2" as="button">
-                    <div class="flex justify-between py-2 bg-gradient-to-r from-blue-100 to-purple-100 px-3 rounded-t-xl">
-                        <div>{{box.name}} {{box.id}}</div>
-                        <div class="self-end text-yellow-500"><span class="font-bold">{{box.price}}</span><span class="text-xs"> coins/draw</span></div>
+            <div class="flex justify-between py-2">
+                <div class="flex flex-row">
+                    <div><img src="https://1.bp.blogspot.com/-VpNN3ROqFSw/WRC7TRlPYfI/AAAAAAAAi3k/8P1JqjBG4186-fVjrjW3v21RnF8fZFRHACLcB/s1600/18221988_435811773439708_638227643630576354_n.jpg" alt="" class="home_avatar"></div>
+                    <div class="ml-2 self-center">
+                        <div class="text-xs text-gray-400">Hello...</div>
+                        <div class="font-bold text-lg">Thinzar Wint Kyaw</div>
                     </div>
-                    <div class="px-3">
-                        <div v-for="(item,j) in box.items" :key="j" class="inline-block pr-1 py-3">
-                            <img :src="item.image" width="50" height="50">
+                </div>
+                <div class="self-center">
+                    <img src="/image/ui/Service.svg">
+                </div>
+            </div>
+            <div class="my-3">
+                <input type="text" class="home_search py-2 px-4 rounded-full w-full" placeholder="Search">
+            </div>
+            <div class="my-2">
+                <img src="/image/ui/Banner.svg" class="w-full">
+            </div>
+            <div class="flex flex-wrap justify-between py-2 mb-3">
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 tideplay_icon" src="/image/ui/TidePlay.svg">Tide Play</div>
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 recharge_icon" src="/image/ui/Recharge.svg">Recharge</div>
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 shipping_icon" src="/image/ui/Shipping.svg">Shipping</div>
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 help_icon" src="/image/ui/Helps.svg">Helps</div>
+            </div>
+            <div class="font-bold text-xl">Recommended</div>
+            <div class="flex flex-wrap justify-between">
+                <Link :href="'/box/'+box.id" v-for="(box,i) in boxes" :key="i" class="box_layout w-40 rounded-3xl shadow-sm my-2 px-3" as="button">
+                    <div class="flex py-2 rounded-t-xl">
+                        <div class="grow text-white text-left truncate">{{box.name}}<div class="text-xs text-gray-300">products</div></div>
+                        <div class="flex-none w-12 self-center text-right font-bold" style="color:#FFC042;">$ {{box.price}}</div>
+                    </div>
+                    <div class="">
+                        <div v-for="(item,j) in (box.items).slice(0,3)" :key="j" class="inline-block pr-1 py-3">
+                            <img :src="item.image" width="35" height="35">
                         </div>
                     </div>
-                    <div class="flex justify-between py-2 px-3">
-                        <div class="text-xs text-gray-400">A total of products</div>
-                        <div></div>
+                    <div class="flex justify-between py-2">
+                        <div style="color: #FFC042;"><span>{{box.coin}} coins/draw</span></div>
+                        <div class="self-center"><img src="/image/ui/Arrow.svg"></div>
                     </div>
                 </Link>
             </div>
@@ -43,7 +67,7 @@ export default {
     },
     methods: {
         fetchData () {
-            axios.post(`?page=${this.page}`)
+            axios.post(`/box?page=${this.page}`)
                 .then((res) => {
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
@@ -56,7 +80,7 @@ export default {
     },
     mounted () {
         window.onscroll = () => {
-            let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight
+            let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
             if(isEnd && this.page <= this.lastPage) {
                 this.fetchData()
             }
