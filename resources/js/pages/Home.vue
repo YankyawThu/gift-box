@@ -33,8 +33,8 @@
                         <div class="flex-none w-12 self-center text-right font-bold" style="color:#FFC042;">$ {{box.price}}</div>
                     </div>
                     <div class="">
-                        <div v-for="j in 3" :key="j" class="inline-block pr-1 py-3">
-                            <img :src="box.items[j]" width="35" height="35">
+                        <div v-for="(item,j) in (box.items).slice(0,3)" :key="j" class="inline-block pr-1 py-3">
+                            <img :src="item.image" width="35" height="35">
                         </div>
                     </div>
                     <div class="flex justify-between py-2">
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         fetchData () {
-            axios.post(`/box?page=${this.page}`)
+            axios.post(`?page=${this.page}`)
                 .then((res) => {
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
@@ -80,7 +80,7 @@ export default {
     },
     mounted () {
         window.onscroll = () => {
-            let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight
+            let isEnd = window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight - 1
             if(isEnd && this.page <= this.lastPage) {
                 this.fetchData()
             }

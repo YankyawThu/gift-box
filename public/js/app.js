@@ -2163,7 +2163,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   methods: {
     fetchData: function fetchData() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("?page=".concat(this.page)).then(function (res) {
         var _this$boxes;
         (_this$boxes = _this.boxes).push.apply(_this$boxes, _toConsumableArray(res.data.data));
         _this.lastPage = res.data.pagination.total_pages;
@@ -2177,7 +2177,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   mounted: function mounted() {
     var _this2 = this;
     window.onscroll = function () {
-      var isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
+      var isEnd = window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight - 1;
       if (isEnd && _this2.page <= _this2.lastPage) {
         _this2.fetchData();
       }
@@ -2778,13 +2778,13 @@ var render = function render() {
       staticStyle: {
         color: "#FFC042"
       }
-    }, [_vm._v("$ " + _vm._s(box.price))])]), _vm._v(" "), _c("div", {}, _vm._l(3, function (j) {
+    }, [_vm._v("$ " + _vm._s(box.price))])]), _vm._v(" "), _c("div", {}, _vm._l(box.items.slice(0, 3), function (item, j) {
       return _c("div", {
         key: j,
         staticClass: "inline-block pr-1 py-3"
       }, [_c("img", {
         attrs: {
-          src: box.items[j],
+          src: item.image,
           width: "35",
           height: "35"
         }
