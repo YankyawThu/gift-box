@@ -75,3 +75,4 @@
 @section('content-pagination')
 {{$data}}
 @endsection
+

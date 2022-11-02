@@ -24,6 +24,7 @@ class HomePageResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
+            'coin' => $this->coin,
             'items' => GiftItemResource::collection($items),
         ];
     }

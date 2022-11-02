@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class GiftPrizeRecord extends Model
 {
     use SoftDeletes;
+    protected $guarded = [];
+
+    public function giftItem()
+    {
+        return $this->belongsTo(GiftItem::class, 'gift_item_id');
+    }
 }

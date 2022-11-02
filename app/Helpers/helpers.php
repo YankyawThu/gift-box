@@ -82,3 +82,10 @@ if (!function_exists('splitDaterange')) {
         return ['from' => $from, 'to' => $to];
     }
 }
+
+if (!function_exists('dateFormat')) {
+    function dateFormat($date)
+    {
+        return date('Y-m-d,H:m:s', strtotime($date));
+    }
+}

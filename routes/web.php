@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
 use Illuminate\Support\Facades\Auth;
@@ -17,27 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth Routes
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/home', [HomeController::class, 'index']);
-
     Route::resource('user', 'UserController')->only(['index']);
-    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-    Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
     Route::group(['namespace' => 'UI'], function () {
         Route::prefix('box')->group(function () {
             Route::get('/', [UIController::class, 'index'])->name('home');
             Route::post('/', [UIController::class, 'getAll']);
             Route::get('/{id}', [UIController::class, 'detail']);
-            Route::any('/{id}/times/{num}', [UIController::class, 'createOrder']);
+            Route::get('/{id}/open/{time}', [UIController::class, 'boxOpen']);
+            Route::any('/{id}/create-order/{num}', [UIController::class, 'createOrder']);
+            Route::any('/open-box', [UIController::class, 'openLuckyBox']);
         });
-
-        Route::any('/open-box', [UIController::class, 'openLuckyBox']);
         Route::get('/recharge-list', [RechargeController::class, 'index']);
-        Route::any('/recharge-order', [RechargeController::class, 'rechargeOrder']);
+        Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
+        Route::get('/order-list', [OrderController::class, 'index']);
+
+        Route::resource('shipping-address', ShippingAddressController::class);
+        Route::prefix('user')->group(function () {
+            Route::any('/change-avatar', 'UserConroller@changeAvatar');
+            Route::any('/change-nickname', 'UserConroller@changeNickname');
+        });
     });
 });

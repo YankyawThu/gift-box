@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(RechargeListSeeder::class);
         $this->call(TownshipSeeder::class);
+        $this->call(AddressSeeder::class);
+        $this->call(GiftPrizeRecordSeeder::class);
+        $this->call(DeliveryOrderSeeder::class);
     }
 }
