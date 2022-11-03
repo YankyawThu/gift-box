@@ -184,5 +184,24 @@
 
 .nav_link_active {
     color: #493B83;
+}  
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition : all 0.2s ease-in-out;
 }
+
+.help_tip_box {
+    box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);
+}
+
+.ok_btn {
+    background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
+}
+
+.amount_active {
+    background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
+}
+
 

@@ -10,6 +10,12 @@
 
 <body>
     This is UI
+    <form action="{{ route('change-avatar') }}"  method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="avatar">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf

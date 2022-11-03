@@ -3,6 +3,7 @@
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
+use App\Http\Controllers\UI\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +22,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('user', 'UserController')->only(['index']);
-
     Route::group(['namespace' => 'UI'], function () {
         Route::prefix('box')->group(function () {
             Route::get('/', [UIController::class, 'index'])->name('home');
@@ -32,14 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
             Route::any('/{id}/create-order/{num}', [UIController::class, 'createOrder']);
             Route::any('/open-box', [UIController::class, 'openLuckyBox']);
         });
-        Route::get('/recharge-list', [RechargeController::class, 'index']);
+        Route::get('/helps', [IndexController::class, 'helps']);
+        Route::get('/recharge', [RechargeController::class, 'index']);
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/order-list', [OrderController::class, 'index']);
 
         Route::resource('shipping-address', ShippingAddressController::class);
         Route::prefix('user')->group(function () {
-            Route::any('/change-avatar', 'UserConroller@changeAvatar');
+            Route::post('/change-avatar', 'UserConroller@changeAvatar')->name('change-avatar');
             Route::any('/change-nickname', 'UserConroller@changeNickname');
         });
+        // Route::get('/test', function () {
+        //     return view('ui.home');
+        // });
     });
 });

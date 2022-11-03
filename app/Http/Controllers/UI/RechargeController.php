@@ -5,23 +5,25 @@ namespace App\Http\Controllers\UI;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RechargeOrderRequest;
 use App\Services\UI\RechargeService;
+use Inertia\Inertia;
 
 class RechargeController extends Controller
 {
-    public function __construct(RechargeService $recharegeService)
+    public function __construct(RechargeService $rechargeService)
     {
-        $this->recharegeService = $recharegeService;
+        $this->rechargeService = $rechargeService;
     }
 
     public function index()
     {
-        return $this->recharegeService->getAll();
+        $data = $this->rechargeService->getAll();
+        return Inertia::render('Recharge', ['data' => $data]);
     }
 
     public function rechargeOrder(RechargeOrderRequest $request)
     {
-        $this->recharegeService->rechargeOrder($request);
+        $this->rechargeService->rechargeOrder($request);
 
-        return ['boxId' => $request->boxId];
+        return true;
     }
 }

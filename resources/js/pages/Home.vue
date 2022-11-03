@@ -20,10 +20,10 @@
                 <img src="/image/ui/Banner.svg" class="w-full">
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
-                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 tideplay_icon" src="/image/ui/TidePlay.svg">Tide Play</div>
-                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 recharge_icon" src="/image/ui/Recharge.svg">Recharge</div>
-                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 shipping_icon" src="/image/ui/Shipping.svg">Shipping</div>
-                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1 help_icon" src="/image/ui/Helps.svg">Helps</div>
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/TidePlay.svg">Tide Play</div>
+                <Link href="/recharge" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Recharge.svg">Recharge</div></Link>
+                <div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Shipping.svg">Shipping</div>
+                <Link href="/helps" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Helps.svg">Helps</div></Link>
             </div>
             <div class="font-bold text-xl">Recommended</div>
             <div class="flex flex-wrap justify-between">
