@@ -41,7 +41,7 @@
         <div class="px-2 py-1 detail_itembox mx-4">
             <div class="flex justify-between pt-2 px-3">
                 <div class="font-semibold text-lg">Product Preview</div>
-                <div class="flex flex-row items-center trigger cursor-pointer">
+                <div class="flex flex-row items-center trigger">
                     <div class="px-1">Rules of Play</div>
                     <div >
                         <img src="/image/ui/Info.svg">
