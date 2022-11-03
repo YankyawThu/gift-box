@@ -2136,7 +2136,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
+  },
+  mounted: function mounted() {
+    var coll = document.getElementsByClassName("col");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -2708,163 +2729,85 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "p-4 bg-gray-50 h-screen"
+  }, [_c("div", {
+    staticClass: "flex flex-row my-5"
+  }, [_c("Link", {
     attrs: {
-      id: "accordion-collapse",
-      "data-accordion": "collapse"
+      href: "/box",
+      as: "button"
     }
-  }, [_c("h2", {
+  }, [_c("div", {
+    staticClass: "p-2 pl-0 mr-2"
+  }, [_c("img", {
     attrs: {
-      id: "accordion-collapse-heading-1"
+      src: "/image/ui/BackArrow.svg"
     }
-  }, [_c("button", {
-    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
-    attrs: {
-      type: "button",
-      "data-accordion-target": "#accordion-collapse-body-1",
-      "aria-expanded": "true",
-      "aria-controls": "accordion-collapse-body-1"
-    }
-  }, [_c("span", [_vm._v("What is Flowbite?")]), _vm._v(" "), _c("svg", {
-    staticClass: "w-6 h-6 rotate-180 shrink-0",
-    attrs: {
-      "data-accordion-icon": "",
-      fill: "currentColor",
-      viewBox: "0 0 20 20",
-      xmlns: "http://www.w3.org/2000/svg"
-    }
-  }, [_c("path", {
-    attrs: {
-      "fill-rule": "evenodd",
-      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-      "clip-rule": "evenodd"
-    }
-  })])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("h2", {
-    attrs: {
-      id: "accordion-collapse-heading-2"
-    }
-  }, [_c("button", {
-    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
-    attrs: {
-      type: "button",
-      "data-accordion-target": "#accordion-collapse-body-2",
-      "aria-expanded": "false",
-      "aria-controls": "accordion-collapse-body-2"
-    }
-  }, [_c("span", [_vm._v("Is there a Figma file available?")]), _vm._v(" "), _c("svg", {
-    staticClass: "w-6 h-6 shrink-0",
-    attrs: {
-      "data-accordion-icon": "",
-      fill: "currentColor",
-      viewBox: "0 0 20 20",
-      xmlns: "http://www.w3.org/2000/svg"
-    }
-  }, [_c("path", {
-    attrs: {
-      "fill-rule": "evenodd",
-      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-      "clip-rule": "evenodd"
-    }
-  })])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("h2", {
-    attrs: {
-      id: "accordion-collapse-heading-3"
-    }
-  }, [_c("button", {
-    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
-    attrs: {
-      type: "button",
-      "data-accordion-target": "#accordion-collapse-body-3",
-      "aria-expanded": "false",
-      "aria-controls": "accordion-collapse-body-3"
-    }
-  }, [_c("span", [_vm._v("What are the differences between Flowbite and Tailwind UI?")]), _vm._v(" "), _c("svg", {
-    staticClass: "w-6 h-6 shrink-0",
-    attrs: {
-      "data-accordion-icon": "",
-      fill: "currentColor",
-      viewBox: "0 0 20 20",
-      xmlns: "http://www.w3.org/2000/svg"
-    }
-  }, [_c("path", {
-    attrs: {
-      "fill-rule": "evenodd",
-      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-      "clip-rule": "evenodd"
-    }
-  })])])]), _vm._v(" "), _vm._m(2)])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "font-bold text-xl self-center"
+  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    attrs: {
-      id: "accordion-collapse-body-1",
-      "aria-labelledby": "accordion-collapse-heading-1"
-    }
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
   }, [_c("div", {
-    staticClass: "p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
-  }, [_c("p", {
-    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
-  }, [_vm._v("Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.")]), _vm._v(" "), _c("p", {
-    staticClass: "text-gray-500 dark:text-gray-400"
-  }, [_vm._v("Check out this guide to learn how to "), _c("a", {
-    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
     attrs: {
-      href: "/docs/getting-started/introduction/"
+      src: "/image/ui/DropDown.svg"
     }
-  }, [_vm._v("get started")]), _vm._v(" and start developing websites even faster with components on top of Tailwind CSS.")])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "content"
+  }, [_c("p", {
+    staticClass: "pt-2 border-t border-gray-300 text-sm"
+  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "hidden",
-    attrs: {
-      id: "accordion-collapse-body-2",
-      "aria-labelledby": "accordion-collapse-heading-2"
-    }
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
   }, [_c("div", {
-    staticClass: "p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700"
-  }, [_c("p", {
-    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
-  }, [_vm._v("Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.")]), _vm._v(" "), _c("p", {
-    staticClass: "text-gray-500 dark:text-gray-400"
-  }, [_vm._v("Check out the "), _c("a", {
-    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
     attrs: {
-      href: "https://flowbite.com/figma/"
+      src: "/image/ui/DropDown.svg"
     }
-  }, [_vm._v("Figma design system")]), _vm._v(" based on the utility classes from Tailwind CSS and components from Flowbite.")])])]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "content"
+  }, [_c("p", {
+    staticClass: "pt-2 border-t border-gray-300 text-sm"
+  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "hidden",
-    attrs: {
-      id: "accordion-collapse-body-3",
-      "aria-labelledby": "accordion-collapse-heading-3"
-    }
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
   }, [_c("div", {
-    staticClass: "p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700"
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "/image/ui/DropDown.svg"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "content"
   }, [_c("p", {
-    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
-  }, [_vm._v("The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
-  }, [_vm._v("However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.")]), _vm._v(" "), _c("p", {
-    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
-  }, [_vm._v("Learn more about these technologies:")]), _vm._v(" "), _c("ul", {
-    staticClass: "pl-5 text-gray-500 list-disc dark:text-gray-400"
-  }, [_c("li", [_c("a", {
-    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
-    attrs: {
-      href: "https://flowbite.com/pro/"
-    }
-  }, [_vm._v("Flowbite Pro")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
-    attrs: {
-      href: "https://tailwindui.com/",
-      rel: "nofollow"
-    }
-  }, [_vm._v("Tailwind UI")])])])])]);
+    staticClass: "pt-2 border-t border-gray-300 text-sm"
+  }, [_vm._v(" Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }];
 render._withStripped = true;
 
@@ -9833,6 +9776,19 @@ module.exports = isEqual;
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/tailwindcss.css":
+/*!***************************************!*\
+  !*** ./resources/css/tailwindcss.css ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28319,7 +28275,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/tailwindcss": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -28369,8 +28326,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/tailwindcss"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/tailwindcss"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/tailwindcss"], () => (__webpack_require__("./resources/css/tailwindcss.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
