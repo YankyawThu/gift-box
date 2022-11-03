@@ -17,6 +17,12 @@ $factory->define(DeliveryOrder::class, function (Faker $faker) {
         'address_id' => function () {
             return App\Models\Address::inRandomOrder()->first()->id;
         },
+        'gift_box_id' => function () {
+            return App\Models\GiftBox::inRandomOrder()->first()->id;
+        },
+        'gift_item_id' => function () {
+            return App\Models\GiftItem::inRandomOrder()->first()->id;
+        },
         'gift_prize_id' => function () {
             return App\Models\GiftPrizeRecord::inRandomOrder()->first()->id;
         },
