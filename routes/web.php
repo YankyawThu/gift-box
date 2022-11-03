@@ -3,6 +3,7 @@
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
+use App\Http\Controllers\UI\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::any('/{id}/create-order/{num}', [UIController::class, 'createOrder']);
             Route::any('/open-box', [UIController::class, 'openLuckyBox']);
         });
+        Route::get('/helps', [IndexController::class, 'helps']);
         Route::get('/recharge-list', [RechargeController::class, 'index']);
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/order-list', [OrderController::class, 'index']);

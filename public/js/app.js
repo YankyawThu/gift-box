@@ -2125,6 +2125,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
@@ -2283,7 +2298,20 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "box_detail h-auto py-4"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "flex justify-content-between pb-1"
+  }, [_c("div", {
+    staticClass: "back self-center px-4"
+  }, [_c("Link", {
+    attrs: {
+      href: "/box",
+      as: "button"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: "/image/ui/Back.svg"
+    }
+  })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
   }, [_vm._v("\n        Magic BlindBox\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "blind_box_underline my-1 w-56 mx-auto"
@@ -2392,14 +2420,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "flex justify-content-between pb-1"
-  }, [_c("div", {
-    staticClass: "back self-center px-4"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/Back.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-row box_detail_target"
   }, [_c("div", {
     staticClass: "self-center"
@@ -2409,7 +2429,7 @@ var staticRenderFns = [function () {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "py-1 px-2 box_detail_target_label"
-  }, [_vm._v("\n                Lucky Draw\n            ")])]), _vm._v(" "), _c("div")]);
+  }, [_vm._v("\n                Lucky Draw\n            ")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -2673,6 +2693,184 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    attrs: {
+      id: "accordion-collapse",
+      "data-accordion": "collapse"
+    }
+  }, [_c("h2", {
+    attrs: {
+      id: "accordion-collapse-heading-1"
+    }
+  }, [_c("button", {
+    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
+    attrs: {
+      type: "button",
+      "data-accordion-target": "#accordion-collapse-body-1",
+      "aria-expanded": "true",
+      "aria-controls": "accordion-collapse-body-1"
+    }
+  }, [_c("span", [_vm._v("What is Flowbite?")]), _vm._v(" "), _c("svg", {
+    staticClass: "w-6 h-6 rotate-180 shrink-0",
+    attrs: {
+      "data-accordion-icon": "",
+      fill: "currentColor",
+      viewBox: "0 0 20 20",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      "fill-rule": "evenodd",
+      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+      "clip-rule": "evenodd"
+    }
+  })])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("h2", {
+    attrs: {
+      id: "accordion-collapse-heading-2"
+    }
+  }, [_c("button", {
+    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
+    attrs: {
+      type: "button",
+      "data-accordion-target": "#accordion-collapse-body-2",
+      "aria-expanded": "false",
+      "aria-controls": "accordion-collapse-body-2"
+    }
+  }, [_c("span", [_vm._v("Is there a Figma file available?")]), _vm._v(" "), _c("svg", {
+    staticClass: "w-6 h-6 shrink-0",
+    attrs: {
+      "data-accordion-icon": "",
+      fill: "currentColor",
+      viewBox: "0 0 20 20",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      "fill-rule": "evenodd",
+      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+      "clip-rule": "evenodd"
+    }
+  })])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("h2", {
+    attrs: {
+      id: "accordion-collapse-heading-3"
+    }
+  }, [_c("button", {
+    staticClass: "flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
+    attrs: {
+      type: "button",
+      "data-accordion-target": "#accordion-collapse-body-3",
+      "aria-expanded": "false",
+      "aria-controls": "accordion-collapse-body-3"
+    }
+  }, [_c("span", [_vm._v("What are the differences between Flowbite and Tailwind UI?")]), _vm._v(" "), _c("svg", {
+    staticClass: "w-6 h-6 shrink-0",
+    attrs: {
+      "data-accordion-icon": "",
+      fill: "currentColor",
+      viewBox: "0 0 20 20",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      "fill-rule": "evenodd",
+      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+      "clip-rule": "evenodd"
+    }
+  })])])]), _vm._v(" "), _vm._m(2)])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    attrs: {
+      id: "accordion-collapse-body-1",
+      "aria-labelledby": "accordion-collapse-heading-1"
+    }
+  }, [_c("div", {
+    staticClass: "p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+  }, [_c("p", {
+    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
+  }, [_vm._v("Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.")]), _vm._v(" "), _c("p", {
+    staticClass: "text-gray-500 dark:text-gray-400"
+  }, [_vm._v("Check out this guide to learn how to "), _c("a", {
+    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    attrs: {
+      href: "/docs/getting-started/introduction/"
+    }
+  }, [_vm._v("get started")]), _vm._v(" and start developing websites even faster with components on top of Tailwind CSS.")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "hidden",
+    attrs: {
+      id: "accordion-collapse-body-2",
+      "aria-labelledby": "accordion-collapse-heading-2"
+    }
+  }, [_c("div", {
+    staticClass: "p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700"
+  }, [_c("p", {
+    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
+  }, [_vm._v("Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.")]), _vm._v(" "), _c("p", {
+    staticClass: "text-gray-500 dark:text-gray-400"
+  }, [_vm._v("Check out the "), _c("a", {
+    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    attrs: {
+      href: "https://flowbite.com/figma/"
+    }
+  }, [_vm._v("Figma design system")]), _vm._v(" based on the utility classes from Tailwind CSS and components from Flowbite.")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "hidden",
+    attrs: {
+      id: "accordion-collapse-body-3",
+      "aria-labelledby": "accordion-collapse-heading-3"
+    }
+  }, [_c("div", {
+    staticClass: "p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700"
+  }, [_c("p", {
+    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
+  }, [_vm._v("The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
+  }, [_vm._v("However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-2 text-gray-500 dark:text-gray-400"
+  }, [_vm._v("Learn more about these technologies:")]), _vm._v(" "), _c("ul", {
+    staticClass: "pl-5 text-gray-500 list-disc dark:text-gray-400"
+  }, [_c("li", [_c("a", {
+    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    attrs: {
+      href: "https://flowbite.com/pro/"
+    }
+  }, [_vm._v("Flowbite Pro")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+    attrs: {
+      href: "https://tailwindui.com/",
+      rel: "nofollow"
+    }
+  }, [_vm._v("Tailwind UI")])])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30& ***!
@@ -2730,32 +2928,38 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1 tideplay_icon",
+    staticClass: "inline-block rounded-full p-1",
     attrs: {
       src: "/image/ui/TidePlay.svg"
     }
   }), _vm._v("Tide Play")]), _vm._v(" "), _c("div", {
     staticClass: "w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1 recharge_icon",
+    staticClass: "inline-block rounded-full p-1",
     attrs: {
       src: "/image/ui/Recharge.svg"
     }
   }), _vm._v("Recharge")]), _vm._v(" "), _c("div", {
     staticClass: "w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1 shipping_icon",
+    staticClass: "inline-block rounded-full p-1",
     attrs: {
       src: "/image/ui/Shipping.svg"
     }
-  }), _vm._v("Shipping")]), _vm._v(" "), _c("div", {
+  }), _vm._v("Shipping")]), _vm._v(" "), _c("Link", {
+    staticClass: "text-left",
+    attrs: {
+      href: "/helps",
+      as: "button"
+    }
+  }, [_c("div", {
     staticClass: "w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1 help_icon",
+    staticClass: "inline-block rounded-full p-1",
     attrs: {
       src: "/image/ui/Helps.svg"
     }
-  }), _vm._v("Helps")])]), _vm._v(" "), _c("div", {
+  }), _vm._v("Helps")])])], 1), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl"
   }, [_vm._v("Recommended")]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between"
@@ -2827,7 +3031,20 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "box_detail h-screen py-4"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "flex justify-content-between pb-1"
+  }, [_c("div", {
+    staticClass: "back self-center px-4"
+  }, [_c("Link", {
+    attrs: {
+      href: "/box/" + _vm.id,
+      as: "button"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: "/image/ui/Back.svg"
+    }
+  })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
   }, [_vm._v("\n        Magic BlindBox\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "blind_box_underline my-1 w-56 mx-auto"
@@ -2886,14 +3103,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "flex justify-content-between pb-1"
-  }, [_c("div", {
-    staticClass: "back self-center px-4"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/Back.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-row box_detail_target"
   }, [_c("div", {
     staticClass: "self-center"
@@ -2903,7 +3112,7 @@ var staticRenderFns = [function () {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "py-1 px-2 box_detail_target_label"
-  }, [_vm._v("\n                Lucky Draw\n            ")])]), _vm._v(" "), _c("div")]);
+  }, [_vm._v("\n                Lucky Draw\n            ")])]);
 }];
 render._withStripped = true;
 
@@ -11453,6 +11662,45 @@ component.options.__file = "resources/js/pages/BoxDetail.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/Helps.vue":
+/*!**************************************!*\
+  !*** ./resources/js/pages/Helps.vue ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helps.vue?vue&type=template&id=1f762ece& */ "./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece&");
+/* harmony import */ var _Helps_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Helps.vue?vue&type=script&lang=js& */ "./resources/js/pages/Helps.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Helps_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Helps.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Home.vue":
 /*!*************************************!*\
   !*** ./resources/js/pages/Home.vue ***!
@@ -11738,6 +11986,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/Helps.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/pages/Helps.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Helps_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Helps.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Helps_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/Home.vue?vue&type=script&lang=js&":
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
@@ -11831,6 +12095,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxDetail_vue_vue_type_template_id_de368e7a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxDetail_vue_vue_type_template_id_de368e7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BoxDetail.vue?vue&type=template&id=de368e7a& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/BoxDetail.vue?vue&type=template&id=de368e7a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Helps_vue_vue_type_template_id_1f762ece___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Helps.vue?vue&type=template&id=1f762ece& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Helps.vue?vue&type=template&id=1f762ece&");
 
 
 /***/ }),
@@ -23999,6 +24280,8 @@ Vue.compile = compileToFunctions;
 var map = {
 	"./BoxDetail": "./resources/js/pages/BoxDetail.vue",
 	"./BoxDetail.vue": "./resources/js/pages/BoxDetail.vue",
+	"./Helps": "./resources/js/pages/Helps.vue",
+	"./Helps.vue": "./resources/js/pages/Helps.vue",
 	"./Home": "./resources/js/pages/Home.vue",
 	"./Home.vue": "./resources/js/pages/Home.vue",
 	"./OpenBox": "./resources/js/pages/OpenBox.vue",

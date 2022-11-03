@@ -2,7 +2,7 @@
     <div class="box_detail h-screen py-4">
         <div class="flex justify-content-between pb-1">
             <div class="back self-center px-4">
-                <img src="/image/ui/Back.svg">
+                <Link :href="'/box/'+id" as="button"><img src="/image/ui/Back.svg"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
