@@ -1,6 +1,6 @@
 <template>
     <div class="box_detail h-auto py-4">
-        <div class="flex justify-content-between pb-1">
+        <div class="flex justify-between pb-1">
             <div class="back self-center px-4">
                 <Link href="/box" as="button"><img src="/image/ui/Back.svg"></Link>
             </div>

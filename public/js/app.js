@@ -2299,7 +2299,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "box_detail h-auto py-4"
   }, [_c("div", {
-    staticClass: "flex justify-content-between pb-1"
+    staticClass: "flex justify-between pb-1"
   }, [_c("div", {
     staticClass: "back self-center px-4"
   }, [_c("Link", {
@@ -3032,7 +3032,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "box_detail h-screen py-4"
   }, [_c("div", {
-    staticClass: "flex justify-content-between pb-1"
+    staticClass: "flex justify-between pb-1"
   }, [_c("div", {
     staticClass: "back self-center px-4"
   }, [_c("Link", {

@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
   </head>
