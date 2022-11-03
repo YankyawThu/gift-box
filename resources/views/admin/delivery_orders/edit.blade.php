@@ -16,15 +16,15 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="goods_name" class="form-control-label">Good Name</label>
-                                        <input type="text" id="goods_name"
+                                        <label for="goods-name" class="form-control-label">Good Name</label>
+                                        <input type="text" id="goods-name"
                                             class="form-control form-control-alternative is-valid" disabled />
                                     </div>
                                     <div class="form-group">
                                         <label for="goods_image" class="form-control-label">Goods Image</label>
-                                        <input type="text" id="goods_image"
-                                            class="form-control form-control-alternative is-valid" disabled />
                                     </div>
+                                    <img src="" id="edit_img_url" alt="your image" width="100" height="100"
+                                        class="pl-3">
                                     <div class="form-group">
                                         <label for="name" class="form-control-label">User Name</label>
                                         <input type="text" id="name"

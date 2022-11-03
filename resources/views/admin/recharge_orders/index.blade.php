@@ -6,41 +6,49 @@
         <div class="align-self-center">
             <form class="navbar-search navbar-search-light form-inline mr-sm-3"
                 action="{{ route('admin.recharge-orders.index') }}">
-                <div class="col-md-12 form-group mb-0">
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                <div class="col form-group mb-0">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by User Name" type="text" name="name"
                             value="{{ request('name') }}">
                     </div>
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Coin Amount" type="text"
                             name="coin_amount" value="{{ request('coin_amount') }}">
                     </div>
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by RMB Amount" type="text"
                             name="rmb_amount" value="{{ request('rmb_amount') }}">
                     </div>
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Transaction ID" type="text"
                             name="transaction_id" value="{{ request('transaction_id') }}">
                     </div>
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <select class="form-select form-control form-control-alternative" aria-label="Select paymethod"
                             name="pay_method" id="pay_method">
-                            <option value="" @if(request('pay_method')===null) selected @endif>Select Pay Method
+                            <option value="" @if (request('pay_method')===null) selected @endif>Select Pay Method
                             </option>
                             @foreach (config('config.payMethod') as $k => $v)
-                            <option value="{{ $k }}" @if(request('pay_method')==$k) selected @endif>{{$v}}
+                            <option value="{{ $k }}" @if (request('pay_method')==$k) selected @endif>
+                                {{ $v }}
                             </option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-2 input-group m-1 input-group-alternative input-group-merge searching">
+                    <div
+                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <select class="form-select form-control form-control-alternative" aria-label="Select paymethod"
                             name="status" id="status">
-                            <option value="" @if(request('status')===null) selected @endif>Pay Status
+                            <option value="" @if (request('status')===null) selected @endif>Pay Status
                             </option>
                             @foreach (config('config.payStatus') as $k => $v)
-                            <option value="{{$k}}" @if(request('status')==$k) selected @endif>{{$v}}
+                            <option value="{{ $k }}" @if (request('status')==$k) selected @endif>
+                                {{ $v }}
                             </option>
                             @endforeach
                         </select>
@@ -98,12 +106,12 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->out_trade_number }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_time? $item->pay_time : '-' }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_time ? $item->pay_time : '-' }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">
-                        <span class="badge badge-{{ ($item->status == 'pay') ? 'success' : 'warning' }}">{{
-                            $item->status }}</span>
+                        <span class="badge badge-{{ $item->status == 'pay' ? 'success' : 'warning' }}">{{ $item->status
+                            }}</span>
                     </p>
                 </td>
                 <td class="align-middle">

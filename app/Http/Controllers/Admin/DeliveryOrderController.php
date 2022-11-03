@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\DeliveryOrderUpdateRequest;
 use App\Models\Admin\Post;
 use App\Models\DeliveryOrder;
 use App\Services\Admin\DeliveryOrderService;
+use Illuminate\Http\Request;
 
 class DeliveryOrderController extends Controller
 {
@@ -26,9 +27,11 @@ class DeliveryOrderController extends Controller
     {
         $data = $this->deliveryOrderService->getAll($filter);
 
+        $unReadTotal = $this->deliveryOrderService->getUnReadCount();
+
         $posts = Post::all();
 
-        return view('admin.delivery_orders.index', compact('data', 'posts'));
+        return view('admin.delivery_orders.index', compact('data', 'posts', 'unReadTotal'));
     }
 
 
@@ -44,5 +47,16 @@ class DeliveryOrderController extends Controller
         $this->deliveryOrderService->update($request->validated(), $DeliveryOrder->id);
 
         return redirect()->back()->with('status', 'Delivery Order Updated Successfully!');
+    }
+
+    public function updateUnRead(Request $request)
+    {
+        if (request()->ajax()) {
+            $this->deliveryOrderService->updateUnread(['backend_read' => 1], $request->id);
+            return response()->json([
+                "status" => 200,
+                "data" =>$this->deliveryOrderService->getUnReadCount()
+            ]);
+        }
     }
 }

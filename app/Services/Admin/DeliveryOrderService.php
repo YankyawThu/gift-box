@@ -36,4 +36,14 @@ class DeliveryOrderService
 
         return $this->deliveryOrderRepo->update($data, $id);
     }
+
+    public function getUnReadCount()
+    {
+        return $this->deliveryOrderRepo->getDataByField('backend_read', 0)->count();
+    }
+
+    public function updateUnread($data, $id)
+    {
+        return $this->deliveryOrderRepo->update($data, $id);
+    }
 }

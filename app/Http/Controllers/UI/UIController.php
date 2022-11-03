@@ -4,10 +4,12 @@ namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CollectRequest;
 use App\Http\Requests\OpenBoxRequest;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Services\UI\BoxService;
+use App\Services\UI\CollectionService;
 use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\GiftLogService;
 use App\Services\UI\ItemService;
@@ -22,7 +24,7 @@ class UIController extends Controller
      *
      * @return void
      */
-    public function __construct(BoxService $boxService, ItemService $itemService, GiftItemBoxService $itemBoxService, PrizeService $prizeService, GiftLogService $giftLogService)
+    public function __construct(BoxService $boxService, ItemService $itemService, GiftItemBoxService $itemBoxService, PrizeService $prizeService, GiftLogService $giftLogService, CollectionService $collectService)
     {
         // $this->middleware('auth');
         $this->boxService = $boxService;
@@ -30,6 +32,7 @@ class UIController extends Controller
         $this->itemBoxService = $itemBoxService;
         $this->prizeService = $prizeService;
         $this->giftLogService = $giftLogService;
+        $this->collectService = $collectService;
         $this->nextId = null;
     }
 
@@ -60,7 +63,7 @@ class UIController extends Controller
 
     public function boxOpen($id, $time)
     {
-        return Inertia::render('OpenBox',['id' => $id, 'time' => $time]);
+        return Inertia::render('OpenBox', ['id' => $id, 'time' => $time]);
     }
 
     public function createOrder($boxId, $times)
@@ -77,8 +80,9 @@ class UIController extends Controller
         $result = [
             'orderId' => intval($order->id),
             'coinNotEnough' => (bool) (intval(auth()->user()->money) < intval($order->amount)),
-            'data' => $data
+            'data' => $data,
         ];
+
         return $result;
     }
 
@@ -116,5 +120,16 @@ class UIController extends Controller
 
         return $prize;
     }
-}
 
+    public function collect(CollectRequest $request)
+    {
+        $this->collectService->collect($request);
+
+        return 'success';
+    }
+
+    public function getBanners()
+    {
+        return $this->boxService->getBanners();
+    }
+}

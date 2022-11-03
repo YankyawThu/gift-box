@@ -438,22 +438,46 @@ $(function() {
     })
 
     //delivery order
-   $('#edit-delivery-order-modal').on('show.bs.modal', function(e) {
-    var button = $(e.relatedTarget)
-    var id = button.data('id')
-    var goods_name = button.data('goods_name')
-    var goods_image = button.data('goods_image')
-    var name = button.data('name')
-    var phone = button.data('phone')
-    var address = button.data('address')
 
-    modal = $(this)
-    modal.find('.modal-body #id').val(id)
-    modal.find('.modal-body #goods_name').val(goods_name)
-    modal.find('.modal-body #goods_image').val(goods_image)
-    modal.find('.modal-body #name').val(name)
-    modal.find('.modal-body #phone').val(phone)
-    modal.find('.modal-body #address').val(address)
+    $('#edit-delivery-order-modal').on('show.bs.modal', function (e) {
+
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        //update unread count
+        $.ajax({
+            type:'POST',
+            url:"/admin/delivery-orders/update-unread",
+            data: {
+                'id': id,
+            },
+            success: function(data) {
+                var delivery = $("#sidenav-collapse-main").find('#delivery-order-unread')
+                $(delivery).html(data.data);
+            },
+            error :  function(data)
+            {
+                alert('{{ url("admin/delivery-orders/update-unread") }}');
+            }
+        });
+
+        var goods_name = button.data('goods-name')
+        var goods_image = button.data('goods-image')
+        var name = button.data('name')
+        var phone = button.data('phone')
+        var address = button.data('address')
+        var image = button.data('image')
+        if (image){
+            imagePath = button.data('image-path')
+        }
+
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #goods-name').val(goods_name)
+        modal.find('.modal-body #goods_image').val(goods_image)
+        modal.find('.modal-body #name').val(name)
+        modal.find('.modal-body #phone').val(phone)
+        modal.find('.modal-body #address').val(address)
+        modal.find('.modal-body #edit_img_url').attr("src", imagePath)
     })
 
     var deliveryOrderUpdateForm = $('#edit-delivery-order-form').validate({
@@ -466,6 +490,7 @@ $(function() {
             },
             delivery_number: {
                 required: true,
+                number: true,
             },
         },
         messages: {
@@ -473,7 +498,8 @@ $(function() {
                 required: "Post Name is Required."
             },
             delivery_number: {
-                required: "Deliver Number is Required."
+                required: "Deliver Number is Required.",
+                number: "Deliver Number must be number.",
             },
         },
         showErrors: function() {

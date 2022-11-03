@@ -123,6 +123,7 @@
                     <a class="nav-link {{ activeSegment(2, 'delivery-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.delivery-orders.index') }}">
                         <i class="fas fa-truck text-blue"></i> {{ __('Shipping Orders') }}
+                        <span class="badge badge-warning" id="delivery-order-unread"></span>
                     </a>
                 </li>
 

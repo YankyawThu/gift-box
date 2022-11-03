@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GiftPrizeRecordSeeder::class);
         $this->call(DeliveryOrderSeeder::class);
         $this->call(CustomSqlSeeder::class);
+        $this->call(CollectionSeeder::class);
+        $this->call(BannerSeeder::class);
     }
 }
