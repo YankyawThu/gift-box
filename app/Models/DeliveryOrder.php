@@ -24,6 +24,11 @@ class DeliveryOrder extends Model
         return $this->belongsTo(Address::class, 'address_id');
     }
 
+    public function giftItem()
+    {
+        return $this->belongsTo(GiftItem::class, 'gift_item_id');
+    }
+
     public function statusBadge()
     {
         switch ($this->status) {
@@ -45,7 +50,7 @@ class DeliveryOrder extends Model
                 break;
         }
     }
-    
+
     public function giftPrize()
     {
         return $this->belongsTo(GiftPrizeRecord::class, 'gift_prize_id');

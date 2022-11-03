@@ -22,7 +22,6 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
     <script src="{{ asset('argon/vendor/clipboard/dist/clipboard.min.js') }}"></script>
     <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="{{ asset('js/js.js') }}"></script>
     @stack('css')
 </head>
 

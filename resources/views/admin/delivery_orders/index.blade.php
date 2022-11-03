@@ -5,13 +5,13 @@
 @endpush
 @section('content-detail')
 <script>
-    $(function(){
+    $(function() {
         @if (session('status'))
-            toastr.success('{{ session('status') }}')
+                        toastr.success('{{ session('status') }}')
         @endif
 
         @if ($errors->any())
-            toastr.error('{{ $errors->all()[0] }}')
+                        toastr.error('{{ $errors->all()[0] }}')
         @endif
     })
 </script>
@@ -71,9 +71,9 @@
                 <th class="text-xxs font-weight-bolder opacity-7">NO</th>
                 <th class="text-xxs font-weight-bolder opacity-7">ORDER NO</th>
                 <th class="text-xxs font-weight-bolder opacity-7">GIFT PRIZE ID</th>
-                {{-- <th class="text-xxs font-weight-bolder opacity-7">GOODS NAME</th>
+                <th class="text-xxs font-weight-bolder opacity-7">GOODS NAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">GOOD IMAGE</th>
-                <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th> --}}
+                <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">USERNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">MOBILE</th>
                 <th class="text-xxs font-weight-bolder opacity-7">ADDRESS</th>
@@ -97,6 +97,18 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->gift_prize_id }}</p>
                 </td>
                 <td>
+                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->giftItem)->name }}</p>
+                </td>
+                <td>
+                    <p class="font-weight-bold mb-0 text-sm">
+                        <img src="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" class="me-3"
+                        width="50" height="50">
+                    </p>
+                </td>
+                <td>
+                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->nickname }}</p>
+                </td>
+                <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->name }}</p>
                 </td>
                 <td>
@@ -112,11 +124,11 @@
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">
-                        {{ $item->delivery_time ? $item->delivery_time->diffForHumans() : "-" }}</span>
+                        {{ $item->delivery_time ? $item->delivery_time->diffForHumans() : '-' }}</span>
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">
-                        {{ $item->receive_time ? $item->receive_time->diffForHumans() : "-" }}</span>
+                        {{ $item->receive_time ? $item->receive_time->diffForHumans() : '-' }}</span>
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>
@@ -124,16 +136,23 @@
                 <td class="align-middle">
                     @if ($item->status == 'undelivered')
                     <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
-                        data-goods-name="{{ $item->gift_prize_id }}" data-name={{ optional($item->user)->name }}
-                        data-phone="{{ optional($item->user)->phone }}" data-address="{{
-                        optional($item->address)->address}}"
-                        data-toggle="modal" data-target="#edit-delivery-order-modal">
+                        data-goods-name="{{ optional($item->giftItem)->name }}" data-name={{ optional($item->user)->name
+                        }}
+                        data-image="{{ optional($item->giftItem)->image }}"
+                        data-image-path="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}"
+                        data-phone="{{ optional($item->user)->phone }}"
+                        data-address="{{ optional($item->address)->address }}" data-toggle="modal"
+                        data-target="#edit-delivery-order-modal">
                         <span class="btn btn-sm btn-success" data-toggle="tooltip"
                             data-original-title="Edit Deliver Order"><i class="fas fa-edit"></i>
                         </span>
                     </a>
 
-                    @include('admin.delivery_orders.edit', ['id' => $item->id, 'item' => $item, 'posts' => $posts])
+                    @include('admin.delivery_orders.edit', [
+                    'id' => $item->id,
+                    'item' => $item,
+                    'posts' => $posts,
+                    ])
                     @endif
                 </td>
             </tr>
@@ -154,13 +173,15 @@
 <script type="text/javascript">
     $(function() {
 
+        var delivery = $(this).find('#delivery-order-unread')
+        $(delivery).append({{ $unReadTotal }});
         // deli time daterange
         $('input[name="delivery_time"]').daterangepicker({
-        autoUpdateInput: false,
-        locale: {
-            format: 'DD/MM/YY',
-            cancelLabel: 'Clear'
-        }
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD/MM/YY',
+                cancelLabel: 'Clear'
+            }
         });
 
         $('input[name="delivery_time"]').on('apply.daterangepicker', function(ev, picker) {
@@ -173,11 +194,11 @@
 
         // receive time daterange
         $('input[name="receive_time"]').daterangepicker({
-        autoUpdateInput: false,
-        locale: {
-            format: 'DD/MM/YY',
-            cancelLabel: 'Clear'
-        }
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD/MM/YY',
+                cancelLabel: 'Clear'
+            }
         });
 
         $('input[name="receive_time"]').on('apply.daterangepicker', function(ev, picker) {

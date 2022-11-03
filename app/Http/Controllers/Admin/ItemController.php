@@ -84,7 +84,7 @@ class ItemController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $this->itemService->update($request, $id);
+        $this->itemService->update($request, $request->id);
 
         return redirect()->back()->with('status', 'Item Updated Successfully!');
     }

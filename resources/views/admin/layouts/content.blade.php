@@ -20,3 +20,7 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+<script src="{{ asset('js/js.js') }}"></script>
+@endpush

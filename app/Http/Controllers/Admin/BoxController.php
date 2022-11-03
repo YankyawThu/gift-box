@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 class BoxController extends Controller
 {
     private $boxService;
+    private $itemService;
     public function __construct(BoxService $boxService, BoxCategoryService $boxCateService, ItemService $itemService)
     {
         $this->boxService = $boxService;

@@ -58,6 +58,15 @@ abstract class BaseRepository
         return $this->model->destroy($id);
     }
 
+    public function getDataByField(string $field, $value = null, $cond =null, string $fun = 'where')
+    {
+        if ($cond == null) {
+            return  $this->model->$fun($field, $value);
+        } else {
+            return  $this->model->$fun($field, $cond, $value);
+        }
+    }
+
     public function checkImageSizeLimitaion($image)
     {
         $validator = validator(request()->all(), [

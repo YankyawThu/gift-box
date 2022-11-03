@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BoxCategoryController;
 use App\Http\Controllers\Admin\BoxController;
 use App\Http\Controllers\Admin\DeliveryOrderController;
+use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\GiftItemBoxController;
 use App\Http\Controllers\Admin\GiftLogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -46,6 +47,12 @@ Route::name('admin.')->group(function () {
 
         Route::resource('recharge-orders', RechargeOrderController::class);
 
-        Route::resource('delivery-orders', DeliveryOrderController::class);
+        Route::resource('delivery-orders', DeliveryOrderController::class)->only([
+            'index', 'update'
+        ]);
+
+        Route::post('delivery-orders/update-unread', [DeliveryOrderController::class, 'updateUnRead'])->name('delivery-orders.updateUnRead');
+
+        Route::get('file/show/{model}/{id}', [FileController::class, 'show'])->name('get-file');
     });
 });
