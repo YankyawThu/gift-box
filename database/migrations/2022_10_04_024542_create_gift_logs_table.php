@@ -21,6 +21,7 @@ class CreateGiftLogsTable extends Migration
             $table->double('amount')->default(0);
             $table->enum('payment_method', ['coin', 'wechat', 'alipay'])->nullable();
             $table->enum('status', ['unpay', 'unused', 'used', 'refund']);
+            $table->boolean('backend_read')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

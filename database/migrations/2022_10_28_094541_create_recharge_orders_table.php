@@ -25,7 +25,7 @@ class CreateRechargeOrdersTable extends Migration
             $table->string('alipay_trade_no')->nullable();
             $table->timestamp('pay_time')->nullable();
             $table->enum('status', ['unpay', 'paid']);
-            $table->tinyInteger('backend_read')->default(0);
+            $table->boolean('backend_read')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
