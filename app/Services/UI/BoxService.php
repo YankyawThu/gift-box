@@ -27,4 +27,9 @@ class BoxService
     {
         return $this->boxRepo->getById($id);
     }
+
+    public function getBanners()
+    {
+        return $this->boxRepo->getBanners();
+    }
 }
