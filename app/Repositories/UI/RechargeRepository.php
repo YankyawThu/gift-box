@@ -14,6 +14,11 @@ class RechargeRepository extends BaseRepository
         $this->rechargeOrderModel = $rechargeOrderModel;
     }
 
+    public function get()
+    {
+        return $this->model->orderBy('amount', 'asc')->get();
+    }
+
     public function rechargeOrder($request)
     {
         return $this->rechargeOrderModel->create([

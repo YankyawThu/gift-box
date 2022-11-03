@@ -13,7 +13,7 @@ class RechargeService
 
     public function getAll()
     {
-        return $this->rechargeRepo->getAll();
+        return $this->rechargeRepo->get();
     }
 
     public function rechargeOrder($request)

@@ -1,0 +1,77 @@
+<template>
+    <div class="py-4 bg-gray-50 h-screen">
+        <div class="flex flex-row my-5 px-4">
+           <Link href="/box" as="button">
+                <div class="p-2 pl-0 mr-2">
+                    <img src="/image/ui/BackArrow.svg">
+                </div>
+            </Link>
+            <div class="font-bold text-xl self-center">
+                Recharge
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="text-center pb-2">Select the Recharge Amount</div>
+            <div class="rounded-xl py-7 text-center border-2 border-blue-900 my-2 text-4xl font-bold">
+                $ {{amount}}
+            </div>
+            <div class="flex flex-wrap justify-between my-3">
+                <div class="w-28 h-12 text-center my-2 rounded-2xl py-2 text-lg" :class="[actives[i] ? 'amount_active' : 'border-2 border-blue-900']" v-for="(price,i) in data" :key="i" @click="pick(price.amount, i)">
+                    $ {{price.amount}}
+                </div>
+            </div>
+        </div>
+        <div class="absolute w-full bottom-16 px-4">
+            <Link href="#" as="button" class="py-3 ok_btn rounded-full w-full text-white" @click="submit">Continue</Link>
+        </div>
+    </div>
+</template>
+
+<script>
+
+import {Link} from '@inertiajs/inertia-vue'
+import axios from 'axios'
+
+export default {
+    components: {
+        Link
+    },
+    props: {
+        data: {
+            type: Array,
+            required: true
+        }
+    },
+    data() {
+        return {
+            amount: '',
+            actives: [],
+        }
+    },
+    methods: {
+        setFalse() {
+            this.$props.data.forEach(item => {
+                this.actives.push(false)
+            });
+        },
+        pick(price,i) {
+            this.amount = price
+            this.actives = []
+            this.setFalse()
+            this.actives[i] = true
+        },
+        submit() {
+            axios.post('/recharge-order', {
+                amount: this.amount
+            })
+            .then((res) => {
+                console.log(res)
+            })
+        }
+    },
+    mounted() {
+        this.amount = this.$props.data[0].amount
+        this.actives[0] = true
+    } 
+}
+</script>
