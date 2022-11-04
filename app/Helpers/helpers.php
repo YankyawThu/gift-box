@@ -12,7 +12,7 @@ if (!function_exists('fileUploadToAkoneyaMedia')) {
     function fileUploadToAkoneyaMedia($file, $directoryName)
     {
         $fileExtension = $file->extension();
-        $fileName = time() . Str::random(10) . ".$fileExtension";
+        $fileName = time().Str::random(10).".$fileExtension";
         $filePath = Storage::putFileAs($directoryName, new File($file), $fileName);
 
         return $filePath;
@@ -52,7 +52,7 @@ if (!function_exists('activePath')) {
     {
         $path = is_null($path)
             ? config('app.admin_prefix')
-            : config('app.admin_prefix') . '/' . $path;
+            : config('app.admin_prefix').'/'.$path;
 
         return request()->is($path) ? 'active' : '';
     }
@@ -64,7 +64,6 @@ if (!function_exists('showSegment')) {
         return request()->segment($index) == $path ? 'show' : '';
     }
 }
-
 
 if (!function_exists('splitDaterange')) {
     function splitDaterange($date)
@@ -87,5 +86,17 @@ if (!function_exists('dateFormat')) {
     function dateFormat($date)
     {
         return date('Y-m-d,H:m:s', strtotime($date));
+    }
+}
+if (!function_exists('getRmbFromCoin')) {
+    function getRmbFromCoin(float $coin)
+    {
+        if (empty($coin)) {
+            return 0;
+        }
+        $data = App\Models\Setting::where('id', 1)->value('one_rmb_to_coin_num');
+        $rate = $data ? $data : 1.00;
+
+        return round(floatval($coin) / $rate, 5);
     }
 }

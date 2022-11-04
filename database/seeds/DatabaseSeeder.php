@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CustomSqlSeeder::class);
         $this->call(CollectionSeeder::class);
         $this->call(BannerSeeder::class);
+        $this->call(MoneyRecordSeeder::class);
     }
 }

@@ -35,4 +35,13 @@ class PrizeRepository extends BaseRepository
 
         return $prizeInfo;
     }
+
+    public function getBoxCabinet($request, $page)
+    {
+        $status = $request->status;
+        $statusList = [1 => 'bag', 2 => 'exchange'];
+        $status = $statusList[$status];
+
+        return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->orderBy('id', 'desc')->paginate($page);
+    }
 }
