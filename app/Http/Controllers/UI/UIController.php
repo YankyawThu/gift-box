@@ -83,11 +83,11 @@ class UIController extends Controller
             'data' => $data,
         ];
 
-        return $result;
+        return response()->json($result);
     }
 
     public function openLuckyBox(OpenBoxRequest $request)
-    {
+    {   return true;
         $box = $this->boxService->getById($request->boxId);
 
         if (!$box) {

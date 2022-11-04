@@ -24,8 +24,8 @@
             <div class="relative">
                 <img src="/image/ui/Frame.svg">
                 <div class="grid grid-cols-3 absolute prize_container">
-                    <div v-for="i in 9" :key="i" class="mx-3 prize_box">
-                        <img src="/image/ui/ShadowWithPrize.svg">
+                    <div v-for="(prize,i) in prizes" :key="i" class="mx-3 prize_box">
+                        <img :src="prizeInActive" :class="'prizeImage'+i" @click="prizeBoxSelect(i)">
                     </div>
                 </div>
             </div>
@@ -33,16 +33,18 @@
         </div>
         <div class="flex justify-around">
             <div class="relative">
-                <Link :href="'/box/'+id+'/create-order/'+time" as="button">
+                <div class="trigger" @click="createOrder">
                     <img src="/image/ui/Button.svg">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
-                </Link>
+                </div>
+                <order-modal v-show="modalActive" :order="order" @openBox="submit()"></order-modal>
+                <congratz-modal v-show="conModalActive"></congratz-modal>
             </div>
             <div class="relative">
-                <Link :href="'/box/'+id+'/create-order/'+time" as="button">
+                <div>
                     <img src="/image/ui/Button.svg">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
-                </Link>
+                </div>
             </div>
         </div>
     </div>
@@ -51,14 +53,121 @@
 <script>
 
 import {Link} from '@inertiajs/inertia-vue'
+import axios from 'axios'
+import orderModal from './modals/Order.vue'
+import congratzModal from './modals/Congratz.vue'
+import modal from '../modal.js'
 
 export default {
     components: {
         Link,
+        orderModal,
+        congratzModal
     },
     props: {
         id: '',
         time: ''
+    },
+    data() {
+        return {
+            prizeActive: '/image/ui/ActivePrize.svg',
+            prizeInActive: '/image/ui/ShadowWithPrize.svg',
+            num: 9,
+            prizes: [],
+            click: 0,
+            order: {},
+            modalActive: false,
+            conModalActive: false,
+        }
+    },
+    methods: {
+        falseAllPrizes() {
+            for(var j = 0; j < this.num; j++) {
+                this.prizes.push(false)
+            }
+        },
+        prizeActiveInActive(i) {
+            var prizeImage = document.querySelector('.prizeImage'+i)
+            if(this.prizes[i]) {
+                this.prizes[i] = false
+                prizeImage.setAttribute('src', this.prizeInActive)
+            }
+            else {
+                this.prizes[i] = true
+                prizeImage.setAttribute('src', this.prizeActive)
+            }
+            var count = this.prizes.filter(x => x==true).length
+            this.click = count
+        },
+        prizeBoxSelect(i) {
+            if(this.click < this.$props.time || this.prizes[i] == true) {
+                this.prizeActiveInActive(i)
+            }
+            else {
+                this.prizes.forEach((value,k) => {
+                    var prizeImage = document.querySelector('.prizeImage'+k)
+                    this.prizes[k] = false
+                    prizeImage.setAttribute('src', this.prizeInActive)
+                })
+                this.prizeActiveInActive(i)
+            }
+        },
+        animate() {
+            var t = 500
+            var rands = this.random()
+            this.prizes.forEach((value,k) => {
+                var prizeImage = document.querySelector('.prizeImage'+k)
+                prizeImage.setAttribute('src', this.prizeInActive)
+            })
+            rands.forEach(rand => {
+                this.roll(rand, t)
+                t += 100
+            })
+        },
+        roll(rand, t) {
+            setTimeout(() => {
+                var prizeImage = document.querySelector('.prizeImage'+rand)
+                prizeImage.setAttribute('src', this.prizeActive)
+            },t)
+            setTimeout(() => {
+                var prizeImage = document.querySelector('.prizeImage'+rand)
+                prizeImage.setAttribute('src', this.prizeInActive)
+            },t+100)
+        },
+        random() {
+            var rands = []
+            for(var i = 0; i < this.num; i++) {
+                var rand = Math.floor(Math.random() * (this.num - 0) + 0)
+                if(!rands.includes(rand)) {
+                    rands.push(rand)
+                }
+            }
+            return rands
+        },
+        createOrder() {
+            axios.post(`/box/${this.$props.id}/create-order/${this.$props.time}`)
+                .then(res => {
+                    this.modalActive = true
+                    this.order = res.data
+                })
+        },
+        submit() {
+            this.modalActive = false
+            this.animate()
+            axios.post('/box/open-box', {
+                'boxId': this.$props.id,
+                'times': this.$props.time,
+                'orderId': this.order.orderId
+            })
+            .then(res => {
+                this.conModalActive = true
+                console.log(res)
+            })
+        }
+    },
+    mounted() {
+        this.falseAllPrizes()
+        modal()
     }
 }
 </script>
