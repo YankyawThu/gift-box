@@ -2307,7 +2307,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       rands.forEach(function (rand) {
         _this2.roll(rand, t);
-        t += 100;
+        t += 150;
       });
     },
     roll: function roll(rand, t) {
@@ -2319,7 +2319,7 @@ __webpack_require__.r(__webpack_exports__);
       setTimeout(function () {
         var prizeImage = document.querySelector('.prizeImage' + rand);
         prizeImage.setAttribute('src', _this3.prizeInActive);
-      }, t + 100);
+      }, t + 150);
     },
     random: function random() {
       var rands = [];
@@ -2528,10 +2528,22 @@ __webpack_require__.r(__webpack_exports__);
       type: Object
     }
   },
+  data: function data() {
+    return {
+      isAgree: false,
+      submitBtn: false
+    };
+  },
   methods: {
     submit: function submit() {
+      if (this.isAgree) {
+        this.close();
+        this.$emit('openBox');
+      }
+    },
+    close: function close() {
       this.$emit('update:model-active', false);
-      this.$emit('openBox');
+      this.isAgree = false;
     }
   }
 });
@@ -2683,7 +2695,7 @@ var render = function render() {
   })], 1), _vm._v(" "), _vm._l(_vm.data.data.items, function (item, i) {
     return _c("div", {
       key: i,
-      staticClass: "flex flex-wrap flex-row my-2 mx-1"
+      staticClass: "flex flex-wrap justify-around my-2 mx-1"
     }, [_c("div", {
       staticClass: "box_detail_item_card"
     }, [_vm._m(3, true), _vm._v(" "), _vm._m(4, true), _vm._v(" "), _c("div", {
@@ -3211,7 +3223,7 @@ var render = function render() {
   }), _vm._v("Helps")])])], 1), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl"
   }, [_vm._v("Recommended")]), _vm._v(" "), _c("div", {
-    staticClass: "flex flex-wrap justify-between"
+    staticClass: "flex flex-wrap justify-around"
   }, _vm._l(_vm.boxes, function (box, i) {
     return _c("Link", {
       key: i,
@@ -3279,7 +3291,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "box_detail h-screen py-4"
+    staticClass: "box_detail h-full py-4"
   }, [_c("div", {
     staticClass: "flex justify-between pb-1"
   }, [_c("div", {
@@ -3329,7 +3341,6 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "relative"
   }, [_c("div", {
-    staticClass: "trigger",
     on: {
       click: _vm.createOrder
     }
@@ -3339,7 +3350,12 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
-  }, [_vm._v("Open")])]), _vm._v(" "), _c("order-modal", {
+  }, [_vm._v("Open")])])]), _vm._v(" "), _c("div", {
+    staticClass: "relative",
+    on: {
+      click: _vm.createOrder
+    }
+  }, [_vm._m(1)])]), _vm._v(" "), _c("order-modal", {
     attrs: {
       order: _vm.order
     },
@@ -3356,13 +3372,14 @@ var render = function render() {
       expression: "orderModalActive"
     }
   }), _vm._v(" "), _c("congratz-modal", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
+    model: {
       value: _vm.conModalActive,
+      callback: function callback($$v) {
+        _vm.conModalActive = $$v;
+      },
       expression: "conModalActive"
-    }]
-  })], 1), _vm._v(" "), _vm._m(1)])]);
+    }
+  })], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3381,15 +3398,13 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "relative"
-  }, [_c("div", [_c("img", {
+  return _c("div", [_c("img", {
     attrs: {
       src: "/image/ui/Button.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
-  }, [_vm._v("Open")])])]);
+  }, [_vm._v("Open")])]);
 }];
 render._withStripped = true;
 
@@ -3450,7 +3465,7 @@ var render = function render() {
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "absolute w-full bottom-16 px-4"
   }, [_c("div", {
-    staticClass: "py-3 ok_btn rounded-full w-full text-white text-center",
+    staticClass: "py-3 btn_one rounded-full w-full text-white text-center",
     on: {
       click: _vm.submit
     }
@@ -3640,9 +3655,177 @@ var render = function render() {
     attrs: {
       src: "/image/ui/Cross.svg"
     }
-  })]), _vm._v(" "), _c("div", [_vm._v("Congratulations")])])]);
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "text-center px-5 -mt-5"
+  }, [_vm._v("You have won special prize IPhone 13 , Airpods 2 and JBL 3.")]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "modal_header_img",
+    attrs: {
+      src: "/image/ui/Gift.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "-mt-3"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/Congratz.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex flex-wrap justify-center my-4"
+  }, [_c("div", {
+    staticClass: "congratz_item_card"
+  }, [_c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "/image/ui/Mark.svg",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/IPhone-13.png",
+      width: "50",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_footer text-center"
+  }, [_c("div", {
+    staticClass: "truncate px-2"
+  }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("($ 2000)")])])]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card"
+  }, [_c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "/image/ui/Mark.svg",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/IPhone-13.png",
+      width: "50",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_footer text-center"
+  }, [_c("div", {
+    staticClass: "truncate px-2"
+  }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("($ 2000)")])])]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card"
+  }, [_c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "/image/ui/Mark.svg",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/IPhone-13.png",
+      width: "50",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_footer text-center"
+  }, [_c("div", {
+    staticClass: "truncate px-2"
+  }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("($ 2000)")])])]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card"
+  }, [_c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "/image/ui/Mark.svg",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/IPhone-13.png",
+      width: "50",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_footer text-center"
+  }, [_c("div", {
+    staticClass: "truncate px-2"
+  }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("($ 2000)")])])]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card"
+  }, [_c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "/image/ui/Mark.svg",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "/image/ui/IPhone-13.png",
+      width: "50",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "congratz_item_card_footer text-center"
+  }, [_c("div", {
+    staticClass: "truncate px-2"
+  }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("($ 2000)")])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-around"
+  }, [_c("div", {}, [_c("button", {
+    staticClass: "btn_two rounded-full py-2 w-32 m-2 text-white"
+  }, [_vm._v("Sell")])]), _vm._v(" "), _c("div", {}, [_c("button", {
+    staticClass: "btn_one rounded-full py-2 w-32 m-2 text-white"
+  }, [_vm._v("Collect")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-center mt-4 text-center text-sm",
+    staticStyle: {
+      color: "#8064E1"
+    }
+  }, [_c("div", {
+    staticClass: "self-center mr-3"
+  }, [_c("img", {
+    attrs: {
+      src: "/image/ui/Share.svg"
+    }
+  })]), _vm._v(" "), _c("div", [_vm._v("Share your friends")])]);
+}];
 render._withStripped = true;
 
 
@@ -3677,7 +3860,7 @@ var render = function render() {
     staticClass: "close-modal",
     on: {
       click: function click($event) {
-        return _vm.$emit("update:model-active", false);
+        return _vm.close();
       }
     }
   }, [_c("img", {
@@ -3688,17 +3871,31 @@ var render = function render() {
     staticClass: "text-lg py-2 font-bold text-center"
   }, [_vm._v("\n            Payment\n        ")]), _vm._v(" "), _vm.order.data ? _c("div", {
     staticClass: "px-10 py-2"
-  }, [_vm.order.data.items ? _c("div", _vm._l(_vm.order.data.items, function (item, i) {
-    return _c("img", {
+  }, [_vm.order.data.items ? _c("div", [_c("div", {
+    staticClass: "flex flex-wrap justify-center"
+  }, _vm._l(_vm.order.data.items.slice(0, 5), function (item, i) {
+    return _c("div", {
       key: i,
+      "class": [i == 4 ? "relative" : ""],
+      staticStyle: {
+        margin: "1px"
+      }
+    }, [_c("img", {
       staticClass: "m-auto",
       attrs: {
         src: item.image,
         width: "50",
         height: "50"
       }
-    });
-  }), 0) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm.order.data ? _c("div", {
+    }), _vm._v(" "), i == 4 ? _c("div", {
+      staticClass: "absolute w-full h-full bg-black top-0 opacity-40"
+    }) : _vm._e(), _vm._v(" "), i == 4 ? _c("div", {
+      staticClass: "absolute text-white text-center inset-x-1 inset-y-4",
+      staticStyle: {
+        "line-height": "18px"
+      }
+    }, [_vm._v("+" + _vm._s(_vm.order.data.items.length - 4))]) : _vm._e()]);
+  }), 0)]) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm.order.data ? _c("div", {
     staticClass: "pt-2 text-center",
     staticStyle: {
       color: "#DF8E44"
@@ -3709,11 +3906,52 @@ var render = function render() {
       color: "#E74549"
     }
   }, [_vm._v("(" + _vm._s(_vm.order.data.price) + " gold coins) "), _vm.order.coinNotEnough ? _c("span", [_vm._v("Insufficient coin!")]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c("div", {
-    staticClass: "mt-7 text-sm px-2"
-  }, [_vm._v("\n            ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit faucibus lobortis phasellus.\n        ")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "mt-5 text-sm px-2"
+  }, [_vm._v("\n            ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit faucibus lobortis phasellus.\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-row text-sm rounded-lg px-3 py-2 my-4 agree_term",
+    on: {
+      click: function click($event) {
+        _vm.isAgree = !_vm.isAgree;
+      }
+    }
+  }, [_c("div", {
+    staticClass: "self-center mr-3"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.isAgree,
+      expression: "isAgree"
+    }],
+    staticClass: "w-5 h-5",
+    attrs: {
+      type: "checkbox"
+    },
+    domProps: {
+      checked: Array.isArray(_vm.isAgree) ? _vm._i(_vm.isAgree, null) > -1 : _vm.isAgree
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.isAgree,
+          $$el = $event.target,
+          $$c = $$el.checked ? true : false;
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$el.checked) {
+            $$i < 0 && (_vm.isAgree = $$a.concat([$$v]));
+          } else {
+            $$i > -1 && (_vm.isAgree = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.isAgree = $$c;
+        }
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_vm._v("\n                Lorem ipsum dolor sit amet, consectetur adipiscing\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full mt-5 mb-2"
   }, [_c("div", {
-    staticClass: "ok_btn rounded-full py-3 text-center m-auto text-white",
+    staticClass: "btn_one rounded-full py-3 text-center m-auto text-white",
     on: {
       click: function click($event) {
         return _vm.submit();
@@ -3725,27 +3963,11 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("img", {
-    staticClass: "absolute -top-6 left-36",
+    staticClass: "modal_header_img",
     attrs: {
       src: "/image/ui/Pocket.svg"
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "flex flex-row text-sm rounded-lg px-3 py-2 my-4",
-    staticStyle: {
-      background: "#ECECFF"
-    }
-  }, [_c("div", {
-    staticClass: "self-center mr-3"
-  }, [_c("input", {
-    staticClass: "w-5 h-5",
-    attrs: {
-      type: "checkbox"
-    }
-  })]), _vm._v(" "), _c("div", [_vm._v("\n                Lorem ipsum dolor sit amet, consectetur adipiscing\n            ")])]);
 }];
 render._withStripped = true;
 
@@ -3836,7 +4058,7 @@ var render = function render() {
   }, [_vm._v("You have successful top up e-wallet for $ " + _vm._s(_vm.modalAmount))]), _vm._v(" "), _c("div", {
     staticClass: "w-full my-9"
   }, [_c("div", {
-    staticClass: "ok_btn rounded-full py-3 text-center w-40 m-auto text-white",
+    staticClass: "btn_one rounded-full py-3 text-center w-40 m-auto text-white",
     on: {
       click: function click($event) {
         return _vm.$emit("update:model-active", false);

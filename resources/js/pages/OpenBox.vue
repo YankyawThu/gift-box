@@ -1,5 +1,5 @@
 <template>
-    <div class="box_detail h-screen py-4">
+    <div class="box_detail h-full py-4">
         <div class="flex justify-between pb-1">
             <div class="back self-center px-4">
                 <Link :href="'/box/'+id" as="button"><img src="/image/ui/Back.svg"></Link>
@@ -33,20 +33,20 @@
         </div>
         <div class="flex justify-around">
             <div class="relative">
-                <div class="trigger" @click="createOrder">
+                <div @click="createOrder">
                     <img src="/image/ui/Button.svg">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
-                <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
-                <congratz-modal v-show="conModalActive"></congratz-modal>
             </div>
-            <div class="relative">
+            <div class="relative" @click="createOrder">
                 <div>
                     <img src="/image/ui/Button.svg">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
             </div>
         </div>
+        <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
+        <congratz-modal v-model="conModalActive"></congratz-modal>
     </div>
 </template>
 
@@ -120,7 +120,7 @@ export default {
             })
             rands.forEach(rand => {
                 this.roll(rand, t)
-                t += 100
+                t += 150
             })
         },
         roll(rand, t) {
@@ -131,7 +131,7 @@ export default {
             setTimeout(() => {
                 var prizeImage = document.querySelector('.prizeImage'+rand)
                 prizeImage.setAttribute('src', this.prizeInActive)
-            },t+100)
+            },t+150)
         },
         random() {
             var rands = []

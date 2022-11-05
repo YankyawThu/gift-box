@@ -49,7 +49,7 @@
                 </div>
                 <rule v-model="ruleModalActive" />
             </div>
-            <div v-for="(item, i) in data.data.items" :key="i" class="flex flex-wrap flex-row my-2 mx-1">
+            <div v-for="(item, i) in data.data.items" :key="i" class="flex flex-wrap justify-around my-2 mx-1">
                 <div class="box_detail_item_card">
                     <div class="box_detail_item_card_header">
                         <img src="/image/ui/supreme.svg" alt="">
