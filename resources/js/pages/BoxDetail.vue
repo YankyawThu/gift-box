@@ -41,13 +41,13 @@
         <div class="px-2 py-1 detail_itembox mx-4">
             <div class="flex justify-between pt-2 px-3">
                 <div class="font-semibold text-lg">Product Preview</div>
-                <div class="flex flex-row items-center trigger">
+                <div class="flex flex-row items-center" @click="ruleModalActive = !ruleModalActive">
                     <div class="px-1">Rules of Play</div>
                     <div >
                         <img src="/image/ui/Info.svg">
                     </div>
                 </div>
-                <rule />
+                <rule v-model="ruleModalActive" />
             </div>
             <div v-for="(item, i) in data.data.items" :key="i" class="flex flex-wrap flex-row my-2 mx-1">
                 <div class="box_detail_item_card">
@@ -175,7 +175,6 @@
 <script>
 
 import {Link} from '@inertiajs/inertia-vue'
-import modal from '../modal.js'
 import rule from './modals/Rule.vue'
 
 export default {
@@ -189,6 +188,11 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            ruleModalActive: false
+        }
+    },
     computed: {
         itemTag(tag) {
             switch(tag) {
@@ -197,9 +201,6 @@ export default {
                 case 'normal': return '/image/ui/Third.svg';
             }
         }
-    },
-    mounted() {
-        modal()
     }
 }
 </script>

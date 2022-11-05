@@ -37,7 +37,7 @@
                     <img src="/image/ui/Button.svg">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
-                <order-modal v-show="modalActive" :order="order" @openBox="submit()"></order-modal>
+                <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
                 <congratz-modal v-show="conModalActive"></congratz-modal>
             </div>
             <div class="relative">
@@ -56,7 +56,6 @@ import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
 import orderModal from './modals/Order.vue'
 import congratzModal from './modals/Congratz.vue'
-import modal from '../modal.js'
 
 export default {
     components: {
@@ -76,7 +75,7 @@ export default {
             prizes: [],
             click: 0,
             order: {},
-            modalActive: false,
+            orderModalActive: false,
             conModalActive: false,
         }
     },
@@ -147,7 +146,7 @@ export default {
         createOrder() {
             axios.post(`/box/${this.$props.id}/create-order/${this.$props.time}`)
                 .then(res => {
-                    this.modalActive = true
+                    this.orderModalActive = true
                     this.order = res.data
                 })
         },
@@ -161,13 +160,11 @@ export default {
             })
             .then(res => {
                 this.conModalActive = true
-                console.log(res)
             })
         }
     },
     mounted() {
         this.falseAllPrizes()
-        modal()
     }
 }
 </script>

@@ -22,9 +22,9 @@
             </div>
         </div>
         <div class="absolute w-full bottom-16 px-4">
-            <div class="py-3 ok_btn rounded-full w-full text-white trigger text-center" @click="submit">Continue</div>
+            <div class="py-3 ok_btn rounded-full w-full text-white text-center" @click="submit">Continue</div>
         </div>
-        <success-modal v-show="success" :modalAmount="amount">
+        <success-modal v-model="success" :modalAmount="amount">
         </success-modal>
     </div>
 </template>
@@ -34,7 +34,6 @@
 import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
 import successModal from './modals/Success.vue'
-import modal from '../modal.js'
 
 export default {
     components: {
@@ -78,7 +77,6 @@ export default {
         }
     },
     mounted() {
-        modal()
         this.amount = this.$props.data[0].amount
         this.actives[0] = true
     } 

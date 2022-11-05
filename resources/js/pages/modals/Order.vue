@@ -1,7 +1,7 @@
 <template>
-     <div class="boxModal">
+     <div v-show="modelActive" class="boxModal">
         <div class="boxModal-content">
-            <span class="close-button close-modal"><img src="/image/ui/Cross.svg"></span>
+            <span class="close-modal" @click="$emit('update:model-active', false)"><img src="/image/ui/Cross.svg"></span>
             <div><img src="/image/ui/Pocket.svg" class="absolute -top-6 left-36"></div>
             <div class="text-lg py-2 font-bold text-center">
                 Payment
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="w-full mt-5 mb-2">
-                <div class="ok_btn rounded-full py-3 text-center m-auto text-white close-button" @click="submit()">Gold Coin Payment</div>
+                <div class="ok_btn rounded-full py-3 text-center m-auto text-white" @click="submit()">Gold Coin Payment</div>
             </div>
         </div>
     </div>
@@ -33,13 +33,21 @@
 
 <script>
 export default {
+    model: {
+        prop: 'modelActive',
+        event: 'update:model-active',
+    },
     props: {
+        modelActive: {
+            type: Boolean,
+        },
         order: {
             type: Object
         }
     },
     methods: {
         submit() {
+            this.$emit('update:model-active', false)
             this.$emit('openBox')
         }
     }
