@@ -46,9 +46,31 @@
             </div>
         </div>
         <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
-        <congratz-modal v-model="conModalActive"></congratz-modal>
+        <transition name="bounce">
+            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes"></congratz-modal>
+        </transition>
     </div>
 </template>
+
+<style>
+.bounce-enter-active {
+  animation: bounce-in 0.6s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
 
 <script>
 
@@ -77,6 +99,7 @@ export default {
             order: {},
             orderModalActive: false,
             conModalActive: false,
+            winningPrizes: []
         }
     },
     methods: {
@@ -153,13 +176,16 @@ export default {
         submit() {
             this.modalActive = false
             this.animate()
-            axios.post('/box/open-box', {
+            axios.post(`/box/${this.$props.id}/open-box`, {
                 'boxId': this.$props.id,
                 'times': this.$props.time,
                 'orderId': this.order.orderId
             })
             .then(res => {
-                this.conModalActive = true
+                this.winningPrizes = res.data
+                setTimeout(() => {
+                    this.conModalActive = true
+                },1800)
             })
         }
     },
