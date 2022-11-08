@@ -1,15 +1,15 @@
 <template>
      <div v-show="modelActive" class="boxModal">
         <div class="boxModal-content">
-            <span class="close-modal" @click="$emit('update:model-active', false)"><img src="/image/ui/Cross.svg"></span>
-            <div><img src="/image/ui/Gift.svg" class="modal_header_img"></div>
-            <div class="-mt-3"><img src="/image/ui/Congratz.svg" class="m-auto"></div>
+            <span class="close-modal" @click="$emit('update:model-active', false)"><img :src="$assetUrl+'image/ui/Cross.svg'"></span>
+            <div><img :src="$assetUrl+'image/ui/Gift.svg'" class="modal_header_img"></div>
+            <div class="-mt-3"><img :src="$assetUrl+'image/ui/Congratz.svg'" class="m-auto"></div>
             <div class="text-center px-5 -mt-5">You have won special prize<span v-for="(prize,j) in prizes" :key="j"> {{prize.itemName}}<span v-if="j == prizes.length-1"></span><span v-else>,</span></span>.</div>
             <!-- <div class="overflow-x-auto overflow-y-hidden w-auto max-h-40"> -->
                 <div class="flex flex-wrap justify-center my-4">
                     <div v-for="(prize,i) in prizes" :key="i" class="congratz_item_card">
                         <div class="congratz_item_card_header">
-                            <img src="/image/ui/Mark.svg" class="mark_img" alt="">
+                            <img :src="$assetUrl+'image/ui/Mark.svg'" class="mark_img" alt="">
                         </div>
                         <div class="congratz_item_card_body">
                             <img :src="prize.image" width="50" height="50" class="m-auto">
@@ -27,7 +27,7 @@
             </div>
             <div class="flex justify-center mt-4 text-center text-sm" style="color:#8064E1;">
                 <div class="self-center mr-3">
-                    <img src="/image/ui/Share.svg">
+                    <img :src="$assetUrl+'image/ui/Share.svg'">
                 </div>
                 <div>Share your friends</div>
             </div>

@@ -1,8 +1,8 @@
 <template>
      <div v-show="modelActive" class="boxModal">
         <div class="boxModal-content">
-            <span class="close-modal" @click="close()"><img src="/image/ui/Cross.svg"></span>
-            <div><img src="/image/ui/Pocket.svg" class="modal_header_img"></div>
+            <span class="close-modal" @click="close()"><img :src="$assetUrl+'image/ui/Cross.svg'"></span>
+            <div><img :src="$assetUrl+'image/ui/Pocket.svg'" class="modal_header_img"></div>
             <div class="text-lg py-2 font-bold text-center">
                 Payment
             </div>
