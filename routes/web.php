@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/balance', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
         });
+        Route::any('recycle', [UIController::class, 'savePrizeRecycle']);
         // Route::get('/test', function () {
         //     return view('ui.home');
         // });

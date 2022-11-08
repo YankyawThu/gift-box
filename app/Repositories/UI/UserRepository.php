@@ -32,4 +32,9 @@ class UserRepository extends BaseRepository
 
         return $request->nickname;
     }
+
+    public function increaseMoney($amount)
+    {
+        return $this->model->where('id', auth()->user()->id)->increment('money', $amount);
+    }
 }

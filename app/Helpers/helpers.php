@@ -100,3 +100,14 @@ if (!function_exists('getRmbFromCoin')) {
         return round(floatval($coin) / $rate, 5);
     }
 }
+if (!function_exists('getSetting')) {
+    function getSetting($name)
+    {
+        $allow = ['logo_iamge', 'one_rmb_to_coin_num', 'hot_box_banner', 'cheap_box_banner', 'recovery_discount', 'service_number', 'service_qrcode'];
+        if (!in_array($name, $allow)) {
+            return '';
+        }
+
+        return App\Models\Setting::where('id', 1)->value($name);
+    }
+}
