@@ -26,4 +26,9 @@ class PrizeService
     {
         return $this->prizeRepo->savePrizeRecycle($request);
     }
+
+    public function shipmentApply($request)
+    {
+        return $this->prizeRepo->shipmentApply($request);
+    }
 }
