@@ -3,6 +3,9 @@
 namespace App\Repositories\UI;
 
 use App\Exceptions\BadRequestException;
+use App\Models\Address;
+use App\Models\DeliveryOrder;
+use App\Models\DeliveryTrade;
 use App\Models\GiftPrizeRecord;
 use App\Models\MoneyRecord;
 use App\Repositories\BaseRepository;
@@ -57,10 +60,12 @@ class PrizeRepository extends BaseRepository
         foreach ($prizeIds as $prizeId) {
             $prize = $this->model->where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
 
-            if (empty($prize)) {
+            if (!$prize) {
                 throw new BadRequestException('Wrong blind box selected!');
             }
-            $prize->save(['status' => 'exchange', 'exchange_time' => now()]);
+            $prize->status = 'exchange';
+            $prize->exchange_time = now();
+            $prize->save();
             $money_before = auth()->user()->money;
 
             $recovery_discount = getSetting('recovery_discount') ? getSetting('recovery_discount') : 0.00;
@@ -96,5 +101,54 @@ class PrizeRepository extends BaseRepository
             'amount' => $total,
             'prizeInfo' => array_values($prizeInfo),
         ];
+    }
+
+    public function shipmentApply($request)
+    {
+        $prizeIds = array_unique($request->prizeIds);
+
+        $delivery_fee = 0;
+        $address = Address::where('id', $request->addressId)->first();
+        if (!$address) {
+            throw new BadRequestException('Wrong Address!');
+        }
+        foreach ($prizeIds as $prizeId) {
+            $prize = $this->model->where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
+
+            if (!$prize) {
+                throw new BadRequestException('Wrong blind box selected!');
+            }
+            $delivery_fee += $prize->delivery_fee;
+            $prize->status = 'delivery';
+            $prize->delivery_time = now();
+            $prize->save();
+        }
+        $trade = DeliveryTrade::create([
+            'user_id' => auth()->user()->id,
+            'rmb_amount' => round($delivery_fee, 2),
+            'coin_amount' => ceil(getCoinFromRmb(round($delivery_fee, 2))),
+            'status' => 'unpay',
+            'out_trade_no' => date('YmdHis').mt_rand(10000, 99999),
+        ]);
+        foreach ($prizeIds as $prizeId) {
+            $prize = $this->model->where('id', $prizeId)->first();
+            DeliveryOrder::create([
+                'gift_log_id' => $prize->gift_log_id,
+                'out_trade_no' => $prize->out_trade_no,
+                'delivery_trade_id' => $trade->id,
+                'delivery_order_no' => date('YmdHis').mt_rand(1000, 9999),
+                'gift_prize_id' => $prize->id,
+                'gift_item_name' => $prize->gift_item_name,
+                'gift_item_image' => $prize->gift_item_image,
+                'user_id' => auth()->user()->id,
+                'address_id' => $request->addressId,
+                'user_name' => $address->username,
+                'phone' => $address->phone,
+                'township_id' => $address->township_id,
+                'address' => $address->address,
+            ]);
+        }
+
+        return true;
     }
 }

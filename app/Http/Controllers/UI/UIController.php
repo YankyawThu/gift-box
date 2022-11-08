@@ -8,6 +8,7 @@ use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
 use App\Http\Requests\OpenBoxRequest;
 use App\Http\Requests\RecycleRequest;
+use App\Http\Requests\ShipmentApplyRequest;
 use App\Http\Resources\BoxCabinetResourceCollection;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
@@ -155,5 +156,10 @@ class UIController extends Controller
     public function savePrizeRecycle(RecycleRequest $request)
     {
         return $this->prizeService->savePrizeRecycle($request);
+    }
+
+    public function shipmentApply(ShipmentApplyRequest $request)
+    {
+        return $this->prizeService->shipmentApply( $request);
     }
 }
