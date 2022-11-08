@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UI\IndexController;
+use App\Http\Controllers\UI\MoneyRecordController;
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
@@ -31,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/{id}', [UIController::class, 'detail']);
             Route::get('/{id}/open/{time}', [UIController::class, 'boxOpen']);
             Route::post('/{id}/create-order/{num}', [UIController::class, 'createOrder']);
-            Route::post('/open-box', [UIController::class, 'openLuckyBox']);
+            Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
             Route::post('/collect', [UIController::class, 'collect']);
         });
         Route::get('/helps', [IndexController::class, 'helps']);
@@ -45,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/change-nickname', [UserController::class, 'changeNickname']);
             Route::get('/collection', [UserController::class, 'getCollection']);
             Route::delete('/collection/{id}/cancel', [UserController::class, 'cancelCollection']);
+            Route::get('/balance', [MoneyRecordController::class, 'getMyBalance']);
+            Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
         });
         // Route::get('/test', function () {
         //     return view('ui.home');

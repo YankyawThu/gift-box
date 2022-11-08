@@ -18,6 +18,6 @@ class OrderRepository extends BaseRepository
         $statusList = [1 => 'undelivered', 2 => 'unreceived', 3 => 'finished'];
         $status = $statusList[$status];
 
-        return $this->model->orderBy('id', 'DESC')->where('status', $status)->paginate($page ?? config('enums.itemPerPage'));
+        return $this->model->where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->where('status', $status)->paginate($page ?? config('enums.itemPerPage'));
     }
 }

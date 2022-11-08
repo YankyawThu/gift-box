@@ -14,4 +14,9 @@ class GiftPrizeRecord extends Model
     {
         return $this->belongsTo(GiftItem::class, 'gift_item_id');
     }
+
+    public function giftLog()
+    {
+        return $this->belongsTo(GiftLog::class, 'gift_log_id');
+    }
 }

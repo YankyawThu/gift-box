@@ -3,6 +3,7 @@
     font-style: normal;
 }
 
+
 .box_detail {
     background-image: url('../image/ui/Background.png');
     background-repeat: no-repeat;
@@ -108,7 +109,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     opacity: 1;
-    visibility: hidden;
+    visibility: visible;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     z-index: 9999;
@@ -120,7 +121,7 @@
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 21rem;
+    width: 20rem;
     border-radius: 10px;
     border: 2px solid #FFBE3B;
 }
@@ -132,7 +133,7 @@
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 21rem;
+    width: 20rem;
     border-radius: 30px;
 }
 
@@ -148,7 +149,7 @@
     width: 23px;
     height: 23px;
 }
-.close-button img {
+.close-modal img {
     margin: 2px auto;
 }
 .show-modal {
@@ -160,6 +161,7 @@
 
 .box_layout {
     background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);
+    filter: drop-shadow(3px 4px 4px rgba(38, 39, 60, 0.2));
 }
 
 .footer_nav {
@@ -186,7 +188,7 @@
 
 .prize_container {
     top: -1.25rem;
-    left: 2rem;
+    left: 2.8rem;
 }
 
 .prize_box {
@@ -208,8 +210,13 @@
     box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);
 }
 
-.ok_btn {
+.btn_one {
     background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.btn_two {
+    background: linear-gradient(180deg, rgba(217, 98, 248, 0.95) 0%, rgba(121, 8, 150, 0.95) 100%);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -217,4 +224,49 @@
     background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
 }
 
+.congratz_item_card {
+    display: inline-block;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    width: 70px;
+    height: 100px;
+    position: relative;
+    margin: 5px;
+}
 
+.congratz_item_card_footer {
+    position: absolute;
+    bottom: 0;
+    background: #493B83;
+    color: #FFFF;
+    width: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 8px;
+}
+
+.congratz_item_card_body {
+    margin: 12px auto;
+}
+
+.congratz_item_card_header {
+    position: relative;
+}
+
+.mark_img {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+}
+
+.modal_header_img {
+    position: absolute;
+    top: -23px;
+    left: 134px;
+}
+
+.agree_term {
+    background: #ECECFF;
+    box-shadow: 0px 2px 4px rgba(38, 39, 60, 0.2);
+}

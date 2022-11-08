@@ -32,4 +32,9 @@ class BoxService
     {
         return $this->boxRepo->getBanners();
     }
+
+    public function increaseSale($boxId, $times)
+    {
+        return $this->boxRepo->increaseSale($boxId, $times);
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OpenBoxRequest extends FormRequest
+class MoneyRecordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class OpenBoxRequest extends FormRequest
     public function rules()
     {
         return [
-            'times' => 'required',
-            'orderId' => 'required',
+            'type' => 'required|in:in,out',
         ];
     }
 }

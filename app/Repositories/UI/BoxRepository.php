@@ -16,6 +16,11 @@ class BoxRepository extends BaseRepository
 
     public function getBanners()
     {
-        return $this->bannerModel->get();
+        return $this->bannerModel->orderBy('sort')->pluck('image');
+    }
+
+    public function increaseSale($boxId, $times)
+    {
+        return $this->model->where('id', $boxId)->increment('sale', $times);
     }
 }

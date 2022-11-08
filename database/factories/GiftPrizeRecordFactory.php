@@ -16,5 +16,6 @@ $factory->define(GiftPrizeRecord::class, function (Faker $faker) {
         'gift_item_id' => function () {
             return App\Models\GiftItem::inRandomOrder()->first()->id;
         },
+        'status' => $faker->randomElement(['bag', 'exchange', 'delivery', 'received']),
     ];
 });

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
 use App\Http\Requests\OpenBoxRequest;
+use App\Http\Resources\BoxCabinetResourceCollection;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Services\UI\BoxService;
@@ -69,6 +71,7 @@ class UIController extends Controller
     public function createOrder($boxId, $times)
     {
         $box = $this->boxService->getById($boxId);
+
         if (!$box) {
             throw new BadRequestException('Wrong box number!');
         }
@@ -86,9 +89,9 @@ class UIController extends Controller
         return $result;
     }
 
-    public function openLuckyBox(OpenBoxRequest $request)
+    public function openLuckyBox(OpenBoxRequest $request, $id)
     {
-        $box = $this->boxService->getById($request->boxId);
+        $box = $this->boxService->getById($id);
 
         if (!$box) {
             throw new BadRequestException('Wrong box number!');
@@ -103,12 +106,12 @@ class UIController extends Controller
         $log->status = 2;
         $log->save();
 
-        $goodsIds = $this->itemBoxService->getItemsByBoxId($request->boxId);
+        $goodsIds = $this->itemBoxService->getItemsByBoxId($id);
 
         if ($request->times == 1) {
-            $itemIds = [$this->itemService->getOne($request->boxId, $goodsIds, $except = [])];
+            $itemIds = [$this->itemService->getOne($id, $goodsIds, $except = [])];
         } else {
-            $itemIds = $this->itemService->getMore($request->boxId, $goodsIds, $request->times);
+            $itemIds = $this->itemService->getMore($id, $goodsIds, $request->times);
         }
 
         foreach ($itemIds as $itemId) {
@@ -116,7 +119,7 @@ class UIController extends Controller
         }
 
         $prize = $this->prizeService->store($goodsInfo, $log);
-        $this->boxService->increaseSale($request->boxId, $request->times);
+        $this->boxService->increaseSale($id, $request->times);
 
         return $prize;
     }
@@ -130,6 +133,11 @@ class UIController extends Controller
 
     public function getBanners()
     {
-        return $this->boxService->getBanners();
+        return response()->json($this->boxService->getBanners());
+    }
+
+    public function getBoxCabinet(BoxCabinetRequest $request)
+    {
+        return new BoxCabinetResourceCollection($this->prizeService->getBoxCabinet($request));
     }
 }
