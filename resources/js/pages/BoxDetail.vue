@@ -26,15 +26,15 @@
             <div class="relative">
                 <Link :href="'/box/'+data.data.id+'/open/1'" as="button">
                     <img src="/image/ui/GetOneButton.svg">
-                    <div class="absolute top-6 right-10 font-semibold">Get One</div>
-                    <div class="absolute top-10 right-14">$ {{data.data.price}}</div>
+                    <div class="get_one font-semibold">Get One</div>
+                    <div class="get_one_price top-10 right-14">$ {{data.data.price}}</div>
                 </Link>
             </div>
             <div class="relative">
                 <Link :href="'/box/'+data.data.id+'/open/5'" as="button">
                     <img src="/image/ui/GetAllButton.svg">
-                    <div class="absolute top-6 right-14 font-semibold">Get Five</div>
-                    <div class="absolute top-10 right-16">$ {{data.data.price * 5}}</div>
+                    <div class="get_one_right font-semibold">Get Five</div>
+                    <div class="get_one_price_right top-10 right-16">$ {{data.data.price * 5}}</div>
                 </Link>
             </div>
         </div>

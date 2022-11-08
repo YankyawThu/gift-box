@@ -611,6 +611,10 @@ video {
   margin-top: 2.25rem;
   margin-bottom: 2.25rem;
 }
+.-my-3 {
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}
 .-mt-7 {
   margin-top: -1.75rem;
 }
@@ -682,6 +686,9 @@ video {
 }
 .mt-1 {
   margin-top: 0.25rem;
+}
+.-mt-1 {
+  margin-top: -0.25rem;
 }
 .block {
   display: block;
@@ -995,6 +1002,9 @@ video {
 }
 .pl-2 {
   padding-left: 0.5rem;
+}
+.pr-2 {
+  padding-right: 0.5rem;
 }
 .text-left {
   text-align: left;

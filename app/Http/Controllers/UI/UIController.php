@@ -64,6 +64,11 @@ class UIController extends Controller
         return response()->json($data);
     }
 
+    public function tidePlay()
+    {
+        return Inertia::render('TidePlay');
+    }
+
     public function boxOpen($id, $time)
     {
         return Inertia::render('OpenBox', ['id' => $id, 'time' => $time]);

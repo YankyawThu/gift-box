@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 h-screen">
+    <div class="p-4">
         <div class="flex flex-row my-5">
            <Link href="/box" as="button">
                 <div class="p-2 pl-0 mr-2">

@@ -3,7 +3,7 @@
         <!-- <header>
             <top></top>
         </header> -->
-        <main class="pb-20 pt-4 px-3">
+        <main class="pb-20 pt-4 px-4">
             <slot></slot>
         </main>
         <footer>
