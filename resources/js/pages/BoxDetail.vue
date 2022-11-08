@@ -47,114 +47,9 @@
                         <img src="/image/ui/Info.svg">
                     </div>
                 </div>
-                <rule v-model="ruleModalActive" />
             </div>
-            <div v-for="(item, i) in data.data.items" :key="i" class="flex flex-wrap justify-around my-2 mx-1">
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">1231231212312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">1231231212312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
-                    <div class="box_detail_item_card_header">
-                        <img src="/image/ui/supreme.svg" alt="">
-                        <div class="item_precent">0.1 %</div>
-                    </div>
-                    <div class="box_detail_item_card_body">
-                        <img src="/image/ui/IPhone-13.png" width="65" height="65" class="m-auto">
-                    </div>
-                    <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
-                    </div>
-                </div>
-                <div class="box_detail_item_card">
+            <div class="flex flex-wrap justify-around my-2 mx-1">
+                <div v-for="(item, i) in data.data.items" :key="i" class="box_detail_item_card">
                     <div class="box_detail_item_card_header">
                         <img src="/image/ui/supreme.svg" alt="">
                         <div class="item_precent">0.1 %</div>
@@ -169,6 +64,7 @@
                 </div>
             </div>
         </div>
+        <rule v-model="ruleModalActive" />
     </div>
 </template>
 

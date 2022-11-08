@@ -3,6 +3,7 @@
     font-style: normal;
 }
 
+
 .box_detail {
     background-image: url('../image/ui/Background.png');
     background-repeat: no-repeat;
@@ -160,6 +161,7 @@
 
 .box_layout {
     background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);
+    filter: drop-shadow(3px 4px 4px rgba(38, 39, 60, 0.2));
 }
 
 .footer_nav {

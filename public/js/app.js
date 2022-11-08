@@ -2684,7 +2684,18 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "px-1"
-  }, [_vm._v("Rules of Play")]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("rule", {
+  }, [_vm._v("Rules of Play")]), _vm._v(" "), _vm._m(2)])]), _vm._v(" "), _c("div", {
+    staticClass: "flex flex-wrap justify-around my-2 mx-1"
+  }, _vm._l(_vm.data.data.items, function (item, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "box_detail_item_card"
+    }, [_vm._m(3, true), _vm._v(" "), _vm._m(4, true), _vm._v(" "), _c("div", {
+      staticClass: "box_detail_item_card_footer text-center"
+    }, [_c("div", {
+      staticClass: "truncate px-2"
+    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]);
+  }), 0)]), _vm._v(" "), _c("rule", {
     model: {
       value: _vm.ruleModalActive,
       callback: function callback($$v) {
@@ -2692,66 +2703,7 @@ var render = function render() {
       },
       expression: "ruleModalActive"
     }
-  })], 1), _vm._v(" "), _vm._l(_vm.data.data.items, function (item, i) {
-    return _c("div", {
-      key: i,
-      staticClass: "flex flex-wrap justify-around my-2 mx-1"
-    }, [_c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(3, true), _vm._v(" "), _vm._m(4, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(5, true), _vm._v(" "), _vm._m(6, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("1231231212312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(7, true), _vm._v(" "), _vm._m(8, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(9, true), _vm._v(" "), _vm._m(10, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("1231231212312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(11, true), _vm._v(" "), _vm._m(12, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(13, true), _vm._v(" "), _vm._m(14, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(15, true), _vm._v(" "), _vm._m(16, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(17, true), _vm._v(" "), _vm._m(18, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card"
-    }, [_vm._m(19, true), _vm._v(" "), _vm._m(20, true), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_footer text-center"
-    }, [_c("div", {
-      staticClass: "truncate px-2"
-    }, [_vm._v("12312312")]), _vm._v(" "), _c("div", [_vm._v("(" + _vm._s(item.price) + ")")])])])]);
-  })], 2)]);
+  })], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2784,214 +2736,6 @@ var staticRenderFns = [function () {
   return _c("div", [_c("img", {
     attrs: {
       src: "/image/ui/Info.svg"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_header"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/supreme.svg",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "item_precent"
-  }, [_vm._v("0.1 %")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "box_detail_item_card_body"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: "/image/ui/IPhone-13.png",
-      width: "65",
-      height: "65"
     }
   })]);
 }, function () {
