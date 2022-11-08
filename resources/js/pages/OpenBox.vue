@@ -2,11 +2,11 @@
     <div class="box_detail h-full py-4">
         <div class="flex justify-between pb-1">
             <div class="back self-center px-4">
-                <Link :href="'/box/'+id" as="button"><img src="/image/ui/Back.svg"></Link>
+                <Link :href="'/box/'+id" as="button"><img :src="$assetUrl+'image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
-                    <img src="/image/ui/Icon.svg">
+                    <img :src="$assetUrl+'image/ui/Icon.svg'">
                 </div>
                 <div class="py-1 px-2 box_detail_target_label">
                     Lucky Draw
@@ -22,7 +22,7 @@
         <div class="px-2 py-4 flex justify-between">
             <div></div>
             <div class="relative">
-                <img src="/image/ui/Frame.svg">
+                <img :src="$assetUrl+'image/ui/Frame.svg'">
                 <div class="grid grid-cols-3 absolute prize_container">
                     <div v-for="(prize,i) in prizes" :key="i" class="mx-3 prize_box">
                         <img :src="prizeInActive" :class="'prizeImage'+i" @click="prizeBoxSelect(i)">
@@ -34,21 +34,43 @@
         <div class="flex justify-around">
             <div class="relative">
                 <div @click="createOrder">
-                    <img src="/image/ui/Button.svg">
+                    <img :src="$assetUrl+'image/ui/Button.svg'">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
             </div>
             <div class="relative" @click="createOrder">
                 <div>
-                    <img src="/image/ui/Button.svg">
+                    <img :src="$assetUrl+'image/ui/Button.svg'">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
             </div>
         </div>
         <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
-        <congratz-modal v-model="conModalActive"></congratz-modal>
+        <transition name="bounce">
+            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes"></congratz-modal>
+        </transition>
     </div>
 </template>
+
+<style>
+.bounce-enter-active {
+  animation: bounce-in 0.6s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
 
 <script>
 
@@ -77,6 +99,7 @@ export default {
             order: {},
             orderModalActive: false,
             conModalActive: false,
+            winningPrizes: []
         }
     },
     methods: {
@@ -153,13 +176,16 @@ export default {
         submit() {
             this.modalActive = false
             this.animate()
-            axios.post('/box/open-box', {
+            axios.post(`/box/${this.$props.id}/open-box`, {
                 'boxId': this.$props.id,
                 'times': this.$props.time,
                 'orderId': this.order.orderId
             })
             .then(res => {
-                this.conModalActive = true
+                this.winningPrizes = res.data
+                setTimeout(() => {
+                    this.conModalActive = true
+                },1800)
             })
         }
     },

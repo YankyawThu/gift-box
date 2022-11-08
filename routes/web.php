@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
             Route::post('/collect', [UIController::class, 'collect']);
         });
+        Route::get('/tide-play', [UIController::class, 'tidePlay']);
         Route::get('/helps', [UIController::class, 'helps']);
         Route::get('/recharge', [RechargeController::class, 'index']);
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
@@ -49,5 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/balance', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
         });
+        Route::any('/recycle', [UIController::class, 'savePrizeRecycle']);
+        Route::any('/shipment-apply', [UIController::class, 'shipmentApply']);
     });
 });

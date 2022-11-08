@@ -3,14 +3,13 @@
         <div class="flex flex-row my-5">
            <Link href="/box" as="button">
                 <div class="p-2 pl-0 mr-2">
-                    <img src="/image/ui/BackArrow.svg">
+                    <img :src="$assetUrl+'image/ui/BackArrow.svg'">
                 </div>
             </Link>
             <div class="font-bold text-xl self-center">
                 Shipping
             </div>
         </div>
-
         <div id="tabs">
             <div class="grid grid-cols-3 text-center border-b" role="tablist" aria-label="Free HTML Tabs">
                 <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-delivered" id="tab-delivered" tabindex="0" @click="fetchDelivered()">
@@ -30,12 +29,12 @@
                             <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}} {{prize.id}}</div>
+                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #D9761A;">To be delivered</div>
+                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #8481FF;">To be delivered</div>
                         </div>
                     </div>
                 </section>
@@ -45,7 +44,7 @@
                             <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}} {{prize.id}}</div>
+                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
@@ -65,7 +64,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #D9761A;">Completed</div>
+                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #64AB69;">Completed</div>
                         </div>
                     </div>
                 </section>

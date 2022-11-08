@@ -161,6 +161,7 @@
 .box_layout {
     background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);
     filter: drop-shadow(3px 4px 4px rgba(38, 39, 60, 0.2));
+    width: 170px;
 }
 
 .footer_nav {
@@ -288,4 +289,44 @@
 
 #panel-delivered, #panel-going, #panel-completed {
     height: 78%;
+}
+
+.filter_menu {
+    box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);
+    background: #ffff;
+}
+
+.filter_menu_active {
+    background: #493B83;
+    color: #ffff;
+}
+
+.get_one {
+    position: absolute;
+    top: 19px;
+    left: 58px;
+}
+
+.get_one_right {
+    position: absolute;
+    top: 19px;
+    left: 40px;
+}
+
+.get_one_price {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: 40px;
+    left: 60px;
+    font-size: 13px;
+}
+
+.get_one_price_right {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    top: 40px;
+    left: 48px;
+    font-size: 13px;
 }

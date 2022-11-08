@@ -97,7 +97,7 @@ if (!function_exists('getRmbFromCoin')) {
         $data = App\Models\Setting::where('id', 1)->value('one_rmb_to_coin_num');
         $rate = $data ? $data : 1.00;
 
-        return round(floatval($coin) / $rate, 5);
+        return round($coin / $rate, 5);
     }
 }
 if (!function_exists('getSetting')) {
@@ -109,5 +109,16 @@ if (!function_exists('getSetting')) {
         }
 
         return App\Models\Setting::where('id', 1)->value($name);
+    }
+}
+if (!function_exists('getCoinFromRmb')) {
+    function getCoinFromRmb(float $rmb)
+    {
+        if (empty($rmb)) {
+            return 0;
+        }
+        $rate = App\Models\Setting::where('id', 1)->value('one_rmb_to_coin_num');
+
+        return round($rmb * $rate, 5);
     }
 }
