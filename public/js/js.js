@@ -438,7 +438,6 @@ $(function() {
     })
 
     //delivery order
-
     $('#edit-delivery-order-modal').on('show.bs.modal', function (e) {
 
         var button = $(e.relatedTarget)
@@ -513,4 +512,117 @@ $(function() {
         deliveryOrderUpdateForm.resetForm()
     })
 
+    // Banner
+    $('#banner-store-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            type: {
+                required: true,
+            },
+            status: {
+                required: true,
+            },
+            image: {
+                required: true,
+            },
+            sort: {
+                required: true,
+            },
+        },
+        messages: {
+            type: {
+                required: "Type is Required."
+            },
+            image: {
+                required: "Image is Required."
+            },
+            status: {
+                required: "Status is Required."
+            },
+            sort: {
+                required: "Price is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="type"]').removeClass('alert-danger')
+            $('input[name="status"]').removeClass('alert-danger')
+            $('input[name="image"]').removeClass('alert-danger')
+            $('select[name="sort"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-banner-modal').on('show.bs.modal', function (e) {
+        // remove existing dom ele
+        $("#edit-ck-editor").find(".ck-editor").remove()
+
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var type = button.data('type')
+        var status = button.data('status')
+        var image = button.data('image')
+        var sort = button.data('sort')
+        var value = button.data('value')
+        if (image){
+            imagePath = button.data('image-path')
+        }
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #edit-banner-type').val(type)
+        modal.find('.modal-body #image').val(image)
+        modal.find('.modal-body #sort').val(sort)
+        modal.find('.modal-body #value').val(value)
+        modal.find('.modal-body #edit-banner-img-url').attr("src", imagePath)
+        if (status == 'normal') {
+            document.querySelectorAll('#radio-edit .btn-secondary')[0].classList.add("active")
+            modal.find('.modal-body #status_normal').prop("checked", true);
+        }
+        if (status == 'hidden') {
+            document.querySelectorAll('#radio-edit .btn-secondary')[1].classList.add("active")
+            modal.find('.modal-body #status_hidden').prop("checked", true);
+        }
+        //
+        var type_box = $("#edit_type_box")
+        if (type == 1) {
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Box</label>
+            <input type="text" placeholder="Enter Box" name="value" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+            `);
+        }
+
+        if (type == 2) {
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Link</label>
+            <input type="text" placeholder="https://example.com" name="value" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+            `);
+
+        }
+
+        if (type == 3) {
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Word</label>
+            `
+            );
+            $("#edit-ck-editor").removeClass("d-none")
+            ClassicEditor.create( document.querySelector( '#edit-editor' ) )
+            .then( editor => {
+                editor.setData(value)
+            } ) .catch( error => {
+                console.error( error );
+            } );
+        }
+    })
+
+    $('#banner-image',).on('change', function () {
+        $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
+
+    $('#edit-banner-image', ).on('change', function() {
+        $('#edit-banner-img-url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
+
+
 })
+

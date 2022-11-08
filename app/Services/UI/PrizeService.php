@@ -21,4 +21,9 @@ class PrizeService
     {
         return $this->prizeRepo->getBoxCabinet($request, $this->itemPerPage);
     }
+
+    public function savePrizeRecycle($request)
+    {
+        return $this->prizeRepo->savePrizeRecycle($request);
+    }
 }
