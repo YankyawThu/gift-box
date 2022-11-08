@@ -1,5 +1,5 @@
 <template>
-    <div class="py-4 bg-gray-50 h-screen">
+    <div class="py-4 h-screen">
         <div class="flex flex-row my-5 px-4">
            <Link href="/box" as="button">
                 <div class="p-2 pl-0 mr-2">

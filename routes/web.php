@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\UI\IndexController;
 use App\Http\Controllers\UI\MoneyRecordController;
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
@@ -35,10 +34,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
             Route::post('/collect', [UIController::class, 'collect']);
         });
-        Route::get('/helps', [IndexController::class, 'helps']);
+        Route::get('/helps', [UIController::class, 'helps']);
         Route::get('/recharge', [RechargeController::class, 'index']);
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
-        Route::get('/order-list', [OrderController::class, 'index']);
+        Route::get('/shipping', [OrderController::class, 'index']);
+        Route::get('/order-list', [OrderController::class, 'getAll']);
 
         Route::resource('shipping-address', ShippingAddressController::class);
         Route::prefix('user')->group(function () {
@@ -49,8 +49,5 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/balance', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
         });
-        // Route::get('/test', function () {
-        //     return view('ui.home');
-        // });
     });
 });

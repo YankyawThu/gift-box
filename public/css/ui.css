@@ -3,7 +3,6 @@
     font-style: normal;
 }
 
-
 .box_detail {
     background-image: url('../image/ui/Background.png');
     background-repeat: no-repeat;
@@ -269,4 +268,24 @@
 .agree_term {
     background: #ECECFF;
     box-shadow: 0px 2px 4px rgba(38, 39, 60, 0.2);
+}
+
+#tabs > [role="tablist"] > [role="tab"]:is([aria-selected="true"]) {
+    border-bottom: solid 3px #493B83;
+    cursor: not-allowed;
+}
+
+#tabs > [role="tablist"] > [role="tab"]:is([aria-selected="false"]) {
+    color: #9395A4;
+}
+
+.text_gradient {
+    background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#panel-delivered, #panel-going, #panel-completed {
+    height: 78%;
 }

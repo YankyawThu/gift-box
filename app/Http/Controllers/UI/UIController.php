@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
 use App\Http\Requests\OpenBoxRequest;
+use App\Http\Requests\RecycleRequest;
 use App\Http\Resources\BoxCabinetResourceCollection;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
@@ -139,5 +140,15 @@ class UIController extends Controller
     public function getBoxCabinet(BoxCabinetRequest $request)
     {
         return new BoxCabinetResourceCollection($this->prizeService->getBoxCabinet($request));
+    }
+
+    public function helps()
+    {
+        return Inertia::render('Helps');
+    }
+    
+    public function savePrizeRecycle(RecycleRequest $request)
+    {
+        return $this->prizeService->savePrizeRecycle($request);
     }
 }
