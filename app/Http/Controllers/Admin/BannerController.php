@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\BannerCreateRequest;
 use App\Http\Requests\Admin\BannerUpdateRequest;
 use App\Models\Banner;
 use App\Services\Admin\BannerService;
+use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
@@ -100,5 +101,20 @@ class BannerController extends Controller
         $this->bannerService->delete($banner->id);
 
         return redirect()->back()->with('status', 'Banner Deleted Successfully!');
+    }
+
+
+    public function updateSequence(Request $request)
+    {
+        if ($request->has('ids')) {
+            $arr = explode(',', $request->input('ids'));
+
+            foreach ($arr as $sortOrder => $id) {
+                $menu = $this->bannerService->getById($id);
+                $menu->sort = $sortOrder;
+                $menu->save();
+            }
+            return ['success' => true, 'message' => 'Updated'];
+        }
     }
 }

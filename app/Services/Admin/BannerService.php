@@ -15,6 +15,12 @@ class BannerService
         $this->uploadPhotoFolder = config('media.giftBannerPath');
     }
 
+    public function getById($id)
+    {
+        return $this->bannerRepo->getById($id);
+    }
+
+
     public function getAll($filter)
     {
         return $this->bannerRepo->getPaginatedWithFilter($this->itemPerPage, $filter);

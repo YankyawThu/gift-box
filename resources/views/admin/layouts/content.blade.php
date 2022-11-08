@@ -1,6 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
+{{-- loading image --}}
+<div class="se-pre-con"></div>
+
 <div class="header bg-gradient-primary pb-7 pt-5 pt-md-8">
 </div>
 <div class="container-fluid mt--8">

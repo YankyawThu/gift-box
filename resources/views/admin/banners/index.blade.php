@@ -1,6 +1,11 @@
 @extends('admin.layouts.content')
 
 @section('content-detail')
+<style>
+     .handle {
+        cursor: move;
+    }
+</style>
 <script>
     $(function() {
                 @if (session('status'))
@@ -71,7 +76,7 @@
 
 
 
-    <div class="table-responsive">
+    <div class="table-responsive" id="reload-div">
         <table class="align-items-center mb-0 table">
             <thead>
                 <tr>
@@ -85,9 +90,9 @@
                     <th class="opacity-7"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="sort_menu">
                 @foreach ($data as $key => $item)
-                <tr>
+                <tr data-id="{{ $item->id }}">
                     <td>
                         <p class="font-weight-bold mb-0 text-sm">{{ $loop->iteration }}</p>
                     </td>
@@ -113,6 +118,10 @@
                         <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
                     </td>
                     <td class="align-middle">
+                          <span class="btn btn-sm btn-secondary handle" data-toggle="tooltip"
+                            data-original-title="Delete Banner">
+                            <i class="fa fa-arrows-alt"></i>
+                        </span>
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                             data-image="{{ $item->image }}" data-image-path="{{ route("admin.get-file", ['model'=>
                             'Banner', 'id' => $item->id]) }}"
@@ -131,7 +140,10 @@
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>
-                        @include('admin.banners.edit', ['id' => 0, 'item' => $item])
+                        @if (($loop->first))
+                            @include('admin.banners.edit', ['id' => 0, 'item' => $item])
+                        @endif
+
                         @include('admin.layouts.delete', [
                         'route' => 'banners.destroy',
                         'id' => $item->id,
@@ -151,12 +163,44 @@
 @endsection
 
 @push('js')
-<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script src="{{  asset("js/ckeditor.js") }}"></script>
 
 <script>
     $(function() {
-        $("#banner-add-form").find("#type_box").html("")
 
+    // drag and drop
+    function updateToDatabase(idString){
+        $.ajaxSetup({ headers: {'X-CSRF-TOKEN': '{{csrf_token()}}'}});
+        $(".se-pre-con").show();
+        $.ajax({
+            url : '{{url('admin/banner/updateSequnce')}}',
+            method : 'POST',
+            data : {
+                ids : idString
+            },
+            success:function(response){
+                //do whatever after success
+                $(".se-pre-con").fadeOut("slow");
+                // $("#reload-div").load(location.href + " #reload-div");
+            }
+        })
+    }
+
+    var target = $('.sort_menu');
+    target.sortable({
+        handle: '.handle',
+        placeholder: 'highlight',
+        axis: "y",
+        update: function (e, ui){
+            var sortData = target.sortable('toArray',{ attribute: 'data-id'})
+            updateToDatabase(sortData.join(','))
+        }
+    })
+    // end drag
+
+
+    // text-editor
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {

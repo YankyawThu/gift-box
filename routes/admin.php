@@ -57,5 +57,6 @@ Route::name('admin.')->group(function () {
         Route::get('file/show/{model}/{id}', [FileController::class, 'show'])->name('get-file');
 
         Route::resource('banners', BannerController::class);
+        Route::post('banner/updateSequnce', [BannerController::class, 'updateSequence']);
     });
 });
