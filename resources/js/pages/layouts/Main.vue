@@ -1,5 +1,5 @@
 <template>
-    <main class="h-screen bg-gray-50">
+    <div class="h-screen">
         <!-- <header>
             <top></top>
         </header> -->
@@ -9,7 +9,7 @@
         <footer>
             <bot></bot>
         </footer>
-    </main>
+    </div>
 </template>
 
 <script>

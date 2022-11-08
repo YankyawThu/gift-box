@@ -140,4 +140,9 @@ class UIController extends Controller
     {
         return new BoxCabinetResourceCollection($this->prizeService->getBoxCabinet($request));
     }
+
+    public function helps()
+    {
+        return Inertia::render('Helps');
+    }
 }

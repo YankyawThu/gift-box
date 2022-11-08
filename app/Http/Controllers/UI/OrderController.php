@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderListRequest;
 use App\Http\Resources\OrderListResourceCollection;
 use App\Services\UI\OrderService;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
@@ -14,8 +15,14 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function index(OrderListRequest $request)
+    public function index()
     {
-        return new OrderListResourceCollection($this->orderService->getOrders($request));
+        return Inertia::render('Shipping');
+    }
+
+    public function getAll(OrderListRequest $request)
+    {
+        $data = new OrderListResourceCollection($this->orderService->getOrders($request));
+        return response()->json($data);
     }
 }
