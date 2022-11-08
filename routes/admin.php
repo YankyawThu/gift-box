@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BoxCategoryController;
 use App\Http\Controllers\Admin\BoxController;
 use App\Http\Controllers\Admin\DeliveryOrderController;
@@ -54,5 +55,7 @@ Route::name('admin.')->group(function () {
         Route::post('delivery-orders/update-unread', [DeliveryOrderController::class, 'updateUnRead'])->name('delivery-orders.updateUnRead');
 
         Route::get('file/show/{model}/{id}', [FileController::class, 'show'])->name('get-file');
+
+        Route::resource('banners', BannerController::class);
     });
 });

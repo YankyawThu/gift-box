@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\DeliveryOrder;
 use App\Models\GiftItem;
 use Illuminate\Support\Facades\File as FacadesFile;
@@ -19,6 +20,10 @@ class FileController extends Controller
 
             case 'GiftItem':
                 $file = GiftItem::find($id);
+                break;
+
+            case 'Banner':
+                $file = Banner::find($id);
                 break;
 
             default:

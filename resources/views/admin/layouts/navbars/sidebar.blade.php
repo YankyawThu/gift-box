@@ -135,6 +135,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'banners') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.banners.index') }}">
+                        <i class="fas fa-image text-blue"></i> {{ __('Banner') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'users') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.users.index') }}">
                         <i class="fas fa-users text-blue"></i> {{ __('Users') }}
