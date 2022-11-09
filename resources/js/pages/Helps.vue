@@ -3,7 +3,7 @@
         <div class="flex flex-row my-5">
            <Link href="/box" as="button">
                 <div class="p-2 pl-0 mr-2">
-                    <img :src="$assetUrl+'image/ui/BackArrow.svg'">
+                    <img src="/image/ui/BackArrow.svg">
                 </div>
             </Link>
             <div class="font-bold text-xl self-center">
@@ -13,7 +13,7 @@
         <div class="help_tip_box bg-white rounded-xl p-3 my-4">
             <div class="flex justify-between col">
                 <div class="w-full font-bold py-1">How to buy Blind Box?</div>
-                <div class="self-center"><img :src="$assetUrl+'image/ui/DropDown.svg'"></div>
+                <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
             </div>
             <div class="content">
                 <p class="pt-2 border-t border-gray-200 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -22,7 +22,7 @@
         <div class="help_tip_box bg-white rounded-xl p-3 my-4">
             <div class="flex justify-between col">
                 <div class="w-full font-bold py-1">How to buy Blind Box?</div>
-                <div class="self-center"><img :src="$assetUrl+'image/ui/DropDown.svg'"></div>
+                <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
             </div>
             <div class="content">
                 <p class="pt-2 border-t border-gray-200 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -31,7 +31,7 @@
         <div class="help_tip_box bg-white rounded-xl p-3 my-4">
             <div class="flex justify-between col">
                 <div class="w-full font-bold py-1">How to buy Blind Box?</div>
-                <div class="self-center"><img :src="$assetUrl+'image/ui/DropDown.svg'"></div>
+                <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
             </div>
             <div class="content">
                 <p class="pt-2 border-t border-gray-200 text-sm"> Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit</p>

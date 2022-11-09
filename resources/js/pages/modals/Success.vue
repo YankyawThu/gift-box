@@ -2,7 +2,7 @@
      <div v-show="modelActive" class="boxModal">
         <div class="successModal-content">
             <div class="overflow-auto max-h-96">
-                <div><img :src="$assetUrl+'image/ui/Success.svg'" class="m-auto"></div>
+                <div><img src="/image/ui/Success.svg" class="m-auto"></div>
                 <div class="text-center font-bold text-3xl py-3">Top Up Successful! </div>
                 <div class="px-8 text-center my-5">You have successful top up e-wallet for $ {{modalAmount}}</div>
                 <div class="w-full my-9">
