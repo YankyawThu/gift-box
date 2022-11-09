@@ -6,20 +6,11 @@ use App\Filters\Filter;
 
 class GiftBoxFilter extends Filter
 {
-    protected $filters = ['name', 'new', 'price'];
+    protected $filters = ['name', 'price'];
 
     public function name($value)
     {
         return $this->builder->where('name', 'LIKE', "%{$value}%");
-    }
-
-    public function new($value)
-    {
-        if ($value == 'desc') {
-            return $this->builder->orderBy('id', 'desc');
-        } else {
-            return $this->builder->orderBy('id', 'asc');
-        }
     }
 
     public function price($value)
