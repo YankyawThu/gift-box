@@ -61,7 +61,6 @@ class UIController extends Controller
     public function getAll(GiftBoxFilter $filter)
     {
         $result = $this->boxService->getAll($filter);
-        dd($result);
         $data = new HomePageResourceCollection($result);
 
         return response()->json($data);
