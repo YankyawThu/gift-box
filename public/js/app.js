@@ -2824,7 +2824,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Back.svg"
+      src: "/image/ui/Back.svg"
     }
   })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
@@ -2843,7 +2843,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/GetOneButton.svg"
+      src: "/image/ui/GetOneButton.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one font-semibold"
@@ -2858,7 +2858,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/GetAllButton.svg"
+      src: "/image/ui/GetAllButton.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one_right font-semibold"
@@ -2909,7 +2909,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Icon.svg"
+      src: "/image/ui/Icon.svg"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "py-1 px-2 box_detail_target_label"
@@ -2922,7 +2922,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/Box.svg"
+      src: "/image/ui/Box.svg"
     }
   })]);
 }, function () {
@@ -2930,7 +2930,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("div", [_c("img", {
     attrs: {
-      src: "image/ui/Info.svg"
+      src: "/image/ui/Info.svg"
     }
   })]);
 }, function () {
@@ -2940,7 +2940,7 @@ var staticRenderFns = [function () {
     staticClass: "box_detail_item_card_header"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/supreme.svg",
+      src: "/image/ui/supreme.svg",
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
@@ -2954,7 +2954,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/IPhone-13.png",
+      src: "/image/ui/IPhone-13.png",
       width: "65",
       height: "65"
     }
@@ -2993,7 +2993,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/BackArrow.svg"
+      src: "/image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3012,7 +3012,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/DropDown.svg"
+      src: "/image/ui/DropDown.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
@@ -3032,7 +3032,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/DropDown.svg"
+      src: "/image/ui/DropDown.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
@@ -3052,7 +3052,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/DropDown.svg"
+      src: "/image/ui/DropDown.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
@@ -3100,7 +3100,7 @@ var render = function render() {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Service.svg"
+      src: "/image/ui/Service.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "my-3"
@@ -3115,7 +3115,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "w-full",
     attrs: {
-      src: "image/ui/Banner.svg"
+      src: "/image/ui/Banner.svg"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between py-2 mb-3"
@@ -3130,7 +3130,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: "image/ui/TidePlay.svg"
+      src: "/image/ui/TidePlay.svg"
     }
   }), _vm._v("Tide Play")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3143,7 +3143,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: "image/ui/Recharge.svg"
+      src: "/image/ui/Recharge.svg"
     }
   }), _vm._v("Recharge")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3156,7 +3156,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: "image/ui/Shipping.svg"
+      src: "/image/ui/Shipping.svg"
     }
   }), _vm._v("Shipping")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3169,7 +3169,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: "image/ui/Helps.svg"
+      src: "/image/ui/Helps.svg"
     }
   }), _vm._v("Helps")])])], 1), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl"
@@ -3215,7 +3215,7 @@ var render = function render() {
       staticClass: "self-center"
     }, [_c("img", {
       attrs: {
-        src: "image/ui/Arrow.svg"
+        src: "/image/ui/Arrow.svg"
       }
     })])])]);
   }), 1)])]);
@@ -3254,7 +3254,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Back.svg"
+      src: "/image/ui/Back.svg"
     }
   })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
@@ -3268,7 +3268,7 @@ var render = function render() {
     staticClass: "relative"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Frame.svg"
+      src: "/image/ui/Frame.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "grid grid-cols-3 absolute prize_container"
@@ -3297,7 +3297,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Button.svg"
+      src: "/image/ui/Button.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
@@ -3354,7 +3354,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Icon.svg"
+      src: "/image/ui/Icon.svg"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "py-1 px-2 box_detail_target_label"
@@ -3364,7 +3364,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("div", [_c("img", {
     attrs: {
-      src: "image/ui/Button.svg"
+      src: "/image/ui/Button.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
@@ -3403,7 +3403,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/BackArrow.svg"
+      src: "/image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3480,7 +3480,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/BackArrow.svg"
+      src: "/image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3707,7 +3707,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/BackArrow.svg"
+      src: "/image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3753,7 +3753,7 @@ var render = function render() {
       staticClass: "self-center"
     }, [_c("img", {
       attrs: {
-        src: "image/ui/Arrow.svg"
+        src: "/image/ui/Arrow.svg"
       }
     })])])]);
   }), 1)]);
@@ -3765,7 +3765,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center pr-2"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Search.svg"
+      src: "/image/ui/Search.svg"
     }
   })]);
 }, function () {
@@ -3782,7 +3782,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("\n            Price "), _c("img", {
     staticClass: "inline-block -mt-1 ml-1",
     attrs: {
-      src: "image/ui/DropDown.svg"
+      src: "/image/ui/DropDown.svg"
     }
   })])]);
 }];
@@ -3818,7 +3818,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/HomeActive.svg"
+      src: "/image/ui/HomeActive.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3827,7 +3827,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/Recycle.svg"
+      src: "/image/ui/Recycle.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3836,7 +3836,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/Wallet.svg"
+      src: "/image/ui/Wallet.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3845,7 +3845,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/UserTag.svg"
+      src: "/image/ui/UserTag.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3956,7 +3956,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Cross.svg"
+      src: "/image/ui/Cross.svg"
     }
   })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "text-center px-5 -mt-5"
@@ -3992,7 +3992,7 @@ var staticRenderFns = [function () {
   return _c("div", [_c("img", {
     staticClass: "modal_header_img",
     attrs: {
-      src: "image/ui/Gift.svg"
+      src: "/image/ui/Gift.svg"
     }
   })]);
 }, function () {
@@ -4003,7 +4003,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/Congratz.svg"
+      src: "/image/ui/Congratz.svg"
     }
   })]);
 }, function () {
@@ -4014,7 +4014,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "mark_img",
     attrs: {
-      src: "image/ui/Mark.svg",
+      src: "/image/ui/Mark.svg",
       alt: ""
     }
   })]);
@@ -4040,7 +4040,7 @@ var staticRenderFns = [function () {
     staticClass: "self-center mr-3"
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Share.svg"
+      src: "/image/ui/Share.svg"
     }
   })]), _vm._v(" "), _c("div", [_vm._v("Share your friends")])]);
 }];
@@ -4083,7 +4083,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Cross.svg"
+      src: "/image/ui/Cross.svg"
     }
   })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "text-lg py-2 font-bold text-center"
@@ -4183,7 +4183,7 @@ var staticRenderFns = [function () {
   return _c("div", [_c("img", {
     staticClass: "modal_header_img",
     attrs: {
-      src: "image/ui/Pocket.svg"
+      src: "/image/ui/Pocket.svg"
     }
   })]);
 }];
@@ -4226,7 +4226,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: "image/ui/Cross.svg"
+      src: "/image/ui/Cross.svg"
     }
   })]), _vm._v(" "), _vm._m(0)])]);
 };
@@ -4290,7 +4290,7 @@ var staticRenderFns = [function () {
   return _c("div", [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: "image/ui/Success.svg"
+      src: "/image/ui/Success.svg"
     }
   })]);
 }];

@@ -4,7 +4,7 @@
             <div class="flex flex-row">
                  <Link href="/box" as="button">
                     <div class="p-2 pl-0 mr-2">
-                        <img src="image/ui/BackArrow.svg">
+                        <img src="/image/ui/BackArrow.svg">
                     </div>
                 </Link>
                 <div class="font-bold text-xl self-center">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="self-center pr-2">
-                <img src="image/ui/Search.svg">
+                <img src="/image/ui/Search.svg">
             </div>
         </div>
         <div class="flex flex-row">
@@ -23,7 +23,7 @@
                 New
             </div>
             <div class="mr-3 py-1 px-4 rounded-full filter_menu">
-                Price <img src="image/ui/DropDown.svg" class="inline-block -mt-1 ml-1">
+                Price <img src="/image/ui/DropDown.svg" class="inline-block -mt-1 ml-1">
             </div>
         </div>
         <div class="flex flex-wrap justify-around py-4">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="flex justify-between py-2">
                     <div style="color: #FFC042;"><span>{{box.coin}} coins/draw</span></div>
-                    <div class="self-center"><img src="image/ui/Arrow.svg"></div>
+                    <div class="self-center"><img src="/image/ui/Arrow.svg"></div>
                 </div>
             </Link>
         </div>
