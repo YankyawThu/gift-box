@@ -47,4 +47,24 @@ class UserController extends Controller
     {
         return $this->collectService->cancelCollection($id);
     }
+
+    public function changeGender()
+    {
+        // code...
+    }
+
+    public function changeUserName()
+    {
+        // code...
+    }
+
+    public function changePhone()
+    {
+        // code...
+    }
+
+    public function changePassword()
+    {
+        // code...
+    }
 }

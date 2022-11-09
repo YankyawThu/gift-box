@@ -43,11 +43,18 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
-            Route::post('/change-avatar', [UserController::class, 'changeAvatar'])->name('change-avatar');
-            Route::post('/change-nickname', [UserController::class, 'changeNickname']);
+
             Route::get('/collection', [UserController::class, 'collectionIndex']);
             Route::get('/collection/get', [UserController::class, 'getCollection']);
             Route::delete('/collection/{id}/cancel', [UserController::class, 'cancelCollection']);
+
+            Route::post('/change-avatar', [UserController::class, 'changeAvatar'])->name('change-avatar');
+            Route::post('/change-nickname', [UserController::class, 'changeNickname']);
+            Route::any('/change-gender', [UserController::class, 'changeGender']);
+            Route::any('/change-username', [UserController::class, 'changeUserName']);
+            Route::any('/change-phone', [UserController::class, 'changePhone']);
+            Route::any('/change-password', [UserController::class, 'changePassword']);
+
             Route::get('/balance', [MoneyRecordController::class, 'index']);
             Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
