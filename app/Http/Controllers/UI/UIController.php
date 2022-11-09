@@ -11,6 +11,7 @@ use App\Http\Requests\OpenBoxRequest;
 use App\Http\Requests\RecycleRequest;
 use App\Http\Requests\ShipmentApplyRequest;
 use App\Http\Resources\BoxCabinetResourceCollection;
+use App\Http\Resources\HelpResource;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Services\UI\BoxService;
@@ -151,6 +152,8 @@ class UIController extends Controller
 
     public function helps()
     {
+        $data = HelpResource::collection(getHelp(8));
+
         return Inertia::render('Helps');
     }
 
