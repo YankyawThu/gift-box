@@ -13,9 +13,9 @@ class BoxService
         $this->itemPerPage = config('enums.itemPerPage');
     }
 
-    public function getAll()
+    public function getAll($filter)
     {
-        return $this->boxRepo->getPaginated($this->itemPerPage);
+        return $this->boxRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
     public function getItemsByBoxId($id)
