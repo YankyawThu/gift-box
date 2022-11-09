@@ -2824,32 +2824,15 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Back.svg"
+      src: "image/ui/Back.svg"
     }
-  })])], 1), _vm._v(" "), _c("div", {
-    staticClass: "flex flex-row box_detail_target"
-  }, [_c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Icon.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "py-1 px-2 box_detail_target_label"
-  }, [_vm._v("\n                Lucky Draw\n            ")])]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
+  })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
   }, [_vm._v("\n        Magic BlindBox\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "blind_box_underline my-1 w-56 mx-auto"
   }), _vm._v(" "), _c("div", {
     staticClass: "box_wish text-center py-2 px-4"
-  }, [_vm._v("Save the wish value and redeem the happy wish prize")]), _vm._v(" "), _c("div", {
-    staticClass: "-mt-32"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Box.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Save the wish value and redeem the happy wish prize")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "flex justify-around -mt-32"
   }, [_c("div", {
     staticClass: "relative"
@@ -2860,7 +2843,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/GetOneButton.svg"
+      src: "image/ui/GetOneButton.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one font-semibold"
@@ -2875,7 +2858,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/GetAllButton.svg"
+      src: "image/ui/GetAllButton.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one_right font-semibold"
@@ -2896,35 +2879,13 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "px-1"
-  }, [_vm._v("Rules of Play")]), _vm._v(" "), _c("div", [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Info.svg"
-    }
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Rules of Play")]), _vm._v(" "), _vm._m(2)])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-around my-2 mx-1"
   }, _vm._l(_vm.data.data.items, function (item, i) {
     return _c("div", {
       key: i,
       staticClass: "box_detail_item_card"
-    }, [_c("div", {
-      staticClass: "box_detail_item_card_header"
-    }, [_c("img", {
-      attrs: {
-        src: _vm.$assetUrl + "image/ui/supreme.svg",
-        alt: ""
-      }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "item_precent"
-    }, [_vm._v("0.1 %")])]), _vm._v(" "), _c("div", {
-      staticClass: "box_detail_item_card_body"
-    }, [_c("img", {
-      staticClass: "m-auto",
-      attrs: {
-        src: _vm.$assetUrl + "image/ui/IPhone-13.png",
-        width: "65",
-        height: "65"
-      }
-    })]), _vm._v(" "), _c("div", {
+    }, [_vm._m(3, true), _vm._v(" "), _vm._m(4, true), _vm._v(" "), _c("div", {
       staticClass: "box_detail_item_card_footer text-center"
     }, [_c("div", {
       staticClass: "truncate px-2"
@@ -2939,7 +2900,66 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex flex-row box_detail_target"
+  }, [_c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/Icon.svg"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "py-1 px-2 box_detail_target_label"
+  }, [_vm._v("\n                Lucky Draw\n            ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "-mt-32"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "image/ui/Box.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    attrs: {
+      src: "image/ui/Info.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "box_detail_item_card_header"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/supreme.svg",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "item_precent"
+  }, [_vm._v("0.1 %")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "box_detail_item_card_body"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "image/ui/IPhone-13.png",
+      width: "65",
+      height: "65"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -2973,72 +2993,72 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/BackArrow.svg"
+      src: "image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
-  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _vm._m(2)])]);
+  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
+  }, [_c("div", {
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/DropDown.svg"
+    }
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
   }, [_c("p", {
     staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])]);
+  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
+  }, [_c("div", {
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/DropDown.svg"
+    }
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
   }, [_c("p", {
     staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])]);
+  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
+  }, [_c("div", {
+    staticClass: "flex justify-between col"
+  }, [_c("div", {
+    staticClass: "w-full font-bold py-1"
+  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/DropDown.svg"
+    }
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "content"
   }, [_c("p", {
     staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v(" Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit")])]);
+  }, [_vm._v(" Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
 }];
 render._withStripped = true;
 
@@ -3080,7 +3100,7 @@ var render = function render() {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Service.svg"
+      src: "image/ui/Service.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "my-3"
@@ -3095,7 +3115,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "w-full",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Banner.svg"
+      src: "image/ui/Banner.svg"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between py-2 mb-3"
@@ -3110,7 +3130,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/TidePlay.svg"
+      src: "image/ui/TidePlay.svg"
     }
   }), _vm._v("Tide Play")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3123,7 +3143,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Recharge.svg"
+      src: "image/ui/Recharge.svg"
     }
   }), _vm._v("Recharge")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3136,7 +3156,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Shipping.svg"
+      src: "image/ui/Shipping.svg"
     }
   }), _vm._v("Shipping")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
@@ -3149,7 +3169,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "inline-block rounded-full p-1",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Helps.svg"
+      src: "image/ui/Helps.svg"
     }
   }), _vm._v("Helps")])])], 1), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl"
@@ -3195,7 +3215,7 @@ var render = function render() {
       staticClass: "self-center"
     }, [_c("img", {
       attrs: {
-        src: _vm.$assetUrl + "image/ui/Arrow.svg"
+        src: "image/ui/Arrow.svg"
       }
     })])])]);
   }), 1)])]);
@@ -3234,19 +3254,9 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Back.svg"
+      src: "image/ui/Back.svg"
     }
-  })])], 1), _vm._v(" "), _c("div", {
-    staticClass: "flex flex-row box_detail_target"
-  }, [_c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Icon.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "py-1 px-2 box_detail_target_label"
-  }, [_vm._v("\n                Lucky Draw\n            ")])]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
+  })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
   }, [_vm._v("\n        Magic BlindBox\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "blind_box_underline my-1 w-56 mx-auto"
@@ -3258,7 +3268,7 @@ var render = function render() {
     staticClass: "relative"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Frame.svg"
+      src: "image/ui/Frame.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "grid grid-cols-3 absolute prize_container"
@@ -3287,7 +3297,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Button.svg"
+      src: "image/ui/Button.svg"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
@@ -3296,13 +3306,7 @@ var render = function render() {
     on: {
       click: _vm.createOrder
     }
-  }, [_c("div", [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Button.svg"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
-  }, [_vm._v("Open")])])])]), _vm._v(" "), _c("order-modal", {
+  }, [_vm._m(1)])]), _vm._v(" "), _c("order-modal", {
     attrs: {
       order: _vm.order
     },
@@ -3341,7 +3345,31 @@ var render = function render() {
     }
   })], 1)], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex flex-row box_detail_target"
+  }, [_c("div", {
+    staticClass: "self-center"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/Icon.svg"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "py-1 px-2 box_detail_target_label"
+  }, [_vm._v("\n                Lucky Draw\n            ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    attrs: {
+      src: "image/ui/Button.svg"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "absolute top-3 right-16 font-semibold text-white text-lg"
+  }, [_vm._v("Open")])]);
+}];
 render._withStripped = true;
 
 
@@ -3375,7 +3403,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/BackArrow.svg"
+      src: "image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3452,7 +3480,7 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/BackArrow.svg"
+      src: "image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
@@ -3679,30 +3707,11 @@ var render = function render() {
     staticClass: "p-2 pl-0 mr-2"
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/BackArrow.svg"
+      src: "image/ui/BackArrow.svg"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
-  }, [_vm._v("\n                Tide Play\n            ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "self-center pr-2"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Search.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "flex flex-row"
-  }, [_c("div", {
-    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu filter_menu_active"
-  }, [_vm._v("\n            All \n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu"
-  }, [_vm._v("\n            New\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu"
-  }, [_vm._v("\n            Price "), _c("img", {
-    staticClass: "inline-block -mt-1 ml-1",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                Tide Play\n            ")])], 1), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-around py-4"
   }, _vm._l(_vm.boxes, function (box, i) {
     return _c("Link", {
@@ -3744,12 +3753,39 @@ var render = function render() {
       staticClass: "self-center"
     }, [_c("img", {
       attrs: {
-        src: _vm.$assetUrl + "image/ui/Arrow.svg"
+        src: "image/ui/Arrow.svg"
       }
     })])])]);
   }), 1)]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "self-center pr-2"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/Search.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex flex-row"
+  }, [_c("div", {
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu filter_menu_active"
+  }, [_vm._v("\n            All \n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu"
+  }, [_vm._v("\n            New\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu"
+  }, [_vm._v("\n            Price "), _c("img", {
+    staticClass: "inline-block -mt-1 ml-1",
+    attrs: {
+      src: "image/ui/DropDown.svg"
+    }
+  })])]);
+}];
 render._withStripped = true;
 
 
@@ -3770,6 +3806,11 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
+  return _vm._m(0);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
   return _c("div", {
     staticClass: "grid grid-cols-4 fixed w-full bg-white bottom-0 footer_nav text-gray-400"
   }, [_c("div", {
@@ -3777,7 +3818,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/HomeActive.svg"
+      src: "image/ui/HomeActive.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3786,7 +3827,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Recycle.svg"
+      src: "image/ui/Recycle.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3795,7 +3836,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Wallet.svg"
+      src: "image/ui/Wallet.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -3804,13 +3845,12 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.$assetUrl + "image/ui/UserTag.svg"
+      src: "image/ui/UserTag.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
   }, [_vm._v("Profile")])])]);
-};
-var staticRenderFns = [];
+}];
 render._withStripped = true;
 
 
@@ -3916,21 +3956,9 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Cross.svg"
+      src: "image/ui/Cross.svg"
     }
-  })]), _vm._v(" "), _c("div", [_c("img", {
-    staticClass: "modal_header_img",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Gift.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "-mt-3"
-  }, [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Congratz.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "text-center px-5 -mt-5"
   }, [_vm._v("You have won special prize"), _vm._l(_vm.prizes, function (prize, j) {
     return _c("span", {
@@ -3942,15 +3970,7 @@ var render = function render() {
     return _c("div", {
       key: i,
       staticClass: "congratz_item_card"
-    }, [_c("div", {
-      staticClass: "congratz_item_card_header"
-    }, [_c("img", {
-      staticClass: "mark_img",
-      attrs: {
-        src: _vm.$assetUrl + "image/ui/Mark.svg",
-        alt: ""
-      }
-    })]), _vm._v(" "), _c("div", {
+    }, [_vm._m(2, true), _vm._v(" "), _c("div", {
       staticClass: "congratz_item_card_body"
     }, [_c("img", {
       staticClass: "m-auto",
@@ -3964,20 +3984,41 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "truncate px-2"
     }, [_vm._v(_vm._s(prize.itemName))]), _vm._v(" "), _c("div", [_vm._v("($ " + _vm._s(prize.price) + ")")])])]);
-  }), 0), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "flex justify-center mt-4 text-center text-sm",
-    staticStyle: {
-      color: "#8064E1"
-    }
-  }, [_c("div", {
-    staticClass: "self-center mr-3"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Share.svg"
-    }
-  })]), _vm._v(" "), _c("div", [_vm._v("Share your friends")])])])]);
+  }), 0), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "modal_header_img",
+    attrs: {
+      src: "image/ui/Gift.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "-mt-3"
+  }, [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "image/ui/Congratz.svg"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "congratz_item_card_header"
+  }, [_c("img", {
+    staticClass: "mark_img",
+    attrs: {
+      src: "image/ui/Mark.svg",
+      alt: ""
+    }
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
@@ -3987,6 +4028,21 @@ var staticRenderFns = [function () {
   }, [_vm._v("Sell")])]), _vm._v(" "), _c("div", {}, [_c("button", {
     staticClass: "btn_one rounded-full py-2 w-32 m-2 text-white"
   }, [_vm._v("Collect")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "flex justify-center mt-4 text-center text-sm",
+    staticStyle: {
+      color: "#8064E1"
+    }
+  }, [_c("div", {
+    staticClass: "self-center mr-3"
+  }, [_c("img", {
+    attrs: {
+      src: "image/ui/Share.svg"
+    }
+  })]), _vm._v(" "), _c("div", [_vm._v("Share your friends")])]);
 }];
 render._withStripped = true;
 
@@ -4027,14 +4083,9 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Cross.svg"
+      src: "image/ui/Cross.svg"
     }
-  })]), _vm._v(" "), _c("div", [_c("img", {
-    staticClass: "modal_header_img",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Pocket.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "text-lg py-2 font-bold text-center"
   }, [_vm._v("\n            Payment\n        ")]), _vm._v(" "), _vm.order.data ? _c("div", {
     staticClass: "px-10 py-2"
@@ -4126,7 +4177,16 @@ var render = function render() {
     }
   }, [_vm._v("Gold Coin Payment")])])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "modal_header_img",
+    attrs: {
+      src: "image/ui/Pocket.svg"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -4166,7 +4226,7 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$assetUrl + "image/ui/Cross.svg"
+      src: "image/ui/Cross.svg"
     }
   })]), _vm._v(" "), _vm._m(0)])]);
 };
@@ -4209,12 +4269,7 @@ var render = function render() {
     staticClass: "successModal-content"
   }, [_c("div", {
     staticClass: "overflow-auto max-h-96"
-  }, [_c("div", [_c("img", {
-    staticClass: "m-auto",
-    attrs: {
-      src: _vm.$assetUrl + "image/ui/Success.svg"
-    }
-  })]), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "text-center font-bold text-3xl py-3"
   }, [_vm._v("Top Up Successful! ")]), _vm._v(" "), _c("div", {
     staticClass: "px-8 text-center my-5"
@@ -4229,7 +4284,16 @@ var render = function render() {
     }
   }, [_vm._v("OK")])])])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    staticClass: "m-auto",
+    attrs: {
+      src: "image/ui/Success.svg"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -4247,7 +4311,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__["default"].prototype.$assetUrl = '/';
 (0,_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.createInertiaApp)({
   resolve: function resolve(name) {
     return __webpack_require__("./resources/js/pages sync recursive ^\\.\\/.*$")("./".concat(name));
