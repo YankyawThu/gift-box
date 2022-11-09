@@ -3095,7 +3095,7 @@ var render = function render() {
     staticClass: "font-bold text-xl self-center"
   }, [_vm._v("\n            Shipping Address\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "pb-20"
-  }, [_vm._l(_vm.data.data, function (address, i) {
+  }, _vm._l(_vm.data.data, function (address, i) {
     return _c("div", {
       key: i,
       staticClass: "flex flex-row bg-white p-4 my-3 rounded-xl",
@@ -3109,36 +3109,11 @@ var render = function render() {
     }, [_vm._v(_vm._s(address.district))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-400 py-1 text-sm"
     }, [_vm._v("Phone : " + _vm._s(address.phone))])]), _vm._v(" "), _vm._m(0, true)]);
-  }), _vm._v(" "), _vm._l(_vm.data.data, function (address, i) {
-    return _c("div", {
-      key: i,
-      staticClass: "flex flex-row bg-white p-4 my-3 rounded-xl",
-      staticStyle: {
-        "box-shadow": "1px 2px 4px rgba(38, 39, 60, 0.1)"
-      }
-    }, [_c("div", {
-      staticClass: "grow pr-5 w-72"
-    }, [_c("div", {
-      staticClass: "break-words"
-    }, [_vm._v(_vm._s(address.district))]), _vm._v(" "), _c("div", {
-      staticClass: "text-gray-400 py-1 text-sm"
-    }, [_vm._v("Phone : " + _vm._s(address.phone))])]), _vm._v(" "), _vm._m(1, true)]);
-  })], 2), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _c("div", {
     staticClass: "btn_one fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white"
   }, [_vm._v("\n        Add Shipping Address\n    ")])]);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "flex-none self-end w-10"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/Edit.svg",
-      alt: ""
-    }
-  })]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
