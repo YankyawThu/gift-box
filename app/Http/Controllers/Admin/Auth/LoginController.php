@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -92,9 +93,8 @@ class LoginController extends Controller
      */
     private function loginFailed()
     {
-        return redirect()
-            ->back()
-            ->withInput()
-            ->with('error', 'Login failed, please try again!');
+        throw ValidationException::withMessages([
+                   'email' => [trans('auth.failed')],
+               ]);
     }
 }
