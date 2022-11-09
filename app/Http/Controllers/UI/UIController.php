@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
+use App\Filters\UI\GiftBoxFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
@@ -10,6 +11,7 @@ use App\Http\Requests\OpenBoxRequest;
 use App\Http\Requests\RecycleRequest;
 use App\Http\Requests\ShipmentApplyRequest;
 use App\Http\Resources\BoxCabinetResourceCollection;
+use App\Http\Resources\HelpResource;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
 use App\Services\UI\BoxService;
@@ -57,9 +59,9 @@ class UIController extends Controller
         return Inertia::render('BoxDetail', compact('data'));
     }
 
-    public function getAll()
+    public function getAll(GiftBoxFilter $filter)
     {
-        $result = $this->boxService->getAll();
+        $result = $this->boxService->getAll($filter);
         $data = new HomePageResourceCollection($result);
 
         return response()->json($data);
@@ -150,9 +152,11 @@ class UIController extends Controller
 
     public function helps()
     {
+        $data = HelpResource::collection(getHelp(8));
+
         return Inertia::render('Helps');
     }
-    
+
     public function savePrizeRecycle(RecycleRequest $request)
     {
         return $this->prizeService->savePrizeRecycle($request);
@@ -160,6 +164,6 @@ class UIController extends Controller
 
     public function shipmentApply(ShipmentApplyRequest $request)
     {
-        return $this->prizeService->shipmentApply( $request);
+        return $this->prizeService->shipmentApply($request);
     }
 }

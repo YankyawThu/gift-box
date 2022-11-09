@@ -122,3 +122,9 @@ if (!function_exists('getCoinFromRmb')) {
         return round($rmb * $rate, 5);
     }
 }
+if (!function_exists('getHelp')) {
+    function getHelp($policyCatId)
+    {
+        return App\Models\RuleConfiguration::where('policy_category_id', $policyCatId)->get();
+    }
+}
