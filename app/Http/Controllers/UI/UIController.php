@@ -154,7 +154,7 @@ class UIController extends Controller
     {
         $data = HelpResource::collection(getHelp(8));
 
-        return Inertia::render('Helps');
+        return Inertia::render('Helps', compact('data'));
     }
 
     public function savePrizeRecycle(RecycleRequest $request)

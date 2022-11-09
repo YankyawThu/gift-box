@@ -10,31 +10,13 @@
                 Helps
             </div>
         </div>
-        <div class="help_tip_box bg-white rounded-xl p-3 my-4">
+        <div v-for="(help,i) in data.data" :key="i" class="help_tip_box bg-white rounded-xl p-3 my-4">
             <div class="flex justify-between col">
-                <div class="w-full font-bold py-1">How to buy Blind Box?</div>
+                <div class="w-full font-bold py-1">{{help.title}}</div>
                 <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
             </div>
             <div class="content">
-                <p class="pt-2 border-t border-gray-200 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            </div>
-        </div>
-        <div class="help_tip_box bg-white rounded-xl p-3 my-4">
-            <div class="flex justify-between col">
-                <div class="w-full font-bold py-1">How to buy Blind Box?</div>
-                <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
-            </div>
-            <div class="content">
-                <p class="pt-2 border-t border-gray-200 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            </div>
-        </div>
-        <div class="help_tip_box bg-white rounded-xl p-3 my-4">
-            <div class="flex justify-between col">
-                <div class="w-full font-bold py-1">How to buy Blind Box?</div>
-                <div class="self-center"><img src="/image/ui/DropDown.svg"></div>
-            </div>
-            <div class="content">
-                <p class="pt-2 border-t border-gray-200 text-sm"> Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                <p class="pt-2 border-t border-gray-200 text-sm">{{help.description}}</p>
             </div>
         </div>
     </div>
@@ -47,6 +29,11 @@ import {Link} from '@inertiajs/inertia-vue'
 export default {
     components: {
         Link
+    },
+    props: {
+        data: {
+            type: Object
+        }
     },
     mounted() {
         var coll = document.getElementsByClassName("col");

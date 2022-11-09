@@ -2337,6 +2337,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
   },
+  props: {
+    data: {
+      type: Object
+    }
+  },
   mounted: function mounted() {
     var coll = document.getElementsByClassName("col");
     var i;
@@ -3559,68 +3564,31 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center"
-  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
+  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _vm._l(_vm.data.data, function (help, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
+    }, [_c("div", {
+      staticClass: "flex justify-between col"
+    }, [_c("div", {
+      staticClass: "w-full font-bold py-1"
+    }, [_vm._v(_vm._s(help.title))]), _vm._v(" "), _vm._m(0, true)]), _vm._v(" "), _c("div", {
+      staticClass: "content"
+    }, [_c("p", {
+      staticClass: "pt-2 border-t border-gray-200 text-sm"
+    }, [_vm._v(_vm._s(help.description))])])]);
+  })], 2);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
       src: "/image/ui/DropDown.svg"
     }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("p", {
-    staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("p", {
-    staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "help_tip_box bg-white rounded-xl p-3 my-4"
-  }, [_c("div", {
-    staticClass: "flex justify-between col"
-  }, [_c("div", {
-    staticClass: "w-full font-bold py-1"
-  }, [_vm._v("How to buy Blind Box?")]), _vm._v(" "), _c("div", {
-    staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: "/image/ui/DropDown.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("p", {
-    staticClass: "pt-2 border-t border-gray-200 text-sm"
-  }, [_vm._v(" Lorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elitLorem ipsum dolor sit amet, consectetur adipisicing elit")])])]);
+  })]);
 }];
 render._withStripped = true;
 
