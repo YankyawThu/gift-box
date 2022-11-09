@@ -128,3 +128,15 @@ a.nav-link.active{
 .btn.btn-secondary.focus.active, .btn.btn-secondary.active{
     background-color: aquamarine !important;
 }
+
+/* admin loading */
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("../argon/img/brand/blue.png") center no-repeat #f6f5f5;
+    opacity: 0.8;
+}

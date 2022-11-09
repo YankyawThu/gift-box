@@ -12,25 +12,30 @@ class FileController extends Controller
 {
     public function show($model, $id)
     {
-        switch ($model) {
-            case 'DeliveryOrder':
-                $query = DeliveryOrder::find($id);
-                $file  = $query->giftItem;
-                break;
+        if (!request()->has('path')) {
+            switch ($model) {
+                case 'DeliveryOrder':
+                    $query = DeliveryOrder::find($id);
+                    $path  = $query->giftItem->image;
+                    break;
 
-            case 'GiftItem':
-                $file = GiftItem::find($id);
-                break;
+                case 'GiftItem':
+                    $path = GiftItem::find($id)->image;
+                    break;
 
-            case 'Banner':
-                $file = Banner::find($id);
-                break;
+                case 'Banner':
+                    $path = Banner::find($id)->image;
+                    break;
 
-            default:
-                # code...
-                break;
+                default:
+                    # code...
+                    break;
+            }
+        } else {
+            $path = request('path');
         }
-        $path = storage_path("app/" . $file->image);
+
+        $path = storage_path("app/" . $path);
 
         if (!FacadesFile::exists($path)) {
             abort(404);

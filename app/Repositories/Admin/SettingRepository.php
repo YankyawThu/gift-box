@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Banner;
+use App\Models\Setting;
 use App\Repositories\BaseRepository;
 
-class BannerRepository extends BaseRepository
+class SettingRepository extends BaseRepository
 {
-    public function __construct(Banner $model)
+    public function __construct(Setting $model)
     {
         $this->model = $model;
     }

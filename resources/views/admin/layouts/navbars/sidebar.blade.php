@@ -134,6 +134,13 @@
                     </a>
                 </li>
 
+                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'settings') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.settings.index') }}">
+                        <i class="fa fa-cog text-blue"></i> {{ __('Settings') }}
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'banners') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.banners.index') }}">
