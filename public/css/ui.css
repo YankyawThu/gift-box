@@ -330,3 +330,16 @@
     left: 48px;
     font-size: 13px;
 }
+
+.user_header {
+    background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);
+}
+
+.order_card {
+    background: #FFFFFF;
+    box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);
+}
+
+#panel-income, #panel-expend {
+    height: 65%;
+}

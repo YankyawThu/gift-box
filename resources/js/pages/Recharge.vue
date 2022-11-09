@@ -1,7 +1,7 @@
 <template>
     <div class="py-4">
         <div class="flex flex-row my-5 px-4">
-           <Link href="/box" as="button">
+           <Link href="#" as="button" @click="back()">
                 <div class="p-2 pl-0 mr-2">
                     <img src="/image/ui/BackArrow.svg">
                 </div>
@@ -74,7 +74,10 @@ export default {
                     this.success = true
                 }
             })
-        }
+        },
+        back() {
+            window.history.back()
+        },
     },
     mounted() {
         this.amount = this.$props.data[0].amount

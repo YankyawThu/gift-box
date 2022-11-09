@@ -7,6 +7,7 @@ use App\Http\Requests\ShippingAddressCreateRequest;
 use App\Http\Resources\ShippingAddressDetailResource;
 use App\Http\Resources\ShippingAddressResource;
 use App\Services\UI\ShippingAddressService;
+use Inertia\Inertia;
 
 class ShippingAddressController extends Controller
 {
@@ -17,7 +18,8 @@ class ShippingAddressController extends Controller
 
     public function index()
     {
-        return ShippingAddressResource::collection($this->addressService->getAllByAuth());
+        $data = ShippingAddressResource::collection($this->addressService->getAllByAuth());
+        return Inertia::render('Address', compact('data'));
     }
 
     /**

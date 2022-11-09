@@ -1,7 +1,7 @@
 <template>
     <div class="p-4">
         <div class="flex flex-row my-5">
-           <Link href="/box" as="button">
+           <Link href="#" as="button" @click="back()">
                 <div class="p-2 pl-0 mr-2">
                     <img src="/image/ui/BackArrow.svg">
                 </div>
@@ -12,13 +12,13 @@
         </div>
         <div id="tabs">
             <div class="grid grid-cols-3 text-center border-b" role="tablist" aria-label="Free HTML Tabs">
-                <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-delivered" id="tab-delivered" tabindex="0" @click="fetchDelivered()">
+                <div class="py-2" role="tab" :aria-selected="[tab == 1 ? true : false]" aria-controls="panel-delivered" id="tab-delivered" :tabindex="[tab == 1 ? 0 : -1]" @click="fetchDelivered()">
                     To be delivered
                 </div>
-                <div class="py-2" role="tab" aria-selected="false" aria-controls="panel-going" id="tab-going" tabindex="-1" @click="fetchGoing()">
+                <div class="py-2" role="tab" :aria-selected="[tab == 2 ? true : false]" aria-controls="panel-going" id="tab-going" :tabindex="[tab == 2 ? 0 : -1]" @click="fetchGoing()">
                     On going
                 </div>
-                <div class="py-2" role="tab" aria-selected="false" aria-controls="panel-completed" id="tab-completed" tabindex="-1" @click="fetchCompleted()">
+                <div class="py-2" role="tab" :aria-selected="[tab == 3 ? true : false]" aria-controls="panel-completed" id="tab-completed" :tabindex="[tab == 3 ? 0 : -1]" @click="fetchCompleted()">
                     Completed
                 </div>
             </div>
@@ -83,6 +83,9 @@ export default {
     components: {
         Link
     },
+    props: {
+        num: ''
+    },
     data() {
         return {
             page: 1,
@@ -95,12 +98,13 @@ export default {
             completeStatus: 3,
             deliveredEnd: false,
             goingEnd: false,
-            completedEnd: false
+            completedEnd: false,
+            tab: this.num
         }
     },
     methods: {
         fetch(page, status) {
-            axios.get(`order-list?page=${page}`,{
+            axios.get(`/order-list?page=${page}`,{
                 params: {
                     status: status
                 }
@@ -137,26 +141,32 @@ export default {
         },
         fetchDelivered() {
             this.reset()
+            this.tab = 1
             if(this.toBeDelivered.length == 0) {
                 this.fetch(this.page, this.deliverStatus)
             }
         },
         fetchGoing() {
             this.reset()
+            this.tab = 2
             if(this.onGoing.length == 0) {
                 this.fetch(this.page, this.goingStatus)
             }
         },
         fetchCompleted() {
             this.reset()
+            this.tab = 3
             if(this.completed.length == 0) {
                 this.fetch(this.page, this.completeStatus)
             }
-        }
+        },
+        back() {
+            window.history.back()
+        },
     },
     mounted() {
         tab()
-        this.fetchDelivered()
+        this.fetch(this.page, this.tab)
         var delivered = document.querySelector("#panel-delivered");
         delivered.onscroll = () => {
             var isEnd = delivered.scrollTop + delivered.clientHeight >= delivered.scrollHeight - 1;

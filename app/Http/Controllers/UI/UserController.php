@@ -8,6 +8,7 @@ use App\Http\Requests\UserNicknameRequest;
 use App\Http\Resources\CollectionResourceCollection;
 use App\Services\UI\CollectionService;
 use App\Services\UI\UserService;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -15,6 +16,11 @@ class UserController extends Controller
     {
         $this->userService = $userService;
         $this->collectService = $collectService;
+    }
+
+    public function index()
+    {
+        return Inertia::render('User');
     }
 
     public function changeAvatar(UserAvatarRequest $request)
@@ -25,6 +31,11 @@ class UserController extends Controller
     public function changeNickname(UserNicknameRequest $request)
     {
         return $this->userService->changeNickname($request);
+    }
+
+    public function collectionIndex()
+    {
+        return Inertia::render('Collection');
     }
 
     public function getCollection()

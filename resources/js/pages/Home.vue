@@ -22,7 +22,7 @@
             <div class="flex flex-wrap justify-between py-2 mb-3">
                 <Link href="/tide-play" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/TidePlay.svg">Tide Play</div></Link>
                 <Link href="/recharge" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Recharge.svg">Recharge</div></Link>
-                <Link href="/shipping" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Shipping.svg">Shipping</div></Link>
+                <Link href="/shipping/1" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Shipping.svg">Shipping</div></Link>
                 <Link href="/helps" as="button" class="text-left"><div class="w-40 px-1 rounded-full bg-white m-1 fun_menu_tab"><img class="inline-block rounded-full p-1" src="/image/ui/Helps.svg">Helps</div></Link>
             </div>
             <div class="font-bold text-xl">Recommended</div>

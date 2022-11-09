@@ -38,17 +38,20 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/helps', [UIController::class, 'helps']);
         Route::get('/recharge', [RechargeController::class, 'index']);
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
-        Route::get('/shipping', [OrderController::class, 'index']);
+        Route::get('/shipping/{num}', [OrderController::class, 'index']);
         Route::get('/order-list', [OrderController::class, 'getAll']);
 
-        Route::resource('shipping-address', ShippingAddressController::class);
         Route::prefix('user')->group(function () {
+            Route::get('/', [UserController::class, 'index']);
             Route::post('/change-avatar', [UserController::class, 'changeAvatar'])->name('change-avatar');
             Route::post('/change-nickname', [UserController::class, 'changeNickname']);
-            Route::get('/collection', [UserController::class, 'getCollection']);
+            Route::get('/collection', [UserController::class, 'collectionIndex']);
+            Route::get('/collection/get', [UserController::class, 'getCollection']);
             Route::delete('/collection/{id}/cancel', [UserController::class, 'cancelCollection']);
-            Route::get('/balance', [MoneyRecordController::class, 'getMyBalance']);
+            Route::get('/balance', [MoneyRecordController::class, 'index']);
+            Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+            Route::resource('shipping-address', ShippingAddressController::class);
         });
         Route::any('/recycle', [UIController::class, 'savePrizeRecycle']);
         Route::any('/shipment-apply', [UIController::class, 'shipmentApply']);
