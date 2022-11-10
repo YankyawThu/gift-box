@@ -134,7 +134,7 @@
                     </a>
                 </li>
 
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'settings') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.settings.index') }}">
                         <i class="fa fa-cog text-blue"></i> {{ __('Settings') }}
@@ -145,6 +145,13 @@
                     <a class="nav-link {{ activeSegment(2, 'banners') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.banners.index') }}">
                         <i class="fas fa-image text-blue"></i> {{ __('Banner') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'rule-policies') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.rule-policies.index') }}">
+                        <i class="fas fa-balance-scale text-blue"></i> {{ __('Protocol Policies') }}
                     </a>
                 </li>
 

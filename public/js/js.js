@@ -627,5 +627,71 @@ $(function() {
     })
 
 
+
+    //Protocol Policy
+    $('#edit-policy-modal').on('show.bs.modal', function (e) {
+        // remove existing dom ele
+        $("#edit-ck-editor").find(".ck-editor").remove()
+
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        var policy_category_id = button.data('policy_category_id')
+        var header = button.data('header')
+        var description = button.data('description')
+        var public_status = button.data('public_status')
+
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #policy_category_id').val(policy_category_id)
+        modal.find('.modal-body #header').val(header)
+
+        if (public_status == '1') {
+            document.querySelectorAll('#radio-edit .btn-secondary')[0].classList.add("active")
+            modal.find('.modal-body #public_status1').prop("checked", true);
+        }
+        if (public_status == '0') {
+            document.querySelectorAll('#radio-edit .btn-secondary')[1].classList.add("active")
+            modal.find('.modal-body #public_status0').prop("checked", true);
+        }
+
+        ClassicEditor.create( document.querySelector( '#description' ) )
+            .then( editor => {
+                editor.setData(description)
+            } ) .catch( error => {
+                console.error( error );
+            } );
+    })
+
+    var protocolPolicyForm = $('#edit-policy-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            header: {
+                required: true,
+            },
+            public_status: {
+                required: true,
+            },
+        },
+        messages: {
+            header: {
+                required: "Title is Required."
+            },
+            public_status: {
+                required: "Status is Required.",
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="header"]').removeClass('alert-danger')
+            $('input[name="public_status"]').removeClass('alert-danger')
+        },
+    })
+
+    $('#edit-policy-cancel-btn').on('click', function() {
+        protocolPolicyForm.resetForm()
+    })
+
 })
 
