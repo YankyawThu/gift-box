@@ -15,9 +15,9 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function index()
+    public function index($num)
     {
-        return Inertia::render('Shipping');
+        return Inertia::render('Shipping', ['num' => $num]);
     }
 
     public function getAll(OrderListRequest $request)

@@ -2,11 +2,11 @@
     <div class="box_detail h-full py-4">
         <div class="flex justify-between pb-1">
             <div class="back self-center px-4">
-                <Link :href="'/box/'+id" as="button"><img src="/image/ui/Back.svg"></Link>
+                <Link :href="$url+'/box/'+id" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
-                    <img src="/image/ui/Icon.svg">
+                    <img :src="$asset+'/image/ui/Icon.svg'">
                 </div>
                 <div class="py-1 px-2 box_detail_target_label">
                     Lucky Draw
@@ -22,7 +22,7 @@
         <div class="px-2 py-4 flex justify-between">
             <div></div>
             <div class="relative">
-                <img src="/image/ui/Frame.svg">
+                <img :src="$asset+'/image/ui/Frame.svg'">
                 <div class="grid grid-cols-3 absolute prize_container">
                     <div v-for="(prize,i) in prizes" :key="i" class="mx-3 prize_box">
                         <img :src="prizeInActive" :class="'prizeImage'+i" @click="prizeBoxSelect(i)">
@@ -34,13 +34,13 @@
         <div class="flex justify-around">
             <div class="relative">
                 <div @click="createOrder">
-                    <img src="/image/ui/Button.svg">
+                    <img :src="$asset+'/image/ui/Button.svg'">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
             </div>
             <div class="relative" @click="createOrder">
                 <div>
-                    <img src="/image/ui/Button.svg">
+                    <img :src="$asset+'/image/ui/Button.svg'">
                     <div class="absolute top-3 right-16 font-semibold text-white text-lg">Open</div>
                 </div>
             </div>
@@ -91,8 +91,8 @@ export default {
     },
     data() {
         return {
-            prizeActive: '/image/ui/ActivePrize.svg',
-            prizeInActive: '/image/ui/ShadowWithPrize.svg',
+            prizeActive: this.$asset+'/image/ui/ActivePrize.svg',
+            prizeInActive: this.$asset+'/image/ui/ShadowWithPrize.svg',
             num: 9,
             prizes: [],
             click: 0,
@@ -143,7 +143,7 @@ export default {
             })
             rands.forEach(rand => {
                 this.roll(rand, t)
-                t += 150
+                t += 200
             })
         },
         roll(rand, t) {
@@ -154,7 +154,7 @@ export default {
             setTimeout(() => {
                 var prizeImage = document.querySelector('.prizeImage'+rand)
                 prizeImage.setAttribute('src', this.prizeInActive)
-            },t+150)
+            },t+200)
         },
         random() {
             var rands = []
