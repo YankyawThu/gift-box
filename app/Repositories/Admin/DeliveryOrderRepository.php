@@ -12,4 +12,9 @@ class DeliveryOrderRepository extends BaseRepository
     {
         $this->model = $model;
     }
+
+    public function getPaginatedWithFilter($page = null, $filter)
+    {
+        return $this->model->filter($filter)->orderBy('backend_read')->orderBy('id', 'DESC')->paginate($page ?? config('enums.itemPerPage'));
+    }
 }
