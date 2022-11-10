@@ -4988,7 +4988,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var app_path = '/';
+var app_path = '/gift_box_lucky_draw/public';
 axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = app_path;
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$asset = app_path;
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$url = app_path;
@@ -7146,7 +7146,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bounce-enter-active {\n  animation: bounce-in 0.6s;\n}\n.bounce-leave-active {\n  animation: bounce-in 0.5s reverse;\n}\n@keyframes bounce-in {\n0% {\n    transform: scale(0);\n}\n50% {\n    transform: scale(1.25);\n}\n100% {\n    transform: scale(1);\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bounce-enter-active {\r\n  animation: bounce-in 0.6s;\n}\n.bounce-leave-active {\r\n  animation: bounce-in 0.5s reverse;\n}\n@keyframes bounce-in {\n0% {\r\n    transform: scale(0);\n}\n50% {\r\n    transform: scale(1.25);\n}\n100% {\r\n    transform: scale(1);\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
