@@ -59,10 +59,12 @@
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <div class="flex justify-between py-3 mx-4 text-sm">
-                    <div><img :src="$asset+'/image/ui/Setup.svg'" class="inline-block mr-3"><span>Set Up</span></div>
-                    <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
-                </div>
+                <Link :href="$url+'/user/set-up'" as="button">
+                    <div class="flex justify-between py-3 mx-4 text-sm">
+                        <div><img :src="$asset+'/image/ui/Setup.svg'" class="inline-block mr-3"><span>Set Up</span></div>
+                        <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
+                    </div>
+                </Link>
             </div>
         </main>
         <footer>

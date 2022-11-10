@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->double('money')->default(0);
             $table->double('coin')->default(0);
             $table->string('phone')->nullable();
-            $table->tinyInteger('gender')->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->smallInteger('level')->nullable();
             $table->string('status', 100)->nullable();
             $table->date('birthday')->nullable();

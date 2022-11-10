@@ -4,6 +4,7 @@ namespace App\Repositories\UI;
 
 use App\Repositories\BaseRepository;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends BaseRepository
 {
@@ -36,5 +37,25 @@ class UserRepository extends BaseRepository
     public function increaseMoney($amount)
     {
         return $this->model->where('id', auth()->user()->id)->increment('money', $amount);
+    }
+
+    public function changeGender($request)
+    {
+        return $this->model->where('id', auth()->user()->id)->update(['gender' => $request->gender]);
+    }
+
+    public function changeUserName($request)
+    {
+        return $this->model->where('id', auth()->user()->id)->update(['name' => $request->name]);
+    }
+
+    public function changePhone($request)
+    {
+        return $this->model->where('id', auth()->user()->id)->update(['phone' => $request->phone]);
+    }
+
+    public function changePassword($request, $user)
+    {
+        return $user->update(['password' => Hash::make($request->newPassword)]);
     }
 }
