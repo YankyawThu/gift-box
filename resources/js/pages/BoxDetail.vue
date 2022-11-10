@@ -2,7 +2,7 @@
     <div class="box_detail h-auto py-4">
         <div class="flex justify-between pb-1">
             <div class="back self-center px-4">
-                <Link href="/box" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
+                <Link :href="$url+'/box'" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">

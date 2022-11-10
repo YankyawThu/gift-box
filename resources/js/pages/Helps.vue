@@ -1,7 +1,7 @@
 <template>
     <div class="p-4">
         <div class="flex flex-row my-5">
-           <Link href="/box" as="button">
+           <Link :href="$url+'/box'" as="button">
                 <div class="p-2 pl-0 mr-2">
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
