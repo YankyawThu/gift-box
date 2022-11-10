@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,6 +11,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
     <title>Login</title>
 </head>
+
 <body class="bg-gray-50">
     <div class="h-screen">
         <img src="{{ asset('/image/ui/Login.svg') }}" alt="" class="m-auto pt-14">
@@ -23,12 +25,14 @@
                             <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
                         </div>
                         <div class="grow">
-                            <input class="w-full pl-3 py-4 rounded-r-full focus:outline-none" placeholder="{{ __('Phone Number') }}" type="email" name="email" value="client@gmail.com" required>
+                            <input class="w-full pl-3 py-4 rounded-r-full focus:outline-none"
+                                placeholder="{{ __('Phone Number') }}" type="number" name="phone"
+                                value="client@gmail.com" required>
                         </div>
                     </div>
-                    @if ($errors->has('email'))
+                    @if ($errors->has('phone'))
                     <span class="">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('phone') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -38,7 +42,8 @@
                             <img src="{{ asset('image/ui/Password.svg') }}" alt="">
                         </div>
                         <div class="grow">
-                            <input class="w-full pl-3 py-4 rounded-r-full focus:outline-none" name="password" placeholder="{{ __('Password') }}" type="password" value="12345" required>
+                            <input class="w-full pl-3 py-4 rounded-r-full focus:outline-none" name="password"
+                                placeholder="{{ __('Password') }}" type="password" value="12345" required>
                         </div>
                     </div>
                     @if ($errors->has('password'))
@@ -64,9 +69,11 @@
         </div>
         <div class="w-80">
             <div class="absolute bottom-16 inset-x-5 text-center">
-                <span class="text-gray-400 mr-2">Dont have an account?</span><a href="{{ route('register') }}">Register Now</a>
+                <span class="text-gray-400 mr-2">Dont have an account?</span><a href="{{ route('register') }}">Register
+                    Now</a>
             </div>
         </div>
     </div>
 </body>
+
 </html>

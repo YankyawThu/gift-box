@@ -42,7 +42,7 @@ class LoginController extends Controller
 
     public function authenticated(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             // The user is active, not suspended, and exists.
             return redirect()->route('home');
         }
@@ -62,4 +62,9 @@ class LoginController extends Controller
 
         return redirect()->route('login');
     }
+
+     public function username()
+     {
+         return 'phone';
+     }
 }
