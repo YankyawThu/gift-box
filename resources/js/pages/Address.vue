@@ -3,7 +3,7 @@
         <div class="flex flex-row my-5">
            <Link href="#" as="button" @click="back()">
                 <div class="p-2 pl-0 mr-2">
-                    <img src="/image/ui/BackArrow.svg">
+                    <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
             <div class="font-bold text-xl self-center">
@@ -16,7 +16,7 @@
                     <div class="break-words">{{address.district}}</div>
                     <div class="text-gray-400 py-1 text-sm">Phone : {{address.phone}}</div>
                 </div>
-                <div class="flex-none self-end w-10"><img src="/image/ui/Edit.svg" alt=""></div>
+                <div class="flex-none self-end w-10"><img :src="$asset+'/image/ui/Edit.svg'" alt=""></div>
             </div>
         </div>
         <div class="btn_one fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white">

@@ -3,7 +3,7 @@
         <div class="flex flex-row my-5">
            <Link href="/user" as="button">
                 <div class="p-2 pl-0 mr-2">
-                    <img src="/image/ui/BackArrow.svg">
+                    <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
             <div class="font-bold text-xl self-center">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="self-end mr-2">
-                    <Link :href="`/user/collection/${collect.id}/cancel`" method="delete" as="button"><img src="/image/ui/Delete.svg"></Link>
+                    <Link :href="$url+`/user/collection/${collect.id}/cancel`" method="delete" as="button"><img :src="$asset+'/image/ui/Delete.svg'"></Link>
                 </div>
             </div>
         </div>
