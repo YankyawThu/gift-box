@@ -21,19 +21,19 @@
                     <div>My Order</div>
                     <div class="self-center text-xs">All Orders<img :src="$asset+'/image/ui/Vector.svg'" class="inline-block ml-2"></div>
                 </div>
-                <Link href="/shipping/1" as="button">
+                <Link :href="$url+'/shipping/1'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm border-b">
                         <div><img :src="$asset+'/image/ui/ToBeDelivered.svg'" class="inline-block mr-3"><span>To Be Delivered</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <Link href="/shipping/2" as="button">
+                <Link :href="$url+'/shipping/2'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm border-b">
                         <div><img :src="$asset+'/image/ui/Ongoing.svg'" class="inline-block mr-3"><span>On Going</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <Link href="/shipping/3" as="button">
+                <Link :href="$url+'/shipping/3'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm">
                         <div><img :src="$asset+'/image/ui/Completed.svg'" class="inline-block mr-3"><span>Completed</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
@@ -41,19 +41,19 @@
                 </Link>
             </div>
             <div class="order_card flex flex-col rounded-xl m-4">
-                <Link href="/user/balance" as="button">
+                <Link :href="$url+'/user/balance'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm border-b">
                         <div><img :src="$asset+'/image/ui/Balance.svg'" class="inline-block mr-3"><span>My Balance</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <Link href="/user/collection" as="button">
+                <Link :href="$url+'/user/collection'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm border-b">
                         <div><img :src="$asset+'/image/ui/Collection.svg'" class="inline-block mr-3"><span>My Collection</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <Link href="/user/shipping-address" as="button">
+                <Link :href="$url+'/user/shipping-address'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm border-b">
                         <div><img :src="$asset+'/image/ui/Address.svg'" class="inline-block mr-3"><span>Shipping Address</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>

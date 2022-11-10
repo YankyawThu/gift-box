@@ -3147,7 +3147,7 @@ var render = function render() {
     staticClass: "flex flex-row my-5"
   }, [_c("Link", {
     attrs: {
-      href: "/user",
+      href: _vm.$url + "/user",
       as: "button"
     }
   }, [_c("div", {
@@ -3279,7 +3279,7 @@ var render = function render() {
     staticClass: "back self-center px-4"
   }, [_c("Link", {
     attrs: {
-      href: "/box",
+      href: _vm.$url + "/box",
       as: "button"
     }
   }, [_c("img", {
@@ -3426,7 +3426,7 @@ var render = function render() {
     staticClass: "flex flex-row my-5"
   }, [_c("Link", {
     attrs: {
-      href: "/user",
+      href: _vm.$url + "/user",
       as: "button"
     }
   }, [_c("div", {
@@ -3504,7 +3504,7 @@ var render = function render() {
     staticClass: "flex flex-row my-5"
   }, [_c("Link", {
     attrs: {
-      href: "/box",
+      href: _vm.$url + "/box",
       as: "button"
     }
   }, [_c("div", {
@@ -3599,7 +3599,7 @@ var render = function render() {
   }, [_c("Link", {
     staticClass: "text-left",
     attrs: {
-      href: "/tide-play",
+      href: _vm.$url + "/tide-play",
       as: "button"
     }
   }, [_c("div", {
@@ -3612,7 +3612,7 @@ var render = function render() {
   }), _vm._v("Tide Play")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
-      href: "/recharge",
+      href: _vm.$url + "/recharge",
       as: "button"
     }
   }, [_c("div", {
@@ -3625,7 +3625,7 @@ var render = function render() {
   }), _vm._v("Recharge")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
-      href: "/shipping/1",
+      href: _vm.$url + "/shipping/1",
       as: "button"
     }
   }, [_c("div", {
@@ -3638,7 +3638,7 @@ var render = function render() {
   }), _vm._v("Shipping")])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
-      href: "/helps",
+      href: _vm.$url + "/helps",
       as: "button"
     }
   }, [_c("div", {
@@ -4179,7 +4179,7 @@ var render = function render() {
     staticClass: "flex flex-row"
   }, [_c("Link", {
     attrs: {
-      href: "/box",
+      href: _vm.$url + "/box",
       as: "button"
     }
   }, [_c("div", {
@@ -4333,7 +4333,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/shipping/1",
+      href: _vm.$url + "/shipping/1",
       as: "button"
     }
   }, [_c("div", {
@@ -4351,7 +4351,7 @@ var render = function render() {
     }
   })])])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/shipping/2",
+      href: _vm.$url + "/shipping/2",
       as: "button"
     }
   }, [_c("div", {
@@ -4369,7 +4369,7 @@ var render = function render() {
     }
   })])])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/shipping/3",
+      href: _vm.$url + "/shipping/3",
       as: "button"
     }
   }, [_c("div", {
@@ -4389,7 +4389,7 @@ var render = function render() {
     staticClass: "order_card flex flex-col rounded-xl m-4"
   }, [_c("Link", {
     attrs: {
-      href: "/user/balance",
+      href: _vm.$url + "/user/balance",
       as: "button"
     }
   }, [_c("div", {
@@ -4407,7 +4407,7 @@ var render = function render() {
     }
   })])])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/user/collection",
+      href: _vm.$url + "/user/collection",
       as: "button"
     }
   }, [_c("div", {
@@ -4425,7 +4425,7 @@ var render = function render() {
     }
   })])])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/user/shipping-address",
+      href: _vm.$url + "/user/shipping-address",
       as: "button"
     }
   }, [_c("div", {
@@ -4497,7 +4497,7 @@ var render = function render() {
     staticClass: "grid grid-cols-4 fixed w-full bg-white bottom-0 footer_nav text-gray-400"
   }, [_c("Link", {
     attrs: {
-      href: "/box",
+      href: _vm.$url + "/box",
       as: "button"
     }
   }, [_c("div", {
@@ -4508,7 +4508,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.box ? "/image/ui/HomeActive.svg" : "/image/ui/Home.svg"
+      src: _vm.box ? _vm.$asset + "/image/ui/HomeActive.svg" : _vm.$asset + "/image/ui/Home.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
@@ -4532,7 +4532,7 @@ var render = function render() {
     staticClass: "text-sm"
   }, [_vm._v("Wallet")])]), _vm._v(" "), _c("Link", {
     attrs: {
-      href: "/user",
+      href: _vm.$url + "/user",
       as: "button"
     }
   }, [_c("div", {
@@ -4543,7 +4543,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "m-auto",
     attrs: {
-      src: _vm.user ? "/image/ui/UserTagActive.svg" : "/image/ui/UserTag.svg"
+      src: _vm.user ? _vm.$asset + "/image/ui/UserTagActive.svg" : _vm.$asset + "/image/ui/UserTag.svg"
     }
   }), _c("div", {
     staticClass: "text-sm"
