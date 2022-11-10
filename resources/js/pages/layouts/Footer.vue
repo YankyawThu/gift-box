@@ -23,9 +23,11 @@ export default {
     },
     mounted() {
         var pathArray = window.location.pathname.split('/');
-        switch(pathArray[1]) {
-            case 'user': this.user = true; break;
-            case 'box': this.box = true; break;
+        if(pathArray.includes('box')) {
+            this.box = true
+        }
+        if(pathArray.includes('user')) {
+            this.user = true
         }
     }
 }

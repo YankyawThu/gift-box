@@ -91,8 +91,8 @@ export default {
     },
     data() {
         return {
-            prizeActive: '/image/ui/ActivePrize.svg',
-            prizeInActive: '/image/ui/ShadowWithPrize.svg',
+            prizeActive: this.$asset+'/image/ui/ActivePrize.svg',
+            prizeInActive: this.$asset+'/image/ui/ShadowWithPrize.svg',
             num: 9,
             prizes: [],
             click: 0,
