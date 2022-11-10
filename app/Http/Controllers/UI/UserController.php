@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GenderChangeRequest;
+use App\Http\Requests\PasswordChangeRequest;
+use App\Http\Requests\PhoneChangeRequest;
 use App\Http\Requests\UserAvatarRequest;
+use App\Http\Requests\UserNameChangeRequest;
 use App\Http\Requests\UserNicknameRequest;
 use App\Http\Resources\CollectionResourceCollection;
 use App\Services\UI\CollectionService;
@@ -48,23 +52,23 @@ class UserController extends Controller
         return $this->collectService->cancelCollection($id);
     }
 
-    public function changeGender()
+    public function changeGender(GenderChangeRequest $request)
     {
-        // code...
+        return $this->userService->changeGender($request);
     }
 
-    public function changeUserName()
+    public function changeUserName(UserNameChangeRequest $request)
     {
-        // code...
+        return $this->userService->changeUserName($request);
     }
 
-    public function changePhone()
+    public function changePhone(PhoneChangeRequest $request)
     {
-        // code...
+        return $this->userService->changePhone($request);
     }
 
-    public function changePassword()
+    public function changePassword(PasswordChangeRequest $request)
     {
-        // code...
+        return $this->userService->changePassword($request);
     }
 }
