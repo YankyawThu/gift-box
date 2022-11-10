@@ -67,4 +67,9 @@ class UserController extends Controller
     {
         // code...
     }
+
+    public function setUp()
+    {
+        return Inertia::render('Setup');
+    }
 }

@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
             Route::resource('shipping-address', ShippingAddressController::class);
+            Route::get('/set-up', [UserController::class, 'setUp']);
         });
         Route::any('/recycle', [UIController::class, 'savePrizeRecycle']);
         Route::any('/shipment-apply', [UIController::class, 'shipmentApply']);
