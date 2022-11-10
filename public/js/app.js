@@ -5066,10 +5066,13 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 
+
+axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = '/';
 (0,_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.createInertiaApp)({
   resolve: function resolve(name) {
     return __webpack_require__("./resources/js/pages sync recursive ^\\.\\/.*$")("./".concat(name));
@@ -5079,8 +5082,8 @@ __webpack_require__.r(__webpack_exports__);
       App = _ref.App,
       props = _ref.props,
       plugin = _ref.plugin;
-    vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(plugin);
-    new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
+    vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(plugin);
+    new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
       render: function render(h) {
         return h(App, props);
       }

@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
+import axios from 'axios'
+
+axios.defaults.baseURL = '/'
 
 createInertiaApp({
   resolve: name => require(`./pages/${name}`),
