@@ -11,6 +11,7 @@ use App\Http\Requests\UserAvatarRequest;
 use App\Http\Requests\UserNameChangeRequest;
 use App\Http\Requests\UserNicknameRequest;
 use App\Http\Resources\CollectionResourceCollection;
+use App\Http\Resources\WalletListResourceCollection;
 use App\Services\UI\CollectionService;
 use App\Services\UI\UserService;
 use Inertia\Inertia;
@@ -83,5 +84,10 @@ class UserController extends Controller
         $this->userService->moneyToCoin($request);
 
         return response()->json(['msg' => 'success']);
+    }
+
+    public function getWallet()
+    {
+        return response()->json(new WalletListResourceCollection($this->userService->getWallet()));
     }
 }

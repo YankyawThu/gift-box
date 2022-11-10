@@ -99,4 +99,11 @@ class UserRepository extends BaseRepository
 
         return true;
     }
+
+    public function getWallet($page)
+    {
+        return CoinRecord::where('user_id', auth()->user()->id)
+        ->orderBy('id', 'desc')
+        ->paginate($page);
+    }
 }

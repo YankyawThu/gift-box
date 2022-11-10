@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/shipping/{num}', [OrderController::class, 'index']);
         Route::get('/order-list', [OrderController::class, 'getAll']);
+        Route::get('/wallet-list', [UserController::class, 'getWallet']);
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
