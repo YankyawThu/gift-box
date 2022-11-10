@@ -2454,8 +2454,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      prizeActive: '/image/ui/ActivePrize.svg',
-      prizeInActive: '/image/ui/ShadowWithPrize.svg',
+      prizeActive: this.$asset + '/image/ui/ActivePrize.svg',
+      prizeInActive: this.$asset + '/image/ui/ShadowWithPrize.svg',
       num: 9,
       prizes: [],
       click: 0,
@@ -2879,13 +2879,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var pathArray = window.location.pathname.split('/');
-    switch (pathArray[1]) {
-      case 'user':
-        this.user = true;
-        break;
-      case 'box':
-        this.box = true;
-        break;
+    if (pathArray.includes('box')) {
+      this.box = true;
+    }
+    if (pathArray.includes('user')) {
+      this.user = true;
     }
   }
 });
