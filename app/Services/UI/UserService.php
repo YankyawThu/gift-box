@@ -5,6 +5,7 @@ namespace App\Services\UI;
 use App\Exceptions\BadRequestException;
 use App\Repositories\UI\UserRepository;
 use Illuminate\Support\Facades\Hash;
+
 class UserService
 {
     public function __construct(UserRepository $userRepo)
@@ -45,5 +46,10 @@ class UserService
         }
 
         return $this->userRepo->changePassword($request, $user);
+    }
+
+    public function moneyToCoin($request)
+    {
+        return $this->userRepo->moneyToCoin($request);
     }
 }

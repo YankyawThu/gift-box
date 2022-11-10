@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GenderChangeRequest;
+use App\Http\Requests\GoToWalletRequest;
 use App\Http\Requests\PasswordChangeRequest;
 use App\Http\Requests\PhoneChangeRequest;
 use App\Http\Requests\UserAvatarRequest;
@@ -75,5 +76,12 @@ class UserController extends Controller
     public function setUp()
     {
         return Inertia::render('Setup');
+    }
+
+    public function moneyToCoin(GoToWalletRequest $request)
+    {
+        $this->userService->moneyToCoin($request);
+
+        return response()->json(['msg' => 'success']);
     }
 }
