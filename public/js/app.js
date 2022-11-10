@@ -5072,7 +5072,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = '/';
+var run_path = '/';
+axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = run_path;
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$asset = run_path;
 (0,_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.createInertiaApp)({
   resolve: function resolve(name) {
     return __webpack_require__("./resources/js/pages sync recursive ^\\.\\/.*$")("./".concat(name));
