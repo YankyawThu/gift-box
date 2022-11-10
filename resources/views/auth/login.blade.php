@@ -37,18 +37,18 @@
                     <form role="form" method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
+                        <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }} mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}"
-                                    value="admin@argon.com" required autofocus>
+                                <input class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Mobile') }}" type="phone" name="phone"
+                                    value="{{ old('phone') }}" value="admin@argon.com" required autofocus>
                             </div>
-                            @if ($errors->has('email'))
+                            @if ($errors->has('phone'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
+                                <strong>{{ $errors->first('phone') }}</strong>
                             </span>
                             @endif
                         </div>
