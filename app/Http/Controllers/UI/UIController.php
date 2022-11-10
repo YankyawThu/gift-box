@@ -166,4 +166,14 @@ class UIController extends Controller
     {
         return $this->prizeService->shipmentApply($request);
     }
+
+    public function exchangeIndex()
+    {
+        return Inertia::render('Exchange');
+    }
+
+    public function walletIndex()
+    {
+        return Inertia::render('Wallet');
+    }
 }

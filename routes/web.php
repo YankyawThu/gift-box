@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/shipping/{num}', [OrderController::class, 'index']);
         Route::get('/order-list', [OrderController::class, 'getAll']);
+        Route::get('/exchange', [UIController::class, 'exchangeIndex']);
+        Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+        Route::get('/wallet', [UIController::class, 'walletIndex']);
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
@@ -57,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::get('/balance', [MoneyRecordController::class, 'index']);
             Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
-            Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+
             Route::resource('shipping-address', ShippingAddressController::class);
             Route::get('/set-up', [UserController::class, 'setUp']);
         });
