@@ -26,4 +26,14 @@ class RetailRepository extends BaseRepository
             'withdraw' => $wd,
         ]);
     }
+
+    public function getRetailList($page)
+    {
+        return $this->model->join('users', 'users.id', '=', 'retail_details.source_user_id')->where('user_id', auth()->user()->id)->select('retail_details.created_at,users.avatar,users.nickname,retail_details.level,retail_details.coin')->orderBy('retail_details.id', 'desc')->paginate($page);
+    }
+
+    public function getTeamList($page)
+    {
+        return $this->rtInvtModel->join('users', 'users.id', '=', 'retail_details.user_id')->where('pid', auth()->user()->id)->select('retail_invitations.created_at', 'users.name', 'retail_invitations.level')->paginate($page);
+    }
 }
