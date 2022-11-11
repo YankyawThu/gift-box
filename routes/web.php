@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\UI\MoneyRecordController;
-use App\Http\Controllers\UI\OrderController;
-use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\UIController;
 use App\Http\Controllers\UI\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -34,18 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
             Route::post('/collect', [UIController::class, 'collect']);
         });
-        Route::get('/tide-play', [UIController::class, 'tidePlay']);
-        Route::get('/helps', [UIController::class, 'helps']);
-        Route::get('/recharge', [RechargeController::class, 'index']);
-        Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
-        Route::get('/shipping/{num}', [OrderController::class, 'index']);
-        Route::get('/order-list', [OrderController::class, 'getAll']);
-        Route::get('/exchange', [UIController::class, 'exchangeIndex']);
-        Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
-        Route::get('/wallet', [UIController::class, 'walletIndex']);
-        Route::get('/wallet-list', [UserController::class, 'getWallet']);
-        Route::post('/recycle', [UIController::class, 'savePrizeRecycle']);
-        Route::post('/shipment-apply', [UIController::class, 'shipmentApply']);
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
@@ -68,5 +54,21 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/set-up', [UserController::class, 'setUp']);
             Route::any('money-to-coin', [UserController::class, 'moneyToCoin']);
         });
+
+        Route::get('/tide-play', [UIController::class, 'tidePlay']);
+        Route::get('/helps', [UIController::class, 'helps']);
+        Route::get('/recharge', [RechargeController::class, 'index']);
+        Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
+        Route::get('/shipping/{num}', [OrderController::class, 'index']);
+        Route::get('/order-list', [OrderController::class, 'getAll']);
+        Route::get('/exchange', [UIController::class, 'exchangeIndex']);
+        Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+        Route::get('/wallet', [UIController::class, 'walletIndex']);
+        Route::get('/wallet-list', [UserController::class, 'getWallet']);
+        Route::post('/recycle', [UIController::class, 'savePrizeRecycle']);
+        Route::post('/shipment-apply', [UIController::class, 'shipmentApply']);
+        Route::get('/get-total-coin', [RetailController::class, 'getTotalCoin']);
+        Route::get('/get-retail-list', [RetailController::class, 'getRetailList']);
+        Route::get('/get-team-list', [RetailController::class, 'getTeamList']);
     });
 });
