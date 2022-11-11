@@ -3045,6 +3045,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _layouts_Footer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/Footer.vue */ "./resources/js/pages/layouts/Footer.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3052,7 +3060,36 @@ __webpack_require__.r(__webpack_exports__);
     bot: _layouts_Footer_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
   },
-  methods: {}
+  data: function data() {
+    return {
+      page: 1,
+      lastPage: 1,
+      wallets: []
+    };
+  },
+  methods: {
+    fetch: function fetch() {
+      var _this = this;
+      axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/wallet-list?page=".concat(this.page)).then(function (res) {
+        var _this$wallets;
+        (_this$wallets = _this.wallets).push.apply(_this$wallets, _toConsumableArray(res.data.data));
+        _this.lastPage = res.data.pagination.total_pages;
+        _this.page++;
+      });
+    }
+  },
+  beforeMount: function beforeMount() {
+    this.fetch();
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+    window.onscroll = function () {
+      var isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
+      if (isEnd && _this2.page <= _this2.lastPage) {
+        _this2.fetch();
+      }
+    };
+  }
 });
 
 /***/ }),
@@ -4867,7 +4904,7 @@ var render = function render() {
   }, [_c("Link", {
     staticClass: "text-left",
     attrs: {
-      href: "#",
+      href: _vm.$url + "/exchange",
       as: "button"
     }
   }, [_c("div", {
@@ -5093,7 +5130,19 @@ var render = function render() {
     }
   }, [_vm._v("\n                    Recharge\n                ")])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "text-center py-3"
-  }, [_vm._v("Billing Details")])]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
+  }, [_vm._v("Billing Details")]), _vm._v(" "), _vm._l(_vm.wallets, function (data, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "flex justify-between py-3 w-full border-b"
+    }, [_c("div", [_c("div", [_vm._v(_vm._s(data.type))]), _vm._v(" "), _c("div", {
+      staticClass: "text-sm text-gray-400"
+    }, [_vm._v("Time: " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
+      staticClass: "self-center",
+      staticStyle: {
+        color: "#D9761A"
+      }
+    }, [_vm._v("\n                $ " + _vm._s(data.coin) + "\n            ")])]);
+  })], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5649,7 +5698,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var app_path = '/gift_box_lucky_draw/public';
+var app_path = '';
 axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = app_path;
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$asset = app_path;
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$url = app_path;

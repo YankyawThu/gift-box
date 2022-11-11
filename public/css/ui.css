@@ -1,6 +1,49 @@
 * {
-    font-family: 'Signika';
+    font-family: 'Poppins';
     font-style: normal;
+    font-size: 16px;
+}
+
+body {
+    background: radial-gradient(115.05% 275.33% at 3.47% 8.73%, #4D0775 0%, #251337 22.71%, #040013 47.19%, #1A0229 65.21%, #2A033F 82.41%);
+}
+
+.text_c1 {
+    color: #CE25F0;
+}
+
+.text_c2 {
+    color: #DFD950;
+}
+
+.text_c3 {
+    color: #ffff;
+}
+
+.border_grad1 {
+    position: relative;
+}
+  
+.border_grad1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px; 
+    border: 2px solid transparent;
+    background: linear-gradient(85.78deg, #1D09BD -23.77%, #EB01E3 110.4%) border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -9999;
+}
+
+.input_placeholder::placeholder {
+    color: #CE25F0;
 }
 
 .box_detail {
@@ -342,4 +385,8 @@
 
 #panel-income, #panel-expend {
     height: 65%;
+}
+
+.btn_gradient {
+    background: linear-gradient(85.78deg, #1D09BD -23.77%, #EB01E3 110.4%);
 }

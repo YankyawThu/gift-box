@@ -22,6 +22,15 @@
                 </div>
             </div>
             <div class="text-center py-3">Billing Details</div>
+            <div v-for="(data,i) in wallets" :key="i" class="flex justify-between py-3 w-full border-b">
+                <div>
+                    <div>{{data.type}}</div>
+                    <div class="text-sm text-gray-400">Time: {{data.time}}</div>
+                </div>
+                <div class="self-center" style="color: #D9761A;">
+                    $ {{data.coin}}
+                </div>
+            </div>
         </main>
         <footer>
             <bot></bot>
@@ -32,13 +41,40 @@
 <script>
 import bot from './layouts/Footer.vue'
 import {Link} from '@inertiajs/inertia-vue'
+import axios from 'axios'
 
 export default {
     components: {
         bot,
         Link
     },
+    data() {
+        return {
+            page: 1,
+            lastPage: 1,
+            wallets: []
+        }
+    },
     methods: {
+        fetch () {
+            axios.get(`/wallet-list?page=${this.page}`)
+                .then((res) => {
+                    this.wallets.push(...res.data.data)
+                    this.lastPage = res.data.pagination.total_pages
+                    this.page++
+                })
+        }
+    },
+    beforeMount() {
+        this.fetch()
+    },
+    mounted() {
+        window.onscroll = () => {
+            let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
+            if(isEnd && this.page <= this.lastPage) {
+                this.fetch()
+            }
+        }
     }
 }
 </script>

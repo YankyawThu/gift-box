@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="flex justify-around -mt-6">
-                <Link href="#" as="button" class="text-left"><div class="w-44 px-1 rounded-full bg-white fun_menu_tab text-sm"><img class="inline-block rounded-full p-1" :src="$asset+'/image/ui/TidePlay.svg'">My Box Cabinet</div></Link>
+                <Link :href="$url+'/exchange'" as="button" class="text-left"><div class="w-44 px-1 rounded-full bg-white fun_menu_tab text-sm"><img class="inline-block rounded-full p-1" :src="$asset+'/image/ui/TidePlay.svg'">My Box Cabinet</div></Link>
                 <Link href="#" as="button" class="text-left"><div class="w-44 px-1 rounded-full bg-white fun_menu_tab text-sm"><img class="inline-block rounded-full p-1" :src="$asset+'/image/ui/Recharge.svg'">Unboxing Records</div></Link>
             </div>
             <div class="order_card flex flex-col rounded-xl m-4">
