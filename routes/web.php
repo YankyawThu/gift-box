@@ -40,6 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
         Route::get('/shipping/{num}', [OrderController::class, 'index']);
         Route::get('/order-list', [OrderController::class, 'getAll']);
+        Route::get('/exchange', [UIController::class, 'exchangeIndex']);
+        Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+        Route::get('/wallet', [UIController::class, 'walletIndex']);
+        Route::get('/wallet-list', [UserController::class, 'getWallet']);
+        Route::post('/recycle', [UIController::class, 'savePrizeRecycle']);
+        Route::post('/shipment-apply', [UIController::class, 'shipmentApply']);
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
@@ -50,17 +56,17 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::post('/change-avatar', [UserController::class, 'changeAvatar'])->name('change-avatar');
             Route::post('/change-nickname', [UserController::class, 'changeNickname']);
-            Route::any('/change-gender', [UserController::class, 'changeGender']);
-            Route::any('/change-username', [UserController::class, 'changeUserName']);
-            Route::any('/change-phone', [UserController::class, 'changePhone']);
-            Route::any('/change-password', [UserController::class, 'changePassword']);
+            Route::post('/change-gender', [UserController::class, 'changeGender']);
+            Route::post('/change-username', [UserController::class, 'changeUserName']);
+            Route::post('/change-phone', [UserController::class, 'changePhone']);
+            Route::post('/change-password', [UserController::class, 'changePassword']);
 
             Route::get('/balance', [MoneyRecordController::class, 'index']);
             Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
-            Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
+
             Route::resource('shipping-address', ShippingAddressController::class);
+            Route::get('/set-up', [UserController::class, 'setUp']);
+            Route::any('money-to-coin', [UserController::class, 'moneyToCoin']);
         });
-        Route::any('/recycle', [UIController::class, 'savePrizeRecycle']);
-        Route::any('/shipment-apply', [UIController::class, 'shipmentApply']);
     });
 });

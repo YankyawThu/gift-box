@@ -2,7 +2,13 @@
 
 @section('content')
 @include('admin.layouts.headers.guest')
-
+<script>
+    $(function(){
+        @if ($errors->any())
+            toastr.error('{{ $errors->all()[0] }}')
+        @endif
+    })
+</script>
 <div class="container mt--8 pb-5">
     <div class="row justify-content-center">
         <div class="col-lg-5 col-md-7">
@@ -23,14 +29,6 @@
                     </div>
                 </div>
                 <div class="card-body px-lg-5 py-lg-5">
-                    <div class="text-center text-muted mb-4">
-
-                        <br>
-                        <small>
-                            {{ __('Username') }} <strong>admin@argon.com</strong>
-                            {{ __('Password') }} <strong>secret</strong>
-                        </small>
-                    </div>
                     <form role="form" method="POST" action="{{ route('admin.login') }}">
                         @csrf
 

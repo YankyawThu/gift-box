@@ -12,7 +12,7 @@
         </div>
         <div v-for="(help,i) in data.data" :key="i" class="help_tip_box bg-white rounded-xl p-3 my-4">
             <div class="flex justify-between col">
-                <div class="w-full font-bold py-1">{{help.title}}</div>
+                <div class="w-full py-1">{{help.title}}</div>
                 <div class="self-center"><img :src="$asset+'/image/ui/DropDown.svg'"></div>
             </div>
             <div class="content">

@@ -2,7 +2,7 @@
 
 @section('content-detail')
 <style>
-     .handle {
+    .handle {
         cursor: move;
     }
 </style>
@@ -118,14 +118,15 @@
                         <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
                     </td>
                     <td class="align-middle">
-                          <span class="btn btn-sm btn-secondary handle" data-toggle="tooltip"
+                        <span class="btn btn-sm btn-secondary handle" data-toggle="tooltip"
                             data-original-title="Delete Banner">
                             <i class="fa fa-arrows-alt"></i>
                         </span>
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
-                            data-image="{{ $item->image }}" data-image-path="{{ route("admin.get-file", ['model'=>
+                            data-image="{{ $item->image }}" data-image-path="{{ route(" admin.get-file", ['model'=>
                             'Banner', 'id' => $item->id]) }}"
-                            data-place="{{ $item->place }}" data-type="{{ array_search($item->type, config("config.bannerType")) }}"
+                            data-place="{{ $item->place }}" data-type="{{ array_search($item->type,
+                            config("config.bannerType")) }}"
                             data-value="{{ $item->value }}" data-status="{{ $item->status }}"
                             data-sort="{{ $item->sort }}" data-toggle="modal" data-target="#edit-banner-modal">
                             <span class="btn btn-sm btn-success" data-toggle="tooltip"
@@ -141,7 +142,7 @@
                             </span>
                         </a>
                         @if (($loop->first))
-                            @include('admin.banners.edit', ['id' => 0, 'item' => $item])
+                        @include('admin.banners.edit', ['id' => 0, 'item' => $item])
                         @endif
 
                         @include('admin.layouts.delete', [
@@ -164,7 +165,7 @@
 
 @push('js')
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
-<script src="{{  asset("js/ckeditor.js") }}"></script>
+<script src="{{ asset('ckeditor/build/ckeditor.js') }}"></script>
 
 <script>
     $(function() {

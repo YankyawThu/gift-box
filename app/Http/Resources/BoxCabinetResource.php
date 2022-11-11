@@ -22,6 +22,7 @@ class BoxCabinetResource extends JsonResource
         }
 
         return [
+            'id' => $this->id,
             'item' => [
                 'name' => $this->gift_item_name,
                 'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',

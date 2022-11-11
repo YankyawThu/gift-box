@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RechargeListController;
 use App\Http\Controllers\Admin\RechargeOrderController;
+use App\Http\Controllers\Admin\RuleConfigController;
 use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
@@ -61,5 +62,7 @@ Route::name('admin.')->group(function () {
         Route::post('banner/updateSequnce', [BannerController::class, 'updateSequence']);
 
         Route::resource('settings', SettingController::class);
+
+        Route::resource('rule-policies', RuleConfigController::class);
     });
 });

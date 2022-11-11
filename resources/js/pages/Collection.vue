@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="self-end mr-2">
-                    <Link :href="$url+`/user/collection/${collect.id}/cancel`" method="delete" as="button"><img :src="$asset+'/image/ui/Delete.svg'"></Link>
+                    <div @click="deleteCollect(collect.id)"><img :src="$asset+'/image/ui/Delete.svg'"></div>
                 </div>
             </div>
         </div>
@@ -52,6 +52,12 @@ export default {
                     this.lastPage = res.data.pagination.total_pages
                     this.page++
                 }) 
+        },
+        deleteCollect(id) {
+            axios.delete(`/user/collection/${id}/cancel`)
+                .then(res => {
+                    location.reload()
+                })
         }
     },
     beforeMount () {

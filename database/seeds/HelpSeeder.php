@@ -14,6 +14,56 @@ class HelpSeeder extends Seeder
         DB::table('rule_configurations')->insert(
             [
                 [
+                    'policy_category_id' => 1,
+                    'header' => 'User Agreement',
+                    'description' => "User Agreement",
+                ],
+                [
+                    'policy_category_id' => 2,
+                    'header' => 'Privacy Policy',
+                    'description' => "Privacy Policy",
+                ],
+                [
+                    'policy_category_id' => 3,
+                    'header' => 'Game Rules',
+                    'description' => "Game Rules",
+                ],
+                [
+                    'policy_category_id' => 4,
+                    'header' => 'Recharge introduction',
+                    'description' => "Recharge introduction",
+                ],
+                [
+                    'policy_category_id' => 5,
+                    'header' => 'User recharge agreement',
+                    'description' => "User recharge agreement",
+                ],
+                [
+                    'policy_category_id' => 6,
+                    'header' => 'Payment pop-up prompt',
+                    'description' => "Payment pop-up prompt",
+                ],
+                [
+                    'policy_category_id' => 7,
+                    'header' => 'Buyer Notice',
+                    'description' => "Buyer Notice",
+                ],
+                [
+                    'policy_category_id' => 9,
+                    'header' => 'Introduction to the delivery process',
+                    'description' => "Introduction to the delivery process",
+                ],
+                [
+                    'policy_category_id' => 10,
+                    'header' => 'Withdrawal Instructions',
+                    'description' => "Withdrawal Instructions",
+                ],
+                [
+                    'policy_category_id' => 11,
+                    'header' => 'Balance transfer to wallet instructions',
+                    'description' => "Balance transfer to wallet instructions",
+                ],
+                [
                     'policy_category_id' => 8,
                     'header' => 'How to buy Blind Box?',
                     'description' => 'Choose your favorite blind box, enter the blind box details page, clickClick [One Shot Into the Soul] or [Five Peerless]',

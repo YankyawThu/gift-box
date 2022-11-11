@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class RuleConfiguration extends Model
 {
-    //
+    protected $guarded = [];
 }
