@@ -62,8 +62,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="btn_one text-center py-2 rounded-full text-white my-14">
-                    <button type="submit" class="">{{ __('Sign in') }}</button>
+                <div class="my-14">
+                    <button type="submit" class="w-full py-2 btn_one text-center rounded-full text-white">{{ __('Sign in') }}</button>
                 </div>
             </form>
         </div>
