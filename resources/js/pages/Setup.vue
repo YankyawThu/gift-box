@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="absolute w-full bottom-16 px-4">
-            <Link href="/logout" method="post" as="button" class="py-3 btn_one rounded-full w-full text-white text-center" @click="logout()">Sign Out</Link>
+            <Link :href="$url+'/logout'" method="post" as="button" class="py-3 btn_one rounded-full w-full text-white text-center" @click="logout()">Sign Out</Link>
         </div>
     </div>
 </template>

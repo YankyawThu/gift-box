@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen">
         <main class="pb-20">
-            <div class="flex justify-between user_header pb-12 pt-7 px-4">
+            <div class="flex justify-between user_header pb-12 pt-6 px-4">
                 <div class="flex flex-row">
                     <div><img src="https://1.bp.blogspot.com/-VpNN3ROqFSw/WRC7TRlPYfI/AAAAAAAAi3k/8P1JqjBG4186-fVjrjW3v21RnF8fZFRHACLcB/s1600/18221988_435811773439708_638227643630576354_n.jpg" alt="" class="home_avatar"></div>
                     <div class="ml-2 self-center">

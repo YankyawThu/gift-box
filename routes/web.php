@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
         Route::get('/wallet', [UIController::class, 'walletIndex']);
         Route::get('/wallet-list', [UserController::class, 'getWallet']);
+        Route::post('/recycle', [UIController::class, 'savePrizeRecycle']);
+        Route::post('/shipment-apply', [UIController::class, 'shipmentApply']);
 
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index']);
@@ -66,7 +68,5 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/set-up', [UserController::class, 'setUp']);
             Route::any('money-to-coin', [UserController::class, 'moneyToCoin']);
         });
-        Route::post('/recycle', [UIController::class, 'savePrizeRecycle']);
-        Route::post('/shipment-apply', [UIController::class, 'shipmentApply']);
     });
 });

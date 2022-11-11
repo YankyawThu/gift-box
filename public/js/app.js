@@ -2302,6 +2302,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         _this.lastPage = res.data.pagination.total_pages;
         _this.page++;
       });
+    },
+    deleteCollect: function deleteCollect(id) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/user/collection/".concat(id, "/cancel")).then(function (res) {
+        location.reload();
+      });
     }
   },
   beforeMount: function beforeMount() {
@@ -2416,7 +2421,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     tick: function tick(i) {
       if (this.prizeIds[i] == false) {
         this.selects[i] = this.pending[i].id;
-      } else this.selects[i] = false;
+      } else {
+        this.selects[i] = false;
+      }
+    },
+    recycleSubmit: function recycleSubmit() {
+      axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('/recycle', {
+        prizeIds: this.selects.filter(Boolean)
+      }).then(function (res) {
+        location.reload();
+      });
     }
   },
   watch: {
@@ -2432,6 +2446,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           });
         } else {
           this.prizeIds = [];
+          this.pending.forEach(function (item) {
+            _this2.prizeIds.push(false);
+          });
           this.selects = [];
         }
       }
@@ -3656,17 +3673,17 @@ var render = function render() {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v("Time : " + _vm._s(collect.time))])])]), _vm._v(" "), _c("div", {
       staticClass: "self-end mr-2"
-    }, [_c("Link", {
-      attrs: {
-        href: _vm.$url + "/user/collection/".concat(collect.id, "/cancel"),
-        method: "delete",
-        as: "button"
+    }, [_c("div", {
+      on: {
+        click: function click($event) {
+          return _vm.deleteCollect(collect.id);
+        }
       }
     }, [_c("img", {
       attrs: {
         src: _vm.$asset + "/image/ui/Delete.svg"
       }
-    })])], 1)]);
+    })])])]);
   }), 0)]);
 };
 var staticRenderFns = [];
@@ -3693,9 +3710,9 @@ var render = function render() {
   return _c("div", {
     staticClass: "h-screen"
   }, [_c("main", {
-    staticClass: "pb-20 px-4"
+    staticClass: "pb-20"
   }, [_c("div", {
-    staticClass: "flex justify-between pt-7 pb-4"
+    staticClass: "flex justify-between pt-6 pb-4 px-4"
   }, [_vm._m(0), _vm._v(" "), _c("div", {}, [_c("img", {
     attrs: {
       src: _vm.$asset + "/image/ui/Service.svg"
@@ -3705,7 +3722,7 @@ var render = function render() {
       id: "tabs"
     }
   }, [_c("div", {
-    staticClass: "grid grid-cols-2 text-center border-b",
+    staticClass: "grid grid-cols-2 text-center border-b mx-4",
     attrs: {
       role: "tablist",
       "aria-label": "Free HTML Tabs"
@@ -3741,7 +3758,7 @@ var render = function render() {
   }, [_vm._v("\n                    Recycled\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "my-2"
   }, [_c("section", {
-    staticClass: "overflow-auto",
+    staticClass: "overflow-auto pb-16",
     attrs: {
       id: "panel-pending",
       role: "tabpanel",
@@ -3749,9 +3766,9 @@ var render = function render() {
       "aria-labelledby": "tab-pending"
     }
   }, [_c("div", {
-    staticClass: "flex justify-between my-4"
+    staticClass: "flex justify-between my-4 px-4"
   }, [_c("div"), _vm._v(" "), _c("div", {
-    staticClass: "flex flex-row"
+    staticClass: "form-check flex flex-row"
   }, [_c("div", [_c("input", {
     directives: [{
       name: "model",
@@ -3759,9 +3776,10 @@ var render = function render() {
       value: _vm.selectAll,
       expression: "selectAll"
     }],
-    staticClass: "w-5 h-5 mr-2",
+    staticClass: "form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2",
     attrs: {
-      type: "checkbox"
+      type: "checkbox",
+      id: "allChecked"
     },
     domProps: {
       checked: Array.isArray(_vm.selectAll) ? _vm._i(_vm.selectAll, null) > -1 : _vm.selectAll
@@ -3784,12 +3802,10 @@ var render = function render() {
         }
       }
     }
-  })]), _c("div", {
-    staticClass: "text-sm self-center"
-  }, [_vm._v("Select All")])])]), _vm._v(" "), _vm._l(_vm.pending, function (prize, i) {
+  })]), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._l(_vm.pending, function (prize, i) {
     return _c("div", {
       key: i,
-      staticClass: "flex flex-row"
+      staticClass: "flex flex-row px-4"
     }, [_c("div", {
       staticClass: "self-center mr-3"
     }, [_c("input", {
@@ -3849,8 +3865,17 @@ var render = function render() {
     }, [_vm._v("$ " + _vm._s(prize.coinPrice))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v("Time : " + _vm._s(prize.time))])])])]);
-  })], 2), _vm._v(" "), _c("section", {
-    staticClass: "overflow-auto",
+  }), _vm._v(" "), _c("div", {
+    staticClass: "fixed flex justify-around bottom-24 w-full"
+  }, [_c("div", [_c("div", {
+    staticClass: "btn_two py-2 text-center w-40 text-white rounded-full",
+    on: {
+      click: function click($event) {
+        return _vm.recycleSubmit();
+      }
+    }
+  }, [_vm._v("Recycling")])]), _vm._v(" "), _vm._m(2)])], 2), _vm._v(" "), _c("section", {
+    staticClass: "overflow-auto px-4",
     attrs: {
       id: "panel-recycle",
       role: "tabpanel",
@@ -3897,6 +3922,21 @@ var staticRenderFns = [function () {
       background: "linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%)"
     }
   })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {}, [_c("label", {
+    staticClass: "form-check-label text-gray-800",
+    attrs: {
+      "for": "allChecked"
+    }
+  }, [_vm._v("\n                                    Select All\n                                ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "btn_one py-2 text-center w-40 text-white rounded-full"
+  }, [_vm._v("Shipment Apply")])]);
 }];
 render._withStripped = true;
 
@@ -4401,7 +4441,7 @@ var render = function render() {
   }, [_c("Link", {
     staticClass: "py-3 btn_one rounded-full w-full text-white text-center",
     attrs: {
-      href: "/logout",
+      href: _vm.$url + "/logout",
       method: "post",
       as: "button"
     },
@@ -4815,7 +4855,7 @@ var render = function render() {
   }, [_c("main", {
     staticClass: "pb-20"
   }, [_c("div", {
-    staticClass: "flex justify-between user_header pb-12 pt-7 px-4"
+    staticClass: "flex justify-between user_header pb-12 pt-6 px-4"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
@@ -5036,24 +5076,47 @@ var render = function render() {
   }, [_c("main", {
     staticClass: "pb-20 px-4"
   }, [_c("div", {
-    staticClass: "flex justify-between pt-7 pb-4"
+    staticClass: "flex justify-between pt-6 pb-4"
   }, [_vm._m(0), _vm._v(" "), _c("div", {}, [_c("img", {
     attrs: {
       src: _vm.$asset + "/image/ui/Service.svg"
     }
-  })])])]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "flex justify-between user_header p-5 mb-4 mt-2 rounded-xl"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "self-end mb-1"
+  }, [_c("Link", {
+    staticClass: "px-3 py-1 btn_one rounded-full text-xs text-white",
+    attrs: {
+      href: _vm.$url + "/recharge",
+      as: "button"
+    }
+  }, [_vm._v("\n                    Recharge\n                ")])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "text-center py-3"
+  }, [_vm._v("Billing Details")])]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "self-center font-bold text-lg"
-  }, [_vm._v("\n                Wallet\n                "), _c("div", {
+  }, [_vm._v("\n                My Wallet\n                "), _c("div", {
     staticClass: "w-10 h-1 rounded-full",
     staticStyle: {
       background: "linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%)"
     }
   })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "text-white text-xs"
+  }, [_vm._v("Balance: (Gold Coins)")]), _vm._v(" "), _c("div", {
+    staticClass: "text-2xl",
+    staticStyle: {
+      color: "#FFC042"
+    }
+  }, [_vm._v("9,000,000")])]);
 }];
 render._withStripped = true;
 

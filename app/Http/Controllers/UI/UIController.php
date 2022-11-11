@@ -164,7 +164,8 @@ class UIController extends Controller
 
     public function shipmentApply(ShipmentApplyRequest $request)
     {
-        return $this->prizeService->shipmentApply($request);
+        $data = $this->prizeService->shipmentApply($request);
+        return response()->json($data);
     }
 
     public function exchangeIndex()
