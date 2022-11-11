@@ -556,26 +556,11 @@ video {
 .right-0 {
   right: 0px;
 }
-.z-10 {
-  z-index: 10;
-}
-.z-0 {
-  z-index: 0;
-}
-.z-auto {
-  z-index: auto;
-}
-.z-50 {
-  z-index: 50;
+.-z-50 {
+  z-index: -50;
 }
 .z-40 {
   z-index: 40;
-}
-.-z-0 {
-  z-index: 0;
-}
-.-z-50 {
-  z-index: -50;
 }
 .col-auto {
   grid-column: auto;
@@ -1114,9 +1099,6 @@ video {
 }
 .pt-3 {
   padding-top: 0.75rem;
-}
-.pr-6 {
-  padding-right: 1.5rem;
 }
 .pr-7 {
   padding-right: 1.75rem;

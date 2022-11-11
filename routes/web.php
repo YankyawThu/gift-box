@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\UI\MoneyRecordController;
+use App\Http\Controllers\UI\OrderController;
+use App\Http\Controllers\UI\RechargeController;
+use App\Http\Controllers\UI\RetailController;
 use App\Http\Controllers\UI\UIController;
 use App\Http\Controllers\UI\UserController;
 use Illuminate\Support\Facades\Auth;
