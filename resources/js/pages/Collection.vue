@@ -6,16 +6,16 @@
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
-            <div class="font-bold text-xl self-center">
+            <div class="font-bold text-xl text-white self-center">
                 My Collection
             </div>
         </div>
         <div>
-            <div v-for="(collect,i) in collections" :key="i" class="flex justify-between my-3 p-2 rounded-lg bg-white w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
+            <div v-for="(collect,i) in collections" :key="i" class="border_grad2 flex justify-between my-3 p-2 before:rounded-lg w-full">
                 <div class="flex flex-row">
-                    <div class="bg-gray-100 p-2 rounded mr-3"><img :src="collect.box.image" width="50" height="50"></div>
+                    <div class="p-2 rounded mr-3"><img :src="collect.box.image" width="50" height="50"></div>
                     <div class="self-center">
-                        <div class="text-sm truncate w-36">{{collect.box.name}}</div>
+                        <div class="text-sm truncate text-white w-36">{{collect.box.name}}</div>
                         <div class="text-sm py-1 text_gradient">$ {{collect.box.coin}}</div>
                         <div class="text-xs text-gray-400">Time : {{collect.time}}</div>
                     </div>

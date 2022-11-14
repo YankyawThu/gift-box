@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0 -z-50">
+    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
     <div class="h-screen">
         <img src="{{ asset('/image/new_ui/Login.svg') }}" alt="" class="m-auto pt-14 z-40">
         <div class="text_c2 text-center text-2xl font-semibold my-6">Login</div>
@@ -21,12 +21,12 @@
             <form role="form" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-3">
-                    <div class="border_grad1 flex">
+                    <div class="border_grad1 flex before:rounded-3xl">
                         <div class="flex-none self-center ml-3 w-10">
                             <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
                         </div>
                         <div class="grow">
-                            <input class="input_placeholder w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" required>
+                            <input class="input_placeholder w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" value="09123123123" required>
                         </div>
                     </div>
                     @if ($errors->has('phone'))
@@ -36,7 +36,7 @@
                     @endif
                 </div>
                 <div class="mt-3">
-                    <div class="border_grad1 flex">
+                    <div class="border_grad1 flex before:rounded-3xl">
                         <div class="flex-none self-center ml-3 w-10">
                             <img src="{{ asset('image/ui/Password.svg') }}" alt="">
                         </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="w-80">
             <div class="absolute bottom-16 inset-x-5 text-center">
-                <span class="text_c3 mr-2">Dont have an account?</span><a href="{{ route('register') }}" class="text_c2">Register Now</a>
+                <span class="text_c3 mr-2 text-white">Dont have an account?</span><a href="{{ route('register') }}" class="text_c2">Register Now</a>
             </div>
         </div>
     </div>

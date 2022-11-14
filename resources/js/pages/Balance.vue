@@ -6,23 +6,26 @@
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
-            <div class="font-bold text-xl self-center">
+            <div class="font-bold text-xl text-white self-center">
                 My Balance
             </div>
         </div>
-        <div class="flex justify-between user_header p-5 mb-4 rounded-xl">
+        <div class="border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl">
             <div>
                 <div class="text-white text-xs">Balance: (Gold Coins)</div>
-                <div class="text-2xl" style="color: #FFC042;">9,000,000</div>
+                <div class="text-2xl text_c2 font-bold">9,000,000</div>
             </div>
             <div class="self-end mb-1">
-                <Link href="#" as="button" class="px-3 py-1 btn_one rounded-full text-xs text-white">
+                <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white">
+                    Recharge
+                </Link>
+                <Link href="#" as="button" class="px-4 py-2 ml-1 btn_gradient rounded-full text-xs text-white">
                     Go to Wallet
                 </Link>
             </div>
         </div>
         <div id="tabs">
-            <div class="grid grid-cols-2 text-center border-b" role="tablist" aria-label="Free HTML Tabs">
+            <div class="grid grid-cols-2 text-center" role="tablist" aria-label="Free HTML Tabs">
                 <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-income" id="tab-income" tabindex="0" @click="fetchIncome()">
                     Income
                 </div>
@@ -30,15 +33,16 @@
                     Expenditure
                 </div>
             </div>
+            <div class="divider"></div>
             <div class="my-4">
                 <section id="panel-income" role="tabpanel" tabindex="0" aria-labelledby="tab-income" class="overflow-auto">
                     <div v-for="(data,i) in incomes" :key="i" class="flex justify-between py-3 w-full border-b">
                         <div>
-                            <div>{{data.type}}</div>
+                            <div class="text-white">{{data.type}}</div>
                             <div class="text-sm text-gray-400">Time: {{data.time}}</div>
                         </div>
-                        <div class="self-center" style="color: #D9761A;">
-                            $ {{data.money}}
+                        <div class="self-center text_c2">
+                            -{{data.money}}
                         </div>
                     </div>
                 </section>

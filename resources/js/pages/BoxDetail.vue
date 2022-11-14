@@ -1,8 +1,8 @@
 <template>
     <div class="box_detail h-auto py-4">
-        <div class="flex justify-between pb-1">
-            <div class="back self-center px-4">
-                <Link :href="$url+'/box'" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
+        <div class="flex justify-between pb-1 mt-5">
+            <div class="self-center px-4">
+                <Link href="#" as="button" @click="back()"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
@@ -18,8 +18,8 @@
             Magic BlindBox
         </div>
         <div class="blind_box_underline my-1 w-56 mx-auto"></div>
-        <div class="box_wish text-center py-2 px-4">Save the wish value and redeem the happy wish prize</div>
-        <div class="-mt-32">
+        <div class="box_wish text-center py-2 px-10">Save the wish value and redeem the happy wish prize</div>
+        <div class="-mt-36">
             <img :src="$asset+'/image/ui/Box.svg'" class="m-auto">
         </div>
         <div class="flex justify-around -mt-32">
@@ -88,6 +88,11 @@ export default {
         return {
             ruleModalActive: false
         }
+    },
+    methods: {
+        back() {
+            window.history.back()
+        },
     },
     computed: {
         itemTag(tag) {

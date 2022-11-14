@@ -1,6 +1,6 @@
 <template>
     <div class="box_detail h-full py-4">
-        <div class="flex justify-between pb-1">
+        <div class="flex justify-between pb-1 mt-5">
             <div class="back self-center px-4">
                 <Link :href="$url+'/box/'+id" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
@@ -18,7 +18,7 @@
             Magic BlindBox
         </div>
         <div class="blind_box_underline my-1 w-56 mx-auto"></div>
-        <div class="box_wish text-center py-2 px-4">Save the wish value and redeem the happy wish prize</div>
+        <div class="box_wish text-center py-2 px-10">Save the wish value and redeem the happy wish prize</div>
         <div class="px-2 py-4 flex justify-between">
             <div></div>
             <div class="relative">

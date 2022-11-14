@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\UI\MoneyRecordController;
 use App\Http\Controllers\UI\UIController;
+use App\Http\Controllers\UI\RechargeController;
+use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 Auth::routes();
-
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'UI'], function () {
+        Route::get('/otp', [UIController::class, 'otp']);
         Route::get('/banner', [UIController::class, 'getBanners']);
         Route::prefix('box')->group(function () {
             Route::get('/', [UIController::class, 'index'])->name('home');

@@ -6,17 +6,18 @@
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
-            <div class="font-bold text-xl self-center">
+            <div class="font-bold text-xl self-center text-white">
                 Helps
             </div>
         </div>
-        <div v-for="(help,i) in data.data" :key="i" class="help_tip_box bg-white rounded-xl p-3 my-4">
+        <div v-for="(help,i) in data.data" :key="i" class="help_tip_box border_grad2 text-white before:rounded-xl p-3 my-4">
             <div class="flex justify-between col">
-                <div class="w-full py-1">{{help.title}}</div>
+                <div class="w-full py-1 text-sm">{{help.title}}</div>
                 <div class="self-center"><img :src="$asset+'/image/ui/DropDown.svg'"></div>
             </div>
             <div class="content">
-                <p class="pt-2 border-t border-gray-200 text-sm">{{help.description}}</p>
+                <div class="divider"></div> 
+                <p class="pt-2 text-xs">{{help.description}}</p>
             </div>
         </div>
     </div>

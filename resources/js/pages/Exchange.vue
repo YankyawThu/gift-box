@@ -2,16 +2,16 @@
     <div class="h-screen">
         <main class="pb-20">
             <div class="flex justify-between pt-6 pb-4 px-4">
-                <div class="self-center font-bold text-lg">
+                <div class="self-center font-bold text-lg text-white">
                     My Box Cabinet
-                    <div class="w-10 h-1 rounded-full" style="background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);"></div>
+                    <div class="w-10 h-1 rounded-full" style="background: linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%);"></div>
                 </div>
                 <div class="">
                     <img :src="$asset+'/image/ui/Service.svg'">
                 </div>
             </div>
             <div id="tabs">
-                <div class="grid grid-cols-2 text-center border-b mx-4" role="tablist" aria-label="Free HTML Tabs">
+                <div class="grid grid-cols-2 text-center mx-4" role="tablist" aria-label="Free HTML Tabs">
                     <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-pending" id="tab-pending" tabindex="0" @click="fetchPending()">
                         Pending Delivery
                     </div>
@@ -19,6 +19,7 @@
                         Recycled
                     </div>
                 </div>
+                <div class="divider"></div>
                 <div class="my-2">
                     <section id="panel-pending" role="tabpanel" tabindex="0" aria-labelledby="tab-pending" class="overflow-auto pb-16">
                         <div class="flex justify-between my-4 px-4">
@@ -28,7 +29,7 @@
                                     <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked">
                                 </div>
                                 <div class="">
-                                    <label class="form-check-label text-gray-800" for="allChecked">
+                                    <label class="form-check-label text_c2 text-gray-800" for="allChecked">
                                         Select All
                                     </label>
                                 </div>
@@ -38,10 +39,10 @@
                             <div class="self-center mr-3">
                                 <input type="checkbox" class="w-4 h-4" v-model="prizeIds[i]" @click="tick(i)">
                             </div>
-                            <div class="flex flex-row rounded-lg bg-white my-3 p-2 w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
-                                <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                            <div class="border_grad2_show flex flex-row before:rounded-lg my-3 p-2 w-full bg_grad1">
+                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
-                                    <div class="text-sm truncate w-36">{{prize.item.name}}</div>
+                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
                                     <div class="text-sm py-1 text_gradient">$ {{prize.coinPrice}}</div>
                                     <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                                 </div>
@@ -49,19 +50,19 @@
                         </div>
                         <div class="fixed flex justify-around bottom-24 w-full">
                             <div>
-                                <div class="btn_two py-2 text-center w-40 text-white rounded-full" @click="recycleSubmit()">Recycling</div>
+                                <div class="btn2_gradient py-3 text-center w-44 text-white rounded-full" @click="recycleSubmit()">Recycling</div>
                             </div>
                             <div>
-                                <div class="btn_one py-2 text-center w-40 text-white rounded-full">Shipment Apply</div>
+                                <div class="btn_gradient py-3 text-center w-44  text-white rounded-full">Shipment Apply</div>
                             </div>
                         </div>
                     </section>
                     <section id="panel-recycle" role="tabpanel" tabindex="0" aria-labelledby="tab-recycle" hidden class="overflow-auto px-4">
-                        <div v-for="(prize,i) in recycle" :key="i" class="my-3 p-2 rounded-lg bg-white w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
+                        <div v-for="(prize,i) in recycle" :key="i" class="border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1">
                             <div class="flex flex-row">
-                                <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
-                                    <div class="text-sm truncate w-36">{{prize.item.name}}</div>
+                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
                                     <div class="text-sm py-1 text_gradient">$ {{prize.coinPrice}}</div>
                                     <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                                 </div>

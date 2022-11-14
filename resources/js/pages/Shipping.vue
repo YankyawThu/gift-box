@@ -6,12 +6,12 @@
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>
             </Link>
-            <div class="font-bold text-xl self-center">
+            <div class="font-bold text-xl self-center text-white">
                 Shipping
             </div>
         </div>
         <div id="tabs">
-            <div class="grid grid-cols-3 text-center border-b" role="tablist" aria-label="Free HTML Tabs">
+            <div class="grid grid-cols-3 text-center" role="tablist" aria-label="Free HTML Tabs">
                 <div class="py-2" role="tab" :aria-selected="[tab == 1 ? true : false]" aria-controls="panel-delivered" id="tab-delivered" :tabindex="[tab == 1 ? 0 : -1]" @click="fetchDelivered()">
                     To be delivered
                 </div>
@@ -22,49 +22,50 @@
                     Completed
                 </div>
             </div>
+            <div class="divider"></div>
             <div class="my-4">
                 <section id="panel-delivered" role="tabpanel" tabindex="0" aria-labelledby="tab-delivered" class="overflow-auto px-1">
-                    <div v-for="(prize,i) in toBeDelivered" :key="i" class="flex justify-between my-3 p-2 rounded-lg bg-white w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
+                    <div v-for="(prize,i) in toBeDelivered" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
                         <div class="flex flex-row">
-                            <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
-                                <div class="text-sm truncate w-36">{{prize.item.name}}</div>
+                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
                                 <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #8481FF;">To be delivered</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">To be delivered</div>
                         </div>
                     </div>
                 </section>
                 <section id="panel-going" role="tabpanel" tabindex="0" aria-labelledby="tab-going" hidden class="overflow-auto px-1">
-                    <div v-for="(prize,i) in onGoing" :key="i" class="flex justify-between my-3 p-2 rounded-lg bg-white w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
+                    <div v-for="(prize,i) in onGoing" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
                         <div class="flex flex-row">
-                            <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
-                                <div class="text-sm truncate w-36">{{prize.item.name}}</div>
+                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
                                 <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #D9761A;">On going</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">On going</div>
                         </div>
                     </div>
                 </section>
                 <section id="panel-completed" role="tabpanel" tabindex="0" aria-labelledby="tab-completed" hidden class="overflow-auto px-1">
-                    <div v-for="(prize,i) in completed" :key="i" class="flex justify-between my-3 p-2 rounded-lg bg-white w-full" style="box-shadow: 1px 2px 4px rgba(38, 39, 60, 0.1);">
+                    <div v-for="(prize,i) in completed" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
                         <div class="flex flex-row">
-                            <div class="bg-gray-100 p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
-                                <div class="text-sm truncate w-36">{{prize.item.name}}</div>
+                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
                                 <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="rounded-full px-3 py-1 text-xs bg-gray-100 mt-1" style="color: #64AB69;">Completed</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">Completed</div>
                         </div>
                     </div>
                 </section>

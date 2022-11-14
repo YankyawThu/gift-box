@@ -2,32 +2,32 @@
     <div class="h-screen">
         <main class="pb-20 px-4">
             <div class="flex justify-between pt-6 pb-4">
-                <div class="self-center font-bold text-lg">
+                <div class="self-center font-bold text-white text-lg">
                     My Wallet
-                    <div class="w-10 h-1 rounded-full" style="background: linear-gradient(146.62deg, #8481FF 4.17%, #6D41CB 95.36%);"></div>
+                    <div class="w-10 h-1 rounded-full" style="background: linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%);"></div>
                 </div>
                 <div class="">
                     <img :src="$asset+'/image/ui/Service.svg'">
                 </div>
             </div>
-            <div class="flex justify-between user_header p-5 mb-4 mt-2 rounded-xl">
+            <div class="border_grad1_show bg_grad flex justify-between p-5 mb-4 mt-2 before:rounded-xl rounded-xl">
                 <div>
                     <div class="text-white text-xs">Balance: (Gold Coins)</div>
-                    <div class="text-2xl" style="color: #FFC042;">9,000,000</div>
+                    <div class="text-2xl text_c2 font-black">9,000,000</div>
                 </div>
                 <div class="self-end mb-1">
-                    <Link :href="$url+'/recharge'" as="button" class="px-3 py-1 btn_one rounded-full text-xs text-white">
+                    <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 btn_gradient rounded-full text-xs text-white">
                         Recharge
                     </Link>
                 </div>
             </div>
-            <div class="text-center py-3">Billing Details</div>
+            <div class="text-center py-3 text_c1">Billing Details</div>
             <div v-for="(data,i) in wallets" :key="i" class="flex justify-between py-3 w-full border-b">
                 <div>
-                    <div>{{data.type}}</div>
+                    <div class="text-white">{{data.type}}</div>
                     <div class="text-sm text-gray-400">Time: {{data.time}}</div>
                 </div>
-                <div class="self-center" style="color: #D9761A;">
+                <div class="self-center text_c2">
                     $ {{data.coin}}
                 </div>
             </div>
