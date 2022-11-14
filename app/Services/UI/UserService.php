@@ -58,4 +58,9 @@ class UserService
     {
         return $this->userRepo->getWallet($this->itemPerPage);
     }
+
+    public function register($request)
+    {
+        return $this->userRepo->register($request);
+    }
 }

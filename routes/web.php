@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\UI\MoneyRecordController;
+use App\Http\Controllers\UI\OrderController;
+use App\Http\Controllers\UI\RechargeController;
+use App\Http\Controllers\UI\RetailController;
 use App\Http\Controllers\UI\UIController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\OrderController;
@@ -26,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/otp', [UIController::class, 'otp']);
         Route::get('/banner', [UIController::class, 'getBanners']);
         Route::prefix('box')->group(function () {
-            Route::get('/', [UIController::class, 'index'])->name('home');
+            Route::get('/', [UIController::class, 'index'])->name('box');
             Route::post('/', [UIController::class, 'getAll']);
             Route::get('/{id}', [UIController::class, 'detail']);
             Route::get('/{id}/open/{time}', [UIController::class, 'boxOpen']);

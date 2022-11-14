@@ -2983,14 +2983,31 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return {
       page: 1,
       lastPage: 1,
-      boxes: []
+      boxes: [],
+      isActive: 'All',
+      sort: ''
     };
   },
   methods: {
+    addActive: function addActive(active) {
+      this.page = 1;
+      this.lastPage = 1;
+      this.boxes = [];
+      this.isActive = active;
+      if (this.isActive == 'Price') {
+        if (this.sort == 'asc') {
+          this.sort = 'desc';
+        } else this.sort = 'asc';
+      } else {
+        this.sort = '';
+      }
+      this.fetchData();
+    },
     fetchData: function fetchData() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page, "&price=").concat(this.sort)).then(function (res) {
         var _this$boxes;
+        _this.boxes = [];
         (_this$boxes = _this.boxes).push.apply(_this$boxes, _toConsumableArray(res.data.data));
         _this.lastPage = res.data.pagination.total_pages;
         _this.page++;
@@ -4810,11 +4827,29 @@ var render = function render() {
   })])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-row"
   }, [_c("div", {
-    staticClass: "mr-3 py-1 px-4 before:rounded-full border_grad1 filter_menu filter_menu_active"
-  }, [_vm._v("\n            All \n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "mr-3 py-1 px-4 before:rounded-full border_grad1 filter_menu"
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu",
+    "class": [_vm.isActive == "All" ? "filter_menu_active" : ""],
+    on: {
+      click: function click($event) {
+        return _vm.addActive("All");
+      }
+    }
+  }, [_vm._v("\n            All\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu",
+    "class": [_vm.isActive == "New" ? "filter_menu_active" : ""],
+    on: {
+      click: function click($event) {
+        return _vm.addActive("New");
+      }
+    }
   }, [_vm._v("\n            New\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "mr-3 py-1 px-4 before:rounded-full border_grad1 filter_menu"
+    staticClass: "mr-3 py-1 px-4 rounded-full filter_menu",
+    "class": [_vm.isActive == "Price" ? "filter_menu_active" : ""],
+    on: {
+      click: function click($event) {
+        return _vm.addActive("Price");
+      }
+    }
   }, [_vm._v("\n            Price "), _c("img", {
     staticClass: "inline-block -mt-1 ml-1",
     attrs: {
@@ -5721,6 +5756,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// var app_path = '/gift_box_lucky_draw/public'
 var app_path = '';
 axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.baseURL = app_path;
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].prototype.$asset = app_path;

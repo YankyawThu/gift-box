@@ -106,4 +106,20 @@ class UserRepository extends BaseRepository
         ->orderBy('id', 'desc')
         ->paginate($page);
     }
+
+    public function register($request)
+    {
+        $existedUser = $this->model->where('phone', $request->phone)->first();
+        if ($existedUser) {
+            return redirect()->back();
+        }
+        $this->model->create([
+            'name' => $request->userName,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+            'status' => 'active',
+        ]);
+
+        return true;
+    }
 }

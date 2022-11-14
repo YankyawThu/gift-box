@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
-use App\Filters\UI\GiftBoxFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
@@ -20,6 +19,7 @@ use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\GiftLogService;
 use App\Services\UI\ItemService;
 use App\Services\UI\PrizeService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -59,9 +59,9 @@ class UIController extends Controller
         return Inertia::render('BoxDetail', compact('data'));
     }
 
-    public function getAll(GiftBoxFilter $filter)
+    public function getAll(Request $request)
     {
-        $result = $this->boxService->getAll($filter);
+        $result = $this->boxService->getAll($request);
         $data = new HomePageResourceCollection($result);
 
         return response()->json($data);
@@ -165,6 +165,7 @@ class UIController extends Controller
     public function shipmentApply(ShipmentApplyRequest $request)
     {
         $data = $this->prizeService->shipmentApply($request);
+
         return response()->json($data);
     }
 

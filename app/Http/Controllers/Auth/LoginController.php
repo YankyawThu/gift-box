@@ -44,7 +44,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             // The user is active, not suspended, and exists.
-            return redirect()->route('home');
+            return redirect()->route('box');
         }
     }
 

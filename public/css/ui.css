@@ -29,7 +29,7 @@ body {
 .border_grad1 {
     position: relative;
 }
-  
+
 .border_grad1::before {
     content: "";
     position: absolute;
@@ -37,11 +37,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+<<<<<<< HEAD
     /* border-radius: 25px;  */
+=======
+    border-radius: 25px;
+>>>>>>> 4c01f5630f49c064b8efb9e046eb440c4c40d595
     border: 2px solid transparent;
     background: linear-gradient(85.78deg, #1D09BD -23.77%, #EB01E3 110.4%) border-box;
     -webkit-mask:
-      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0) padding-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
@@ -316,8 +320,13 @@ body {
 }
 
 .nav_link_active {
+<<<<<<< HEAD
     color: #CE25F0;
 }  
+=======
+    color: #493B83;
+}
+>>>>>>> 4c01f5630f49c064b8efb9e046eb440c4c40d595
 
 .content {
     max-height: 0;
