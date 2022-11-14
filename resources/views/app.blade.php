@@ -13,7 +13,7 @@
     @inertiaHead
   </head>
   <body>
-    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
+    <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
     @inertia
   </body>
 </html>

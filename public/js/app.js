@@ -4203,9 +4203,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"
+    staticClass: "border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"
   }, [_c("img", {
-    staticClass: "inline-block",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/TidePlay.svg"
     }
@@ -4216,9 +4216,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"
+    staticClass: "border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"
   }, [_c("img", {
-    staticClass: "inline-block",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/Recharge.svg"
     }
@@ -4229,9 +4229,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"
+    staticClass: "border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"
   }, [_c("img", {
-    staticClass: "inline-block",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/Shipping.svg"
     }
@@ -4242,9 +4242,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"
+    staticClass: "border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"
   }, [_c("img", {
-    staticClass: "inline-block",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/Helps.svg"
     }
@@ -4276,7 +4276,7 @@ var render = function render() {
     }), _vm._v(" "), _c("img", {
       staticClass: "m-auto mt-2",
       attrs: {
-        src: _vm.$asset + "/image/new_ui/Shadow.svg"
+        src: _vm.$asset + "/image/ui/Shadow.svg"
       }
     })], 2), _vm._v(" "), _c("div", {
       staticClass: "text-left text-white py-1 truncate",
@@ -4961,7 +4961,7 @@ var render = function render() {
     }), _vm._v(" "), _c("img", {
       staticClass: "m-auto mt-2",
       attrs: {
-        src: _vm.$asset + "/image/new_ui/Shadow.svg"
+        src: _vm.$asset + "/image/ui/Shadow.svg"
       }
     })], 2), _vm._v(" "), _c("div", {
       staticClass: "text-left text-white py-1 truncate",
@@ -5017,7 +5017,7 @@ var render = function render() {
       src: _vm.$asset + "/image/ui/Service.svg"
     }
   })])]), _vm._v(" "), _c("div", {
-    staticClass: "flex justify-around -mt-6"
+    staticClass: "flex justify-around -mt-7"
   }, [_c("Link", {
     staticClass: "text-left",
     attrs: {
@@ -5025,9 +5025,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-48 px-1 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
+    staticClass: "border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/TidePlay.svg"
     }
@@ -5038,9 +5038,9 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-48 px-1 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
+    staticClass: "border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
   }, [_c("img", {
-    staticClass: "inline-block rounded-full p-1",
+    staticClass: "inline-block mr-2",
     attrs: {
       src: _vm.$asset + "/image/ui/Recharge.svg"
     }

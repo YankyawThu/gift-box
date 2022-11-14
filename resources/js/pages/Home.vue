@@ -20,10 +20,10 @@
                 <img :src="$asset+'/image/ui/Banner.svg'" class="w-full">
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
-                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"><img class="inline-block" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
-                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"><img class="inline-block" :src="$asset+'/image/ui/Recharge.svg'">Recharge</div></Link>
-                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"><img class="inline-block" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
-                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-40 p-1 before:rounded-full m-1 text_c1"><img class="inline-block" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
+                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
+                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Recharge</div></Link>
+                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
+                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
             </div>
             <div class="font-bold text-xl text-white">Recommended</div>
             <div class="flex flex-wrap justify-around">
@@ -32,7 +32,7 @@
                         <div v-for="(item,j) in (box.items).slice(0,1)" :key="j" class="inline-block pr-1">
                             <img :src="item.image" width="80" height="80">
                         </div>
-                        <img :src="$asset+'/image/new_ui/Shadow.svg'" class="m-auto mt-2">
+                        <img :src="$asset+'/image/ui/Shadow.svg'" class="m-auto mt-2">
                     </div>
                     <div class="text-left text-white py-1 truncate" style="font-size:12px;">{{box.name}}</div>
                     <div class="flex justify-between mb-3">

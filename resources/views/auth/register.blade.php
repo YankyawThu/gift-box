@@ -11,16 +11,16 @@
     <title>Register</title>
 </head>
 <body>
-    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
+    <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
   
     @if ($errors->has('alreadyUser'))
         <span class="text-center w-full block">
             <strong class="text-red-500 text-xs">{{ $errors->first('alreadyUser') }}</strong>
         </span>
     @endif
-    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0 -z-50">
+    <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0 -z-50">
     <div class="h-screen">
-        <img src="{{ asset('/image/new_ui/Login.svg') }}" alt="" class="m-auto pt-14">
+        <img src="{{ asset('/image/ui/Login.svg') }}" alt="" class="m-auto pt-14">
         <div class="text_c2 text-center text-2xl font-semibold my-6">Register</div>
         <div class="w-80 m-auto">
             <form role="form" method="POST" action="{{ route('register') }}">

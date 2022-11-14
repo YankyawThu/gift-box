@@ -11,11 +11,11 @@
     <title>Otp verify</title>
 </head>
 <body>
-    <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
+    <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
     <div class="h-screen w-96 m-auto">
         <div class="pt-12">
-            <div class="border_grad1 before:rounded-xl w-10 h-10">
-                <img src="{{asset('/image/new_ui/Back2.svg')}}" class="py-3 m-auto" alt="" onclick="window.history.back()">
+            <div class="border_grad2 before:rounded-xl w-10 h-10">
+                <img src="{{asset('/image/ui/Back2.svg')}}" class="py-3 m-auto" alt="" onclick="window.history.back()">
             </div>
             <div class="text_c2 text-2xl font-bold py-2 mt-10">OTP Verification</div>
             <div class="text-white py-2">Enter the verification code we just sent on your phone number.</div>

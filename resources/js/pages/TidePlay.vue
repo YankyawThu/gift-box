@@ -32,7 +32,7 @@
                     <div v-for="(item,j) in (box.items).slice(0,1)" :key="j" class="inline-block pr-1">
                         <img :src="item.image" width="80" height="80">
                     </div>
-                    <img :src="$asset+'/image/new_ui/Shadow.svg'" class="m-auto mt-2">
+                    <img :src="$asset+'/image/ui/Shadow.svg'" class="m-auto mt-2">
                 </div>
                 <div class="text-left text-white py-1 truncate" style="font-size:12px;">{{box.name}}</div>
                 <div class="flex justify-between mb-3">
