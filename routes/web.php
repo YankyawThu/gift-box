@@ -22,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 Auth::routes();
-
+// Route::get('/register', 'Auth\LoginController@showLoginForm')->name('login');
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'UI'], function () {
         Route::get('/banner', [UIController::class, 'getBanners']);
         Route::prefix('box')->group(function () {
-            Route::get('/', [UIController::class, 'index'])->name('home');
+            Route::get('/', [UIController::class, 'index'])->name('box');
             Route::post('/', [UIController::class, 'getAll']);
             Route::get('/{id}', [UIController::class, 'detail']);
             Route::get('/{id}/open/{time}', [UIController::class, 'boxOpen']);

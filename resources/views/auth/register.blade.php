@@ -11,6 +11,12 @@
     <title>Register</title>
 </head>
 <body>
+  
+    @if ($errors->has('alreadyUser'))
+        <span class="text-center w-full block">
+            <strong class="text-red-500 text-xs">{{ $errors->first('alreadyUser') }}</strong>
+        </span>
+    @endif
     <img src="{{ asset('/image/new_ui/Cloudy.svg') }}" class="absolute right-0 -z-50">
     <div class="h-screen">
         <img src="{{ asset('/image/new_ui/Login.svg') }}" alt="" class="m-auto pt-14">
@@ -39,12 +45,12 @@
                             <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
                         </div>
                         <div class="grow">
-                            <input class="w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none input_placeholder bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="email" name="email" required>
+                            <input class="w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none input_placeholder bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" required>
                         </div>
                     </div>
-                    @if ($errors->has('email'))
+                    @if ($errors->has('phone'))
                     <span class="">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('phone') }}</strong>
                     </span>
                     @endif
                 </div>
