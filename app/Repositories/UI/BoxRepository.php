@@ -23,4 +23,15 @@ class BoxRepository extends BaseRepository
     {
         return $this->model->where('id', $boxId)->increment('sale', $times);
     }
+
+    public function getDataWithPaginatedAndFilter($page = null, $request)
+    {
+        if ($request->price == 'desc') {
+            return $this->model->orderBy('price', 'desc')->paginate($page ?? config('enums.itemPerPage'));
+        } elseif ($request->price == 'asc') {
+            return $this->model->orderBy('price', 'asc')->paginate($page ?? config('enums.itemPerPage'));
+        } else {
+            return $this->model->orderBy('id', 'desc')->paginate($page ?? config('enums.itemPerPage'));
+        }
+    }
 }

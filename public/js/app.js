@@ -2980,7 +2980,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       lastPage: 1,
       boxes: [],
       isActive: 'All',
-      sort: 'asc'
+      sort: ''
     };
   },
   methods: {
@@ -2989,21 +2989,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.lastPage = 1;
       this.boxes = [];
       this.isActive = active;
-      if (active == 'Price') {
+      if (this.isActive == 'Price') {
         if (this.sort == 'asc') {
           this.sort = 'desc';
         } else this.sort = 'asc';
+      } else {
+        this.sort = '';
       }
       this.fetchData();
     },
     fetchData: function fetchData() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page), {
-        params: {
-          price: this.sort
-        }
-      }).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/box?page=".concat(this.page, "&price=").concat(this.sort)).then(function (res) {
         var _this$boxes;
+        _this.boxes = [];
         (_this$boxes = _this.boxes).push.apply(_this$boxes, _toConsumableArray(res.data.data));
         _this.lastPage = res.data.pagination.total_pages;
         _this.page++;

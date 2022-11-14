@@ -61,30 +61,31 @@ export default {
             lastPage: 1,
             boxes: [],
             isActive:'All',
-            sort: 'asc'
+            sort: '',
         }
     },
     methods: {
         addActive(active){
+
             this.page = 1
             this.lastPage = 1
             this.boxes = []
             this.isActive= active
-            if(active == 'Price') {
+
+            if(this.isActive == 'Price') {
                 if(this.sort == 'asc') {
                     this.sort = 'desc'
                 }
-                else this.sort = 'asc'
+                else this.sort='asc'
+            }else{
+                 this.sort=''
             }
             this.fetchData()
         },
         fetchData () {
-            axios.post(`/box?page=${this.page}`,{
-                params: {
-                    price: this.sort
-                }
-            })
+            axios.post(`/box?page=${this.page}&price=${this.sort}`)
                 .then((res) => {
+                    this.boxes = []
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
                     this.page++

@@ -23,7 +23,7 @@ body {
 .border_grad1 {
     position: relative;
 }
-  
+
 .border_grad1::before {
     content: "";
     position: absolute;
@@ -31,11 +31,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 25px; 
+    border-radius: 25px;
     border: 2px solid transparent;
     background: linear-gradient(85.78deg, #1D09BD -23.77%, #EB01E3 110.4%) border-box;
     -webkit-mask:
-      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0) padding-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
@@ -241,7 +241,7 @@ body {
 
 .nav_link_active {
     color: #493B83;
-}  
+}
 
 .content {
     max-height: 0;
@@ -390,3 +390,4 @@ body {
 .btn_gradient {
     background: linear-gradient(85.78deg, #1D09BD -23.77%, #EB01E3 110.4%);
 }
+
