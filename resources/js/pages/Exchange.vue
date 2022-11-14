@@ -53,7 +53,7 @@
                                 <div class="btn2_gradient py-3 text-center w-44 text-white rounded-full" @click="recycleSubmit()">Recycling</div>
                             </div>
                             <div>
-                                <div class="btn_gradient py-3 text-center w-44  text-white rounded-full">Shipment Apply</div>
+                                <div class="btn_gradient py-3 text-center w-44  text-white rounded-full" @click="shipSubmit()">Shipment Apply</div>
                             </div>
                         </div>
                     </section>
@@ -75,6 +75,7 @@
         <footer>
             <bot></bot>
         </footer>
+        <address-modal v-model="addressModalActive" :prizes="selects"></address-modal>
     </div>
 </template>
 
@@ -83,11 +84,13 @@ import bot from './layouts/Footer.vue'
 import {Link} from '@inertiajs/inertia-vue'
 import tab from '../tab.js'
 import axios from 'axios'
+import addressModal from './modals/Address.vue'
 
 export default {
     components: {
         bot,
-        Link
+        Link,
+        addressModal
     },
     data() {
         return {
@@ -103,6 +106,7 @@ export default {
             selectAll: false,
             prizeIds: [],
             selects: [],
+            addressModalActive: false
         }
     },
     methods: {
@@ -165,6 +169,9 @@ export default {
             }).then(res => {
                 location.reload()
             })
+        },
+        shipSubmit() {
+            this.addressModalActive = !this.addressModalActive
         }
     },
     watch: {

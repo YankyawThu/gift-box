@@ -5,9 +5,8 @@ use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
 use App\Http\Controllers\UI\RetailController;
 use App\Http\Controllers\UI\UIController;
-use App\Http\Controllers\UI\RechargeController;
-use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\UserController;
+use App\Http\Controllers\UI\ShippingAddressController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/balance', [MoneyRecordController::class, 'index']);
             Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
 
+            Route::get('shipping-address/get', [ShippingAddressController::class, 'getAll']);
             Route::resource('shipping-address', ShippingAddressController::class);
             Route::get('/set-up', [UserController::class, 'setUp']);
             Route::any('money-to-coin', [UserController::class, 'moneyToCoin']);

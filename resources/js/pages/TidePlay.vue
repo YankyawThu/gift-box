@@ -16,13 +16,13 @@
             </div>
         </div>
         <div class="flex flex-row">
-            <div class="mr-3 py-1 px-4 rounded-full filter_menu" :class="[isActive=='All' ? 'filter_menu_active' : '']" @click="addActive('All')">
+            <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='All' ? 'filter_menu_active rounded-full' : '']" @click="addActive('All')">
                 All
             </div>
-            <div class="mr-3 py-1 px-4 rounded-full filter_menu" :class="[isActive=='New' ? 'filter_menu_active' : '']" @click="addActive('New')">
+            <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='New' ? 'filter_menu_active rounded-full' : '']" @click="addActive('New')">
                 New
             </div>
-            <div class="mr-3 py-1 px-4 rounded-full filter_menu" :class="[isActive=='Price' ? 'filter_menu_active' : '']"  @click="addActive('Price')">
+            <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='Price' ? 'filter_menu_active rounded-full' : '']"  @click="addActive('Price')">
                 Price <img :src="$asset+'/image/ui/DropDown.svg'" class="inline-block -mt-1 ml-1">
             </div>
         </div>
@@ -64,12 +64,10 @@ export default {
     },
     methods: {
         addActive(active){
-
             this.page = 1
             this.lastPage = 1
             this.boxes = []
             this.isActive= active
-
             if(this.isActive == 'Price') {
                 if(this.sort == 'asc') {
                     this.sort = 'desc'
@@ -78,12 +76,12 @@ export default {
             }else{
                  this.sort=''
             }
-            this.fetchData()
+            this.fetchData(active)
         },
-        fetchData () {
+        fetchData (active) {
             axios.post(`/box?page=${this.page}&price=${this.sort}`)
                 .then((res) => {
-                    this.boxes = []
+                    // this.boxes = []
                     this.boxes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
                     this.page++

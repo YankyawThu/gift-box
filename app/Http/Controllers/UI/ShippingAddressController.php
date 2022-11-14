@@ -22,6 +22,11 @@ class ShippingAddressController extends Controller
         return Inertia::render('Address', compact('data'));
     }
 
+    public function getAll()
+    {
+        return response()->json(ShippingAddressResource::collection($this->addressService->getAllByAuth()));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
