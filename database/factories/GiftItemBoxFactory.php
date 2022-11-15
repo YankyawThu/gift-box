@@ -13,5 +13,6 @@ $factory->define(GiftItemBox::class, function (Faker $faker) {
         'gift_item_id' => function () {
             return App\Models\GiftItem::inRandomOrder()->first()->id;
         },
+        'probability' => $faker->randomNumber(2),
     ];
 });
