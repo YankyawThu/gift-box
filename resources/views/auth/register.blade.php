@@ -35,9 +35,9 @@
                         </div>
                     </div>
                     @if ($errors->has('username'))
-                    <span class="">
-                        <strong>{{ $errors->first('username') }}</strong>
-                    </span>
+                    <div class="text-center">
+                        <strong class="text-red-500 text-xs">{{ $errors->first('username') }}</strong>
+                    </div>
                     @endif
                 </div>
                 <div class="mb-3">
@@ -50,9 +50,9 @@
                         </div>
                     </div>
                     @if ($errors->has('phone'))
-                    <span class="">
-                        <strong>{{ $errors->first('phone') }}</strong>
-                    </span>
+                    <div class="text-center">
+                        <strong class="text-red-500 text-xs">{{ $errors->first('phone') }}</strong>
+                    </div>
                     @endif
                 </div>
                 <div class="mt-3">
@@ -65,9 +65,9 @@
                         </div>
                     </div>
                     @if ($errors->has('password'))
-                    <span class="">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
+                    <div class="text-center">
+                        <strong class="text-red-500 text-xs">{{ $errors->first('password') }}</strong>
+                    </div>
                     @endif
                 </div>
                 <div class="my-14">

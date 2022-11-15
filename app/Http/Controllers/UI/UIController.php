@@ -179,9 +179,4 @@ class UIController extends Controller
     {
         return Inertia::render('Wallet');
     }
-
-    public function otp()
-    {
-        return view('auth.otp');
-    }
 }

@@ -30,9 +30,9 @@
                         </div>
                     </div>
                     @if ($errors->has('phone'))
-                        <span class="text-center w-full block">
+                        <div class="text-center">
                             <strong class="text-red-500 text-xs">{{ $errors->first('phone') }}</strong>
-                        </span>
+                        </div>
                     @endif
                 </div>
                 <div class="mt-3">
@@ -45,16 +45,17 @@
                         </div>
                     </div>
                     @if ($errors->has('password'))
-                        <span class="text-center w-full block">
+                        <div class="text-center">
                             <strong class="text-red-500 text-xs">{{ $errors->first('password') }}</strong>
-                        </span>
+                        </div>
                     @endif
                 </div>
                 <div class="flex justify-between my-1">
                     <div></div>
                     <div>
                         @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="text_c2">
+                        {{-- <a href="{{ route('password.request') }}" class="text_c2"> --}}
+                        <a href="#" class="text_c2">
                             <small>{{ __('Forgot password?') }}</small>
                         </a>
                         @endif

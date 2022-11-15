@@ -488,3 +488,14 @@ body {
 .otp_text {
     font-size: 23px;
 }
+
+.btn_one {
+    background: linear-gradient(180deg, #FFC635 0%, #D9761A 100%);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.btn_two {
+    background: linear-gradient(180deg, rgba(217, 98, 248, 0.95) 0%, rgba(121, 8, 150, 0.95) 100%);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+

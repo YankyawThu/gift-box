@@ -18,6 +18,11 @@
                 <img src="{{asset('/image/ui/Back2.svg')}}" class="py-3 m-auto" alt="" onclick="window.history.back()">
             </div>
             <div class="text_c2 text-2xl font-bold py-2 mt-10">OTP Verification</div>
+            @if ($msg)
+                <div class="p-3 border_grad2_show bg_grad1 text-red-500 before:rounded-xl rounded-xl my-2">
+                    {{$msg}}
+                </div>    
+            @endif
             <div class="text-white py-2">Enter the verification code we just sent on your phone number.</div>
             <div class="flex justify-center my-14">
                 <div class="border_grad2 before:rounded-2xl mx-2">
