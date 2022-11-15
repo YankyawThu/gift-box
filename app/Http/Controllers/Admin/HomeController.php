@@ -30,14 +30,14 @@ class HomeController extends Controller
         return view('admin.dashboard', [
             'totalUsers' => User::count(),
             // 'usedBoxOrderCount'      => Order::where('status', 'used')->count(),
-            'totalgoods'      => GiftItem::count(),
-            'totalbox'        => GiftBox::count(),
+            'totalgoods' => GiftItem::count(),
+            'totalbox' => GiftBox::count(),
             'todayusersignup' => User::whereDate('join_time', now())->count(),
-            'todayuserlogin'  => User::whereDate('login_time', now())->count(),
+            'todayuserlogin' => User::whereDate('login_time', now())->count(),
             // 'money_box_unpay' => Order::where('status', 'unpay')->sum('rmb_amount'),
             // 'money_box_paid'  => Order::where('status', 'unused')->whereOr('status', 'used')->sum('rmb_amount'),
-            'money_recharge_unpay' => RechargeOrder::where('status', 'unpay')->sum('rmb_amount'),
-            'money_recharge_paid' => RechargeOrder::where('status', 'paid')->sum('rmb_amount'),
+            'money_recharge_unpay' => RechargeOrder::where('status', 'unpay')->sum('amount'),
+            'money_recharge_paid' => RechargeOrder::where('status', 'paid')->sum('amount'),
         ]);
     }
 }

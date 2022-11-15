@@ -20,10 +20,6 @@
                             name="user_name" value="{{request('user_name')}}">
                     </div>
                     <div class="input-group input-group-alternative input-group-merge searching gift-log-filter">
-                        <input class="form-control searching" placeholder="Search by gift item" type="text"
-                            name="gift_item" value="{{request('gift_item')}}">
-                    </div>
-                    <div class="input-group input-group-alternative input-group-merge searching gift-log-filter">
                         <input class="form-control searching" placeholder="Search by gift box" type="text"
                             name="gift_box" value="{{request('gift_box')}}">
                     </div>
@@ -41,7 +37,6 @@
             <thead>
                 <tr>
                     <th class="text-xxs font-weight-bolder opacity-7">USER</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">GIFT ITEM</th>
                     <th class="text-xxs font-weight-bolder opacity-7">GIFT BOX</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                     <th class="opacity-7"></th>
@@ -53,13 +48,10 @@
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{optional($item->user)->name}}</p>
                     </td>
+
                     <td>
                         <p class="text-sm font-weight-bold mb-0">
-                            {{optional(optional($item->giftItemBox)->giftItems)->name}}</p>
-                    </td>
-                    <td>
-                        <p class="text-sm font-weight-bold mb-0">
-                            {{optional(optional($item->giftItemBox)->giftBoxes)->name}}</p>
+                            {{optional($item->giftBox)->name}}</p>
                     </td>
 
                     <td>

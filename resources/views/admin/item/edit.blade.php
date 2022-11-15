@@ -35,11 +35,20 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="price" class="form-control-label">Price</label>
-                                        <input type="text" placeholder="Price" id="price" name="price"
+                                        <label for="price" class="form-control-label">Buy Price</label>
+                                        <input type="text" placeholder="Price" id="buy_price" name="buy_price"
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="price" class="form-control-label">Sell Price</label>
+                                        <input type="text" placeholder="Price" id="sell_price" name="sell_price"
+                                            class="form-control form-control-alternative is-valid" />
+                                    </div>
+                                </div>
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="qty" class="form-control-label">Qty</label>

@@ -16,11 +16,6 @@ class GiftLog extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function giftItemBox()
-    {
-        return $this->belongsTo(GiftItemBox::class, 'gift_item_box_id');
-    }
-
     public function giftBox()
     {
         return $this->belongsTo(GiftBox::class, 'gift_box_id');

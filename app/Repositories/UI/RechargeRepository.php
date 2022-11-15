@@ -23,7 +23,7 @@ class RechargeRepository extends BaseRepository
     {
         return $this->rechargeOrderModel->create([
             'user_id' => auth()->user()->id,
-            'coin_amount' => $request->amount,
+            'amount' => $request->amount,
         ]);
     }
 }

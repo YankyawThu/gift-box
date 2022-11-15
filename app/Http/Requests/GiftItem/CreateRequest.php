@@ -25,11 +25,12 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'price' => 'numeric|required',
+            'buy_price' => 'numeric|required',
+            'sell_price' => 'numeric|required',
             'qty' => 'numeric|required',
-            'image' => 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
+            'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
             'delivery_fee' => 'required|numeric|min:0',
-            'status' => 'required'
+            'status' => 'required',
         ];
     }
 }
