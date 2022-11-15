@@ -3,27 +3,32 @@
         <div>
             <div class="flex justify-between py-2">
                 <div class="flex flex-row">
-                    <div><img src="https://1.bp.blogspot.com/-VpNN3ROqFSw/WRC7TRlPYfI/AAAAAAAAi3k/8P1JqjBG4186-fVjrjW3v21RnF8fZFRHACLcB/s1600/18221988_435811773439708_638227643630576354_n.jpg" alt="" class="home_avatar"></div>
+                    <div><img :src="user.avatar" alt="" class="home_avatar"></div>
                     <div class="ml-2 self-center">
-                        <div class="text-xs text-gray-400">Hello...</div>
-                        <div class="font-bold text-lg text-white">Thinzar Wint Kyaw</div>
+                        <div class="text-xs text-gray-400 text_c2">$ {{user.money}}</div>
+                        <div class="font-bold text-lg text-white">{{user.name}}</div>
                     </div>
                 </div>
                 <div class="self-center">
                     <img :src="$asset+'/image/ui/Service.svg'">
                 </div>
             </div>
-            <div class="my-3 bg_grad1 rounded-full">
-                <input type="text" class="home_search bg-transparent focus:outline-none py-2 px-4 rounded-full w-full text-white z-50" placeholder="Search">
+            <div class="flex my-3 bg_grad1 rounded-full px-5 py-2">
+                <div class="self-center w-10">
+                    <img :src="$asset+'/image/ui/Search.svg'" alt="">
+                </div>
+                <div class="grow flex-none">
+                    <input v-model="search" type="text" class="home_search bg-transparent placeholder:text-white focus:outline-none text-white w-full py-2" placeholder="Search Box...">
+                </div>
             </div>
             <div class="my-2">
                 <img :src="$asset+'/image/ui/Banner.svg'" class="w-full">
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
-                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
-                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Recharge</div></Link>
-                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
-                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-40 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
+                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
+                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Recharge</div></Link>
+                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
+                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
             </div>
             <div class="font-bold text-xl text-white">Recommended</div>
             <div class="flex flex-wrap justify-around">
@@ -56,11 +61,24 @@ export default {
         mainLayout,
         Link
     },
+    props: {
+        user: {
+            type:Object
+        }
+    },
     data() {
         return {
             page: 1,
             lastPage: 1,
-            boxes: []
+            boxes: [],
+            search: ''
+        }
+    },
+    watch: {
+        search: {
+            handler() {
+                this.fetchWithName()
+            }
         }
     },
     methods: {
@@ -71,6 +89,15 @@ export default {
                     this.lastPage = res.data.pagination.total_pages
                     this.page++
                 })
+        },
+        fetchWithName () {
+            axios.post(`/box`, {
+                name: this.search,
+            })
+            .then((res) => {
+                this.boxes = []
+                this.boxes.push(...res.data.data)
+            })
         }
     },
     beforeMount () {

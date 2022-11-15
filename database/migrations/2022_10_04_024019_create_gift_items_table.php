@@ -18,8 +18,7 @@ class CreateGiftItemsTable extends Migration
             $table->string('name');
             $table->enum('tag', ['normal', 'rare', 'supreme']);
             $table->string('image');
-            $table->double('buy_price')->default(0);
-            $table->double('sell_price')->default(0);
+            $table->double('price')->default(0);
             $table->integer('qty');
             $table->double('delivery_fee')->default(0);
             $table->enum('status', ['online', 'offline']);

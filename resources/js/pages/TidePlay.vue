@@ -7,12 +7,15 @@
                         <img :src="$asset+'/image/ui/BackArrow.svg'">
                     </div>
                 </Link>
-                <div class="font-bold text-xl self-center text-white">
+                <div v-show="!showSearch" class="font-bold text-xl self-center text-white">
                     Tide Play
+                </div>
+                <div v-show="showSearch" class="self-center">
+                    <input v-model="search" type="text" class="bg_grad1 placeholder:text-white focus:outline-none rounded-full w-72 px-5 py-2 text-white" placeholder="Search" autofocus>
                 </div>
             </div>
             <div class="self-center pr-2">
-                <img :src="$asset+'/image/ui/Search.svg'">
+                <img :src="$asset+'/image/ui/Search.svg'" @click="showSearch = !showSearch">
             </div>
         </div>
         <div class="flex flex-row">
@@ -23,7 +26,7 @@
                 New
             </div>
             <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='Price' ? 'filter_menu_active rounded-full' : '']"  @click="addActive('Price')">
-                Price <img :src="$asset+'/image/ui/DropDown.svg'" class="inline-block -mt-1 ml-1">
+                Price <img v-if="sort == 'desc' || sort == ''" :src="$asset+'/image/ui/Down.svg'" class="inline-block -mt-1 ml-1"><img v-else :src="$asset+'/image/ui/Up.svg'" class="inline-block -mt-1 ml-1">
             </div>
         </div>
         <div class="flex flex-wrap justify-around py-4">
@@ -60,6 +63,15 @@ export default {
             boxes: [],
             isActive:'All',
             sort: '',
+            showSearch: '',
+            search: ''
+        }
+    },
+    watch: {
+        search: {
+            handler() {
+                this.fetchWithName()
+            }
         }
     },
     methods: {
@@ -76,16 +88,27 @@ export default {
             }else{
                  this.sort=''
             }
-            this.fetchData(active)
+            this.fetchData()
         },
-        fetchData (active) {
-            axios.post(`/box?page=${this.page}&price=${this.sort}`)
-                .then((res) => {
-                    // this.boxes = []
-                    this.boxes.push(...res.data.data)
-                    this.lastPage = res.data.pagination.total_pages
-                    this.page++
-                })
+        fetchData () {
+            axios.post(`/box?page=${this.page}`, {
+                price: this.sort
+            })
+            .then((res) => {
+                // this.boxes = []
+                this.boxes.push(...res.data.data)
+                this.lastPage = res.data.pagination.total_pages
+                this.page++
+            })
+        },
+        fetchWithName () {
+            axios.post(`/box`, {
+                name: this.search,
+            })
+            .then((res) => {
+                this.boxes = []
+                this.boxes.push(...res.data.data)
+            })
         }
     },
     beforeMount () {

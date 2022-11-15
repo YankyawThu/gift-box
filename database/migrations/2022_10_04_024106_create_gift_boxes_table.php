@@ -19,6 +19,7 @@ class CreateGiftboxesTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->double('price')->default(0);
+            $table->integer('coin')->default(0);
             $table->boolean('is_hot')->default(0);
             $table->boolean('is_cheap')->default(0);
             $table->integer('sale')->default(0);
@@ -38,3 +39,4 @@ class CreateGiftboxesTable extends Migration
         Schema::dropIfExists('gift_boxes');
     }
 }
+

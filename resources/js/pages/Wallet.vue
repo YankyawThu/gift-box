@@ -10,13 +10,13 @@
                     <img :src="$asset+'/image/ui/Service.svg'">
                 </div>
             </div>
-            <div class="border_grad1_show bg_grad flex justify-between p-5 mb-4 mt-2 before:rounded-xl rounded-xl">
+            <div class="border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl">
                 <div>
                     <div class="text-white text-xs">Balance: (Gold Coins)</div>
-                    <div class="text-2xl text_c2 font-black">9,000,000</div>
+                    <div class="text-2xl text_c2 font-black">{{balance}}</div>
                 </div>
                 <div class="self-end mb-1">
-                    <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 btn_gradient rounded-full text-xs text-white">
+                    <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white">
                         Recharge
                     </Link>
                 </div>
@@ -52,13 +52,15 @@ export default {
         return {
             page: 1,
             lastPage: 1,
-            wallets: []
+            wallets: [],
+            balance: 0
         }
     },
     methods: {
         fetch () {
             axios.get(`/wallet-list?page=${this.page}`)
                 .then((res) => {
+                    this.balance = res.data.balance
                     this.wallets.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
                     this.page++

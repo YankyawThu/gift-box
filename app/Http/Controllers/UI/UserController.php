@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return Inertia::render('User');
+        return Inertia::render('User', ['user' => auth()->user()]);
     }
 
     public function changeAvatar(UserAvatarRequest $request)
@@ -76,7 +76,7 @@ class UserController extends Controller
 
     public function setUp()
     {
-        return Inertia::render('Setup');
+        return Inertia::render('Setup', ['user' => auth()->user()]);
     }
 
     public function moneyToCoin(GoToWalletRequest $request)

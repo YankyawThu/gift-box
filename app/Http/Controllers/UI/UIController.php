@@ -19,6 +19,7 @@ use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\GiftLogService;
 use App\Services\UI\ItemService;
 use App\Services\UI\PrizeService;
+use App\Filters\UI\GiftBoxFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -49,7 +50,7 @@ class UIController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Home');
+        return Inertia::render('Home', ['user' => auth()->user()]);
     }
 
     public function detail($id)
@@ -59,9 +60,9 @@ class UIController extends Controller
         return Inertia::render('BoxDetail', compact('data'));
     }
 
-    public function getAll(Request $request)
+    public function getAll(GiftBoxFilter $filter)
     {
-        $result = $this->boxService->getAll($request);
+        $result = $this->boxService->getAll($filter);
         $data = new HomePageResourceCollection($result);
 
         return response()->json($data);

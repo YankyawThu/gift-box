@@ -26,9 +26,6 @@ class BoxRepository extends BaseRepository
 
     public function getDataWithPaginatedAndFilter($page = null, $request)
     {
-        if ($request->name) {
-            return $this->model->where('name', 'LIKE', "%{$request->name}%")->paginate($page ?? config('enums.itemPerPage'));
-        }
         if ($request->price == 'desc') {
             return $this->model->orderBy('price', 'desc')->paginate($page ?? config('enums.itemPerPage'));
         } elseif ($request->price == 'asc') {
@@ -38,3 +35,4 @@ class BoxRepository extends BaseRepository
         }
     }
 }
+

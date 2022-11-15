@@ -13,7 +13,7 @@
         <div class="border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl">
             <div>
                 <div class="text-white text-xs">Balance: (Gold Coins)</div>
-                <div class="text-2xl text_c2 font-bold">9,000,000</div>
+                <div class="text-2xl text_c2 font-bold">{{ balance }}</div>
             </div>
             <div class="self-end mb-1">
                 <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white">
@@ -73,6 +73,7 @@ export default {
             expendEnd: false,
             incomeStatus: 'in',
             expendStatus: 'out',
+            balance: 0
         }
     },
     methods: {
@@ -82,6 +83,7 @@ export default {
                     type: status
                 }
             }).then(res => {
+                this.balance = res.data.balance
                 if(status == this.incomeStatus) {
                     this.incomes.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages

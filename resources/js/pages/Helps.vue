@@ -13,7 +13,7 @@
         <div v-for="(help,i) in data.data" :key="i" class="help_tip_box border_grad2 text-white before:rounded-xl p-3 my-4">
             <div class="flex justify-between col">
                 <div class="w-full py-1 text-sm">{{help.title}}</div>
-                <div class="self-center"><img :src="$asset+'/image/ui/DropDown.svg'"></div>
+                <div class="ml-2 self-center"><img :src="$asset+'/image/ui/DropDown.svg'"></div>
             </div>
             <div class="content">
                 <div class="divider"></div> 
