@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 Auth::routes();
+
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'UI'], function () {
         Route::get('/otp', [UIController::class, 'otp']);

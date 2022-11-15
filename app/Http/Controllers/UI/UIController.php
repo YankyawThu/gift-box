@@ -112,10 +112,6 @@ class UIController extends Controller
 
         $log = $this->giftLogService->getById($request->orderId);
 
-        $log->payment_method = 1;
-        $log->status = 2;
-        $log->save();
-
         $goodsIds = $this->itemBoxService->getItemsByBoxId($id);
 
         if ($request->times == 1) {
@@ -128,6 +124,8 @@ class UIController extends Controller
             $goodsInfo[] = $this->itemService->getById($itemId);
         }
 
+        $log->status = 2;
+        $log->save();
         $prize = $this->prizeService->store($goodsInfo, $log);
         $this->boxService->increaseSale($id, $request->times);
 
@@ -136,7 +134,7 @@ class UIController extends Controller
 
     public function collect(CollectRequest $request)
     {
-        $this->collectService->collect($request);
+        $this->prizeService->collect($request);
 
         return 'success';
     }

@@ -4106,7 +4106,7 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v("$ " + _vm._s(prize.coinPrice))]), _vm._v(" "), _c("div", {
+    }, [_vm._v("$ " + _vm._s(prize.price))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v("Time : " + _vm._s(prize.time))])])])]);
   }), _vm._v(" "), _c("div", {
@@ -4154,7 +4154,7 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v("$ " + _vm._s(prize.coinPrice))]), _vm._v(" "), _c("div", {
+    }, [_vm._v("$ " + _vm._s(prize.price))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v("Time : " + _vm._s(prize.time))])])])]);
   }), 0)])])]), _vm._v(" "), _c("footer", [_c("bot")], 1), _vm._v(" "), _c("address-modal", {

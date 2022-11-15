@@ -21,6 +21,11 @@ class GiftLog extends Model
         return $this->belongsTo(GiftItemBox::class, 'gift_item_box_id');
     }
 
+    public function giftBox()
+    {
+        return $this->belongsTo(GiftBox::class, 'gift_box_id');
+    }
+
     public function scopeFilter($query, $filters)
     {
         $filters->apply($query);

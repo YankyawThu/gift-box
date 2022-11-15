@@ -31,4 +31,9 @@ class PrizeService
     {
         return $this->prizeRepo->shipmentApply($request);
     }
+
+    public function collect($request)
+    {
+        return $this->prizeRepo->collect($request);
+    }
 }

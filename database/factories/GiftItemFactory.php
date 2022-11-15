@@ -9,7 +9,8 @@ $factory->define(GiftItem::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'image' => 'https://www.adobe.com/content/dam/cc/us/en/creativecloud/file-types/image/raster/tiff-file/thumbnail.jpeg',
-        'price' => $faker->randomNumber(2),
+        'buy_price' => $faker->randomNumber(2),
+        'sell_price' => $faker->randomNumber(2),
         'qty' => $faker->randomDigit(),
     ];
 });

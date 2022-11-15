@@ -17,8 +17,10 @@ class BoxCabinetResource extends JsonResource
     {
         if ($this->status == 'exchange' && $this->exchange_time) {
             $time = dateFormat($this->exchange_time);
+            $price = $this->price;
         } else {
             $time = dateFormat($this->created_at);
+            $price = $this->gift_item_sell_price;
         }
 
         return [
@@ -27,8 +29,7 @@ class BoxCabinetResource extends JsonResource
                 'name' => $this->gift_item_name,
                 'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
             ],
-            'coinPrice' => optional($this->giftLog)->coin_price,
-            'paymentMethod' => optional($this->giftLog)->payment_method,
+            'price' => $price,
             'time' => $time,
         ];
     }
