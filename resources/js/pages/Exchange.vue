@@ -43,7 +43,7 @@
                                 <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
                                     <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                    <div class="text-sm py-1 text_gradient">$ {{prize.coinPrice}}</div>
+                                    <div class="text-sm py-1 text_gradient">$ {{prize.price}}</div>
                                     <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
                                     <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                    <div class="text-sm py-1 text_gradient">$ {{prize.coinPrice}}</div>
+                                    <div class="text-sm py-1 text_gradient">$ {{prize.price}}</div>
                                     <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ export default {
             if(!this.pTabActive && isEnd && !this.recycleEnd) {
                 this.fetch(this.page, this.recycleStatus)
             }
-        }        
+        }
     }
 }
 </script>

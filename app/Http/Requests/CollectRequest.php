@@ -24,8 +24,7 @@ class CollectRequest extends FormRequest
     public function rules()
     {
         return [
-            'boxId' => 'required',
-            'itemId' => 'required|array',
+            'prizeIds' => 'required|array',
         ];
     }
 }

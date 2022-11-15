@@ -2,27 +2,14 @@
 
 namespace App\Repositories\UI;
 
-use App\Models\Collection;
+use App\Models\PendingDeliver;
 use App\Repositories\BaseRepository;
 
 class CollectionRepository extends BaseRepository
 {
-    public function __construct(Collection $model)
+    public function __construct(PendingDeliver $model)
     {
         $this->model = $model;
-    }
-
-    public function collect($request)
-    {
-        foreach ($request->itemId as $v) {
-            $this->model->create([
-                'user_id' => auth()->user()->id,
-                'gift_box_id' => $request->boxId,
-                'gift_item_id' => $v,
-            ]);
-        }
-
-        return true;
     }
 
     public function getCollection($perPage)
