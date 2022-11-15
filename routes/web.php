@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::prefix('shipping-address')->group(function () {
                 Route::get('/get', [ShippingAddressController::class, 'getAll']);
                 Route::get('/', [ShippingAddressController::class, 'index']);
+                Route::get('/create', [ShippingAddressController::class, 'create']);
                 Route::post('/', [ShippingAddressController::class, 'store']);
                 Route::get('/{id}/detail', [ShippingAddressController::class, 'show']);
                 Route::post('/{id}/update', [ShippingAddressController::class, 'update']);
