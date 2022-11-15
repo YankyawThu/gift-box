@@ -24,8 +24,7 @@ class CreateGiftLogsTable extends Migration
             $table->enum('times', [1, 5]);
             $table->string('out_trade_no')->nullable();
             $table->string('transaction_id')->nullable();
-            $table->string('alipay_trade_no')->nullable();
-            $table->enum('payment_method', ['coin', 'wechat', 'alipay'])->nullable();
+            // $table->enum('payment_method', ['coin', 'wechat', 'alipay'])->nullable();
             $table->enum('status', ['unpay', 'unused', 'used', 'refund']);
             $table->timestamp('pay_time')->nullable();
             $table->boolean('backend_read')->default(0);

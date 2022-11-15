@@ -10,6 +10,6 @@ class RechargeListFilter extends Filter
 
     public function amount($value)
     {
-        return $this->builder->where('amounty', '>', "%$value%");
+        return $this->builder->where('amount', $value);
     }
 }

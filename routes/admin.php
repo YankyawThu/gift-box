@@ -16,8 +16,8 @@ use App\Http\Controllers\Admin\RechargeListController;
 use App\Http\Controllers\Admin\RechargeOrderController;
 use App\Http\Controllers\Admin\RuleConfigController;
 use App\Http\Controllers\Admin\SettingController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->group(function () {
     // Login Routes
@@ -43,7 +43,10 @@ Route::name('admin.')->group(function () {
         ]);
         Route::put('itemBoxes/detailUpdate/{id}', [GiftItemBoxController::class, 'detailUpdate'])->name('itemBoxes.detailUpdate');
         Route::resource('category', BoxCategoryController::class);
-        Route::resource('giftLog', GiftLogController::class);
+        Route::resource('giftLog', GiftLogController::class)->only([
+            'index',
+        ]);
+
         Route::get('boxes/{id}/items', [GiftItemBoxController::class, 'getItems'])->name('gift-items');
 
         Route::resource('recharge-lists', RechargeListController::class);
@@ -51,7 +54,7 @@ Route::name('admin.')->group(function () {
         Route::resource('recharge-orders', RechargeOrderController::class);
 
         Route::resource('delivery-orders', DeliveryOrderController::class)->only([
-            'index', 'update'
+            'index', 'update',
         ]);
 
         Route::post('delivery-orders/update-unread', [DeliveryOrderController::class, 'updateUnRead'])->name('delivery-orders.updateUnRead');

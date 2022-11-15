@@ -46,7 +46,8 @@
                     <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
                     <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">Quantity</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">BUY PRICE</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">SELL PRICE</th>
                     <th class="text-xxs font-weight-bolder opacity-7">Delivery Fee</th>
                     <th class="text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
@@ -71,7 +72,10 @@
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->qty }}</p>
                     </td>
                     <td>
-                        <p class="font-weight-bold mb-0 text-sm">{{ $item->price }}</p>
+                        <p class="font-weight-bold mb-0 text-sm">{{ $item->buy_price }}</p>
+                    </td>
+                    <td>
+                        <p class="font-weight-bold mb-0 text-sm">{{ $item->sell_price }}</p>
                     </td>
                     <td>
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->delivery_fee }}</p>
@@ -92,7 +96,7 @@
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                             data-name="{{ $item->name }}" data-qty="{{ $item->qty }}" data-image="{{ $item->image }}"
                             data-image_path="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}"
-                            data-price="{{ $item->price }}" data-toggle="modal" data-target="#edit-item-modal">
+                            data-buy_price="{{ $item->buy_price }}" data-sell_price="{{ $item->sell_price }}" data-toggle="modal" data-target="#edit-item-modal">
                             <span class="btn btn-sm btn-success" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-edit"></i>
                             </span>
