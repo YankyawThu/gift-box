@@ -2,7 +2,7 @@
     <div class="box_detail h-auto py-4">
         <div class="flex justify-between pb-1 mt-5">
             <div class="self-center px-4">
-                <Link href="#" as="button" @click="back()"><img :src="$asset+'/image/ui/Back.svg'"></Link>
+                <Link :href="$url+'/tide-play'" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
@@ -51,15 +51,15 @@
             <div class="flex flex-wrap justify-around my-2 mx-1">
                 <div v-for="(item, i) in data.data.items" :key="i" class="box_detail_item_card">
                     <div class="box_detail_item_card_header">
-                        <img :src="$asset+'/image/ui/supreme.svg'" alt="">
+                        <img :src="itemTag(item.tag)" alt="">
                         <div class="item_precent">0.1 %</div>
                     </div>
                     <div class="box_detail_item_card_body">
-                        <img :src="$asset+'/image/ui/IPhone-13.png'" width="65" height="65" class="m-auto">
+                        <img :src="$asset+item.image" width="65" height="65" class="m-auto">
                     </div>
                     <div class="box_detail_item_card_footer text-center">
-                        <div class="truncate px-2">12312312</div>
-                        <div>({{item.price}})</div>
+                        <div class="truncate px-2" style="font-size:12px;">{{item.name}}</div>
+                        <div class="pb-1" style="font-size:10px;">({{item.price}})</div>
                     </div>
                 </div>
             </div>
@@ -93,15 +93,13 @@ export default {
         back() {
             window.history.back()
         },
-    },
-    computed: {
         itemTag(tag) {
             switch(tag) {
-                case 'supreme': return '/image/ui/First.svg';
-                case 'rare': return '/image/ui/Second.svg';
-                case 'normal': return '/image/ui/Third.svg';
+                case 'supreme': return this.$asset+'/image/ui/First.svg';
+                case 'rare': return this.$asset+'/image/ui/Second.svg';
+                case 'normal': return this.$asset+'/image/ui/Third.svg';
             }
         }
-    }
+    },
 }
 </script>

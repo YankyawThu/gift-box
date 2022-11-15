@@ -12,15 +12,15 @@
         </div>
         <div class="border_grad2 order_card flex flex-col before:rounded-xl m-4">
             <div class="flex justify-between py-4 mx-4 text-sm" @click="changeAvatar()">
-                <div>Avatar</div>
-                <div class="self-center ml-5"><img :src="$asset+'/image/ui/Vector.svg'"></div>
+                <div class="self-center">Avatar</div>
+                <div class="self-center ml-5"><img :src="user.avatar" alt="" class="w-8 h-8 rounded-full inline-block mr-2"><img :src="$asset+'/image/ui/Vector.svg'" class="inline-block"></div>
                 <input type="file" id="avatar" @change="uploadAvatar($event)" hidden>
             </div>
             <div class="divider mx-4"></div>
             <div class="flex justify-between py-4 mx-4 text-sm">
                 <div>Gender</div>
                 <div class="self-center ml-5">
-                    <select name="gender" v-model="gender" @change="changeGender()" class="block apperance-none focus:outline-none bg-transparent">
+                    <select name="gender" v-model="gender" @change="changeGender()" class="block apperance-none focus:outline-none bg-transparent text_c2">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>

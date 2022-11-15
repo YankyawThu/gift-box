@@ -15,15 +15,15 @@
                             <img :src="prize.image" width="50" height="50" class="m-auto">
                         </div>
                         <div class="congratz_item_card_footer text-center">
-                            <div class="truncate px-2">{{prize.itemName}}</div>
-                            <div>($ {{prize.price}})</div>
+                            <div class="truncate px-2" style="font-size:10px;">{{prize.itemName}}</div>
+                            <div class="pb-1" style="font-size:9px;">($ {{prize.price}})</div>
                         </div>
                     </div>
                 </div>
             <!-- </div> -->
             <div class="flex justify-around">
-                <div class=""><button class="btn_two rounded-full py-2 w-32 m-2 text-white">Sell</button></div>
-                <div class=""><button class="btn_one rounded-full py-2 w-32 m-2 text-white">Collect</button></div>
+                <div class=""><button class="btn_two rounded-full py-2 w-32 m-2 text-white" @click="sell()">Sell</button></div>
+                <div class=""><button class="btn_one rounded-full py-2 w-32 m-2 text-white" @click="collect()">Collect</button></div>
             </div>
             <div class="flex justify-center mt-4 text-center text-sm" style="color:#8064E1;">
                 <div class="self-center mr-3">
@@ -36,6 +36,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
     model: {
         prop: 'modelActive',
@@ -49,5 +52,35 @@ export default {
             type: Array
         }
     },
+    data() {
+        return {
+            prizeIds: []
+        }
+    },
+    watch: {
+        prizes: {
+            handler() {
+                this.$props.prizes.forEach(prize => {
+                    this.prizeIds.push(prize.prizeId)
+                });
+            }
+        }
+    },
+    methods: {
+        sell() {
+            axios.post('/recycle', {
+                prizeIds: this.prizeIds
+            }).then(res => {
+                this.$emit('update:model-active', false)
+            })
+        },
+        collect() {
+            axios.post('/box/collect', {
+                prizeIds: this.prizeIds
+            }).then(res => {
+                this.$emit('update:model-active', false)
+            })
+        },
+    }
 }
 </script>
