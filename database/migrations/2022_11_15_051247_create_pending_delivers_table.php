@@ -26,6 +26,7 @@ class CreatePendingDeliversTable extends Migration
             $table->double('gift_item_sell_price')->default(0);
             $table->enum('status', ['bag', 'exchange', 'delivery', 'received'])->nullable();
             $table->timestamp('delivery_time')->nullable();
+            $table->timestamp('exchange_time')->nullable();
             $table->double('delivery_fee')->default(0);
             $table->timestamps();
             $table->softDeletes();

@@ -25,7 +25,7 @@ class OrderListResource extends JsonResource
                 'id' => optional(optional($this->giftPrize)->giftItem)->id,
                 'name' => optional(optional($this->giftPrize)->giftItem)->name,
                 'image' => optional(optional($this->giftPrize)->giftItem)->image ? getFileUrlFromAkoneyaMedia(optional(optional($this->giftPrize)->giftItem)->image) : '',
-                'price' => optional(optional($this->giftPrize)->giftItem)->price,
+                'price' => optional(optional($this->giftPrize)->giftItem)->buy_price,
             ],
         ];
     }

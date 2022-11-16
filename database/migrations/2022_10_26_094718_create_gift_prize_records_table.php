@@ -27,6 +27,9 @@ class CreateGiftPrizeRecordsTable extends Migration
             $table->timestamp('exchange_time')->nullable();
             $table->timestamp('delivery_time')->nullable();
             $table->double('delivery_fee')->default(0);
+            $table->boolean('is_save')->default(0);
+            $table->boolean('is_collect')->default(0);
+
             $table->timestamps();
             $table->softDeletes();
         });

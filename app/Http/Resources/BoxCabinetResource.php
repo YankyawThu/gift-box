@@ -17,20 +17,32 @@ class BoxCabinetResource extends JsonResource
     {
         if ($this->status == 'exchange' && $this->exchange_time) {
             $time = dateFormat($this->exchange_time);
-            $price = $this->price;
+            $price = $this->gift_item_sell_price;
         } else {
             $time = dateFormat($this->created_at);
-            $price = $this->gift_item_sell_price;
+            $price = $this->gift_item_buy_price;
         }
-
-        return [
-            'id' => $this->id,
-            'item' => [
-                'name' => $this->gift_item_name,
-                'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
-            ],
-            'price' => $price,
-            'time' => $time,
-        ];
+        if ($request->status == 1) {
+            return [
+                'id' => $this->id,
+                'item' => [
+                    'name' => $this->gift_item_name,
+                    'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
+                ],
+                'price' => $price,
+                'time' => $time,
+            ];
+        } else {
+            return [
+                'id' => $this->id,
+                'item' => [
+                    'name' => $this->gift_item_name,
+                    'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
+                ],
+                'price' => $price,
+                'time' => $time,
+                'isApprove' => \App\Models\Recycle::where('gift_prize_id', $this->id)->where('gift_item_id', $this->gift_item_id)->pluck('status')[0] == 0 ? false : true,
+            ];
+        }
     }
 }
