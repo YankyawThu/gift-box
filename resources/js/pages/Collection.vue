@@ -16,7 +16,7 @@
                     <div class="p-2 rounded mr-3"><img :src="collect.box.image" width="50" height="50"></div>
                     <div class="self-center">
                         <div class="text-sm truncate text-white w-36">{{collect.box.name}}</div>
-                        <div class="text-sm py-1 text_gradient">$ {{collect.box.coin}}</div>
+                        <div class="text-sm py-1 text_gradient">{{collect.box.coin}} Ks</div>
                         <div class="text-xs text-gray-400">Time : {{collect.time}}</div>
                     </div>
                 </div>

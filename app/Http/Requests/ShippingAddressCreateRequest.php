@@ -28,7 +28,7 @@ class ShippingAddressCreateRequest extends FormRequest
             'phone' => 'required',
             'township' => 'required',
             'address' => 'required',
-            'isDefault' => 'required',
+            // 'isDefault' => 'required',
         ];
     }
 }

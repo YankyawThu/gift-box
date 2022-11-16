@@ -23,7 +23,7 @@ class ShippingAddressService
         $data['phone'] = $request->phone;
         $data['township_id'] = $request->township;
         $data['address'] = $request->address;
-        $data['is_default'] = $request->isDefault;
+        // $data['is_default'] = $request->isDefault;
 
         return $this->addressRepo->create($data);
     }

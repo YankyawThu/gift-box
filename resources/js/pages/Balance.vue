@@ -19,7 +19,7 @@
                 <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white">
                     Recharge
                 </Link>
-                <Link href="#" as="button" class="px-4 py-2 ml-1 btn_gradient rounded-full text-xs text-white">
+                <Link :href="$url+'/user/wallet'" as="button" class="px-4 py-2 ml-1 btn_gradient rounded-full text-xs text-white">
                     Go to Wallet
                 </Link>
             </div>

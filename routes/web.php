@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/change-gender', [UserController::class, 'changeGender']);
             Route::post('/change-username', [UserController::class, 'changeUserName']);
             Route::post('/change-phone', [UserController::class, 'changePhone']);
+            Route::get('/change-password', [UserController::class, 'changePasswordIndex']);
             Route::post('/change-password', [UserController::class, 'changePassword']);
 
             Route::get('/balance', [MoneyRecordController::class, 'index']);
@@ -66,7 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
             });
 
             Route::get('/set-up', [UserController::class, 'setUp']);
-            Route::any('money-to-coin', [UserController::class, 'moneyToCoin']);
+            Route::get('/wallet', [UserController::class, 'walletIndex']);
+            Route::any('go-to-wallet', [UserController::class, 'transferWallet']);
         });
 
         Route::get('/tide-play', [UIController::class, 'tidePlay']);

@@ -14,6 +14,7 @@ use App\Http\Resources\CollectionResourceCollection;
 use App\Http\Resources\WalletListResourceCollection;
 use App\Services\UI\CollectionService;
 use App\Services\UI\UserService;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -79,9 +80,9 @@ class UserController extends Controller
         return Inertia::render('Setup', ['user' => auth()->user()]);
     }
 
-    public function moneyToCoin(GoToWalletRequest $request)
+    public function transferWallet(GoToWalletRequest $request)
     {
-        $this->userService->moneyToCoin($request);
+        $this->userService->transferWallet($request);
 
         return response()->json(['msg' => 'success']);
     }
@@ -89,5 +90,15 @@ class UserController extends Controller
     public function getWallet()
     {
         return response()->json(new WalletListResourceCollection($this->userService->getWallet()));
+    }
+
+    public function walletIndex()
+    {
+        return Inertia::render('TransferWallet', ['balance' => auth()->user()->money]);
+    }
+
+    public function changePasswordIndex()
+    {
+        return Inertia::render('ChangePassword');
     }
 }

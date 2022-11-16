@@ -62,17 +62,12 @@ class UserRepository extends BaseRepository
         return $user->update(['password' => Hash::make($request->newPassword)]);
     }
 
-    public function increaseCoin($coin)
-    {
-        return $this->model->where('id', auth()->user()->id)->increment('coin', $coin);
-    }
-
     public function decreaseMoney($amount)
     {
         return $this->model->where('id', auth()->user()->id)->decrement('money', $amount);
     }
 
-    public function moneyToCoin($request)
+    public function transferWallet($request)
     {
         $coin_before = auth()->user()->coin;
 
@@ -80,14 +75,6 @@ class UserRepository extends BaseRepository
         if ($money_before < $request->amount) {
             throw new BadRequestException('Insufficient balance!');
         }
-        $this->increaseCoin($request->amount);
-        CoinRecord::create([
-            'user_id' => auth()->user()->id,
-            'before' => $coin_before,
-            'after' => auth()->user()->coin,
-            'coin' => $request->amount,
-            'type' => 'from_balance',
-        ]);
         $this->decreaseMoney($request->amount);
         MoneyRecord::create([
             'user_id' => auth()->user()->id,

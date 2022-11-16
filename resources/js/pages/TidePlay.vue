@@ -39,7 +39,7 @@
                 </div>
                 <div class="text-left text-white py-1 truncate" style="font-size:12px;">{{box.name}}</div>
                 <div class="flex justify-between mb-3">
-                    <div class="text-xs" style="color: #FFC042;">$ {{box.price}}</div>
+                    <div class="text-xs" style="color: #FFC042;">{{box.price}} Ks</div>
                     <div class="text-gray-300" style="font-size:10px;">{{ box.items.length }} products</div>
                 </div>
             </Link>

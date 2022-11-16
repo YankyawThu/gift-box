@@ -7,7 +7,7 @@
                 </div>
             </Link>
             <div class="font-bold text-xl text-white self-center">
-                Add Shipping Address
+                Edit Shipping Address
             </div>
         </div>
         <div class="px-4">
@@ -58,8 +58,8 @@
                 </div>
             </div>
         </div>
-        <div class="absolute w-full bottom-10 px-4">
-            <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Add</div>
+         <div class="absolute w-full bottom-10 px-4">
+            <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Update</div>
         </div>
     </div>
 </template>
@@ -76,6 +76,9 @@ export default {
     props: {
         zones: {
             type: Object
+        },
+        data: {
+            type: Object
         }
     },
     data() {
@@ -83,10 +86,10 @@ export default {
             zone: '',
             townships: [],
             address: {
-                name: '',
-                phone: '',
-                township: '',
-                address: ''
+                name: this.$props.data.data.username,
+                phone: this.$props.data.data.phone,
+                township: this.$props.data.data.township,
+                address: this.$props.data.data.address
             }
         }
     },

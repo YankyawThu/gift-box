@@ -30,31 +30,28 @@
             <div class="flex justify-between py-4 mx-4 text-sm">
                 <div>Username</div>
                 <div class="self-center ml-5">
-                    <span v-show="!nameVisible" class="text_c2" @click="nameVisible = !nameVisible">{{name}}</span>
-                    <input v-show="nameVisible" type="text" v-model="name" @mouseleave="changeUsername()" class="bg-transparent text_c2 focus:outline-none text-right" autofocus>
+                    <span class="bg-transparent text_c2 focus:outline-none" @input="nameText" contenteditable>{{cName}}</span>
                 </div>
             </div>
             <div class="divider mx-4"></div>
             <div class="flex justify-between py-4 mx-4 text-sm">
                 <div>Nickname</div>
                 <div class="self-center ml-5 text_c2">
-                    <span v-show="!nicknameVisible" class="text_c2" @click="nicknameVisible = !nicknameVisible">{{nickname}}</span>
-                    <input v-show="nicknameVisible" type="text" v-model="nickname" @mouseleave="changeNickname()" class="bg-transparent text_c2 focus:outline-none text-right" autofocus>
+                    <span class="bg-transparent text_c2 focus:outline-none" @input="nickNameText" contenteditable>{{cNickname}}</span>
                 </div>
             </div>
             <div class="divider mx-4"></div>
             <div class="flex justify-between py-4 mx-4 text-sm">
                 <div>Phone</div>
                 <div class="self-center ml-5 text_c2">
-                    <span v-show="!phoneVisible" class="text_c2" @click="phoneVisible = !phoneVisible">{{phone}}</span>
-                    <input v-show="phoneVisible" type="text" v-model="phone" @mouseleave="changePhone()" class="bg-transparent text_c2 focus:outline-none text-right" autofocus>
+                    <span class="bg-transparent text_c2 focus:outline-none" @input="phoneText" contenteditable>{{cPhone}}</span>
                 </div>
             </div>
             <div class="divider mx-4"></div>
-            <div class="flex justify-between py-4 mx-4 text-sm">
-                <div>Change Password</div>
+            <Link :href="$url+'/user/change-password'" method="get" class="flex justify-between py-4 mx-4 text-sm">
+                <div>Reset Password</div>
                 <div class="self-center ml-5"><img :src="$asset+'/image/ui/Vector.svg'"></div>
-            </div>
+            </Link>
         </div>
         <div class="absolute w-full bottom-16 px-4">
             <Link :href="$url+'/logout'" method="post" as="button" class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="logout()">Sign Out</Link>
@@ -79,16 +76,13 @@ export default {
     data() {
         return {
             gender: this.user.gender,
+            cName: this.user.name,
+            cNickname:this.user.nickname,
+            cPhone:this.user.phone,
             name: this.user.name,
             nickname: this.user.nickname,
             phone: this.user.phone,
-            nameVisible: false,
-            nicknameVisible: false,
-            phoneVisible: false
         }
-    },
-    watch: {
-
     },
     methods: {
         logout() {
@@ -120,6 +114,7 @@ export default {
             })
         },
         changeUsername() {
+            console.log(this.name)
             axios.post('/user/change-username', {
                 name: this.name
             }).then(res => {
@@ -139,7 +134,25 @@ export default {
             }).then(res => {
                 location.reload()
             })
+        },
+        nameText(e) {
+            this.name = e.target.innerText
+        },
+        nickNameText(e) {
+            this.nickname = e.target.innerText
+        },
+        phoneText(e) {
+            this.phone = e.target.innerText
         }
+    },
+    mounted() {
+        window.addEventListener('keypress', event => {
+            if(event.key == 'Enter') {
+                this.changeUsername()
+                this.changeNickname()
+                this.changePhone()
+            }
+        })
     }
 }
 </script>

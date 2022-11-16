@@ -56,7 +56,8 @@ class ShippingAddressController extends Controller
      */
     public function show($id)
     {
-        return new ShippingAddressDetailResource($this->addressService->getById($id));
+        $data = new ShippingAddressDetailResource($this->addressService->getById($id));
+        return Inertia::render('EditAddress', compact('data'));
     }
 
     /**
@@ -91,6 +92,7 @@ class ShippingAddressController extends Controller
      */
     public function destroy($id)
     {
-        return $this->addressService->destroy($id);
+        $this->addressService->destroy($id);
+        return $this->index();
     }
 }

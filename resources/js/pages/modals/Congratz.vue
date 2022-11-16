@@ -16,7 +16,7 @@
                         </div>
                         <div class="congratz_item_card_footer text-center">
                             <div class="truncate px-2" style="font-size:10px;">{{prize.itemName}}</div>
-                            <div class="pb-1" style="font-size:9px;">($ {{prize.price}})</div>
+                            <div class="pb-1" style="font-size:9px;">({{prize.price}} Ks)</div>
                         </div>
                     </div>
                 </div>

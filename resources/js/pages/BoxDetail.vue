@@ -27,14 +27,14 @@
                 <Link :href="$url+'/box/'+data.data.id+'/open/1'" as="button">
                     <img :src="$asset+'/image/ui/GetOneButton.svg'">
                     <div class="get_one font-semibold">Get One</div>
-                    <div class="get_one_price top-10 right-14">$ {{data.data.price}}</div>
+                    <div class="get_one_price top-10 right-14">{{data.data.price}} Ks</div>
                 </Link>
             </div>
             <div class="relative">
                 <Link :href="$url+'/box/'+data.data.id+'/open/5'" as="button">
                     <img :src="$asset+'/image/ui/GetAllButton.svg'">
                     <div class="get_one_right font-semibold">Get Five</div>
-                    <div class="get_one_price_right top-10 right-16">$ {{data.data.price * 5}}</div>
+                    <div class="get_one_price_right top-10 right-16">{{data.data.price * 5}} Ks</div>
                 </Link>
             </div>
         </div>

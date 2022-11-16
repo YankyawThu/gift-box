@@ -30,7 +30,7 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">$ {{prize.item.price}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
                                 <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                             </div>
                         </div>
@@ -143,23 +143,23 @@ export default {
         fetchDelivered() {
             this.reset()
             this.tab = 1
-            if(this.toBeDelivered.length == 0) {
+            // if(this.toBeDelivered.length == 0) {
                 this.fetch(this.page, this.deliverStatus)
-            }
+            // }
         },
         fetchGoing() {
             this.reset()
             this.tab = 2
-            if(this.onGoing.length == 0) {
+            // if(this.onGoing.length == 0) {
                 this.fetch(this.page, this.goingStatus)
-            }
+            // }
         },
         fetchCompleted() {
             this.reset()
             this.tab = 3
-            if(this.completed.length == 0) {
+            // if(this.completed.length == 0) {
                 this.fetch(this.page, this.completeStatus)
-            }
+            // }
         },
         back() {
             window.history.back()

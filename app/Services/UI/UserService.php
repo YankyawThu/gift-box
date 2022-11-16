@@ -49,9 +49,9 @@ class UserService
         return $this->userRepo->changePassword($request, $user);
     }
 
-    public function moneyToCoin($request)
+    public function transferWallet($request)
     {
-        return $this->userRepo->moneyToCoin($request);
+        return $this->userRepo->transferWallet($request);
     }
 
     public function getWallet()
