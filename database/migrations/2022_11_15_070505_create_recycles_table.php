@@ -16,6 +16,7 @@ class CreateRecyclesTable extends Migration
         Schema::create('recycles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('gift_prize_id');
             $table->unsignedBigInteger('gift_box_id');
             $table->unsignedBigInteger('gift_log_id');
             $table->unsignedBigInteger('gift_item_id');
