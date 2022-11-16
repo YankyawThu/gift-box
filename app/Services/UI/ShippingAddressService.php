@@ -2,6 +2,7 @@
 
 namespace App\Services\UI;
 
+use App\Models\Township;
 use App\Repositories\UI\ShippingAddressRepository;
 
 class ShippingAddressService
@@ -48,5 +49,10 @@ class ShippingAddressService
     public function destroy($id)
     {
         return $this->addressRepo->delete($id);
+    }
+
+    public function getTownshipByZoneId($zone)
+    {
+        return Township::where('zone_id', $zone)->get();
     }
 }

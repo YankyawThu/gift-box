@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ShippingAddressCreateRequest;
 use App\Http\Resources\ShippingAddressDetailResource;
 use App\Http\Resources\ShippingAddressResource;
+use App\Http\Resources\ZoneResource;
 use App\Services\UI\ShippingAddressService;
 use Inertia\Inertia;
 
@@ -19,6 +20,7 @@ class ShippingAddressController extends Controller
     public function index()
     {
         $data = ShippingAddressResource::collection($this->addressService->getAllByAuth());
+
         return Inertia::render('Address', compact('data'));
     }
 
@@ -34,7 +36,9 @@ class ShippingAddressController extends Controller
      */
     public function create()
     {
-        return Inertia::render('CreateAddress');
+        $zones = ZoneResource::collection(config('zones.zoneSelections'));
+
+        return Inertia::render('CreateAddress', compact('zones'));
     }
 
     /**
@@ -57,7 +61,10 @@ class ShippingAddressController extends Controller
     public function show($id)
     {
         $data = new ShippingAddressDetailResource($this->addressService->getById($id));
-        return Inertia::render('EditAddress', compact('data'));
+
+        $zones = ZoneResource::collection(config('zones.zoneSelections'));
+
+        return Inertia::render('EditAddress', compact('data', 'zones'));
     }
 
     /**
@@ -93,6 +100,12 @@ class ShippingAddressController extends Controller
     public function destroy($id)
     {
         $this->addressService->destroy($id);
+
         return $this->index();
+    }
+
+    public function getTownshipByZoneId($zoneId)
+    {
+        return response()->json($this->addressService->getTownshipByZoneId($zoneId));
     }
 }
