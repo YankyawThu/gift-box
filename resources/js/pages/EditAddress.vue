@@ -98,7 +98,7 @@ export default {
             window.history.back()
         },
         changeZone() {
-            axios.get(`/zones/${this.zone}/townships`)
+            axios.get(`/user/zones/${this.zone}/townships`)
                 .then(res => {
                     this.townships = []
                     this.townships = res.data

@@ -499,3 +499,22 @@ body {
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
+.rc-anchor-normal {
+    width: 251px !important;
+}
+
+.rc-anchor-normal .rc-anchor-checkbox-label {
+    width: 100px !important;
+}
+
+.rc-anchor-normal .rc-anchor-content {
+    width: 155px !important;
+}
+
+.rc-anchor-normal .rc-anchor-pt {
+    right: 51px !important;
+}
+
+.rc-anchor-normal {
+    width: 248px !important;
+}

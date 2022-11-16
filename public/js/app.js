@@ -2411,7 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeZone: function changeZone() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/zones/".concat(this.zone, "/townships")).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/user/zones/".concat(this.zone, "/townships")).then(function (res) {
         _this.townships = [];
         _this.townships = res.data;
       });
@@ -2476,7 +2476,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeZone: function changeZone() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/zones/".concat(this.zone, "/townships")).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/user/zones/".concat(this.zone, "/townships")).then(function (res) {
         _this.townships = [];
         _this.townships = res.data;
       });

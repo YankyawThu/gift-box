@@ -71,6 +71,6 @@ class LoginController extends Controller
 
     public function otp()
     {
-        return view('auth.otp',['msg' => 'Your phone number is not activated yet.']);
+        return view('auth.otp',['phone' => auth()->user()->phone]);
     }
 }

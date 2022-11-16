@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,11 +14,20 @@ use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
-    protected $redirectTo = '/login';
+    // protected $redirectTo = '/otp';
 
-    public function showRegistrationForm()
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth.register');
+    // }
+
+    use RegistersUsers;
+
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function __construct()
     {
-        return view('auth.register');
+        // $this->middleware('guest');
     }
 
     protected function validator(array $data)
@@ -28,15 +39,15 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
+    // public function register(Request $request)
+    // {
+    //     $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+    //     event(new Registered($user = $this->create($request->all())));
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
-    }
+    //     return $this->registered($request, $user)
+    //         ?: redirect($this->redirectPath());
+    // }
 
     protected function create(array $data)
     {
@@ -50,21 +61,21 @@ class RegisterController extends Controller
             'name' => $data['username'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
-            'status' => 'active',
+            'status' => 'inactive',
         ]);
     }
 
-    protected function registered(Request $request, $user)
-    {
-        // we can send users account formation email here or anything we want with users even fire that Registered event created earlier
-    }
+    // protected function registered(Request $request, $user)
+    // {
+    //     // we can send users account formation email here or anything we want with users even fire that Registered event created earlier
+    // }
 
-    protected function redirectPath()
-    {
-        if (method_exists($this, 'redirectTo')) {
-            return $this->redirectTo();
-        }
+    // protected function redirectPath()
+    // {
+    //     if (method_exists($this, 'redirectTo')) {
+    //         return $this->redirectTo();
+    //     }
 
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/login';
-    }
+    //     return property_exists($this, 'redirectTo') ? $this->redirectTo : '/otp';
+    // }
 }
