@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive"  style="overflow-x:auto;">
     <table class="align-items-center mb-0 table">
         <thead>
             <tr>
@@ -101,8 +101,14 @@
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">
-                        <img src="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" class="me-3"
-                        width="50" height="50">
+                        {{-- <img src="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" class="me-3"
+                        width="50" height="50"> --}}
+                        @if (optional($item->giftItem)->image)
+                            <img src="{{ getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image) }}" class="me-3" width="70"
+                            height="70"> ">
+                        @endif
+
+
                     </p>
                 </td>
                 <td>
@@ -139,7 +145,8 @@
                         data-goods-name="{{ optional($item->giftItem)->name }}" data-name={{ optional($item->user)->name
                         }}
                         data-image="{{ optional($item->giftItem)->image }}"
-                        data-image-path="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}"
+                        {{-- data-image-path="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" --}}
+                        data-image-path={{getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image)}}
                         data-phone="{{ optional($item->user)->phone }}"
                         data-address="{{ optional($item->address)->address }}" data-toggle="modal"
                         data-target="#edit-delivery-order-modal">

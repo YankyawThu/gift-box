@@ -29,8 +29,7 @@ class BannerUpdateRequest extends FormRequest
             'type' => 'required',
             'value' => 'nullable',
             'status' => 'required',
-            'sort' => 'required|numeric',
-
+            'sort' => 'nullable|numeric',
         ];
     }
 }

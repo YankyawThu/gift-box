@@ -16,7 +16,7 @@ class FileController extends Controller
             switch ($model) {
                 case 'DeliveryOrder':
                     $query = DeliveryOrder::find($id);
-                    $path  = $query->giftItem->image;
+                    $path = optional($query->giftItem)->image;
                     break;
 
                 case 'GiftItem':
@@ -28,14 +28,16 @@ class FileController extends Controller
                     break;
 
                 default:
-                    # code...
+                    // code...
                     break;
             }
         } else {
             $path = request('path');
         }
-
-        $path = storage_path("app/" . $path);
+        // dd($path);
+        if ($path) {
+            $path = storage_path('app/'.$path);
+        }
 
         if (!FacadesFile::exists($path)) {
             abort(404);

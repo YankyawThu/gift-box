@@ -101,8 +101,12 @@
                     </td>
                     <td>
                         <p class="font-weight-bold mb-0 text-sm">
-                            <img src="{{ route('admin.get-file', ['model' => 'Banner', 'id' => $item->id]) }}"
-                                class="me-3" width="50" height="50">
+                            {{-- <img src="{{ route('admin.get-file', ['model' => 'Banner', 'id' => $item->id]) }}"
+                                class="me-3" width="50" height="50"> --}}
+                                @if ($item->image)
+                                    <img src="{{ getFileUrlFromAkoneyaMedia($item->image) }}" class="me-3" width="70"
+                                    height="70">
+                                @endif
                         </p>
                     </td>
                     <td>
@@ -123,8 +127,10 @@
                             <i class="fa fa-arrows-alt"></i>
                         </span>
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
-                            data-image="{{ $item->image }}" data-image-path="{{ route(" admin.get-file", ['model'=>
-                            'Banner', 'id' => $item->id]) }}"
+                            data-image="{{ $item->image }}"
+                            {{-- data-image-path="{{ route(" admin.get-file", ['model'=>
+                            'Banner', 'id' => $item->id]) }}" --}}
+                            data-image-path={{getFileUrlFromAkoneyaMedia($item->image)}}
                             data-place="{{ $item->place }}" data-type="{{ array_search($item->type,
                             config("config.bannerType")) }}"
                             data-value="{{ $item->value }}" data-status="{{ $item->status }}"

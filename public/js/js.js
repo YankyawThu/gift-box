@@ -470,9 +470,11 @@ $(function() {
         var phone = button.data('phone')
         var address = button.data('address')
         var image = button.data('image')
+        var imagePath=''
         if (image){
             imagePath = button.data('image-path')
         }
+
 
         modal = $(this)
         modal.find('.modal-body #id').val(id)
@@ -570,6 +572,7 @@ $(function() {
         var image = button.data('image')
         var sort = button.data('sort')
         var value = button.data('value')
+        var imagePath=''
         if (image){
             imagePath = button.data('image-path')
         }
@@ -579,7 +582,7 @@ $(function() {
         modal.find('.modal-body #image').val(image)
         modal.find('.modal-body #sort').val(sort)
         modal.find('.modal-body #value').val(value)
-        modal.find('.modal-body #edit-banner-img-url').attr("src", imagePath)
+        // modal.find('.modal-body #edit-banner-img-url').attr("src", imagePath)
         if (status == 'normal') {
             document.querySelectorAll('#radio-edit .btn-secondary')[0].classList.add("active")
             modal.find('.modal-body #status_normal').prop("checked", true);
