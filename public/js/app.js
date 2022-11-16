@@ -2411,9 +2411,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeZone: function changeZone() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/zones/".concat(this.zone, "/townships")).then(function (res) {
         _this.townships = [];
-        _this.townships = res.data.data;
+        _this.townships = res.data;
       });
     },
     submit: function submit() {
@@ -2465,7 +2465,7 @@ __webpack_require__.r(__webpack_exports__);
       address: {
         name: this.$props.data.data.username,
         phone: this.$props.data.data.phone,
-        township: this.$props.data.data.township,
+        township: this.$props.data.data.township.id,
         address: this.$props.data.data.address
       }
     };
@@ -2476,13 +2476,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeZone: function changeZone() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/zones/".concat(this.zone, "/townships")).then(function (res) {
         _this.townships = [];
-        _this.townships = res.data.data;
+        _this.townships = res.data;
       });
     },
     submit: function submit() {
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/user/shipping-address', {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/user/shipping-address/".concat(this.$props.data.data.id, "/update"), {
         username: this.address.name,
         phone: this.address.phone,
         township: this.address.township,
@@ -4457,7 +4457,7 @@ var render = function render() {
         return _vm.changeZone();
       }]
     }
-  }, _vm._l(_vm.zones, function (zone, i) {
+  }, _vm._l(_vm.zones.data, function (zone, i) {
     return _c("option", {
       key: i,
       domProps: {
@@ -4491,7 +4491,7 @@ var render = function render() {
       domProps: {
         value: township.id
       }
-    }, [_vm._v(_vm._s(_vm.zone.name))]);
+    }, [_vm._v(_vm._s(township.name))]);
   }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
   }, [_vm._m(4), _vm._v(" "), _c("div", {
@@ -4698,7 +4698,7 @@ var render = function render() {
         return _vm.changeZone();
       }]
     }
-  }, _vm._l(_vm.zones, function (zone, i) {
+  }, _vm._l(_vm.zones.data, function (zone, i) {
     return _c("option", {
       key: i,
       domProps: {
@@ -4732,7 +4732,7 @@ var render = function render() {
       domProps: {
         value: township.id
       }
-    }, [_vm._v(_vm._s(_vm.zone.name))]);
+    }, [_vm._v(_vm._s(township.name))]);
   }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
   }, [_vm._m(4), _vm._v(" "), _c("div", {

@@ -11,14 +11,14 @@
             </div>
         </div>
         <div class="px-4">
-            <div class="mb-5">
-                <div class="py-2">
-                    <label for="" class="text_c1">Receiver</label>
+                <div class="mb-5">
+                    <div class="py-2">
+                        <label for="" class="text_c1">Receiver</label>
+                    </div>
+                    <div class="border_grad2 before:rounded-xl">
+                        <input type="text" v-model="address.name" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Receiver Name">
+                    </div>
                 </div>
-                <div class="border_grad2 before:rounded-xl">
-                    <input type="text" v-model="address.name" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Receiver Name">
-                </div>
-            </div>
             <div class="mb-5">
                 <div class="py-2">
                     <label for="" class="text_c1">Phone Number</label>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="zone" @change="changeZone()" class="p-4 w-full bg-transparent text-white focus:outline-none">
-                            <option :value="zone.id" v-for="(zone,i) in zones" :key="i">{{zone.name}}</option>
+                            <option :value="zone.id" v-for="(zone,i) in zones.data" :key="i">{{zone.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="address.township" class="p-4 w-full bg-transparent text-white focus:outline-none">
-                            <option :value="township.id" v-for="(township,i) in townships" :key="i">{{zone.name}}</option>
+                            <option :value="township.id" v-for="(township,i) in townships" :key="i">{{township.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ export default {
             window.history.back()
         },
         changeZone() {
-            axios.get('/')
+            axios.get(`/zones/${this.zone}/townships`)
                 .then(res => {
                     this.townships = []
-                    this.townships = res.data.data
+                    this.townships = res.data
                 })
         },
         submit() {

@@ -34,7 +34,7 @@
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="zone" @change="changeZone()" class="p-4 w-full bg-transparent text-white focus:outline-none">
-                            <option :value="zone.id" v-for="(zone,i) in zones" :key="i">{{zone.name}}</option>
+                            <option :value="zone.id" v-for="(zone,i) in zones.data" :key="i">{{zone.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="address.township" class="p-4 w-full bg-transparent text-white focus:outline-none">
-                            <option :value="township.id" v-for="(township,i) in townships" :key="i">{{zone.name}}</option>
+                            <option :value="township.id" v-for="(township,i) in townships" :key="i">{{township.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ export default {
             address: {
                 name: this.$props.data.data.username,
                 phone: this.$props.data.data.phone,
-                township: this.$props.data.data.township,
+                township: this.$props.data.data.township.id,
                 address: this.$props.data.data.address
             }
         }
@@ -98,14 +98,14 @@ export default {
             window.history.back()
         },
         changeZone() {
-            axios.get('/')
+            axios.get(`/zones/${this.zone}/townships`)
                 .then(res => {
                     this.townships = []
-                    this.townships = res.data.data
+                    this.townships = res.data
                 })
         },
         submit() {
-            axios.post('/user/shipping-address', {
+            axios.post(`/user/shipping-address/${this.$props.data.data.id}/update`, {
                 username: this.address.name,
                 phone: this.address.phone,
                 township: this.address.township,
