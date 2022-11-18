@@ -18,7 +18,7 @@
                 <img src="{{asset('/image/ui/Back2.svg')}}" class="py-3 m-auto" alt="" onclick="window.history.back()">
             </div>
             <div class="text_c2 text-2xl font-bold py-2 mt-10">OTP Verification</div>
-            <div class="text-white py-2">Enter the verification code we just sent on your {{$phone}}.</div>
+            <div class="text-white py-2">Enter the verification code we just sent on your <span class="text_c2">{{$phone}}</span>.</div>
             <form action="{{ route('verifyOTP') }}" method="GET" id="verifyOTP"> 
                 <div class="flex justify-center mt-14">
                     <div class="border_grad2 before:rounded-2xl mx-1">
