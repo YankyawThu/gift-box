@@ -132,13 +132,18 @@
             }
         }
         function verify() {
-            coderesult.confirm(code).then(function (result) {
-                var user = result.user
-                document.getElementById('verifyOTP').submit()
-            }).catch(function (error) {
+            if(typeof coderesult !== 'undefined') {
+                coderesult.confirm(code).then(function (result) {
+                    var user = result.user
+                    document.getElementById('verifyOTP').submit()
+                }).catch(function (error) {
+                    document.getElementById('incorrectOTP').style.display = 'block'
+                    console.log('error OTP verify')
+                })
+            }
+            else {
                 document.getElementById('incorrectOTP').style.display = 'block'
-                console.log('error OTP verify')
-            })
+            }
         }
     </script>
 </body>

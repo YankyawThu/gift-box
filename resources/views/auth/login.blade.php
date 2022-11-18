@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/tailwindcss.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
+    <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
     <title>Login</title>
 </head>
 
@@ -21,12 +22,16 @@
             <form role="form" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-3">
-                    <div class="border_grad1 flex before:rounded-3xl">
-                        <div class="flex-none self-center ml-3 w-10">
-                            <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
+                    <div class="flex w-full">
+                        <div class="border_grad1 flex before:rounded-3xl w-24 mr-2">
+                            <select id="codeSelect" name="code" class="apperance-none focus:outline-none bg-transparent w-20 text_c1 mx-2">
+                                @foreach (config('countryCodes') as $code)
+                                    <option value="{{ $code['dial_code'] }}">{{ $code['dial_code'] }} ({{ $code['name'] }})</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="grow">
-                            <input class="input_placeholder w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" value="09123123123" required>
+                        <div class="grow flex-none border_grad1 before:rounded-3xl">
+                            <input class="input_placeholder w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" value="123123123" required>
                         </div>
                     </div>
                     @if ($errors->has('phone'))
@@ -72,5 +77,20 @@
             </div>
         </div>
     </div>
+    <script>
+        var val = $("#codeSelect").val();
+        var lbl = $("#codeSelect option:selected").text();
+        $("#codeSelect").prepend("<option value='" + val + "' data-value='selected' selected hidden>" + val + "</option>");
+
+        $("#codeSelect").on('change', function() {
+            var val = $("#codeSelect").val();
+            var lbl = $("#codeSelect option:selected").text();
+            
+            $("#codeSelect option[data-value='selected']").attr('value', val);
+            $("#codeSelect option[data-value='selected']").text(val);
+            
+            $("#codeSelect").val(val);
+        });
+    </script>
 </body>
 </html>

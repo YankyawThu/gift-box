@@ -518,3 +518,9 @@ body {
 .rc-anchor-normal {
     width: 248px !important;
 }
+
+option:before {
+    content: "(" attr(value) ")";
+    display: inline-block;
+    margin-right: .5em; 
+ }

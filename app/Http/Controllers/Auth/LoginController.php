@@ -41,12 +41,22 @@ class LoginController extends Controller
         // $this->middleware('guest')->except('logout');
     }
 
-    public function authenticated(Request $request)
+    // public function login(Request $request)
+    // {
+    //     dd($request->phone = $request->code.$request->phone);
+    // }
+
+    public function credentials(Request $request)
     {
-        if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
-            // The user is active, not suspended, and exists.
-            return redirect()->route('box');
-        }
+        return $request->only($this->username(), 'password');
+    }
+
+    public function attemptLogin(Request $request)
+    {
+        return Auth::attempt([
+                'phone' => $request->code.$request->phone,
+                'password' => $request->password,
+        ]);
     }
 
     public function logout(Request $request)
@@ -78,5 +88,10 @@ class LoginController extends Controller
     {
         User::where('id' , auth()->user()->id)->update(['status' => 'active' ]);
         return redirect()->route('box');
+    }
+
+    public function redirectPath()
+    {
+        return route('box');
     }
 }
