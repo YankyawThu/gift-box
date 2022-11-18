@@ -15,7 +15,7 @@
                 Create New Password
             </div>
             <div class="text-white text-sm my-5">
-                Your new password must be different from previous used passwords.
+                Your password must be strong and can't guess it easily.
             </div>
         </div>
         <div>

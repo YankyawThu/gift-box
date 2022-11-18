@@ -4258,7 +4258,7 @@ var staticRenderFns = [function () {
     staticClass: "text_c2 text-2xl mt-10 mb-3"
   }, [_vm._v("\n            Create New Password\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "text-white text-sm my-5"
-  }, [_vm._v("\n            Your new password must be different from previous used passwords.\n        ")])]);
+  }, [_vm._v("\n            Your password must be strong and can't guess it easily.\n        ")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

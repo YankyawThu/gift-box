@@ -41,11 +41,6 @@ class LoginController extends Controller
         // $this->middleware('guest')->except('logout');
     }
 
-    // public function login(Request $request)
-    // {
-    //     dd($request->phone = $request->code.$request->phone);
-    // }
-
     public function credentials(Request $request)
     {
         return $request->only($this->username(), 'password');
