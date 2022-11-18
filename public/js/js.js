@@ -701,39 +701,3 @@ $(function() {
 })
 
 
-$(".togBtn").on('change', function(e) {
-    var status = $(this).prop('checked') == true ? 1 : 0;
-    console.log($(e).data('id'));
-    // var button = $(e.relatedTarget)
-    // alert(button.data('id'))
-    //     var id = button.data('id')
-
-    // var id = $(this).data('id');
-    // alert(id)
-    var url = "{{ route('admin.boxes.update',"+id+") }}"
-    $.ajax({
-        type: "PUT",
-        dataType: "json",
-        url: url,
-        data: {
-            'status': status,
-            'id': id
-        },
-        success: function(data) {
-            console.log(data);
-            toastr.options.closeButton = true;
-            toastr.options.closeMethod = 'fadeOut';
-            toastr.options.fadeOut = 100;
-            toastr.options.fadeIn = 100;
-            toastr.options.closeDuration = 100;
-            if (data.success) {
-                toastr.success(data.success);
-            }
-            else{
-                setInterval('location.reload()', 1000);
-                toastr.error(data.error);
-            }
-        }
-    });
-});
-

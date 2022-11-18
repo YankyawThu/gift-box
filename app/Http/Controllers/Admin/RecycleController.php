@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\UI\RecycleOrderFilter;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\RecycleService;
 use Illuminate\Http\Request;
@@ -13,9 +14,9 @@ class RecycleController extends Controller
         $this->recycleService = $recycleService;
     }
 
-    public function index()
+    public function index(RecycleOrderFilter $filter)
     {
-        $data = $this->recycleService->getAll();
+        $data = $this->recycleService->getAll($filter);
 
         return view('admin.recycle.index', compact('data'));
     }

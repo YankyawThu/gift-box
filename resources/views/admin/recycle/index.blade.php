@@ -1,6 +1,41 @@
 @extends('admin.layouts.content')
 
 @section('content-detail')
+    <div class="d-flex justify-content-between content_detail_header">
+        <div class="align-self-center">
+            <form class="navbar-search navbar-search-light form-inline mr-sm-3"
+                action="{{ route('admin.recycle-orders.index') }}">
+                <div class="col-md-12 form-group mb-0">
+                    <div class="col-md-4 input-group input-group-alternative input-group-merge searching m-1">
+                        <input class="form-control searching" placeholder="Search by User Name" type="text" name="name"
+                            value="{{ request('name') }}">
+                    </div>
+                    <div class="col-md-4 input-group input-group-alternative input-group-merge searching m-1">
+                        <input class="form-control searching" placeholder="Search by Gift Item Name" type="text"
+                            name="gift_item_name" value="{{ request('gift_item_name') }}">
+                    </div>
+
+                    <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
+                        <select class="form-select form-control form-control-alternative" aria-label="Select paymethod"
+                            name="status" id="status">
+                            <option value="" @if (request('status') === null) selected @endif>Order Status
+                            </option>
+                            <option value="Approved" @if(request('status')=='Approved') selected @endif>Approved</option>
+                            <option value="Pending" @if(request('status')=='Pending') selected @endif>Pending</option>
+                        </select>
+                    </div>
+
+
+                    <div class="input-group-prepend">
+                        <button class="btn input-group-text gift-log-search-btn" type="submit">
+                            <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
     <div class="table-responsive">
         <table class="align-items-center mb-0 table">
             <thead>
@@ -37,14 +72,16 @@
 
                         <td>
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn badge badge-{{ $item->status == 1 ? 'success' : 'warning' }}">
+                                    <input type="radio" name="status" class="togBtn" value="1" autocomplete="off"
+                                        data-id="{{ $item->id }}" @if ($item->status == 1) disabled @endif>
+                                    @if ($item->status == 1)
+                                        Approved
+                                    @else
+                                        Pending
+                                    @endif
+                                </label>
 
-                                <label class="togBtn btn btn-secondary @if($item->status)active @endif">
-                                    <input type="radio" name="status"  value="1"
-                                        autocomplete="off" checked=""  data-id="{{$item->id}}">Approved
-                                </label>
-                                <label class="togBtn btn btn-secondary @if(!$item->status)active @endif">
-                                    <input type="radio" name="status" value="0" autocomplete="off" @if(!$item->status) checked="" @endif  data-id="{{$item->id}}">Pending
-                                </label>
                             </div>
 
                         </td>
@@ -60,3 +97,33 @@
 @section('content-pagination')
     {{ $data }}
 @endsection
+
+@push('js')
+    <script>
+        $(function() {
+            $(".togBtn").on('change', function(e) {
+                var status = $(this).val();
+                var id = $(this).data('id');
+                var url = "{{ route('admin.recycle-orders.update', '') }}" + "/" + id;
+                $.ajax({
+                    type: "PUT",
+                    dataType: "json",
+                    url: url,
+                    data: {
+                        'status': status,
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            toastr.success(data.success);
+                            setInterval('location.reload()', 1000);
+                        } else {
+                            setInterval('location.reload()', 1000);
+                            toastr.error(data.error);
+                        }
+                    }
+                });
+            });
+
+        })
+    </script>
+@endpush

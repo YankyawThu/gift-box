@@ -12,9 +12,9 @@ class RecycleService
         $this->itemPerPage = config('enums.itemPerPage');
     }
 
-    public function getAll()
+    public function getAll($filter)
     {
-        return $this->recycleRepo->getPaginated($this->itemPerPage);
+        return $this->recycleRepo->getPaginatedWithFilter($this->itemPerPage, $filter);
     }
 
     public function update($request, $id)
