@@ -2,9 +2,7 @@
 
 namespace App\Services\UI;
 
-use App\Exceptions\BadRequestException;
 use App\Repositories\UI\UserRepository;
-use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
@@ -42,9 +40,6 @@ class UserService
     public function changePassword($request)
     {
         $user = $this->userRepo->getById(auth()->user()->id);
-        if (!Hash::check($request->currentPassword, $user->password)) {
-            throw new BadRequestException('Current Password Invalid!');
-        }
 
         return $this->userRepo->changePassword($request, $user);
     }

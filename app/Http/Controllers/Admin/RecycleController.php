@@ -69,6 +69,9 @@ class RecycleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->recycleService->update($request, $id);
+
+        return response()->json(['success' => 'Success']);
     }
 
     /**

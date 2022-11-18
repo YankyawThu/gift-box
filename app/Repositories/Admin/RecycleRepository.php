@@ -11,4 +11,9 @@ class RecycleRepository extends BaseRepository
     {
         $this->model = $model;
     }
+
+    public function changeStatus($request, $id)
+    {
+        return $this->model->where('id', $id)->update(['status' => $request->status]);
+    }
 }

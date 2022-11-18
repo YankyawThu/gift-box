@@ -128,6 +128,14 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'recycle-orders') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.recycle-orders.index') }}">
+                        <i class="fas fa-truck text-blue"></i> {{ __('Recycle Orders') }}
+                        <span class="badge badge-warning" id="delivery-order-unread"></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'recharge-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.recharge-orders.index') }}">
                         <i class="fas fa-battery-full text-blue"></i> {{ __('Recharge Orders') }}

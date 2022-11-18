@@ -69,6 +69,6 @@ Route::name('admin.')->group(function () {
 
         Route::resource('rule-policies', RuleConfigController::class);
 
-        Route::resource('/recycle', RecycleController::class);
+        Route::resource('/recycle-orders', RecycleController::class);
     });
 });

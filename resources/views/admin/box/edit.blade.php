@@ -82,11 +82,11 @@
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-secondary @if($box->is_cheap)active @endif">
                                                 <input type="radio" name="is_cheap" id="is_cheap" value="1"
-                                                    autocomplete="off" @if($box->is_cheap) checked="" @endif>Yes
+                                                    autocomplete="off" @if($box->is_cheap) checked="" @endif  data-id="{{$box->id}}">Yes
                                             </label>
                                             <label class="btn btn-secondary @if(!$box->is_cheap)active @endif">
                                                 <input type="radio" name="is_cheap" value="0" autocomplete="off"
-                                                    @if(!$box->is_cheap) checked="" @endif>No
+                                                    @if(!$box->is_cheap) checked="" @endif data-id="{{$box->id}}">No
                                             </label>
                                         </div>
                                     </div>

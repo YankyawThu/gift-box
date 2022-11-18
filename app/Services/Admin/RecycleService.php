@@ -16,4 +16,9 @@ class RecycleService
     {
         return $this->recycleRepo->getPaginated($this->itemPerPage);
     }
+
+    public function update($request, $id)
+    {
+        return $this->recycleRepo->changeStatus($request, $id);
+    }
 }
