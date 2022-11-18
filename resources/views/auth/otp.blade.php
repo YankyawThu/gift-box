@@ -40,7 +40,8 @@
                         <input class="bg-transparent text_c2 otp_text w-14 text-center p-2 focus:outline-none" type="text" oninput='digitValidate(this)' onkeyup='tabChange(6)' maxlength=1 >
                     </div>
                 </div>
-                <div id="incorrectOTP" class="text-center mt-4" style="color: #EC008C;">Incorrect OTP</div>
+                <div id="incorrectOTP" class="text-center mt-4 text-sm" style="color: #EC008C;">Incorrect OTP</div>
+                <div id="errorOTP" class="text-center mt-4 text-sm" style="color: #EC008C;">Error OTP Request</div>
                 <div class="py-5 mt-14">
                     <div class="w-full py-4 btn_gradient text-center rounded-full text-white" onclick="verify()">{{ __('Verify') }}</div>
                     <div class="text-center py-3"><span id="otpExpire" style="color: #EC008C;">60</span><span class="text-white"> sec</span></div>
@@ -76,6 +77,7 @@
         var seconds=60
         var timer
         document.getElementById('incorrectOTP').style.display = 'none'
+        document.getElementById('errorOTP').style.display = 'none'
         let digitValidate = function(ele){
             ele.value = ele.value.replace(/[^0-9]/g,'')
             code += ele.value
@@ -115,11 +117,12 @@
                     }, 1000)
                 }
             }).catch(function (error) {
+                document.getElementById('errorOTP').style.display = 'block'
                 console.log('error OTP request')
             })
         }
         function countExp() {
-            if(seconds < seconds) {
+            if(seconds < 60) {
                 document.getElementById("otpExpire").innerHTML = seconds
             }
             if (seconds > 0 ) {
