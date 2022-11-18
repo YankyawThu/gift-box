@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');
+    Route::get('/verify-otp', [LoginController::class, 'verifyOTP'])->name('verifyOTP');
     Route::group(['middleware' => 'phone'], function () {
         Route::group(['namespace' => 'UI'], function () {
             Route::get('/banner', [UIController::class, 'getBanners']);

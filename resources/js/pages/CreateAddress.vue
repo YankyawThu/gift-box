@@ -109,6 +109,7 @@ export default {
                 address: this.address.address
             }).then(res => {
                 console.log(res)
+                location.replace(this.$url+'/user/shipping-address')
             })
         }
     }

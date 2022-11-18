@@ -73,4 +73,10 @@ class LoginController extends Controller
     {
         return view('auth.otp',['phone' => auth()->user()->phone]);
     }
+
+    public function verifyOTP()
+    {
+        User::where('id' , auth()->user()->id)->update(['status' => 'active' ]);
+        return redirect()->route('box');
+    }
 }

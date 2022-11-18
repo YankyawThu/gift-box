@@ -19,6 +19,7 @@ class ShippingAddressDetailResource extends JsonResource
             'id' => $this->id,
             'phone' => $this->phone,
             'username' => $this->username,
+            'zone' => optional($this->township)->zone_id,
             'township' => [
                 'id' => optional($this->township)->id,
                 'name' => optional($this->township)->name,

@@ -2417,6 +2417,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submit: function submit() {
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/user/shipping-address', {
         username: this.address.name,
         phone: this.address.phone,
@@ -2424,6 +2425,7 @@ __webpack_require__.r(__webpack_exports__);
         address: this.address.address
       }).then(function (res) {
         console.log(res);
+        location.replace(_this2.$url + '/user/shipping-address');
       });
     }
   }
@@ -2461,7 +2463,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       zone: '',
-      townships: [],
+      townships: [this.$props.data.data.township],
       address: {
         name: this.$props.data.data.username,
         phone: this.$props.data.data.phone,
@@ -2482,6 +2484,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submit: function submit() {
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/user/shipping-address/".concat(this.$props.data.data.id, "/update"), {
         username: this.address.name,
         phone: this.address.phone,
@@ -2489,8 +2492,19 @@ __webpack_require__.r(__webpack_exports__);
         address: this.address.address
       }).then(function (res) {
         console.log(res);
+        location.replace(_this2.$url + '/user/shipping-address');
       });
     }
+  },
+  watch: {
+    zone: {
+      handler: function handler() {
+        this.changeZone();
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.zone = this.$props.data.data.zone;
   }
 });
 

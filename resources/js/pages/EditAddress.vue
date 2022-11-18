@@ -84,7 +84,7 @@ export default {
     data() {
         return {
             zone: '',
-            townships: [],
+            townships: [this.$props.data.data.township],
             address: {
                 name: this.$props.data.data.username,
                 phone: this.$props.data.data.phone,
@@ -112,8 +112,19 @@ export default {
                 address: this.address.address
             }).then(res => {
                 console.log(res)
+                location.replace(this.$url+'/user/shipping-address')
             })
         }
+    },
+    watch: {
+        zone: {
+            handler() {
+                this.changeZone()
+            }
+        }
+    },
+    mounted() {
+        this.zone = this.$props.data.data.zone
     }
 }
 </script>

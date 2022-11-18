@@ -26,7 +26,7 @@
                             <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
                         </div>
                         <div class="grow">
-                            <input class="input_placeholder w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" value="09123123123" required>
+                            <input class="input_placeholder w-full pl-3 pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" value="09123123123" required>
                         </div>
                     </div>
                     @if ($errors->has('phone'))
