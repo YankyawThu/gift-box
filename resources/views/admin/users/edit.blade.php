@@ -35,14 +35,7 @@
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="coin" class="form-control-label">Coin</label>
-                                        <input type="text" placeholder="Coin" id="coin" name="coin"
-                                            class="form-control form-control-alternative is-valid" />
-                                    </div>
-                                </div>
-
+                               
                             </div>
                         </form>
                     </div>

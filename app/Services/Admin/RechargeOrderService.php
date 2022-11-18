@@ -7,6 +7,7 @@ use App\Repositories\Admin\RechargeOrderRepository;
 class RechargeOrderService
 {
     private $rechargeListRepo;
+
     public function __construct(RechargeOrderRepository $rechargeListRepo)
     {
         $this->rechargeListRepo = $rechargeListRepo;

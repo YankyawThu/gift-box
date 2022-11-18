@@ -7,12 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RechargeCreateRequest;
 use App\Http\Requests\Admin\RechargeUpdateRequest;
 use App\Models\RechargeList;
-use App\Services\Admin\rechargeOrderService;
+use App\Services\Admin\RechargeOrderService;
 
 class RechargeOrderController extends Controller
 {
     private $rechargeOrderService;
-    public function __construct(rechargeOrderService $recharge)
+
+    public function __construct(RechargeOrderService $recharge)
     {
         $this->rechargeOrderService = $recharge;
     }
@@ -36,62 +37,54 @@ class RechargeOrderController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\RechargeCreateRequest  $request
+     * @param \Illuminate\Http\RechargeCreateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(RechargeCreateRequest $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RechargeList  $rechargeList
      * @return \Illuminate\Http\Response
      */
     public function show(RechargeList $rechargeList)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RechargeList  $rechargeList
      * @return \Illuminate\Http\Response
      */
     public function edit(RechargeList $rechargeList)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\RechargeUpdateRequest  $request
-     * @param  \App\Models\RechargeList  $rechargeList
+     * @param \Illuminate\Http\RechargeUpdateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(RechargeUpdateRequest $request, RechargeList $rechargeList)
     {
-      //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RechargeList  $rechargeList
      * @return \Illuminate\Http\Response
      */
     public function destroy(RechargeList $rechargeList)
     {
-        //
     }
 }

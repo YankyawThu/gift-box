@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class BannerController extends Controller
 {
     private $bannerService;
+
     public function __construct(BannerService $banner)
     {
         $this->bannerService = $banner;
@@ -37,13 +38,13 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\BannerCreateRequest  $request
+     * @param \Illuminate\Http\BannerCreateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(BannerCreateRequest $request)
@@ -56,7 +57,6 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
     public function show(Banner $banner)
@@ -69,18 +69,17 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
     public function edit(Banner $banner)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\BannerUpdateRequest  $request
+     * @param \Illuminate\Http\BannerUpdateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(BannerUpdateRequest $request)
@@ -93,7 +92,6 @@ class BannerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
     public function destroy(Banner $banner)
@@ -102,7 +100,6 @@ class BannerController extends Controller
 
         return redirect()->back()->with('status', 'Banner Deleted Successfully!');
     }
-
 
     public function updateSequence(Request $request)
     {
@@ -114,6 +111,7 @@ class BannerController extends Controller
                 $menu->sort = $sortOrder;
                 $menu->save();
             }
+
             return ['success' => true, 'message' => 'Updated'];
         }
     }

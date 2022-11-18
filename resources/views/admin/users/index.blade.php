@@ -44,7 +44,6 @@
                     <th class="text-xxs font-weight-bolder opacity-7">EMAIL</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PHONE</th>
                     <th class="text-xxs font-weight-bolder opacity-7">MONEY</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">COIN</th>
                     <th class="text-xxs font-weight-bolder opacity-7">JOIN DATE</th>
                     <th class="opacity-7"></th>
                 </tr>
@@ -64,9 +63,6 @@
                     </td>
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{ number_format($item->money, 2) }}</p>
-                    </td>
-                    <td>
-                        <p class="text-sm font-weight-bold mb-0">{{ number_format($item->coin,2 ) }}</p>
                     </td>
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{ $item->created_at->diffForHumans() }}</p>

@@ -25,13 +25,13 @@ class BannerCreateRequest extends FormRequest
     {
         return [
             'place' => 'required',
-            'image' => 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
+            'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
             'type' => 'required',
             'value_box' => 'required_if:type,1',
             'value_link' => 'required_if:type,2|url',
             'value' => 'nullable',
             'status' => 'required',
-            'sort' => 'required|numeric',
+            'sort' => 'nullable|numeric',
         ];
     }
 }
