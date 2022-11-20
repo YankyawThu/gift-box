@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('/change-nickname', [UserController::class, 'changeNickname']);
                 Route::post('/change-gender', [UserController::class, 'changeGender']);
                 Route::post('/change-username', [UserController::class, 'changeUserName']);
+                Route::get('/change-phone', [UserController::class, 'changePhoneIndex']);
                 Route::post('/change-phone', [UserController::class, 'changePhone']);
                 Route::get('/change-password', [UserController::class, 'changePasswordIndex']);
                 Route::post('/change-password', [UserController::class, 'changePassword']);

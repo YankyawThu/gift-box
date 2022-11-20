@@ -101,4 +101,9 @@ class UserController extends Controller
     {
         return Inertia::render('ChangePassword');
     }
+
+    public function changePhoneIndex()
+    {
+        return view('phone');
+    }
 }
