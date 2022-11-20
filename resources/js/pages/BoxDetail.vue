@@ -24,18 +24,18 @@
         </div>
         <div class="flex justify-around -mt-32">
             <div class="relative">
-                <Link :href="$url+'/box/'+data.data.id+'/open/1'" as="button">
+                <div @click="createOrder(1)">
                     <img :src="$asset+'/image/ui/GetOneButton.svg'">
                     <div class="get_one font-semibold">Get One</div>
-                    <div class="get_one_price top-10 right-14">{{data.data.price}} Ks</div>
-                </Link>
+                    <div class="get_one_price top-10 right-14 text-center">{{data.data.price}} Ks</div>
+                </div>
             </div>
             <div class="relative">
-                <Link :href="$url+'/box/'+data.data.id+'/open/5'" as="button">
+                <div @click="createOrder(5)">
                     <img :src="$asset+'/image/ui/GetAllButton.svg'">
                     <div class="get_one_right font-semibold">Get Five</div>
-                    <div class="get_one_price_right top-10 right-16">{{data.data.price * 5}} Ks</div>
-                </Link>
+                    <div class="get_one_price_right top-10 right-16 text-center">{{data.data.price * 5}} Ks</div>
+                </div>
             </div>
         </div>
         <div class="px-2 py-1 detail_itembox mx-4">
@@ -59,24 +59,53 @@
                     </div>
                     <div class="box_detail_item_card_footer text-center">
                         <div class="truncate px-2" style="font-size:12px;">{{item.name}}</div>
-                        <div class="pb-1" style="font-size:10px;">({{item.price}})</div>
+                        <div class="pb-1" style="font-size:10px;">({{item.price}} Ks)</div>
                     </div>
                 </div>
             </div>
         </div>
         <rule v-model="ruleModalActive" />
+        <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
+        <transition name="bounce">
+            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes"></congratz-modal>
+        </transition>
     </div>
 </template>
+
+<style>
+.bounce-enter-active {
+  animation: bounce-in 0.6s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
 
 <script>
 
 import {Link} from '@inertiajs/inertia-vue'
 import rule from './modals/Rule.vue'
+import congratzModal from './modals/Congratz.vue'
+import orderModal from './modals/Order.vue'
+import axios from 'axios'
 
 export default {
     components: {
         Link,
-        rule
+        rule,
+        orderModal,
+        congratzModal
     },
     props: {
         data: {
@@ -86,7 +115,12 @@ export default {
     },
     data() {
         return {
-            ruleModalActive: false
+            ruleModalActive: false,
+            order: {},
+            orderModalActive: false,
+            times: '',
+            conModalActive: false,
+            winningPrizes: []
         }
     },
     methods: {
@@ -99,6 +133,27 @@ export default {
                 case 'rare': return this.$asset+'/image/ui/Second.svg';
                 case 'normal': return this.$asset+'/image/ui/Third.svg';
             }
+        },
+        createOrder(time) {
+            this.times = time
+            axios.post(`/box/${this.$props.data.data.id}/create-order/${time}`)
+                .then(res => {
+                    this.orderModalActive = true
+                    this.order = res.data
+                })
+        },
+        submit() {
+            axios.post(`/box/${this.$props.data.data.id}/open-box`, {
+                'boxId': this.$props.data.data.id,
+                'times': this.times,
+                'orderId': this.order.orderId
+            })
+            .then(res => {
+                this.winningPrizes = res.data
+                setTimeout(() => {
+                    this.conModalActive = true
+                },1000)
+            })
         }
     },
 }

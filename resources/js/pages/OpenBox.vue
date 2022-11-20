@@ -174,7 +174,6 @@ export default {
                 })
         },
         submit() {
-            this.modalActive = false
             this.animate()
             axios.post(`/box/${this.$props.id}/open-box`, {
                 'boxId': this.$props.id,

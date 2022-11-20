@@ -26,7 +26,7 @@ class WalletListResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'balance' => auth()->user()->coin,
+            'balance' => auth()->user()->money,
             'data' => $this->collection,
             'pagination' => $this->pagination,
         ];

@@ -9,6 +9,7 @@
             <div class="overflow-auto h-96 my-5">
                 <div v-for="(address,i) in addresses" :key="i" class="border_grad2 flex flex-row p-4 my-3 before:rounded-xl">
                     <div class="grow pr-5 w-72">
+                        <div class="break-words text-white text-lg text_c2">{{address.username}}</div>
                         <div class="break-words text-white text-sm">{{address.district}}</div>
                         <div class="text-gray-400 py-1 text-xs">Phone : {{address.phone}}</div>
                     </div>
@@ -60,7 +61,8 @@ export default {
                 'prizeIds': this.$props.prizes
             }).then(res => {
                 this.$emit('update:model-active', false)
-                location.reload()
+                this.$emit('alert')
+                // location.reload()
             }) 
         }
     }

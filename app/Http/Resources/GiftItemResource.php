@@ -20,6 +20,7 @@ class GiftItemResource extends JsonResource
             'name' => $this->name,
             'image' => $this->image ? getFileUrlFromAkoneyaMedia($this->image) : null,
             'tag' => $this->tag,
+            'price'  => $this->buy_price
         ];
     }
 }

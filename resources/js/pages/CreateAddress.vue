@@ -61,6 +61,7 @@
         <div class="absolute w-full bottom-10 px-4">
             <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Add</div>
         </div>
+        <create-alert v-model="create"></create-alert>
     </div>
 </template>
 
@@ -68,10 +69,12 @@
 
 import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
+import createAlert from './modals/alert/Create.vue'
 
 export default {
     components: {
-        Link
+        Link,
+        createAlert
     },
     props: {
         zones: {
@@ -87,7 +90,8 @@ export default {
                 phone: '',
                 township: '',
                 address: ''
-            }
+            },
+            create: false
         }
     },
     methods: {
@@ -109,7 +113,8 @@ export default {
                 address: this.address.address
             }).then(res => {
                 console.log(res)
-                location.replace(this.$url+'/user/shipping-address')
+                // location.replace(this.$url+'/user/shipping-address')
+                this.create = true
             })
         }
     }

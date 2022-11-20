@@ -12,7 +12,7 @@
         </div>
         <div class="px-4 mb-8">
             <div class="text-white text-xs">Balance: (Gold Coins)</div>
-            <div class="text-2xl text_c2 font-black">{{balance}}</div>
+            <div class="text-2xl text_c2 font-black">{{balance}} Ks</div>
         </div>
         <div class="px-4">
             <div class="before:rounded-xl border_grad2 mt-2 mb-5">
@@ -29,6 +29,8 @@
         <div class="absolute w-full bottom-10 px-4">
             <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Submit</div>
         </div>
+        <success-modal v-model="success" :modalAmount="amount" :index="1">
+        </success-modal>
     </div>
 </template>
 
@@ -36,17 +38,20 @@
 
 import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
+import successModal from './modals/Success.vue'
 
 export default {
     components: {
-        Link
+        Link,
+        successModal
     },
     props: {
         balance: ''
     },
     data() {
         return {
-            amount: ''
+            amount: '',
+            success: false
         }
     },
     methods: {
@@ -55,8 +60,7 @@ export default {
                 amount: this.amount
             })
                 .then(res => {
-                    console.log(res)
-                    location.reload()
+                    this.success = true
                 })
         }
     }

@@ -13,7 +13,7 @@
         <div class="border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl">
             <div>
                 <div class="text-white text-xs">Balance: (Gold Coins)</div>
-                <div class="text-2xl text_c2 font-bold">{{ balance }}</div>
+                <div class="text-2xl text_c2 font-bold">{{ balance }} Ks</div>
             </div>
             <div class="self-end mb-1">
                 <Link :href="$url+'/recharge'" as="button" class="px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white">
@@ -42,7 +42,7 @@
                             <div class="text-sm text-gray-400">Time: {{data.time}}</div>
                         </div>
                         <div class="self-center text_c2">
-                            -{{data.money}}
+                            -{{data.money}} Ks
                         </div>
                     </div>
                 </section>

@@ -101,7 +101,7 @@ class ShippingAddressController extends Controller
     {
         $this->addressService->destroy($id);
 
-        return $this->index();
+        return true;
     }
 
     public function getTownshipByZoneId($zoneId)

@@ -19,33 +19,48 @@
                 </div>
                 <div class="absolute w-24 right-3 bottom-4">
                     <Link :href="$url+'/user/shipping-address/'+address.id+'/detail'" as="button" class="inline-block"><img :src="$asset+'/image/ui/Edit.svg'" alt=""></Link>
-                    <Link :href="$url+'/user/shipping-address/'+address.id+'/delete'" as="button" method="delete" class="inline-block"><img :src="$asset+'/image/ui/Delete.svg'"></Link>
+                    <div @click="deleteBtn(address.id)" class="inline-block"><img :src="$asset+'/image/ui/Delete.svg'"></div>
                 </div>
             </div>
         </div>
         <Link :href="$url+'/user/shipping-address/create'" class="btn_gradient fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white">
             Add Shipping Address
         </Link>
+        <delete-alert v-model="delAlert"></delete-alert>
     </div>
 </template>
 
 <script>
 
 import {Link} from '@inertiajs/inertia-vue'
+import deleteAlert from './modals/alert/Delete.vue'
+import axios from 'axios'
 
 export default {
     components: {
-        Link
+        Link,
+        deleteAlert
     },
     props: {
         data: {
             type: Object
         }
     },
+    data() {
+        return {
+            delAlert: false
+        }
+    },
     methods: {
         back() {
             window.history.back()
         },
+        deleteBtn(id) {
+            axios.delete(`/user/shipping-address/${id}/delete`)
+            .then(() => {
+                this.delAlert = true
+            })
+        }
     }
 }
 </script>

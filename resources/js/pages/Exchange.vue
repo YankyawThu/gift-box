@@ -75,7 +75,8 @@
         <footer>
             <bot></bot>
         </footer>
-        <address-modal v-model="addressModalActive" :prizes="selects"></address-modal>
+        <address-modal v-model="addressModalActive" :prizes="selects" @alert="create=true"></address-modal>
+        <create-alert v-model="create"></create-alert>
     </div>
 </template>
 
@@ -85,12 +86,14 @@ import {Link} from '@inertiajs/inertia-vue'
 import tab from '../tab.js'
 import axios from 'axios'
 import addressModal from './modals/Address.vue'
+import createAlert from './modals/alert/Create.vue'
 
 export default {
     components: {
         bot,
         Link,
-        addressModal
+        addressModal,
+        createAlert
     },
     data() {
         return {
@@ -106,7 +109,8 @@ export default {
             selectAll: false,
             prizeIds: [],
             selects: [],
-            addressModalActive: false
+            addressModalActive: false,
+            create: false
         }
     },
     methods: {
@@ -167,7 +171,8 @@ export default {
             axios.post('/recycle', {
                 prizeIds: this.selects.filter(Boolean)
             }).then(res => {
-                location.reload()
+                // location.reload()
+                this.create = true
             })
         },
         shipSubmit() {

@@ -88,6 +88,7 @@ class UIController extends Controller
         if (!in_array($times, [1, 5])) {
             throw new BadRequestException('Wrong number of unpacked!');
         }
+        $box->price = $box->price*$times;
         $data = new HomePageResource($box);
         $order = $this->giftLogService->store($box, $times);
         $result = [

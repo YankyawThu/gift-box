@@ -143,23 +143,23 @@ export default {
         fetchDelivered() {
             this.reset()
             this.tab = 1
-            // if(this.toBeDelivered.length == 0) {
+            if(this.toBeDelivered.length == 0) {
                 this.fetch(this.page, this.deliverStatus)
-            // }
+            }
         },
         fetchGoing() {
             this.reset()
             this.tab = 2
-            // if(this.onGoing.length == 0) {
+            if(this.onGoing.length == 0) {
                 this.fetch(this.page, this.goingStatus)
-            // }
+            }
         },
         fetchCompleted() {
             this.reset()
             this.tab = 3
-            // if(this.completed.length == 0) {
+            if(this.completed.length == 0) {
                 this.fetch(this.page, this.completeStatus)
-            // }
+            }
         },
         back() {
             window.history.back()

@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
                     'nickname' => 'client',
                     'email' => 'client@gmail.com',
                     'password' => Hash::make('12345'),
-                    'phone' => '09123123123',
+                    'phone' => '+95123123123',
                     'gender' => 1,
                     'level' => 1,
                     'status' => 'active',
