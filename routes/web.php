@@ -90,7 +90,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/get-total-coin', [RetailController::class, 'getTotalCoin']);
             Route::get('/get-retail-list', [RetailController::class, 'getRetailList']);
             Route::get('/get-team-list', [RetailController::class, 'getTeamList']);
-            Route::get('/get-billing-detail', [MoneyRecordController::class, 'getBillingDetail']);
         });
     });
 });

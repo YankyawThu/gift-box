@@ -3,7 +3,6 @@
 namespace App\Repositories\UI;
 
 use App\Exceptions\BadRequestException;
-use App\Models\CoinRecord;
 use App\Models\MoneyRecord;
 use App\Repositories\BaseRepository;
 use App\User;
@@ -87,7 +86,7 @@ class UserRepository extends BaseRepository
 
     public function getWallet($page)
     {
-        return CoinRecord::where('user_id', auth()->user()->id)
+        return MoneyRecord::where('user_id', auth()->user()->id)
         ->orderBy('id', 'desc')
         ->paginate($page);
     }

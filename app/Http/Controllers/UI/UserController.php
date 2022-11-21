@@ -11,10 +11,9 @@ use App\Http\Requests\UserAvatarRequest;
 use App\Http\Requests\UserNameChangeRequest;
 use App\Http\Requests\UserNicknameRequest;
 use App\Http\Resources\CollectionResourceCollection;
-use App\Http\Resources\WalletListResourceCollection;
+use App\Http\Resources\MoneyRecordResourceCollection;
 use App\Services\UI\CollectionService;
 use App\Services\UI\UserService;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -89,7 +88,7 @@ class UserController extends Controller
 
     public function getWallet()
     {
-        return response()->json(new WalletListResourceCollection($this->userService->getWallet()));
+        return response()->json(new MoneyRecordResourceCollection($this->userService->getWallet()));
     }
 
     public function walletIndex()

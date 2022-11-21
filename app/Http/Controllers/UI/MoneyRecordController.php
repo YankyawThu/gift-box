@@ -24,9 +24,4 @@ class MoneyRecordController extends Controller
     {
         return response()->json(new MoneyRecordResourceCollection($this->moneyRecordService->getMyBalance($request)));
     }
-
-    public function getBillingDetail()
-    {
-        return response()->json(new MoneyRecordResourceCollection($this->moneyRecordService->getBillingDetail()));
-    }
 }
