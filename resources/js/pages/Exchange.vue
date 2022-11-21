@@ -28,7 +28,7 @@
                                     <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked">
                                 </div>
                                 <div class="">
-                                    <label class="form-check-label text_c2 text-gray-800" for="allChecked">
+                                    <label class="form-check-label text_c2" for="allChecked">
                                         Select All
                                     </label>
                                 </div>

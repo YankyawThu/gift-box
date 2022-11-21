@@ -5,7 +5,7 @@
                 <div class="flex flex-row">
                     <div><img :src="user.avatar" alt="" class="home_avatar"></div>
                     <div class="ml-2 self-center">
-                        <div class="text-xs text-gray-400 text_c2">{{user.money}} Ks</div>
+                        <div class="text-xs text_c2">{{user.money}} Ks</div>
                         <div class="font-bold text-lg text-white">{{user.name}}</div>
                     </div>
                 </div>
@@ -22,7 +22,19 @@
                 </div>
             </div>
             <div class="my-2">
-                <img :src="$asset+'/image/ui/Banner.svg'" class="w-full">
+                <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+                    <div class="carousel-inner relative w-full overflow-hidden h-44 md:h-80 rounded-3xl">
+                        <div class="carousel-item active relative float-left w-full">
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="block w-full h-44 md:h-80" />
+                        </div>
+                        <div class="carousel-item relative float-left w-full">
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" class="block w-full h-44 md:h-80" />
+                        </div>
+                        <div class="carousel-item relative float-left w-full">
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" class="block w-full h-44 md:h-80" />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
                 <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>

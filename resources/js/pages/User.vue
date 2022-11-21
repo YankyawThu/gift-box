@@ -13,8 +13,8 @@
                 </div>
             </div>
             <div class="flex justify-around -mt-7">
-                <Link :href="$url+'/exchange'" as="button" class="text-left"><div class="border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">My Box Cabinet</div></Link>
-                <Link href="#" as="button" class="text-left"><div class="border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Unboxing Records</div></Link>
+                <Link :href="$url+'/exchange'" as="button" class="text-left"><div class="border_grad1 w-52 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">My Box Cabinet</div></Link>
+                <Link href="#" as="button" class="text-left"><div class="border_grad1 w-52 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Unboxing Records</div></Link>
             </div>
             <div class="border_grad2 order_card flex flex-col before:rounded-xl m-5">
                 <div class="flex justify-between px-4 py-3 rounded-t-xl">

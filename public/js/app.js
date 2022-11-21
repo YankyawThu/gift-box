@@ -5614,7 +5614,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {}, [_c("label", {
-    staticClass: "form-check-label text_c2 text-gray-800",
+    staticClass: "form-check-label text_c2",
     attrs: {
       "for": "allChecked"
     }
@@ -5714,7 +5714,7 @@ var render = function render() {
   })]), _vm._v(" "), _c("div", {
     staticClass: "ml-2 self-center"
   }, [_c("div", {
-    staticClass: "text-xs text-gray-400 text_c2"
+    staticClass: "text-xs text_c2"
   }, [_vm._v(_vm._s(_vm.user.money) + " Ks")]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-lg text-white"
   }, [_vm._v(_vm._s(_vm.user.name))])])]), _vm._v(" "), _c("div", {
@@ -5757,12 +5757,36 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "my-2"
-  }, [_c("img", {
-    staticClass: "w-full",
+  }, [_c("div", {
+    staticClass: "carousel slide relative",
     attrs: {
-      src: _vm.$asset + "/image/ui/Banner.svg"
+      id: "carouselExampleCaptions",
+      "data-bs-ride": "carousel"
+    }
+  }, [_c("div", {
+    staticClass: "carousel-inner relative w-full overflow-hidden h-44 md:h-80 rounded-3xl"
+  }, [_c("div", {
+    staticClass: "carousel-item active relative float-left w-full"
+  }, [_c("img", {
+    staticClass: "block w-full h-44 md:h-80",
+    attrs: {
+      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
     }
   })]), _vm._v(" "), _c("div", {
+    staticClass: "carousel-item relative float-left w-full"
+  }, [_c("img", {
+    staticClass: "block w-full h-44 md:h-80",
+    attrs: {
+      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "carousel-item relative float-left w-full"
+  }, [_c("img", {
+    staticClass: "block w-full h-44 md:h-80",
+    attrs: {
+      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+    }
+  })])])])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between py-2 mb-3"
   }, [_c("Link", {
     staticClass: "text-left",
@@ -6834,7 +6858,7 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
+    staticClass: "border_grad1 w-52 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
   }, [_c("img", {
     staticClass: "inline-block mr-2",
     attrs: {
@@ -6847,7 +6871,7 @@ var render = function render() {
       as: "button"
     }
   }, [_c("div", {
-    staticClass: "border_grad1 w-48 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
+    staticClass: "border_grad1 w-52 p-3 before:rounded-full rounded-full fun_menu_tab text-white text-sm bg_grad"
   }, [_c("img", {
     staticClass: "inline-block mr-2",
     attrs: {
