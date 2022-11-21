@@ -51,11 +51,13 @@ class PrizeRepository extends BaseRepository
         $status = $request->status;
         $statusList = [1 => 'bag', 2 => 'exchange'];
         $status = $statusList[$status];
-        if ($request->status == 1) {
-            return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->where('is_collect', 1)->orderBy('id', 'desc')->paginate($page);
-        } else {
-            return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->orderBy('id', 'desc')->paginate($page);
-        }
+
+        return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->orderBy('id', 'desc')->paginate($page);
+        // if ($request->status == 1) {
+        //     return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->where('is_collect', 1)->orderBy('id', 'desc')->paginate($page);
+        // } else {
+        //     return $this->model->where('user_id', auth()->user()->id)->where('status', $status)->orderBy('id', 'desc')->paginate($page);
+        // }
     }
 
     public function savePrizeRecycle($request)
@@ -71,88 +73,88 @@ class PrizeRepository extends BaseRepository
             if (!$prize) {
                 throw new BadRequestException('Wrong blind box selected!');
             }
-            $pendingDeliver = PendingDeliver::where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
-            if ($pendingDeliver) {
-                $pendingDeliver->status = 'exchange';
-                $pendingDeliver->exchange_time = now();
-                $pendingDeliver->save();
-                $total += $pendingDeliver->gift_item_sell_price;
+            // $pendingDeliver = PendingDeliver::where('user_id', auth()->user()->id)->where('prize_id', $prizeId)->where('status', 'bag')->first();
+            // if ($pendingDeliver) {
+            //     $pendingDeliver->status = 'exchange';
+            //     $pendingDeliver->exchange_time = now();
+            //     $pendingDeliver->save();
+            //     $total += $pendingDeliver->gift_item_sell_price;
 
-                if (empty($prizeCount[$pendingDeliver->gift_item_id])) {
-                    $prizeCount[$pendingDeliver->gift_item_id] = 1;
-                } else {
-                    ++$prizeCount[$pendingDeliver->gift_item_id];
-                }
+            //     if (empty($prizeCount[$pendingDeliver->gift_item_id])) {
+            //         $prizeCount[$pendingDeliver->gift_item_id] = 1;
+            //     } else {
+            //         ++$prizeCount[$pendingDeliver->gift_item_id];
+            //     }
 
-                $prizeInfo[$pendingDeliver->gift_item_id] = [
-                    'name' => $pendingDeliver->gift_item_name,
-                    'num' => $prizeCount[$pendingDeliver->gift_item_id],
-                    'price' => $pendingDeliver->gift_item_sell_price,
-                ];
-                Recycle::create([
-                    'user_id' => auth()->user()->id,
-                    'gift_prize_id' => $prize->id,
-                    'gift_box_id' => $pendingDeliver->gift_box_id,
-                    'gift_log_id' => $pendingDeliver->gift_log_id,
-                    'gift_item_id' => $pendingDeliver->gift_item_id,
-                    'gift_item_name' => $pendingDeliver->gift_item_name,
-                    'gift_item_image' => $pendingDeliver->gift_item_image,
-                    'price' => $pendingDeliver->gift_item_sell_price,
-                    'status' => 0,
-                    'exchange_time' => now(),
-                ]);
+            //     $prizeInfo[$pendingDeliver->gift_item_id] = [
+            //         'name' => $pendingDeliver->gift_item_name,
+            //         'num' => $prizeCount[$pendingDeliver->gift_item_id],
+            //         'price' => $pendingDeliver->gift_item_sell_price,
+            //     ];
+            //     Recycle::create([
+            //         'user_id' => auth()->user()->id,
+            //         'gift_prize_id' => $prize->id,
+            //         'gift_box_id' => $pendingDeliver->gift_box_id,
+            //         'gift_log_id' => $pendingDeliver->gift_log_id,
+            //         'gift_item_id' => $pendingDeliver->gift_item_id,
+            //         'gift_item_name' => $pendingDeliver->gift_item_name,
+            //         'gift_item_image' => $pendingDeliver->gift_item_image,
+            //         'price' => $pendingDeliver->gift_item_sell_price,
+            //         'status' => 0,
+            //         'exchange_time' => now(),
+            //     ]);
 
-                // $this->userRepo->increaseMoney($amount);
-                MoneyRecord::create([
-                    'user_id' => auth()->user()->id,
-                    'before' => $money_before,
-                    'after' => auth()->user()->money,
-                    'money' => $pendingDeliver->gift_item_sell_price,
-                    'prize_id' => $pendingDeliver->id,
-                    'type' => 'box_exchange',
-                ]);
+            //     // $this->userRepo->increaseMoney($amount);
+            //     MoneyRecord::create([
+            //         'user_id' => auth()->user()->id,
+            //         'before' => $money_before,
+            //         'after' => auth()->user()->money,
+            //         'money' => $pendingDeliver->gift_item_sell_price,
+            //         'prize_id' => $pendingDeliver->id,
+            //         'type' => 'box_exchange',
+            //     ]);
+            // } else {
+            $prize->is_save = 1;
+            $prize->status = 'exchange';
+            $prize->exchange_time = now();
+            $prize->save();
+            $total += optional($prize->giftItem)->sell_price;
+
+            if (empty($prizeCount[$prize->gift_item_id])) {
+                $prizeCount[$prize->gift_item_id] = 1;
             } else {
-                $prize->is_save = 1;
-                $prize->status = 'exchange';
-                $prize->exchange_time = now();
-                $prize->save();
-                $total += optional($prize->giftItem)->sell_price;
-
-                if (empty($prizeCount[$prize->gift_item_id])) {
-                    $prizeCount[$prize->gift_item_id] = 1;
-                } else {
-                    ++$prizeCount[$prize->gift_item_id];
-                }
-
-                $prizeInfo[$prize->gift_item_id] = [
-                                'name' => $prize->gift_item_name,
-                                'num' => $prizeCount[$prize->gift_item_id],
-                                'price' => optional($prize->giftItem)->sell_price,
-                            ];
-
-                Recycle::create([
-                    'user_id' => auth()->user()->id,
-                    'gift_prize_id' => $prize->id,
-                    'gift_box_id' => optional(optional($prize->giftLog)->giftBox)->id,
-                    'gift_log_id' => optional($prize->giftLog)->id,
-                    'gift_item_id' => $prize->gift_item_id,
-                    'gift_item_name' => $prize->gift_item_name,
-                    'gift_item_image' => $prize->gift_item_image,
-                    'price' => $prize->gift_item_sell_price,
-                    'status' => 0,
-                    'exchange_time' => $prize->exchange_time,
-                ]);
-
-                // $this->userRepo->increaseMoney($amount);
-                MoneyRecord::create([
-                    'user_id' => auth()->user()->id,
-                    'before' => $money_before,
-                    'after' => auth()->user()->money,
-                    'money' => optional($prize->giftItem)->sell_price,
-                    'prize_id' => $prize->id,
-                    'type' => 'box_exchange',
-                ]);
+                ++$prizeCount[$prize->gift_item_id];
             }
+
+            $prizeInfo[$prize->gift_item_id] = [
+                            'name' => $prize->gift_item_name,
+                            'num' => $prizeCount[$prize->gift_item_id],
+                            'price' => optional($prize->giftItem)->sell_price,
+                        ];
+
+            Recycle::create([
+                'user_id' => auth()->user()->id,
+                'gift_prize_id' => $prize->id,
+                'gift_box_id' => optional(optional($prize->giftLog)->giftBox)->id,
+                'gift_log_id' => optional($prize->giftLog)->id,
+                'gift_item_id' => $prize->gift_item_id,
+                'gift_item_name' => $prize->gift_item_name,
+                'gift_item_image' => $prize->gift_item_image,
+                'price' => $prize->gift_item_sell_price,
+                'status' => 0,
+                'exchange_time' => $prize->exchange_time,
+            ]);
+
+            // $this->userRepo->increaseMoney($amount);
+            MoneyRecord::create([
+                'user_id' => auth()->user()->id,
+                'before' => $money_before,
+                'after' => auth()->user()->money,
+                'money' => optional($prize->giftItem)->sell_price,
+                'prize_id' => $prize->id,
+                'type' => 'box_exchange',
+            ]);
+            // }
         }
 
         return [
@@ -176,12 +178,12 @@ class PrizeRepository extends BaseRepository
                 throw new BadRequestException('Wrong blind box selected!');
             }
 
-            $pendingDeliver = PendingDeliver::where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
-            if ($pendingDeliver) {
-                $pendingDeliver->status = 'delivery';
-                $pendingDeliver->delivery_time = now();
-                $pendingDeliver->save();
-            }
+            // $pendingDeliver = PendingDeliver::where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
+            // if ($pendingDeliver) {
+            //     $pendingDeliver->status = 'delivery';
+            //     $pendingDeliver->delivery_time = now();
+            //     $pendingDeliver->save();
+            // }
             $prize->status = 'delivery';
             $prize->delivery_time = now();
             $prize->save();
