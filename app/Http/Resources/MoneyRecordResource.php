@@ -21,7 +21,7 @@ class MoneyRecordResource extends JsonResource
             'withdrawal' => 'Withdrawal',
             'to_coin' => 'Go to wallet',
             'pay_delivery' => 'Shipping fee',
-            'recharge' => 'rechage',
+            'recharge' => 'Recharge',
         ];
 
         return [

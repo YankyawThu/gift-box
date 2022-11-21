@@ -15,7 +15,7 @@ class MoneyRecordController extends Controller
         $this->moneyRecordService = $moneyRecordService;
     }
 
-    public function index() 
+    public function index()
     {
         return Inertia::render('Balance');
     }
@@ -23,5 +23,10 @@ class MoneyRecordController extends Controller
     public function getMyBalance(MoneyRecordRequest $request)
     {
         return response()->json(new MoneyRecordResourceCollection($this->moneyRecordService->getMyBalance($request)));
+    }
+
+    public function getBillingDetail()
+    {
+        return response()->json(new MoneyRecordResourceCollection($this->moneyRecordService->getBillingDetail()));
     }
 }

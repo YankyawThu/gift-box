@@ -39,14 +39,14 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
                 Route::post('/collect', [UIController::class, 'collect']);
             });
-    
+
             Route::prefix('user')->group(function () {
                 Route::get('/', [UserController::class, 'index']);
-                
+
                 Route::get('/collection', [UserController::class, 'collectionIndex']);
                 Route::get('/collection/get', [UserController::class, 'getCollection']);
                 Route::delete('/collection/{id}/cancel', [UserController::class, 'cancelCollection']);
-    
+
                 Route::post('/change-avatar', [UserController::class, 'changeAvatar'])->name('change-avatar');
                 Route::post('/change-nickname', [UserController::class, 'changeNickname']);
                 Route::post('/change-gender', [UserController::class, 'changeGender']);
@@ -55,10 +55,10 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('/change-phone', [UserController::class, 'changePhone']);
                 Route::get('/change-password', [UserController::class, 'changePasswordIndex']);
                 Route::post('/change-password', [UserController::class, 'changePassword']);
-    
+
                 Route::get('/balance', [MoneyRecordController::class, 'index']);
                 Route::get('/balance/get', [MoneyRecordController::class, 'getMyBalance']);
-    
+
                 Route::prefix('shipping-address')->group(function () {
                     Route::get('/get', [ShippingAddressController::class, 'getAll']);
                     Route::get('/', [ShippingAddressController::class, 'index']);
@@ -68,13 +68,13 @@ Route::group(['middleware' => 'auth'], function () {
                     Route::post('/{id}/update', [ShippingAddressController::class, 'update']);
                     Route::delete('/{id}/delete', [ShippingAddressController::class, 'destroy']);
                 });
-                
+
                 Route::get('/set-up', [UserController::class, 'setUp']);
                 Route::get('/wallet', [UserController::class, 'walletIndex']);
                 Route::any('go-to-wallet', [UserController::class, 'transferWallet']);
                 Route::get('/zones/{id}/townships', [ShippingAddressController::class, 'getTownshipByZoneId']);
             });
-    
+
             Route::get('/tide-play', [UIController::class, 'tidePlay']);
             Route::get('/helps', [UIController::class, 'helps']);
             Route::get('/recharge', [RechargeController::class, 'index']);
@@ -90,6 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/get-total-coin', [RetailController::class, 'getTotalCoin']);
             Route::get('/get-retail-list', [RetailController::class, 'getRetailList']);
             Route::get('/get-team-list', [RetailController::class, 'getTeamList']);
+            Route::get('/get-billing-detail', [MoneyRecordController::class, 'getBillingDetail']);
         });
     });
 });

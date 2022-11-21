@@ -16,4 +16,9 @@ class MoneyRecordService
     {
         return $this->moneyRecordRepo->getMyBalance($request, $this->itemPerPage);
     }
+
+    public function getBillingDetail()
+    {
+        return $this->moneyRecordRepo->getPaginated($this->itemPerPage);
+    }
 }
