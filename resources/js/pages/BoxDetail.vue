@@ -70,7 +70,7 @@
         <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
         <create-alert v-model="create"></create-alert>
         <transition name="bounce">
-            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes" @showAddress="showAddress"></congratz-modal>
+            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes" @showAddress="showAddress" @alert="create=true"></congratz-modal>
         </transition>
     </div>
 </template>
@@ -153,17 +153,20 @@ export default {
                 })
         },
         submit() {
-            axios.post(`/box/${this.$props.data.data.id}/open-box`, {
-                'boxId': this.$props.data.data.id,
-                'times': this.times,
-                'orderId': this.order.orderId
-            })
-            .then(res => {
-                this.winningPrizes = res.data
-                setTimeout(() => {
-                    this.conModalActive = true
-                },1000)
-            })
+            if(!this.order.coinNotEnough) {
+                axios.post(`/box/${this.$props.data.data.id}/open-box`, {
+                    'boxId': this.$props.data.data.id,
+                    'times': this.times,
+                    'orderId': this.order.orderId
+                })
+                .then(res => {
+                    this.winningPrizes = res.data
+                    setTimeout(() => {
+                        this.conModalActive = true
+                    },1000)
+                })
+            }
+            else location.replace('/recharge')
         },
         validate(data) {
             this.errors = data

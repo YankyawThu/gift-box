@@ -76,6 +76,7 @@ export default {
                 prizeIds: this.selects.filter(Boolean)
             }).then(res => {
                 this.$emit('update:model-active', false)
+                this.$emit('alert')
             })
         },
         collect() {
@@ -84,11 +85,9 @@ export default {
         },
         tick(i) {
             if(this.prizeIds[i] == false) {
-                // console.log('1')
                 this.selects[i] = this.$props.prizes[i].prizeId
             }
             else {
-                // console.log('2')
                 this.selects[i] = false
             }
         }

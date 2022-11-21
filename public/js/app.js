@@ -2312,16 +2312,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     submit: function submit() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_4__["default"].post("/box/".concat(this.$props.data.data.id, "/open-box"), {
-        'boxId': this.$props.data.data.id,
-        'times': this.times,
-        'orderId': this.order.orderId
-      }).then(function (res) {
-        _this2.winningPrizes = res.data;
-        setTimeout(function () {
-          _this2.conModalActive = true;
-        }, 1000);
-      });
+      if (!this.order.coinNotEnough) {
+        axios__WEBPACK_IMPORTED_MODULE_4__["default"].post("/box/".concat(this.$props.data.data.id, "/open-box"), {
+          'boxId': this.$props.data.data.id,
+          'times': this.times,
+          'orderId': this.order.orderId
+        }).then(function (res) {
+          _this2.winningPrizes = res.data;
+          setTimeout(function () {
+            _this2.conModalActive = true;
+          }, 1000);
+        });
+      } else location.replace('/recharge');
     },
     validate: function validate(data) {
       this.errors = data;
@@ -3853,6 +3855,7 @@ __webpack_require__.r(__webpack_exports__);
         prizeIds: this.selects.filter(Boolean)
       }).then(function (res) {
         _this2.$emit('update:model-active', false);
+        _this2.$emit('alert');
       });
     },
     collect: function collect() {
@@ -3861,10 +3864,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     tick: function tick(i) {
       if (this.prizeIds[i] == false) {
-        // console.log('1')
         this.selects[i] = this.$props.prizes[i].prizeId;
       } else {
-        // console.log('2')
         this.selects[i] = false;
       }
     }
@@ -4577,7 +4578,10 @@ var render = function render() {
       prizes: _vm.winningPrizes
     },
     on: {
-      showAddress: _vm.showAddress
+      showAddress: _vm.showAddress,
+      alert: function alert($event) {
+        _vm.create = true;
+      }
     },
     model: {
       value: _vm.conModalActive,
