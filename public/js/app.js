@@ -3850,7 +3850,7 @@ __webpack_require__.r(__webpack_exports__);
     sell: function sell() {
       var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/recycle', {
-        prizeIds: this.selects
+        prizeIds: this.selects.filter(Boolean)
       }).then(function (res) {
         _this2.$emit('update:model-active', false);
       });

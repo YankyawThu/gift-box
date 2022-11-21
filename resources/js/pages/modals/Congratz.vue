@@ -73,7 +73,7 @@ export default {
     methods: {
         sell() {
             axios.post('/recycle', {
-                prizeIds: this.selects
+                prizeIds: this.selects.filter(Boolean)
             }).then(res => {
                 this.$emit('update:model-active', false)
             })
