@@ -33,13 +33,11 @@
 <script>
 
 import {Link} from '@inertiajs/inertia-vue'
-import deleteAlert from './modals/alert/Delete.vue'
 import axios from 'axios'
 
 export default {
     components: {
         Link,
-        deleteAlert
     },
     props: {
         data: {

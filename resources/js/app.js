@@ -1,6 +1,15 @@
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import axios from 'axios'
+import createAlert from './pages/modals/alert/Create'
+import updateAlert from './pages/modals/alert/Update'
+import deleteAlert from './pages/modals/alert/Delete'
+import validateAlert from './pages/modals/alert/Validate'
+
+Vue.component('createAlert', createAlert)
+Vue.component('updateAlert', updateAlert)
+Vue.component('deleteAlert', deleteAlert)
+Vue.component('validateAlert', validateAlert)
 
 // var app_path = '/gift_box_lucky_draw/public'
 var app_path = ''

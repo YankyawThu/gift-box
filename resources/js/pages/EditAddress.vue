@@ -62,6 +62,7 @@
             <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Update</div>
         </div>
         <update-alert v-model="update"></update-alert>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
     </div>
 </template>
 
@@ -69,12 +70,10 @@
 
 import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
-import updateAlert from './modals/alert/Update.vue'
 
 export default {
     components: {
         Link,
-        updateAlert
     },
     props: {
         zones: {
@@ -95,6 +94,8 @@ export default {
                 address: this.$props.data.data.address
             },
             update: false,
+            errors: {},
+            errorModal: false
         }
     },
     methods: {
@@ -118,6 +119,16 @@ export default {
                 console.log(res)
                 // location.replace(this.$url+'/user/shipping-address')
                 this.update = true
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
             })
         }
     },

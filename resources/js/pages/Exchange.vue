@@ -75,8 +75,9 @@
         <footer>
             <bot></bot>
         </footer>
-        <address-modal v-model="addressModalActive" :prizes="selects" @alert="create=true"></address-modal>
+        <address-modal v-model="addressModalActive" :prizes="selects" @alert="create=true" @validate="validate"></address-modal>
         <create-alert v-model="create"></create-alert>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
     </div>
 </template>
 
@@ -86,14 +87,12 @@ import {Link} from '@inertiajs/inertia-vue'
 import tab from '../tab.js'
 import axios from 'axios'
 import addressModal from './modals/Address.vue'
-import createAlert from './modals/alert/Create.vue'
 
 export default {
     components: {
         bot,
         Link,
         addressModal,
-        createAlert
     },
     data() {
         return {
@@ -110,7 +109,9 @@ export default {
             prizeIds: [],
             selects: [],
             addressModalActive: false,
-            create: false
+            create: false,
+            errors: {},
+            errorModal: false
         }
     },
     methods: {
@@ -173,10 +174,24 @@ export default {
             }).then(res => {
                 // location.reload()
                 this.create = true
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
             })
         },
         shipSubmit() {
             this.addressModalActive = !this.addressModalActive
+        },
+        validate(data) {
+            this.errors = data
+            this.errorModal = true
         }
     },
     watch: {

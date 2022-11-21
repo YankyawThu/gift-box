@@ -41,7 +41,8 @@ export default {
     data() {
         return {
             addresses: [],
-            select: ''
+            select: '',
+            errors: {}
         }
     },
     watch: {
@@ -63,7 +64,17 @@ export default {
                 this.$emit('update:model-active', false)
                 this.$emit('alert')
                 // location.reload()
-            }) 
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.$emit('validate', this.errors)
+            })
         }
     }
 }

@@ -18,6 +18,14 @@ body {
     color: #DFD950;
 }
 
+.text_error {
+    color: #FF2424;
+}
+
+.text_warning {
+    color: #FFA216;
+}
+
 .bg_grad1 {
     background: linear-gradient(90deg, #370F75 0%, #59246C 50.96%, #731581 104.26%);
 }

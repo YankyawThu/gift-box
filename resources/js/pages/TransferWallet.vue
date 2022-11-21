@@ -29,8 +29,8 @@
         <div class="absolute w-full bottom-10 px-4">
             <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Submit</div>
         </div>
-        <success-modal v-model="success" :modalAmount="amount" :index="1">
-        </success-modal>
+        <success-modal v-model="success" :modalAmount="amount" :index="1"></success-modal>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
     </div>
 </template>
 
@@ -51,17 +51,29 @@ export default {
     data() {
         return {
             amount: '',
-            success: false
+            success: false,
+            errors: {},
+            errorModal: false
         }
     },
     methods: {
         submit() {
             axios.post('/user/go-to-wallet', {
                 amount: this.amount
+            }).then(res => {
+                this.success = true
+            }).catch(error => {
+                console.log(error)
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
             })
-                .then(res => {
-                    this.success = true
-                })
         }
     }
 }
