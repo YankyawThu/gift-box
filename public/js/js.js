@@ -15,6 +15,11 @@ $(function() {
         $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
     })
 
+    $('#new-item-image').on('change', function() {
+        $('#edit_item_img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
+    })
+
+
     $('#item-store-form').validate({
         ignore: [],
         errorElement: 'span',

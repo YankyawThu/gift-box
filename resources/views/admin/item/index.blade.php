@@ -60,8 +60,10 @@
                     <td>
                         <div class="d-flex py-1">
                             <div>
-                                <img src="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}" class="me-3" width="70"
-                                    height="70">
+                                {{-- <img src="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}" class="me-3" width="70"
+                                    height="70"> --}}
+                                    <img src="{{getFileUrlFromAkoneyaMedia($item->image)}}" class="me-3" width="70"
+                                    height="70" >
                             </div>
                         </div>
                     </td>
@@ -95,7 +97,8 @@
                     <td class="align-middle">
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                             data-name="{{ $item->name }}" data-qty="{{ $item->qty }}" data-image="{{ $item->image }}"
-                            data-image_path="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}"
+                            {{-- data-image_path="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}" --}}
+                            data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
                             data-buy_price="{{ $item->buy_price }}" data-sell_price="{{ $item->sell_price }}" data-toggle="modal" data-target="#edit-item-modal">
                             <span class="btn btn-sm btn-success" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-edit"></i>

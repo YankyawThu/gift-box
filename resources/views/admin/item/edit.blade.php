@@ -25,7 +25,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="new-item-image" class="form-control-label">Image</label>
-                                        <input type="file" class="form-control-file" id="new-item-image"
+                                        <input type="file" class="form-control-file"
                                             name="new_image" id="new-item-image">
                                         <input type="text" name="image" id="image" hidden>
                                     </div>

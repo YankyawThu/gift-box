@@ -27,7 +27,7 @@ Route::name('admin.')->group(function () {
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');
 
     Route::group(['middleware' => 'auth:admin'], function () {
-        Route::get('/', [AdminHomeController::class, 'index'])->name('home');
+        Route::get('/dashboard', [AdminHomeController::class, 'index'])->name('home');
 
         Route::resource('admins', AdminController::class)->only(['index']);
         Route::resource('users', UserController::class);

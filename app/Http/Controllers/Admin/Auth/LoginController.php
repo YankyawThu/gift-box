@@ -44,7 +44,7 @@ class LoginController extends Controller
             Admin::updateTime();
 
             return redirect()
-                ->intended(route('admin.home'))
+                ->route('admin.home')
                 ->with('status', 'You are Logged in as Admin!');
         }
 
@@ -93,8 +93,6 @@ class LoginController extends Controller
      */
     private function loginFailed()
     {
-        throw ValidationException::withMessages([
-                   'email' => [trans('auth.failed')],
-               ]);
+        throw ValidationException::withMessages(['email' => [trans('auth.failed')]]);
     }
 }
