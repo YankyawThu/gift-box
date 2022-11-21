@@ -69,8 +69,6 @@ class UserRepository extends BaseRepository
 
     public function transferWallet($request)
     {
-        $coin_before = auth()->user()->coin;
-
         $money_before = auth()->user()->money;
         if ($money_before < $request->amount) {
             throw new BadRequestException('Insufficient balance!');
@@ -80,7 +78,7 @@ class UserRepository extends BaseRepository
             'user_id' => auth()->user()->id,
             'before' => $money_before,
             'after' => auth()->user()->money,
-            'money' => $request->amount,
+            'money' => -$request->amount,
             'type' => 'to_coin',
         ]);
 
