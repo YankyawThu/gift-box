@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UI;
 
 use App\Exceptions\BadRequestException;
+use App\Filters\UI\GiftBoxFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BoxCabinetRequest;
 use App\Http\Requests\CollectRequest;
@@ -13,14 +14,13 @@ use App\Http\Resources\BoxCabinetResourceCollection;
 use App\Http\Resources\HelpResource;
 use App\Http\Resources\HomePageResource;
 use App\Http\Resources\HomePageResourceCollection;
+use App\Repositories\UI\UserRepository;
 use App\Services\UI\BoxService;
 use App\Services\UI\CollectionService;
 use App\Services\UI\GiftItemBoxService;
 use App\Services\UI\GiftLogService;
 use App\Services\UI\ItemService;
 use App\Services\UI\PrizeService;
-use App\Filters\UI\GiftBoxFilter;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -31,7 +31,7 @@ class UIController extends Controller
      *
      * @return void
      */
-    public function __construct(BoxService $boxService, ItemService $itemService, GiftItemBoxService $itemBoxService, PrizeService $prizeService, GiftLogService $giftLogService, CollectionService $collectService)
+    public function __construct(BoxService $boxService, ItemService $itemService, GiftItemBoxService $itemBoxService, PrizeService $prizeService, GiftLogService $giftLogService, CollectionService $collectService, UserRepository $userRepo)
     {
         // $this->middleware('auth');
         $this->boxService = $boxService;
@@ -40,6 +40,7 @@ class UIController extends Controller
         $this->prizeService = $prizeService;
         $this->giftLogService = $giftLogService;
         $this->collectService = $collectService;
+        $this->userRepo = $userRepo;
         $this->nextId = null;
     }
 
@@ -88,12 +89,12 @@ class UIController extends Controller
         if (!in_array($times, [1, 5])) {
             throw new BadRequestException('Wrong number of unpacked!');
         }
-        $box->price = $box->price*$times;
+        $box->price = $box->price * $times;
         $data = new HomePageResource($box);
         $order = $this->giftLogService->store($box, $times);
         $result = [
             'orderId' => intval($order->id),
-            'coinNotEnough' => (bool) (intval(auth()->user()->money) < intval($order->amount)),
+            'coinNotEnough' => (bool) (intval(auth()->user()->money) < intval($order->price)),
             'data' => $data,
         ];
 
@@ -129,6 +130,7 @@ class UIController extends Controller
         $log->save();
         $prize = $this->prizeService->store($goodsInfo, $log);
         $this->boxService->increaseSale($id, $request->times);
+        $this->userRepo->decreaseMoney($log->price);
 
         return $prize;
     }
