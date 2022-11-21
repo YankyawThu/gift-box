@@ -2679,9 +2679,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     fetchRecycle: function fetchRecycle() {
       this.reset();
       this.pTabActive = false;
-      // if(this.recycle.length == 0) {
-      this.fetch(this.page, this.recycleStatus);
-      // }
+      if (this.recycle.length == 0) {
+        this.fetch(this.page, this.recycleStatus);
+      }
     },
     tick: function tick(i) {
       if (this.prizeIds[i] == false) {

@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
                 // Route::get('/{id}/open/{time}', [UIController::class, 'boxOpen']);
                 Route::post('/{id}/create-order/{num}', [UIController::class, 'createOrder']);
                 Route::post('/{id}/open-box', [UIController::class, 'openLuckyBox']);
-                Route::post('/collect', [UIController::class, 'collect']);
+                // Route::post('/collect', [UIController::class, 'collect']);
             });
 
             Route::prefix('user')->group(function () {

@@ -156,9 +156,9 @@ export default {
         fetchRecycle() {
             this.reset()
             this.pTabActive = false
-            // if(this.recycle.length == 0) {
+            if(this.recycle.length == 0) {
                 this.fetch(this.page, this.recycleStatus)
-            // }
+            }
         },
         tick(i) {
             if(this.prizeIds[i] == false) {
