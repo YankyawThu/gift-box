@@ -9,15 +9,17 @@
                 <div class="flex flex-wrap justify-center my-4">
                     <div v-for="(prize,i) in prizes" :key="i" class="congratz_item_card">
                         <div class="congratz_item_card_header">
-                            <img :src="$asset+'/image/ui/Mark.svg'" class="mark_img" alt="">
+                            <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="mark_img form-check-input h-3 w-3 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none bg-no-repeat bg-center bg-contain" type="checkbox">
                         </div>
-                        <div class="congratz_item_card_body">
-                            <img :src="prize.image" width="50" height="50" class="m-auto">
-                        </div>
-                        <div class="congratz_item_card_footer text-center">
-                            <div class="truncate px-2" style="font-size:10px;">{{prize.itemName}}</div>
-                            <div class="pb-1" style="font-size:9px;">({{prize.price}} Ks)</div>
-                        </div>
+                        <label class="form-check-label" :for="'itemChecked'+i">
+                            <div class="congratz_item_card_body">
+                                <img :src="prize.image" width="50" height="50" class="m-auto">
+                            </div>
+                            <div class="congratz_item_card_footer text-center">
+                                <div class="truncate px-2" style="font-size:10px;">{{prize.itemName}}</div>
+                                <div class="pb-1" style="font-size:9px;">({{prize.price}} Ks)</div>
+                            </div>
+                        </label>   
                     </div>
                 </div>
             <!-- </div> -->
@@ -54,7 +56,8 @@ export default {
     },
     data() {
         return {
-            prizeIds: []
+            prizeIds: [],
+            selects: []
         }
     },
     watch: {
@@ -62,6 +65,7 @@ export default {
             handler() {
                 this.$props.prizes.forEach(prize => {
                     this.prizeIds.push(prize.prizeId)
+                    this.selects.push(prize.prizeId)
                 });
             }
         }
@@ -69,18 +73,25 @@ export default {
     methods: {
         sell() {
             axios.post('/recycle', {
-                prizeIds: this.prizeIds
+                prizeIds: this.selects
             }).then(res => {
                 this.$emit('update:model-active', false)
             })
         },
         collect() {
-            axios.post('/box/collect', {
-                prizeIds: this.prizeIds
-            }).then(res => {
-                this.$emit('update:model-active', false)
-            })
+            this.$emit('update:model-active', false)
+            this.$emit('showAddress', this.selects.filter(Boolean))
         },
+        tick(i) {
+            if(this.prizeIds[i] == false) {
+                // console.log('1')
+                this.selects[i] = this.$props.prizes[i].prizeId
+            }
+            else {
+                // console.log('2')
+                this.selects[i] = false
+            }
+        }
     }
 }
 </script>

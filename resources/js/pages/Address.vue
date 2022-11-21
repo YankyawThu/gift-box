@@ -26,7 +26,7 @@
         <Link :href="$url+'/user/shipping-address/create'" class="btn_gradient fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white">
             Add Shipping Address
         </Link>
-        <delete-alert v-model="delAlert"></delete-alert>
+        <confirm v-model="confirmModal" @submit="submit"></confirm>
     </div>
 </template>
 
@@ -34,10 +34,12 @@
 
 import {Link} from '@inertiajs/inertia-vue'
 import axios from 'axios'
+import confirm from './modals/Confirm.vue'
 
 export default {
     components: {
         Link,
+        confirm
     },
     props: {
         data: {
@@ -46,7 +48,8 @@ export default {
     },
     data() {
         return {
-            delAlert: false
+            confirmModal: false,
+            id: ''
         }
     },
     methods: {
@@ -54,9 +57,13 @@ export default {
             window.history.back()
         },
         deleteBtn(id) {
-            axios.delete(`/user/shipping-address/${id}/delete`)
+            this.id = id
+            this.confirmModal = true
+        },
+        submit() {
+            axios.delete(`/user/shipping-address/${this.id}/delete`)
             .then(() => {
-                this.delAlert = true
+                location.reload()
             })
         }
     }

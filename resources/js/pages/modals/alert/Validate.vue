@@ -1,7 +1,7 @@
 <template>
      <div v-show="modelActive" class="boxModal">
         <div class="dataModal-content">
-            <div class="overflow-auto max-h-96">
+            <div class="">
                 <div class="mt-5"><img :src="$asset+'/image/ui/Warning.svg'" class="m-auto"></div>
                 <div class="text_warning text-center font-bold text-xl py-3 mt-3 my-5">Something went wrong!</div>
                 <div v-for="(error,i) in errors" :key="i" class="px-8 text-center my-2 text-xs text-white">

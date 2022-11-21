@@ -42,11 +42,20 @@
                             <div class="text-sm text-gray-400">Time: {{data.time}}</div>
                         </div>
                         <div class="self-center text_c2">
-                            -{{data.money}} Ks
+                            +{{data.money}} Ks
                         </div>
                     </div>
                 </section>
                 <section id="panel-expend" role="tabpanel" tabindex="0" aria-labelledby="tab-expend" hidden class="overflow-auto px-1">
+                    <div v-for="(data,i) in expends" :key="i" class="flex justify-between py-3 w-full border-b">
+                        <div>
+                            <div class="text-white">{{data.type}}</div>
+                            <div class="text-sm text-gray-400">Time: {{data.time}}</div>
+                        </div>
+                        <div class="self-center text_c2">
+                            {{data.money}} Ks
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
@@ -93,7 +102,7 @@ export default {
                     else this.incomeEnd = true
                 }
                 if(status == this.expendStatus) {
-                    this.incomes.push(...res.data.data)
+                    this.expends.push(...res.data.data)
                     this.lastPage = res.data.pagination.total_pages
                     if(this.page <= this.lastPage) {
                         this.page++

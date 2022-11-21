@@ -109,7 +109,7 @@
         })
     }
     function countExp() {
-        if(seconds < seconds) {
+        if(seconds < 60) {
             document.getElementById("otpExpire").innerHTML = seconds
         }
         if (seconds > 0 ) {

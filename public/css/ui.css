@@ -26,14 +26,6 @@ body {
     color: #FFA216;
 }
 
-.bg_grad1 {
-    background: linear-gradient(90deg, #370F75 0%, #59246C 50.96%, #731581 104.26%);
-}
-
-.bg_grad2 {
-    background: linear-gradient(271.63deg, #9C7FFF -12.1%, #B53DFF 45.99%, #EA00FF 105.87%);
-}
-
 .border_grad1 {
     position: relative;
 }

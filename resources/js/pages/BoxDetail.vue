@@ -66,8 +66,11 @@
         </div>
         <rule v-model="ruleModalActive" />
         <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
+        <address-modal v-model="addressModalActive" :prizes="prizeIds" :index="0" @alert="create=true" @validate="validate"></address-modal>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
+        <create-alert v-model="create"></create-alert>
         <transition name="bounce">
-            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes"></congratz-modal>
+            <congratz-modal v-show="conModalActive" v-model="conModalActive" :prizes="winningPrizes" @showAddress="showAddress"></congratz-modal>
         </transition>
     </div>
 </template>
@@ -99,13 +102,15 @@ import rule from './modals/Rule.vue'
 import congratzModal from './modals/Congratz.vue'
 import orderModal from './modals/Order.vue'
 import axios from 'axios'
+import addressModal from './modals/Address.vue'
 
 export default {
     components: {
         Link,
         rule,
         orderModal,
-        congratzModal
+        congratzModal,
+        addressModal
     },
     props: {
         data: {
@@ -120,7 +125,12 @@ export default {
             orderModalActive: false,
             times: '',
             conModalActive: false,
-            winningPrizes: []
+            winningPrizes: [],
+            prizeIds: [],
+            errors: {},
+            errorModal: false,
+            create: false,
+            addressModalActive: false
         }
     },
     methods: {
@@ -154,6 +164,14 @@ export default {
                     this.conModalActive = true
                 },1000)
             })
+        },
+        validate(data) {
+            this.errors = data
+            this.errorModal = true
+        },
+        showAddress(ids) {
+            this.prizeIds = ids
+            this.addressModalActive = true
         }
     },
 }

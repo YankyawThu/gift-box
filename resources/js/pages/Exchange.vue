@@ -16,14 +16,13 @@
                         Pending Delivery
                     </div>
                     <div class="py-2" role="tab" aria-selected="false" aria-controls="panel-recycle" id="tab-recycle" tabindex="-1" @click="fetchRecycle()">
-                        Recycled
+                        Recycling
                     </div>
                 </div>
                 <div class="divider"></div>
                 <div class="my-2">
                     <section id="panel-pending" role="tabpanel" tabindex="0" aria-labelledby="tab-pending" class="overflow-auto pb-16">
-                        <div class="flex justify-between my-4 px-4">
-                            <div></div>
+                        <div class="flex justify-between m-4">
                             <div class="form-check flex flex-row">
                                 <div>
                                     <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked">
@@ -34,18 +33,23 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="text-white" @click="clearAll()">Clear All</div>
                         </div>
-                        <div v-for="(prize,i) in pending" :key="i" class="flex flex-row px-4">
+                        <div v-for="(prize,i) in pending" :key="i" class="form-check flex flex-row px-4">
                             <div class="self-center mr-3">
-                                <input type="checkbox" class="w-4 h-4" v-model="prizeIds[i]" @click="tick(i)">
+                                <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox">
                             </div>
-                            <div class="border_grad2_show flex flex-row before:rounded-lg my-3 p-2 w-full bg_grad1">
-                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
-                                <div class="self-center">
-                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                    <div class="text-sm py-1 text_gradient">{{prize.price}} Ks</div>
-                                    <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
-                                </div>
+                            <div class="w-full">
+                                <label class="form-check-label w-full" :for="'itemChecked'+i">
+                                    <div class="border_grad2_show flex flex-row before:rounded-lg my-3 p-2 w-full bg_grad1">
+                                        <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                                        <div class="self-center">
+                                            <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
+                                            <div class="text-sm py-1 text_gradient">{{prize.price}} Ks</div>
+                                            <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                        </div>
+                                    </div>
+                                </label>
                             </div>
                         </div>
                         <div class="fixed flex justify-around bottom-24 w-full">
@@ -75,7 +79,7 @@
         <footer>
             <bot></bot>
         </footer>
-        <address-modal v-model="addressModalActive" :prizes="selects" @alert="create=true" @validate="validate"></address-modal>
+        <address-modal v-model="addressModalActive" :prizes="selects" @alert="create=true" @validate="validate" :index="1"></address-modal>
         <create-alert v-model="create"></create-alert>
         <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
     </div>
@@ -111,7 +115,7 @@ export default {
             addressModalActive: false,
             create: false,
             errors: {},
-            errorModal: false
+            errorModal: false,
         }
     },
     methods: {
@@ -156,9 +160,9 @@ export default {
         fetchRecycle() {
             this.reset()
             this.pTabActive = false
-            // if(this.recycle.length == 0) {
+            if(this.recycle.length == 0) {
                 this.fetch(this.page, this.recycleStatus)
-            // }
+            }
         },
         tick(i) {
             if(this.prizeIds[i] == false) {
@@ -192,6 +196,11 @@ export default {
         validate(data) {
             this.errors = data
             this.errorModal = true
+        },
+        clearAll() {
+            this.selects = []
+            this.prizeIds = []
+            this.selectAll = false
         }
     },
     watch: {
