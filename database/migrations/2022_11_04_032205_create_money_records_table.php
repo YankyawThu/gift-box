@@ -19,7 +19,7 @@ class CreateMoneyRecordsTable extends Migration
             $table->double('before')->default(0);
             $table->double('after')->default(0);
             $table->double('money')->default(0);
-            $table->enum('type', ['box_exchange', 'refund', 'withdrawal', 'to_coin', 'withdrawal_fail']);
+            $table->enum('type', ['box_exchange', 'refund', 'withdrawal', 'to_coin', 'withdrawal_fail', 'recharge']);
             $table->unsignedBigInteger('order_id')->nullable();
             $table->unsignedBigInteger('prize_id')->nullable();
             $table->softDeletes();
