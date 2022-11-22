@@ -2840,12 +2840,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_Main_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/Main.vue */ "./resources/js/pages/layouts/Main.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _carousel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../carousel */ "./resources/js/carousel.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -2900,6 +2902,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   mounted: function mounted() {
     var _this3 = this;
+    (0,_carousel__WEBPACK_IMPORTED_MODULE_3__["default"])();
     window.onscroll = function () {
       var isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
       if (isEnd && _this3.page <= _this3.lastPage) {
@@ -5540,7 +5543,7 @@ var render = function render() {
   }, _vm._l(_vm.recycle, function (prize, i) {
     return _c("div", {
       key: i,
-      staticClass: "border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1"
+      staticClass: "flex justify-between border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1"
     }, [_c("div", {
       staticClass: "flex flex-row"
     }, [_c("div", {
@@ -5559,7 +5562,17 @@ var render = function render() {
       staticClass: "text-sm py-1 text_gradient"
     }, [_vm._v(_vm._s(prize.price) + " Ks")]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])])]);
+    }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [!prize.isApprove ? _c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
+      staticStyle: {
+        color: "#3BBE44"
+      }
+    }, [_vm._v("Pending")]) : _c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
+      staticStyle: {
+        color: "#CE25F0"
+      }
+    }, [_vm._v("Completed")])])]);
   }), 0)])])]), _vm._v(" "), _c("footer", [_c("bot")], 1), _vm._v(" "), _c("address-modal", {
     attrs: {
       prizes: _vm.selects,
@@ -5758,35 +5771,22 @@ var render = function render() {
   })])]), _vm._v(" "), _c("div", {
     staticClass: "my-2"
   }, [_c("div", {
-    staticClass: "carousel slide relative",
-    attrs: {
-      id: "carouselExampleCaptions",
-      "data-bs-ride": "carousel"
-    }
+    staticClass: "carousel h-44 md:h-72 rounded-3xl"
   }, [_c("div", {
-    staticClass: "carousel-inner relative w-full overflow-hidden h-44 md:h-80 rounded-3xl"
-  }, [_c("div", {
-    staticClass: "carousel-item active relative float-left w-full"
+    staticClass: "slides"
   }, [_c("img", {
-    staticClass: "block w-full h-44 md:h-80",
     attrs: {
-      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
+      src: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/international2022/social_sharing/metadata_img.jpg"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "carousel-item relative float-left w-full"
-  }, [_c("img", {
-    staticClass: "block w-full h-44 md:h-80",
+  }), _vm._v(" "), _c("img", {
     attrs: {
-      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
+      src: "https://staticg.sportskeeda.com/editor/2022/09/3c0ec-16635728532895-1920.jpg"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "carousel-item relative float-left w-full"
-  }, [_c("img", {
-    staticClass: "block w-full h-44 md:h-80",
+  }), _vm._v(" "), _c("img", {
     attrs: {
-      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+      src: "https://escorenews.com/media/news/n40297.jpeg"
     }
-  })])])])]), _vm._v(" "), _c("div", {
+  })])])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between py-2 mb-3"
   }, [_c("Link", {
     staticClass: "text-left",
@@ -8094,6 +8094,39 @@ vue__WEBPACK_IMPORTED_MODULE_6__["default"].prototype.$url = app_path;
     }).$mount(el);
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/carousel.js":
+/*!**********************************!*\
+  !*** ./resources/js/carousel.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var carousel = function carousel() {
+  var delay = 3000; //ms
+
+  var slides = document.querySelector(".slides");
+  var slidesCount = slides.childElementCount;
+  var maxLeft = (slidesCount - 1) * 100 * -1;
+  var current = 0;
+  function changeSlide() {
+    var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    if (next) {
+      current += current > maxLeft ? -100 : current * -1;
+    } else {
+      current = current < 0 ? current + 100 : maxLeft;
+    }
+    slides.style.left = current + "%";
+  }
+  setInterval(changeSlide, delay);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (carousel);
 
 /***/ }),
 

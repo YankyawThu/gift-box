@@ -7,15 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/tailwindcss.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
-    {{-- <script src="{{ asset('/js/app.js') }}" defer></script> --}}
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     @inertiaHead
   </head>
   <body>
     <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">
     @inertia
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
   </body>
 </html>
 

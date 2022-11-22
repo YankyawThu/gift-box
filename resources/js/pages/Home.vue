@@ -22,17 +22,11 @@
                 </div>
             </div>
             <div class="my-2">
-                <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
-                    <div class="carousel-inner relative w-full overflow-hidden h-44 md:h-80 rounded-3xl">
-                        <div class="carousel-item active relative float-left w-full">
-                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="block w-full h-44 md:h-80" />
-                        </div>
-                        <div class="carousel-item relative float-left w-full">
-                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" class="block w-full h-44 md:h-80" />
-                        </div>
-                        <div class="carousel-item relative float-left w-full">
-                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" class="block w-full h-44 md:h-80" />
-                        </div>
+                <div class="carousel h-44 md:h-72 rounded-3xl">
+                    <div class="slides">
+                        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/international2022/social_sharing/metadata_img.jpg">
+                        <img src="https://staticg.sportskeeda.com/editor/2022/09/3c0ec-16635728532895-1920.jpg">
+                        <img src="https://escorenews.com/media/news/n40297.jpeg">
                     </div>
                 </div>
             </div>
@@ -67,6 +61,7 @@
 import mainLayout from './layouts/Main.vue'
 import axios from 'axios'
 import {Link} from '@inertiajs/inertia-vue'
+import carousel from '../carousel'
 
 export default {
     components: {
@@ -116,6 +111,7 @@ export default {
         this.fetchData()
     },
     mounted () {
+        carousel()
         window.onscroll = () => {
             let isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
             if(isEnd && this.page <= this.lastPage) {

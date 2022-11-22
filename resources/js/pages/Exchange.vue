@@ -62,7 +62,7 @@
                         </div>
                     </section>
                     <section id="panel-recycle" role="tabpanel" tabindex="0" aria-labelledby="tab-recycle" hidden class="overflow-auto px-4">
-                        <div v-for="(prize,i) in recycle" :key="i" class="border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1">
+                        <div v-for="(prize,i) in recycle" :key="i" class="flex justify-between border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1">
                             <div class="flex flex-row">
                                 <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
@@ -70,6 +70,10 @@
                                     <div class="text-sm py-1 text_gradient">{{prize.price}} Ks</div>
                                     <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
                                 </div>
+                            </div>
+                            <div>
+                                <div v-if="!prize.isApprove" class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">Pending</div>
+                                <div v-else class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">Completed</div>
                             </div>
                         </div>
                     </section>
