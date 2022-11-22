@@ -8,14 +8,14 @@
         @csrf
         <div class="mb-3">
             <div class="flex w-full">
-                <div class="border_grad1 flex before:rounded-3xl w-18 mr-2">
-                    <select id="codeSelect" name="code" class="apperance-none focus:outline-none bg-transparent w-14 text_c1 mx-2">
+                <div class="border_grad1 flex-none before:rounded-3xl w-18 mr-2">
+                    <select id="codeSelect" name="code" class="apperance-none focus:outline-none bg-transparent w-14 py-4 text_c1 mx-2">
                         @foreach (config('countryCodes') as $code)
                             <option value="{{ $code['dial_code'] }}">{{ $code['dial_code'] }} ({{ $code['name'] }})</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="grow flex-none border_grad1 before:rounded-3xl">
+                <div class="grow border_grad1 before:rounded-3xl">
                     <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" required>
                 </div>
             </div>
