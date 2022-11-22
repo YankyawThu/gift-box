@@ -203,6 +203,8 @@ class PrizeRepository extends BaseRepository
                 'out_trade_no' => $prize->out_trade_no,
                 'delivery_trade_id' => $trade->id,
                 'delivery_order_no' => date('YmdHis').mt_rand(1000, 9999),
+                'gift_box_id' => optional($prize->giftLog)->gift_box_id,
+                'gift_item_id' => $prize->gift_item_id,
                 'gift_prize_id' => $prize->id,
                 'gift_item_name' => $prize->gift_item_name,
                 'gift_item_image' => $prize->gift_item_image,
@@ -212,6 +214,7 @@ class PrizeRepository extends BaseRepository
                 'phone' => $address->phone,
                 'township_id' => $address->township_id,
                 'address' => $address->address,
+                'delivery_time' => now(),
             ]);
         }
 

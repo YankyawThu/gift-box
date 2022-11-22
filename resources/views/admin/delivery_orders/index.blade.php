@@ -91,7 +91,7 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ $loop->iteration }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ $item->order_number }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->delivery_order_no }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->gift_prize_id }}</p>
@@ -105,7 +105,7 @@
                         width="50" height="50"> --}}
                         @if (optional($item->giftItem)->image)
                             <img src="{{ getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image) }}" class="me-3" width="70"
-                            height="70"> ">
+                            height="70">
                         @endif
 
 
@@ -121,7 +121,7 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->phone }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->address)->address }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->address }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">
@@ -130,37 +130,48 @@
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">
-                        {{ $item->delivery_time ? $item->delivery_time->diffForHumans() : '-' }}</span>
+                        {{ $item->delivery_time ? $item->delivery_time : '-' }}</span>
                 </td>
                 <td class="align-middle">
                     <span class="font-weight-bold text-sm">
-                        {{ $item->receive_time ? $item->receive_time->diffForHumans() : '-' }}</span>
+                        {{ $item->receive_time ? $item->receive_time: '-' }}</span>
                 </td>
                 <td class="align-middle">
-                    <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>
+                    <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
                 </td>
                 <td class="align-middle">
-                    @if ($item->status == 'undelivered')
+                    @if ($item->status=='unreceived' || $item->status=='undelivered')
                     <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                         data-goods-name="{{ optional($item->giftItem)->name }}" data-name={{ optional($item->user)->name
                         }}
                         data-image="{{ optional($item->giftItem)->image }}"
-                        {{-- data-image-path="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" --}}
                         data-image-path={{getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image)}}
                         data-phone="{{ optional($item->user)->phone }}"
-                        data-address="{{ optional($item->address)->address }}" data-toggle="modal"
-                        data-target="#edit-delivery-order-modal">
+                        data-address="{{ $item->address }}" data-toggle="modal"
+                        data-target=@if($item->status=='unreceived') #complete-delivery-order-modal @elseif ($item->status=='undelivered') #edit-delivery-order-modal @endif>
                         <span class="btn btn-sm btn-success" data-toggle="tooltip"
                             data-original-title="Edit Deliver Order"><i class="fas fa-edit"></i>
                         </span>
                     </a>
+                        @if ($item->status=='unreceived')
+                            @include('admin.delivery_orders.complete', [
+                            'id' => $item->id,
+                            'item' => $item,
+                            'posts' => $posts,
+                            ])
 
-                    @include('admin.delivery_orders.edit', [
-                    'id' => $item->id,
-                    'item' => $item,
-                    'posts' => $posts,
-                    ])
+                            @elseif ($item->status=='undelivered')
+                                @include('admin.delivery_orders.edit', [
+                                    'id' => $item->id,
+                                    'item' => $item,
+                                    'posts' => $posts,
+                                ])
+                        @endif
+
+
                     @endif
+
+
                 </td>
             </tr>
             @endforeach

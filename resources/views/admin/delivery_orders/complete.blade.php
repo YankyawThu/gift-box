@@ -1,4 +1,4 @@
-<div class="modal fade" data-backdrop="static" id="edit-delivery-order-modal" tabindex="-1" role="dialog"
+<div class="modal fade" data-backdrop="static" id="complete-delivery-order-modal" tabindex="-1" role="dialog"
     aria-labelledby="edit-delivery-order-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
@@ -8,7 +8,7 @@
                         <h3 class="mb-0">{{ __('Update Order Delivery') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.delivery-orders.update-status', [$id,'status'=>config('config.deliveryStatus.2')]) }}" method="POST"
+                        <form action="{{ route('admin.delivery-orders.update-status', [$id,'status'=>config('config.deliveryStatus.3')]) }}" method="POST"
                             id="edit-delivery-order-form">
                             @csrf
                             @method('PUT')
@@ -62,7 +62,7 @@
                         </form>
                     </div>
                     <div class="card-footer bg-secondary px-lg-2 px-1 text-center">
-                        <button type="submit" form="edit-delivery-order-form" class="btn btn-info text-white">Confirm
+                        <button type="submit" form="edit-delivery-order-form" class="btn btn-success text-white">Complete
                             Delivery</button>
 
                         <button type="button" id="edit-delivery-order-cancel-btn" class="btn btn-primary text-white"

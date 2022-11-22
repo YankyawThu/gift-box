@@ -7,6 +7,7 @@ use App\Repositories\Admin\DeliveryOrderRepository;
 class DeliveryOrderService
 {
     private $deliveryOrderRepo;
+
     public function __construct(DeliveryOrderRepository $deliveryOrderRepo)
     {
         $this->deliveryOrderRepo = $deliveryOrderRepo;
@@ -30,9 +31,9 @@ class DeliveryOrderService
 
     public function update($request, $id)
     {
-        $data['post_id'] = $request['post_id'];
-        $data['delivery_number'] = $request['delivery_number'];
-        $data['status'] = config('config.deliveryStatus.2');
+        // $data['post_id'] = $request['post_id'];
+        // $data['delivery_number'] = $request['delivery_number'];
+        $data['status'] = $request->status;
 
         return $this->deliveryOrderRepo->update($data, $id);
     }

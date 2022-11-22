@@ -4,15 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\Admin\DeliveryOrderFilter;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\DeliveryOrderUpdateRequest;
 use App\Models\Admin\Post;
-use App\Models\DeliveryOrder;
 use App\Services\Admin\DeliveryOrderService;
 use Illuminate\Http\Request;
 
 class DeliveryOrderController extends Controller
 {
     private $deliveryOrderService;
+
     public function __construct(DeliveryOrderService $recharge)
     {
         $this->deliveryOrderService = $recharge;
@@ -34,17 +33,16 @@ class DeliveryOrderController extends Controller
         return view('admin.delivery_orders.index', compact('data', 'posts', 'unReadTotal'));
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\DeliveryOrderUpdateRequest  $request
-     * @param  \App\Models\DeliveryOrder  $DeliveryOrder
+     * @param \Illuminate\Http\DeliveryOrderUpdateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(DeliveryOrderUpdateRequest $request, DeliveryOrder $DeliveryOrder)
+    public function update(Request $request, $id)
     {
-        $this->deliveryOrderService->update($request->validated(), $DeliveryOrder->id);
+        $this->deliveryOrderService->update($request, $id);
 
         return redirect()->back()->with('status', 'Delivery Order Updated Successfully!');
     }
@@ -53,9 +51,10 @@ class DeliveryOrderController extends Controller
     {
         if (request()->ajax()) {
             $this->deliveryOrderService->updateUnread(['backend_read' => 1], $request->id);
+
             return response()->json([
-                "status" => 200,
-                "data" =>$this->deliveryOrderService->getUnReadCount()
+                'status' => 200,
+                'data' => $this->deliveryOrderService->getUnReadCount(),
             ]);
         }
     }

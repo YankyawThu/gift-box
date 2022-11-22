@@ -33,20 +33,20 @@ class DeliveryOrder extends Model
     {
         switch ($this->status) {
             case config('config.deliveryStatus.1'):
-                return "danger";
+                return 'danger';
                 break;
             case config('config.deliveryStatus.2'):
-                return "warning";
+                return 'info';
                 break;
             case config('config.deliveryStatus.3'):
-                return "success";
+                return 'success';
                 break;
             case config('config.deliveryStatus.4'):
-                return "secondary";
+                return 'secondary';
                 break;
 
             default:
-                # code...
+                // code...
                 break;
         }
     }

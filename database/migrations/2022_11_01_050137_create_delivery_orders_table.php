@@ -15,7 +15,6 @@ class CreateDeliveryOrdersTable extends Migration
     {
         Schema::create('delivery_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number');
             $table->unsignedBigInteger('gift_log_id');
             $table->string('out_trade_no')->nullable();
             $table->unsignedBigInteger('delivery_trade_id')->nullable();

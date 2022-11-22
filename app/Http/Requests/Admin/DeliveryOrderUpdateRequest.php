@@ -25,8 +25,8 @@ class DeliveryOrderUpdateRequest extends FormRequest
     {
         return
         [
-            'post_id' => 'required|exists:posts,id',
-            'delivery_number' => 'required',
+            // 'post_id' => 'required|exists:posts,id',
+            // 'delivery_number' => 'required',
         ];
     }
 }

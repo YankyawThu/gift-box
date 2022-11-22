@@ -55,10 +55,11 @@ Route::name('admin.')->group(function () {
         Route::resource('recharge-orders', RechargeOrderController::class);
 
         Route::resource('delivery-orders', DeliveryOrderController::class)->only([
-            'index', 'update',
+            'index',
         ]);
 
         Route::post('delivery-orders/update-unread', [DeliveryOrderController::class, 'updateUnRead'])->name('delivery-orders.updateUnRead');
+        Route::put('delivery-orders/update/{id}/{status}', [DeliveryOrderController::class, 'update'])->name('delivery-orders.update-status');
 
         Route::get('file/show/{model}/{id}', [FileController::class, 'show'])->name('get-file');
 

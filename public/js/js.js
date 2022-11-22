@@ -491,6 +491,33 @@ $(function() {
         modal.find('.modal-body #edit_img_url').attr("src", imagePath)
     })
 
+    $('#complete-delivery-order-modal').on('show.bs.modal', function (e) {
+
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+
+        var goods_name = button.data('goods-name')
+        var goods_image = button.data('goods-image')
+        var name = button.data('name')
+        var phone = button.data('phone')
+        var address = button.data('address')
+        var image = button.data('image')
+        var imagePath=''
+        if (image){
+            imagePath = button.data('image-path')
+        }
+
+
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #goods-name').val(goods_name)
+        modal.find('.modal-body #goods_image').val(goods_image)
+        modal.find('.modal-body #name').val(name)
+        modal.find('.modal-body #phone').val(phone)
+        modal.find('.modal-body #address').val(address)
+        modal.find('.modal-body #edit_img_url').attr("src", imagePath)
+    })
+
     var deliveryOrderUpdateForm = $('#edit-delivery-order-form').validate({
         ignore: [],
         errorElement: 'span',
