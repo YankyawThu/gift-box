@@ -4208,7 +4208,7 @@ var render = function render() {
       }
     })])], 1)]);
   }), 0), _vm._v(" "), _c("Link", {
-    staticClass: "btn_gradient fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white",
+    staticClass: "btn_gradient fixed bottom-5 py-3 inset-x-5 text-center m-auto rounded-full text-white",
     attrs: {
       href: _vm.$url + "/user/shipping-address/create"
     }
@@ -5007,7 +5007,7 @@ var render = function render() {
       }
     }
   })])])]), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-10 px-4"
+    staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("div", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
     on: {
@@ -5267,7 +5267,7 @@ var render = function render() {
       }
     }
   })])])]), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-10 px-4"
+    staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("div", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
     on: {
@@ -6123,7 +6123,7 @@ var render = function render() {
       }
     }, [_vm._v("\n                " + _vm._s(price.amount) + " Ks\n            ")]);
   }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-16 px-4"
+    staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("div", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
     on: {
@@ -6310,7 +6310,7 @@ var render = function render() {
       src: _vm.$asset + "/image/ui/Vector.svg"
     }
   })])])], 1), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-16 px-4"
+    staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("Link", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
     attrs: {
@@ -6789,7 +6789,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-10 px-4"
+    staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("div", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
     on: {

@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <Link :href="$url+'/user/shipping-address/create'" class="btn_gradient fixed bottom-10 py-3 inset-x-5 text-center m-auto rounded-full text-white">
+        <Link :href="$url+'/user/shipping-address/create'" class="btn_gradient fixed bottom-5 py-3 inset-x-5 text-center m-auto rounded-full text-white">
             Add Shipping Address
         </Link>
         <confirm v-model="confirmModal" @submit="submit"></confirm>

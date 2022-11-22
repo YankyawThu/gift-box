@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute w-full bottom-10 px-4">
+        <div class="absolute w-full bottom-5 px-4">
             <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Add</div>
         </div>
         <create-alert v-model="create"></create-alert>

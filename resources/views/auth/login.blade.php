@@ -57,7 +57,7 @@
     </form>
 </div>
 <div class="w-80">
-    <div class="absolute bottom-16 inset-x-5 text-center">
+    <div class="absolute bottom-5 inset-x-5 text-center">
         <span class="text_c3 mr-2 text-white">Dont have an account?</span><a href="{{ route('register') }}" class="text_c2">Register Now</a>
     </div>
 </div>
