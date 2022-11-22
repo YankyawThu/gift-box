@@ -89,4 +89,9 @@ class LoginController extends Controller
     {
         return route('box');
     }
+
+    public function wrongPhone()
+    {
+        return view('auth.wrongPhone');
+    }
 }

@@ -7,6 +7,7 @@ use App\Models\MoneyRecord;
 use App\Repositories\BaseRepository;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserRepository extends BaseRepository
 {
@@ -53,7 +54,11 @@ class UserRepository extends BaseRepository
 
     public function changePhone($request)
     {
-        return $this->model->where('id', auth()->user()->id)->update(['phone' => $request->phone]);
+        $user = $this->model->where('phone', $request->code.$request->phone)->first();
+        if($user) {
+            throw ValidationException::withMessages(['alreadyUser' => ['Already registered phone number!']]);
+        }
+        else return $this->model->where('id', auth()->user()->id)->update(['phone' => $request->code.$request->phone, 'status' => 'inactive']);
     }
 
     public function changePassword($request, $user)

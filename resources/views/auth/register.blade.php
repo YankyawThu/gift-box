@@ -55,6 +55,11 @@
             </div>
             @endif
         </div>
+        @if ($errors->has('alreadyUser'))
+            <div class="text-center py-2 text-xs">
+                <strong class="text-red-500">{{ $errors->first('alreadyUser') }}</strong>
+            </div>
+        @endif
         <div class="my-14">
             <button type="submit" class="btn_gradient text-center py-4 rounded-full text-white w-full">{{ __('Register') }}</button>
         </div>

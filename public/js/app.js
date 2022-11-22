@@ -3172,8 +3172,7 @@ __webpack_require__.r(__webpack_exports__);
       cNickname: this.user.nickname,
       cPhone: this.user.phone,
       name: this.user.name,
-      nickname: this.user.nickname,
-      phone: this.user.phone
+      nickname: this.user.nickname
     };
   },
   methods: {
@@ -3219,20 +3218,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changePhone: function changePhone() {
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/user/change-phone', {
-        phone: this.phone
-      }).then(function (res) {
-        location.reload();
-      });
+      location.replace(this.$url + '/wrong-phone');
     },
     nameText: function nameText(e) {
       this.name = e.target.innerText;
     },
     nickNameText: function nickNameText(e) {
       this.nickname = e.target.innerText;
-    },
-    phoneText: function phoneText(e) {
-      this.phone = e.target.innerText;
     }
   },
   mounted: function mounted() {
@@ -3241,7 +3233,6 @@ __webpack_require__.r(__webpack_exports__);
       if (event.key == 'Enter') {
         _this.changeUsername();
         _this.changeNickname();
-        _this.changePhone();
       }
     });
   }
@@ -6294,17 +6285,16 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.cNickname))])])]), _vm._v(" "), _c("div", {
     staticClass: "divider mx-4"
   }), _vm._v(" "), _c("div", {
-    staticClass: "flex justify-between py-4 mx-4 text-sm"
+    staticClass: "flex justify-between py-4 mx-4 text-sm",
+    on: {
+      click: function click($event) {
+        return _vm.changePhone();
+      }
+    }
   }, [_c("div", [_vm._v("Phone")]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5 text_c2"
   }, [_c("span", {
-    staticClass: "bg-transparent text_c2 focus:outline-none",
-    attrs: {
-      contenteditable: ""
-    },
-    on: {
-      input: _vm.phoneText
-    }
+    staticClass: "bg-transparent text_c2 focus:outline-none"
   }, [_vm._v(_vm._s(_vm.cPhone))])])]), _vm._v(" "), _c("div", {
     staticClass: "divider mx-4"
   }), _vm._v(" "), _c("Link", {

@@ -14,12 +14,6 @@ use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
-    // protected $redirectTo = '/otp';
-
-    // public function showRegistrationForm()
-    // {
-    //     return view('auth.register');
-    // }
 
     use RegistersUsers;
 
@@ -40,19 +34,9 @@ class RegisterController extends Controller
         ]);
     }
 
-    // public function register(Request $request)
-    // {
-    //     $this->validator($request->all())->validate();
-
-    //     event(new Registered($user = $this->create($request->all())));
-
-    //     return $this->registered($request, $user)
-    //         ?: redirect($this->redirectPath());
-    // }
-
     protected function create(array $data)
     {
-        $existedUser = User::where('phone', $data['phone'])->first();
+        $existedUser = User::where('phone', $data['code'].$data['phone'])->first();
 
         if ($existedUser) {
             throw ValidationException::withMessages(['alreadyUser' => ['Already Register!']]);
@@ -66,18 +50,4 @@ class RegisterController extends Controller
             'status' => 'inactive',
         ]);
     }
-
-    // protected function registered(Request $request, $user)
-    // {
-    //     // we can send users account formation email here or anything we want with users even fire that Registered event created earlier
-    // }
-
-    // protected function redirectPath()
-    // {
-    //     if (method_exists($this, 'redirectTo')) {
-    //         return $this->redirectTo();
-    //     }
-
-    //     return property_exists($this, 'redirectTo') ? $this->redirectTo : '/otp';
-    // }
 }

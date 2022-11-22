@@ -26,7 +26,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');
+    Route::get('/wrong-phone', [LoginController::class, 'wrongPhone'])->name('wrongPhone');
     Route::get('/verify-otp', [LoginController::class, 'verifyOTP'])->name('verifyOTP');
+    Route::post('/change-phone', [UserController::class, 'changePhone'])->name('changePhone');
     Route::group(['middleware' => 'phone'], function () {
         Route::group(['namespace' => 'UI'], function () {
             Route::get('/banner', [UIController::class, 'getBanners']);
@@ -51,8 +53,6 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('/change-nickname', [UserController::class, 'changeNickname']);
                 Route::post('/change-gender', [UserController::class, 'changeGender']);
                 Route::post('/change-username', [UserController::class, 'changeUserName']);
-                Route::get('/change-phone', [UserController::class, 'changePhoneIndex']);
-                Route::post('/change-phone', [UserController::class, 'changePhone']);
                 Route::get('/change-password', [UserController::class, 'changePasswordIndex']);
                 Route::post('/change-password', [UserController::class, 'changePassword']);
 

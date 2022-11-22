@@ -41,10 +41,10 @@
                 </div>
             </div>
             <div class="divider mx-4"></div>
-            <div class="flex justify-between py-4 mx-4 text-sm">
+            <div class="flex justify-between py-4 mx-4 text-sm" @click="changePhone()">
                 <div>Phone</div>
                 <div class="self-center ml-5 text_c2">
-                    <span class="bg-transparent text_c2 focus:outline-none" @input="phoneText" contenteditable>{{cPhone}}</span>
+                    <span class="bg-transparent text_c2 focus:outline-none">{{cPhone}}</span>
                 </div>
             </div>
             <div class="divider mx-4"></div>
@@ -81,7 +81,6 @@ export default {
             cPhone:this.user.phone,
             name: this.user.name,
             nickname: this.user.nickname,
-            phone: this.user.phone,
         }
     },
     methods: {
@@ -129,20 +128,13 @@ export default {
             })
         },
         changePhone() {
-            axios.post('/user/change-phone', {
-                phone: this.phone
-            }).then(res => {
-                location.reload()
-            })
+            location.replace(this.$url+'/wrong-phone')
         },
         nameText(e) {
             this.name = e.target.innerText
         },
         nickNameText(e) {
             this.nickname = e.target.innerText
-        },
-        phoneText(e) {
-            this.phone = e.target.innerText
         }
     },
     mounted() {
@@ -150,7 +142,6 @@ export default {
             if(event.key == 'Enter') {
                 this.changeUsername()
                 this.changeNickname()
-                this.changePhone()
             }
         })
     }

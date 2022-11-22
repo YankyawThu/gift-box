@@ -66,7 +66,8 @@ class UserController extends Controller
 
     public function changePhone(PhoneChangeRequest $request)
     {
-        return $this->userService->changePhone($request);
+        $this->userService->changePhone($request);
+        return redirect()->route('otp');
     }
 
     public function changePassword(PasswordChangeRequest $request)

@@ -32,8 +32,9 @@
             <div id="incorrectOTP" class="hidden text-center mt-4 text-sm" style="color: #EC008C;">Incorrect OTP</div>
             <div id="errorOTP" class="hidden text-center mt-4 text-sm" style="color: #EC008C;">Error OTP Request</div>
             <div class="py-5 mt-14">
-                <button class="w-full py-4 btn_gradient text-center rounded-full text-white" onclick="verify()">{{ __('Verify') }}</button>
+                <div class="cursor-pointer w-full py-4 btn_gradient text-center rounded-full text-white" onclick="verify()">{{ __('Verify') }}</div>
                 <div class="text-center py-3"><span id="otpExpire" style="color: #EC008C;">60</span><span class="text-white"> sec</span></div>
+                <div class="text-center py-5"><a href="{{ route('wrongPhone') }}" class="text_c1">Wrong phone number ?</a></div>
             </div>
         </form>
     </div>
@@ -65,6 +66,7 @@
         @endif
     }
     var code = ''
+    var seconds=60
     var timer
     let digitValidate = function(ele){
         ele.value = ele.value.replace(/[^0-9]/g,'')
@@ -95,7 +97,7 @@
         recaptchaVerifier.render()
     }
     function sendOTP() {
-        var seconds=60
+        seconds = 60
         var number = {!! json_encode(auth()->user()->phone) !!}
         firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult
