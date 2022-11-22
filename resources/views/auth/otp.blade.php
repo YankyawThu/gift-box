@@ -41,7 +41,7 @@
 </div>
 <div class="w-96">
     <div class="absolute bottom-16 inset-x-5 text-center">
-        <span class="text_c3 mr-2 text-white">Dont receive code?</span><span class="text_c2" onclick="sendOTP()">Resend</span>
+        <span class="text_c3 mr-2 text-white">Dont receive code?</span><button class="text_c2" onclick="sendOTP()">Resend</button>
     </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
@@ -65,7 +65,6 @@
         @endif
     }
     var code = ''
-    var seconds=60
     var timer
     let digitValidate = function(ele){
         ele.value = ele.value.replace(/[^0-9]/g,'')
@@ -96,6 +95,7 @@
         recaptchaVerifier.render()
     }
     function sendOTP() {
+        var seconds=60
         var number = {!! json_encode(auth()->user()->phone) !!}
         firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult

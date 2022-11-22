@@ -2322,8 +2322,13 @@ __webpack_require__.r(__webpack_exports__);
           setTimeout(function () {
             _this2.conModalActive = true;
           }, 1000);
+        })["catch"](function (error) {
+          var message = [];
+          message.push(error.response.data.message);
+          _this2.errors['message'] = message;
+          _this2.errorModal = true;
         });
-      } else location.replace('/recharge');
+      } else location.replace(this.$url + '/recharge');
     },
     validate: function validate(data) {
       this.errors = data;
@@ -7136,7 +7141,7 @@ var render = function render() {
       staticClass: "text-sm text-gray-400"
     }, [_vm._v("Time: " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                " + _vm._s(data.money) + " Ks\n            ")])]);
+    }, [_vm._v("\n                " + _vm._s(data.money > 0 ? "+" : "") + _vm._s(data.money) + " Ks\n            ")])]);
   })], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 var staticRenderFns = [function () {
@@ -7757,7 +7762,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", [_vm._v("\n                Lorem ipsum dolor sit amet, consectetur adipiscing\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full mt-5 mb-2"
-  }, [_c("div", {
+  }, [_c("button", {
     staticClass: "btn_one rounded-full py-3 text-center m-auto text-white",
     on: {
       click: function click($event) {

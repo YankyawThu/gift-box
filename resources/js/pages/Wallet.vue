@@ -28,7 +28,7 @@
                     <div class="text-sm text-gray-400">Time: {{data.time}}</div>
                 </div>
                 <div class="self-center text_c2">
-                    {{data.money}} Ks
+                    {{ data.money > 0 ? '+' : ''}}{{data.money}} Ks
                 </div>
             </div>
         </main>

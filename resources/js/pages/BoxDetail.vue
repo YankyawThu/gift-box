@@ -165,8 +165,14 @@ export default {
                         this.conModalActive = true
                     },1000)
                 })
+                .catch(error => {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                    this.errorModal = true
+                }) 
             }
-            else location.replace('/recharge')
+            else location.replace(this.$url+'/recharge')
         },
         validate(data) {
             this.errors = data
