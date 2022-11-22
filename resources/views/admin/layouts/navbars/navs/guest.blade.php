@@ -27,7 +27,7 @@
                 </div>
             </div>
             <!-- Navbar items -->
-            <ul class="navbar-nav ml-auto">
+            {{-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('admin.home') }}">
                         <i class="ni ni-planet"></i>
@@ -47,7 +47,7 @@
                         <span class="nav-link-inner--text">{{ __('Profile') }}</span>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
     </div>
 </nav>
