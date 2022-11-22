@@ -39,6 +39,8 @@
         <div class="py-10">
             <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white" @click="submit()">Reset Password</button>
         </div>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
+        <create-alert v-model="create"></create-alert>
     </div>
 </template>
 
@@ -54,7 +56,10 @@ export default {
     data() {
         return {
             newPassword: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            errors: {},
+            errorModal: false,
+            create: false,
         }
     },
     methods: {
@@ -64,6 +69,17 @@ export default {
                 confirmNewPassword: this.confirmPassword
             }).then(res => {
                 console.log(res)
+                this.create = true
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
             })
         }
     }

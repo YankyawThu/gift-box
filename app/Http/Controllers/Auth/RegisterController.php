@@ -36,7 +36,7 @@ class RegisterController extends Controller
             'username' => ['required', 'alpha_num', 'max:255'],
             'code' => ['required'],
             'phone' => ['required', 'numeric'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:6'],
         ]);
     }
 

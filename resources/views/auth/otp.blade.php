@@ -60,7 +60,9 @@
 <script type="text/javascript">
     window.onload = function () {
         render()
-        sendOTP()
+        @if(auth()->user()->status != 'active')
+            sendOTP()
+        @endif
     }
     var code = ''
     var seconds=60

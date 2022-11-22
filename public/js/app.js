@@ -2360,16 +2360,30 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       newPassword: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      errors: {},
+      errorModal: false,
+      create: false
     };
   },
   methods: {
     submit: function submit() {
+      var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/user/change-password', {
         newPassword: this.newPassword,
         confirmNewPassword: this.confirmPassword
       }).then(function (res) {
         console.log(res);
+        _this.create = true;
+      })["catch"](function (error) {
+        if (error.response.data.errors) {
+          _this.errors = error.response.data.errors;
+        } else {
+          var message = [];
+          message.push(error.response.data.message);
+          _this.errors['message'] = message;
+        }
+        _this.errorModal = true;
       });
     }
   }
@@ -4695,7 +4709,26 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Reset Password")])])]);
+  }, [_vm._v("Reset Password")])]), _vm._v(" "), _c("validate-alert", {
+    attrs: {
+      errors: _vm.errors
+    },
+    model: {
+      value: _vm.errorModal,
+      callback: function callback($$v) {
+        _vm.errorModal = $$v;
+      },
+      expression: "errorModal"
+    }
+  }), _vm._v(" "), _c("create-alert", {
+    model: {
+      value: _vm.create,
+      callback: function callback($$v) {
+        _vm.create = $$v;
+      },
+      expression: "create"
+    }
+  })], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5565,7 +5598,7 @@ var render = function render() {
     }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [!prize.isApprove ? _c("div", {
       staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
       staticStyle: {
-        color: "#3BBE44"
+        color: "#FFC83C"
       }
     }, [_vm._v("Pending")]) : _c("div", {
       staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
@@ -6499,7 +6532,7 @@ var staticRenderFns = [function () {
   return _c("div", [_c("div", {
     staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
     staticStyle: {
-      color: "#3BBE44"
+      color: "#CE25F0"
     }
   }, [_vm._v("To be delivered")])]);
 }, function () {
@@ -6517,7 +6550,7 @@ var staticRenderFns = [function () {
   return _c("div", [_c("div", {
     staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
     staticStyle: {
-      color: "#CE25F0"
+      color: "#3BBE44"
     }
   }, [_vm._v("Completed")])]);
 }];

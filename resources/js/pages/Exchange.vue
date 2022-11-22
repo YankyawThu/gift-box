@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div v-if="!prize.isApprove" class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">Pending</div>
+                                <div v-if="!prize.isApprove" class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">Pending</div>
                                 <div v-else class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">Completed</div>
                             </div>
                         </div>

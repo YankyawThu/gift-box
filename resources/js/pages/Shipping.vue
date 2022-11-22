@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">To be delivered</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">To be delivered</div>
                         </div>
                     </div>
                 </section>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">Completed</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">Completed</div>
                         </div>
                     </div>
                 </section>
