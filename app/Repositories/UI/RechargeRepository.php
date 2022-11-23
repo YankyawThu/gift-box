@@ -12,6 +12,7 @@ class RechargeRepository extends BaseRepository
     {
         $this->model = $model;
         $this->rechargeOrderModel = $rechargeOrderModel;
+        $this->voucherPath = config('media.voucher');
     }
 
     public function get()
@@ -21,9 +22,15 @@ class RechargeRepository extends BaseRepository
 
     public function rechargeOrder($request)
     {
+        $mediaPath = fileUploadToAkoneyaMedia($request->voucher, $this->voucherPath);
+
         return $this->rechargeOrderModel->create([
             'user_id' => auth()->user()->id,
             'amount' => $request->amount,
+            'pay_method' => $request->payId,
+            'out_trade_number' => date('YmdHis').mt_rand(10000, 99999),
+            'pay_time' => now(),
+            'voucher' => $mediaPath,
         ]);
     }
 }

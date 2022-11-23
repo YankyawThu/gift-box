@@ -3,8 +3,8 @@
 return [
     // key => value
     'payMethod' => [
-        '1' => 'WeChat',
-        '2' => 'AliPay',
+        '1' => 'KPay',
+        '2' => 'WavePay',
     ],
     'payStatus' => [
         '1' => 'Pay',

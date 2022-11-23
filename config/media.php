@@ -2,9 +2,9 @@
 
 return [
     'giftItemPath' => 'blindBox/giftItem',
-    'giftBoxPath' => 'blinkBox/giftBox',
-    'user' => 'blinkBox/avatar',
-    'giftBannerPath' => 'blinkBox/Banner',
-    'giftSettingPath' => 'blinkBox/Setting',
-
+    'giftBoxPath' => 'blindBox/giftBox',
+    'user' => 'blindBox/avatar',
+    'giftBannerPath' => 'blindBox/Banner',
+    'giftSettingPath' => 'blindBox/Setting',
+    'voucher' => 'blindBox/voucher',
 ];
