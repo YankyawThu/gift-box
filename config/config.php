@@ -3,8 +3,14 @@
 return [
     // key => value
     'payMethod' => [
-        '1' => 'KPay',
-        '2' => 'WavePay',
+        [
+            'id' => '1',
+            'name' => 'KPay'
+        ],
+        [
+            'id' => '2',
+            'name' => 'WavePay'
+        ]
     ],
     'payStatus' => [
         '1' => 'Pay',

@@ -13,8 +13,15 @@
         <div class="text_c2 px-4">
             Select the Payment Method you want to use
         </div>
-        <div v-for="(pay,i) in data" :key="i" class="border_grad2 flex flex-row p-4 my-3 before:rounded-xl">
-            <div class="self-center w-10"><input type="radio" v-model="select" value="" name="payGroup" class="w-5 h-5"></div>
+        <div class="px-4">
+            <div v-for="(pay,i) in data" :key="i" class="border_grad2 flex px-4 my-3 before:rounded-xl">
+                <div class="text-white font-bold grow flex-none py-6">
+                    <label class="block w-full" :for="'radioChecked'+i">
+                        {{pay.name}}
+                    </label>
+                </div>
+                <div class="self-center w-12 text-right"><input type="radio" v-model="select" :value="pay.id" name="payGroup" class="w-5 h-5" :id="'radioChecked'+i"></div>
+            </div>
         </div>
         <div class="px-4">
             <input type="file" @change="uploadAvatar($event)">
@@ -24,6 +31,7 @@
         </div>
         <success-modal v-model="success" :modalAmount="amount" :index="0">
         </success-modal>
+        <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
     </div>
 </template>
 
@@ -46,7 +54,9 @@ export default {
         return {
             select: '',
             success: false,
-            file: ''
+            file: '',
+            errors: {},
+            errorModal: false,
         }
     },
     methods: {
@@ -64,6 +74,16 @@ export default {
                 if(res.data == 1) {
                     this.success = true
                 }
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
             })
         },
         back() {

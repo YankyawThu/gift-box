@@ -34,8 +34,8 @@
                             <option value="" @if (request('pay_method')===null) selected @endif>Select Pay Method
                             </option>
                             @foreach (config('config.payMethod') as $k => $v)
-                            <option value="{{ $k }}" @if (request('pay_method')==$k) selected @endif>
-                                {{ $v }}
+                            <option value="{{ $v['id'] }}" @if (request('pay_method')==$v['id']) selected @endif>
+                                {{ $v['name'] }}
                             </option>
                             @endforeach
                         </select>

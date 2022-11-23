@@ -3118,7 +3118,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       select: '',
       success: false,
-      file: ''
+      file: '',
+      errors: {},
+      errorModal: false
     };
   },
   methods: {
@@ -3136,6 +3138,15 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data == 1) {
           _this.success = true;
         }
+      })["catch"](function (error) {
+        if (error.response.data.errors) {
+          _this.errors = error.response.data.errors;
+        } else {
+          var message = [];
+          message.push(error.response.data.message);
+          _this.errors['message'] = message;
+        }
+        _this.errorModal = true;
       });
     },
     back: function back() {
@@ -6184,12 +6195,21 @@ var render = function render() {
     staticClass: "font-bold text-xl self-center text-white"
   }, [_vm._v("\n            Recharge\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "text_c2 px-4"
-  }, [_vm._v("\n        Select the Payment Method you want to use\n    ")]), _vm._v(" "), _vm._l(_vm.data, function (pay, i) {
+  }, [_vm._v("\n        Select the Payment Method you want to use\n    ")]), _vm._v(" "), _c("div", {
+    staticClass: "px-4"
+  }, _vm._l(_vm.data, function (pay, i) {
     return _c("div", {
       key: i,
-      staticClass: "border_grad2 flex flex-row p-4 my-3 before:rounded-xl"
+      staticClass: "border_grad2 flex px-4 my-3 before:rounded-xl"
     }, [_c("div", {
-      staticClass: "self-center w-10"
+      staticClass: "text-white font-bold grow flex-none py-6"
+    }, [_c("label", {
+      staticClass: "block w-full",
+      attrs: {
+        "for": "radioChecked" + i
+      }
+    }, [_vm._v("\n                    " + _vm._s(pay.name) + "\n                ")])]), _vm._v(" "), _c("div", {
+      staticClass: "self-center w-12 text-right"
     }, [_c("input", {
       directives: [{
         name: "model",
@@ -6200,19 +6220,20 @@ var render = function render() {
       staticClass: "w-5 h-5",
       attrs: {
         type: "radio",
-        value: "",
-        name: "payGroup"
+        name: "payGroup",
+        id: "radioChecked" + i
       },
       domProps: {
-        checked: _vm._q(_vm.select, "")
+        value: pay.id,
+        checked: _vm._q(_vm.select, pay.id)
       },
       on: {
         change: function change($event) {
-          _vm.select = "";
+          _vm.select = pay.id;
         }
       }
     })])]);
-  }), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("input", {
     attrs: {
@@ -6244,7 +6265,18 @@ var render = function render() {
       },
       expression: "success"
     }
-  })], 2);
+  }), _vm._v(" "), _c("validate-alert", {
+    attrs: {
+      errors: _vm.errors
+    },
+    model: {
+      value: _vm.errorModal,
+      callback: function callback($$v) {
+        _vm.errorModal = $$v;
+      },
+      expression: "errorModal"
+    }
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;

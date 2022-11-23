@@ -853,6 +853,9 @@ video {
 .w-40 {
   width: 10rem;
 }
+.w-12 {
+  width: 3rem;
+}
 .flex-none {
   flex: none;
 }
@@ -1050,6 +1053,10 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .pl-0 {
   padding-left: 0px;

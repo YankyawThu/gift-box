@@ -157,14 +157,12 @@
                             @include('admin.delivery_orders.complete', [
                             'id' => $item->id,
                             'item' => $item,
-                            'posts' => $posts,
                             ])
 
                             @elseif ($item->status=='undelivered')
                                 @include('admin.delivery_orders.edit', [
                                     'id' => $item->id,
                                     'item' => $item,
-                                    'posts' => $posts,
                                 ])
                         @endif
 
