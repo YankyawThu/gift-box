@@ -15,8 +15,8 @@
         </div>
         <div class="px-4">
             <div v-for="(pay,i) in data" :key="i" class="border_grad2 flex px-4 my-3 before:rounded-xl">
-                <div class="text-white font-bold grow flex-none py-6">
-                    <label class="block w-full" :for="'radioChecked'+i">
+                <div class="text-white font-bold grow flex-none">
+                    <label class="block w-full py-6" :for="'radioChecked'+i">
                         {{pay.name}}
                     </label>
                 </div>

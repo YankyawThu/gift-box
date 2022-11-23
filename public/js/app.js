@@ -6202,9 +6202,9 @@ var render = function render() {
       key: i,
       staticClass: "border_grad2 flex px-4 my-3 before:rounded-xl"
     }, [_c("div", {
-      staticClass: "text-white font-bold grow flex-none py-6"
+      staticClass: "text-white font-bold grow flex-none"
     }, [_c("label", {
-      staticClass: "block w-full",
+      staticClass: "block w-full py-6",
       attrs: {
         "for": "radioChecked" + i
       }
