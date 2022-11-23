@@ -137,6 +137,10 @@ a.nav-link.active{
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url("../argon/img/brand/blue.png") center no-repeat #f6f5f5;
+    background: url("../argon/img/brand/loading-37.gif") center no-repeat #f6f5f5;
     opacity: 0.8;
+}
+
+.bg-gradient-primary{
+    background: linear-gradient(87deg,#11cdef,#1171ef)!important;
 }

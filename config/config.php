@@ -1,13 +1,12 @@
 <?php
 
 return [
-
     // key => value
-    'payMethod'      => [
+    'payMethod' => [
         '1' => 'WeChat',
         '2' => 'AliPay',
     ],
-    'payStatus'      => [
+    'payStatus' => [
         '1' => 'Pay',
         '2' => 'Unpay',
     ],
@@ -30,5 +29,10 @@ return [
         '1' => 'index',
         '2' => 'other',
     ],
-
+    'prizeStatus' => [
+        1 => 'bag',
+        2 => 'exchange',
+        3 => 'delivery',
+        4 => 'received',
+    ],
 ];

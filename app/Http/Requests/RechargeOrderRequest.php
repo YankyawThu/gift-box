@@ -20,7 +20,8 @@ class RechargeOrderRequest extends FormRequest
     {
         return [
             'amount' => 'required',
-            // 'boxId' => 'required',
+            'payId' => 'required',
+            'voucher' => 'required',
         ];
     }
 }

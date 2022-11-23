@@ -25,8 +25,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Effective Box Order</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ __("-") }}</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Total Box Order</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{ $totalOpenBoxOrder }}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Total Goods</h5>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Total Gift Items</h5>
                                     <span class="h2 font-weight-bold mb-0">{{ $totalgoods }}</span>
                                 </div>
                                 <div class="col-auto">

@@ -9,7 +9,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('admin.home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/react-argon.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -77,7 +77,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+                    <a class="nav-link {{ activeSegment(2, 'dashboard') == 'active' ? 'active' : '' }}" href="{{ route('admin.home') }}">
 
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
@@ -113,6 +113,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'prize') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.prize.index') }}">
+                        <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Prize Record') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'recharge-lists') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.recharge-lists.index') }}">
                         <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges Lists') }}
@@ -130,7 +137,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'recycle-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.recycle-orders.index') }}">
-                        <i class="fas fa-truck text-blue"></i> {{ __('Recycle Orders') }}
+                        <i class="fa fa-recycle text-blue"></i> {{ __('Recycle Orders') }}
                         <span class="badge badge-warning" id="delivery-order-unread"></span>
                     </a>
                 </li>

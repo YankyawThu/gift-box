@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\GiftItemBoxController;
 use App\Http\Controllers\Admin\GiftLogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\PrizeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RechargeListController;
 use App\Http\Controllers\Admin\RechargeOrderController;
@@ -71,5 +72,9 @@ Route::name('admin.')->group(function () {
         Route::resource('rule-policies', RuleConfigController::class);
 
         Route::resource('/recycle-orders', RecycleController::class);
+
+        Route::resource('prize', PrizeController::class)->only([
+            'index',
+        ]);
     });
 });
