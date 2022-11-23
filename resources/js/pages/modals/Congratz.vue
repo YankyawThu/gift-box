@@ -9,7 +9,8 @@
                 <div class="flex flex-wrap justify-center my-4">
                     <div v-for="(prize,i) in prizes" :key="i" class="congratz_item_card">
                         <div class="congratz_item_card_header">
-                            <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="mark_img form-check-input h-3 w-3 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none bg-no-repeat bg-center bg-contain" type="checkbox">
+                            <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="mark_img form-check-input h-3 w-3 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none bg-no-repeat bg-center bg-contain" type="checkbox" hidden>
+                            <img :src="imgSelect[i]" class="mark_img">
                         </div>
                         <label class="form-check-label" :for="'itemChecked'+i">
                             <div class="congratz_item_card_body">
@@ -57,7 +58,8 @@ export default {
     data() {
         return {
             prizeIds: [],
-            selects: []
+            selects: [],
+            imgSelect: []
         }
     },
     watch: {
@@ -66,6 +68,7 @@ export default {
                 this.$props.prizes.forEach(prize => {
                     this.prizeIds.push(prize.prizeId)
                     this.selects.push(prize.prizeId)
+                    this.imgSelect.push(this.$asset+'/image/ui/Mark.svg')
                 });
             }
         }
@@ -86,9 +89,11 @@ export default {
         tick(i) {
             if(this.prizeIds[i] == false) {
                 this.selects[i] = this.$props.prizes[i].prizeId
+                this.imgSelect[i] = this.$asset+'/image/ui/Mark.svg'
             }
             else {
                 this.selects[i] = false
+                this.imgSelect[i] = this.$asset+'/image/ui/UnMark.svg'
             }
         }
     }

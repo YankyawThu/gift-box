@@ -2677,7 +2677,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       addressModalActive: false,
       create: false,
       errors: {},
-      errorModal: false
+      errorModal: false,
+      imgSelectAll: this.$asset + '/image/ui/SelectAll.svg',
+      imgSelect: []
     };
   },
   methods: {
@@ -2693,6 +2695,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           (_this$pending = _this.pending).push.apply(_this$pending, _toConsumableArray(res.data.data));
           res.data.data.forEach(function (item) {
             _this.prizeIds.push(false);
+            _this.imgSelect.push(_this.$asset + '/image/ui/Select.svg');
           });
           _this.lastPage = res.data.pagination.total_pages;
           if (_this.page <= _this.lastPage) {
@@ -2729,8 +2732,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     tick: function tick(i) {
       if (this.prizeIds[i] == false) {
+        this.imgSelect[i] = this.$asset + '/image/ui/SelectTick.svg';
         this.selects[i] = this.pending[i].id;
       } else {
+        this.imgSelect[i] = this.$asset + '/image/ui/Select.svg';
         this.selects[i] = false;
       }
     },
@@ -2760,26 +2765,38 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.errorModal = true;
     },
     clearAll: function clearAll() {
+      var _this3 = this;
       this.selects = [];
       this.prizeIds = [];
       this.selectAll = false;
+      this.imgSelect = [];
+      this.pending.forEach(function (item) {
+        _this3.prizeIds.push(false);
+        _this3.imgSelect.push(_this3.$asset + '/image/ui/Select.svg');
+      });
     }
   },
   watch: {
     selectAll: {
       handler: function handler() {
-        var _this3 = this;
+        var _this4 = this;
         if (this.selectAll) {
+          this.imgSelectAll = this.$asset + '/image/ui/SelectAllTick.svg';
           this.prizeIds = [];
           this.selects = [];
+          this.imgSelect = [];
           this.pending.forEach(function (item) {
-            _this3.prizeIds.push(item.id);
-            _this3.selects.push(item.id);
+            _this4.prizeIds.push(item.id);
+            _this4.selects.push(item.id);
+            _this4.imgSelect.push(_this4.$asset + '/image/ui/SelectTick.svg');
           });
         } else {
+          this.imgSelectAll = this.$asset + '/image/ui/SelectAll.svg';
           this.prizeIds = [];
+          this.imgSelect = [];
           this.pending.forEach(function (item) {
-            _this3.prizeIds.push(false);
+            _this4.prizeIds.push(false);
+            _this4.imgSelect.push(_this4.$asset + '/image/ui/Select.svg');
           });
           this.selects = [];
         }
@@ -2787,16 +2804,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
     (0,_tab_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
     this.fetchPending();
     window.onscroll = function () {
       var isEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
-      if (_this4.pTabActive && isEnd && !_this4.pendingEnd) {
-        _this4.fetch(_this4.page, _this4.pendingStatus);
+      if (_this5.pTabActive && isEnd && !_this5.pendingEnd) {
+        _this5.fetch(_this5.page, _this5.pendingStatus);
       }
-      if (!_this4.pTabActive && isEnd && !_this4.recycleEnd) {
-        _this4.fetch(_this4.page, _this4.recycleStatus);
+      if (!_this5.pTabActive && isEnd && !_this5.recycleEnd) {
+        _this5.fetch(_this5.page, _this5.recycleStatus);
       }
     };
   }
@@ -3894,7 +3911,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       prizeIds: [],
-      selects: []
+      selects: [],
+      imgSelect: []
     };
   },
   watch: {
@@ -3904,6 +3922,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$props.prizes.forEach(function (prize) {
           _this.prizeIds.push(prize.prizeId);
           _this.selects.push(prize.prizeId);
+          _this.imgSelect.push(_this.$asset + '/image/ui/Mark.svg');
         });
       }
     }
@@ -3925,8 +3944,10 @@ __webpack_require__.r(__webpack_exports__);
     tick: function tick(i) {
       if (this.prizeIds[i] == false) {
         this.selects[i] = this.$props.prizes[i].prizeId;
+        this.imgSelect[i] = this.$asset + '/image/ui/Mark.svg';
       } else {
         this.selects[i] = false;
+        this.imgSelect[i] = this.$asset + '/image/ui/UnMark.svg';
       }
     }
   }
@@ -5493,7 +5514,8 @@ var render = function render() {
     staticClass: "form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2",
     attrs: {
       type: "checkbox",
-      id: "allChecked"
+      id: "allChecked",
+      hidden: ""
     },
     domProps: {
       checked: Array.isArray(_vm.selectAll) ? _vm._i(_vm.selectAll, null) > -1 : _vm.selectAll
@@ -5515,6 +5537,11 @@ var render = function render() {
           _vm.selectAll = $$c;
         }
       }
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "mr-2",
+    attrs: {
+      src: _vm.imgSelectAll
     }
   })]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", {
     staticClass: "text-white",
@@ -5539,7 +5566,8 @@ var render = function render() {
       staticClass: "form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2",
       attrs: {
         id: "itemChecked" + i,
-        type: "checkbox"
+        type: "checkbox",
+        hidden: ""
       },
       domProps: {
         checked: Array.isArray(_vm.prizeIds[i]) ? _vm._i(_vm.prizeIds[i], null) > -1 : _vm.prizeIds[i]
@@ -5564,6 +5592,10 @@ var render = function render() {
             _vm.$set(_vm.prizeIds, i, $$c);
           }
         }
+      }
+    }), _vm._v(" "), _c("img", {
+      attrs: {
+        src: _vm.imgSelect[i]
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "w-full"
@@ -7505,6 +7537,10 @@ var render = function render() {
       staticClass: "border_grad2 flex flex-row p-4 my-3 before:rounded-xl"
     }, [_c("div", {
       staticClass: "grow pr-5 w-72"
+    }, [_c("label", {
+      attrs: {
+        "for": "radioChecked" + i
+      }
     }, [_c("div", {
       staticClass: "break-words text-lg text_c2"
     }, [_vm._v(_vm._s(address.username))]), _vm._v(" "), _c("div", {
@@ -7512,7 +7548,7 @@ var render = function render() {
       "class": _vm.index == 0 ? "text-black" : "text-white"
     }, [_vm._v(_vm._s(address.district))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-400 py-1 text-xs"
-    }, [_vm._v("Phone : " + _vm._s(address.phone))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("Phone : " + _vm._s(address.phone))])])]), _vm._v(" "), _c("div", {
       staticClass: "flex-none self-center w-10"
     }, [_c("input", {
       directives: [{
@@ -7524,7 +7560,8 @@ var render = function render() {
       staticClass: "w-5 h-5",
       attrs: {
         type: "radio",
-        name: "addressGroup"
+        name: "addressGroup",
+        id: "radioChecked" + i
       },
       domProps: {
         value: address.id,
@@ -7683,7 +7720,8 @@ var render = function render() {
       staticClass: "mark_img form-check-input h-3 w-3 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none bg-no-repeat bg-center bg-contain",
       attrs: {
         id: "itemChecked" + i,
-        type: "checkbox"
+        type: "checkbox",
+        hidden: ""
       },
       domProps: {
         checked: Array.isArray(_vm.prizeIds[i]) ? _vm._i(_vm.prizeIds[i], null) > -1 : _vm.prizeIds[i]
@@ -7708,6 +7746,11 @@ var render = function render() {
             _vm.$set(_vm.prizeIds, i, $$c);
           }
         }
+      }
+    }), _vm._v(" "), _c("img", {
+      staticClass: "mark_img",
+      attrs: {
+        src: _vm.imgSelect[i]
       }
     })]), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
@@ -7896,7 +7939,7 @@ var render = function render() {
   })]), _vm._v(" "), _c("div", [_vm._v("\n                Lorem ipsum dolor sit amet, consectetur adipiscing\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "w-full mt-5 mb-2"
   }, [_c("button", {
-    staticClass: "btn_one rounded-full py-3 text-center m-auto text-white",
+    staticClass: "btn_one rounded-full py-3 text-center m-auto text-white w-full",
     on: {
       click: function click($event) {
         return _vm.submit();

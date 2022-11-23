@@ -9,11 +9,13 @@
             <div class="overflow-auto h-96 my-5">
                 <div v-for="(address,i) in addresses" :key="i" class="border_grad2 flex flex-row p-4 my-3 before:rounded-xl">
                     <div class="grow pr-5 w-72">
-                        <div class="break-words text-lg text_c2">{{address.username}}</div>
-                        <div class="break-words text-sm" :class="index == 0 ? 'text-black' : 'text-white'">{{address.district}}</div>
-                        <div class="text-gray-400 py-1 text-xs">Phone : {{address.phone}}</div>
+                        <label :for="'radioChecked'+i">
+                            <div class="break-words text-lg text_c2">{{address.username}}</div>
+                            <div class="break-words text-sm" :class="index == 0 ? 'text-black' : 'text-white'">{{address.district}}</div>
+                            <div class="text-gray-400 py-1 text-xs">Phone : {{address.phone}}</div>
+                        </label>
                     </div>
-                    <div class="flex-none self-center w-10"><input type="radio" v-model="select" :value="address.id" name="addressGroup" class="w-5 h-5"></div>
+                    <div class="flex-none self-center w-10"><input type="radio" v-model="select" :value="address.id" name="addressGroup" class="w-5 h-5" :id="'radioChecked'+i"></div>
                 </div>
             </div>
             <div class="btn_gradient py-2 text-sm text-center rounded-full text-white" @click="submit()">
