@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/tide-play', [UIController::class, 'tidePlay']);
             Route::get('/helps', [UIController::class, 'helps']);
             Route::get('/recharge', [RechargeController::class, 'index']);
+            Route::get('/payment/{amount}', [RechargeController::class, 'payment']);
             Route::post('/recharge-order', [RechargeController::class, 'rechargeOrder']);
             Route::get('/shipping/{num}', [OrderController::class, 'index']);
             Route::get('/order-list', [OrderController::class, 'getAll']);

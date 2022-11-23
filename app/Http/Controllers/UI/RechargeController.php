@@ -26,4 +26,9 @@ class RechargeController extends Controller
 
         return true;
     }
+
+    public function payment($amount)
+    {
+        return Inertia::render('Payment', ['amount' => $amount, 'data' => []]);
+    }
 }

@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/tailwindcss.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <title>TLBox</title>
     @inertiaHead
   </head>
   <body>

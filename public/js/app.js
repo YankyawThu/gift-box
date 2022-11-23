@@ -3071,10 +3071,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3094,6 +3094,64 @@ __webpack_require__.r(__webpack_exports__);
     successModal: _modals_Success_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
+    amount: '',
+    data: ''
+  },
+  data: function data() {
+    return {
+      select: '',
+      success: false,
+      file: ''
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+      var formData = new FormData();
+      formData.append('payId', this.select);
+      formData.append('amount', this.$props.amount);
+      formData.append('voucher', this.file);
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/recharge-order', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
+        if (res.data == 1) {
+          _this.success = true;
+        }
+      });
+    },
+    back: function back() {
+      window.history.back();
+    },
+    uploadAvatar: function uploadAvatar(event) {
+      this.file = event.target.files[0];
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
+  },
+  props: {
     data: {
       type: Array,
       required: true
@@ -3101,9 +3159,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      amount: '',
-      actives: [],
-      success: false
+      amount: 0,
+      actives: []
     };
   },
   methods: {
@@ -3118,16 +3175,6 @@ __webpack_require__.r(__webpack_exports__);
       this.actives = [];
       this.setFalse();
       this.actives[i] = true;
-    },
-    submit: function submit() {
-      var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/recharge-order', {
-        amount: this.amount
-      }).then(function (res) {
-        if (res.data == 1) {
-          _this2.success = true;
-        }
-      });
     },
     back: function back() {
       window.history.back();
@@ -6066,6 +6113,113 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "py-4"
+  }, [_c("div", {
+    staticClass: "flex flex-row my-5 px-4"
+  }, [_c("Link", {
+    attrs: {
+      href: "#",
+      as: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.back();
+      }
+    }
+  }, [_c("div", {
+    staticClass: "p-2 pl-0 mr-2"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.$asset + "/image/ui/BackArrow.svg"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "font-bold text-xl self-center text-white"
+  }, [_vm._v("\n            Recharge\n        ")])], 1), _vm._v(" "), _c("div", {
+    staticClass: "text_c2 px-4"
+  }, [_vm._v("\n        Select the Payment Method you want to use\n    ")]), _vm._v(" "), _vm._l(_vm.data, function (pay, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "border_grad2 flex flex-row p-4 my-3 before:rounded-xl"
+    }, [_c("div", {
+      staticClass: "self-center w-10"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.select,
+        expression: "select"
+      }],
+      staticClass: "w-5 h-5",
+      attrs: {
+        type: "radio",
+        value: "",
+        name: "payGroup"
+      },
+      domProps: {
+        checked: _vm._q(_vm.select, "")
+      },
+      on: {
+        change: function change($event) {
+          _vm.select = "";
+        }
+      }
+    })])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "px-4"
+  }, [_c("input", {
+    attrs: {
+      type: "file"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.uploadAvatar($event);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "absolute w-full bottom-5 px-4"
+  }, [_c("button", {
+    staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
+    on: {
+      click: function click($event) {
+        return _vm.submit();
+      }
+    }
+  }, [_vm._v("Continue")])]), _vm._v(" "), _c("success-modal", {
+    attrs: {
+      modalAmount: _vm.amount,
+      index: 0
+    },
+    model: {
+      value: _vm.success,
+      callback: function callback($$v) {
+        _vm.success = $$v;
+      },
+      expression: "success"
+    }
+  })], 2);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=template&id=1bf0ddb0&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Recharge.vue?vue&type=template&id=1bf0ddb0& ***!
@@ -6124,24 +6278,13 @@ var render = function render() {
     }, [_vm._v("\n                " + _vm._s(price.amount) + " Ks\n            ")]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "absolute w-full bottom-5 px-4"
-  }, [_c("div", {
+  }, [_c("Link", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
-    on: {
-      click: _vm.submit
-    }
-  }, [_vm._v("Continue")])]), _vm._v(" "), _c("success-modal", {
     attrs: {
-      modalAmount: _vm.amount,
-      index: 0
-    },
-    model: {
-      value: _vm.success,
-      callback: function callback($$v) {
-        _vm.success = $$v;
-      },
-      expression: "success"
+      href: _vm.$url + "/payment/" + _vm.amount,
+      as: "button"
     }
-  })], 1);
+  }, [_vm._v("Continue")])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -17379,6 +17522,45 @@ component.options.__file = "resources/js/pages/OpenBox.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/Payment.vue":
+/*!****************************************!*\
+  !*** ./resources/js/pages/Payment.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Payment.vue?vue&type=template&id=be3450e6& */ "./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&");
+/* harmony import */ var _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Payment.vue?vue&type=script&lang=js& */ "./resources/js/pages/Payment.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Payment.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Recharge.vue":
 /*!*****************************************!*\
   !*** ./resources/js/pages/Recharge.vue ***!
@@ -18335,6 +18517,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/Payment.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/pages/Payment.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Payment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/Recharge.vue?vue&type=script&lang=js&":
 /*!******************************************************************!*\
   !*** ./resources/js/pages/Recharge.vue?vue&type=script&lang=js& ***!
@@ -18838,6 +19036,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OpenBox_vue_vue_type_template_id_156b39b0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OpenBox_vue_vue_type_template_id_156b39b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OpenBox.vue?vue&type=template&id=156b39b0& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/OpenBox.vue?vue&type=template&id=156b39b0&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Payment.vue?vue&type=template&id=be3450e6& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&");
 
 
 /***/ }),
@@ -31273,6 +31488,8 @@ var map = {
 	"./Home.vue": "./resources/js/pages/Home.vue",
 	"./OpenBox": "./resources/js/pages/OpenBox.vue",
 	"./OpenBox.vue": "./resources/js/pages/OpenBox.vue",
+	"./Payment": "./resources/js/pages/Payment.vue",
+	"./Payment.vue": "./resources/js/pages/Payment.vue",
 	"./Recharge": "./resources/js/pages/Recharge.vue",
 	"./Recharge.vue": "./resources/js/pages/Recharge.vue",
 	"./Setup": "./resources/js/pages/Setup.vue",
