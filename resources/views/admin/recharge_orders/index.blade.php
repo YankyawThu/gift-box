@@ -15,17 +15,13 @@
                     <div
                         class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Coin Amount" type="text"
-                            name="coin_amount" value="{{ request('coin_amount') }}">
+                            name="amount" value="{{ request('amount') }}">
                     </div>
+
                     <div
                         class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
-                        <input class="form-control searching" placeholder="Search by RMB Amount" type="text"
-                            name="rmb_amount" value="{{ request('rmb_amount') }}">
-                    </div>
-                    <div
-                        class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
-                        <input class="form-control searching" placeholder="Search by Transaction ID" type="text"
-                            name="transaction_id" value="{{ request('transaction_id') }}">
+                        <input class="form-control searching" placeholder="Search by Out Trade No." type="text"
+                            name="out_trade_no" value="{{ request('out_trade_no') }}">
                     </div>
                     <div
                         class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
@@ -70,13 +66,12 @@
             <tr>
                 <th class="text-xxs font-weight-bolder opacity-7">No</th>
                 <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
-                <th class="text-xxs font-weight-bolder opacity-7">COIN AMOUNT</th>
-                <th class="text-xxs font-weight-bolder opacity-7">RMB AMOUNT</th>
+                <th class="text-xxs font-weight-bolder opacity-7">AMOUNT</th>
                 <th class="text-xxs font-weight-bolder opacity-7">PAY METHOD</th>
                 <th class="text-xxs font-weight-bolder opacity-7">PAY RMB</th>
-                <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO</th>
+                <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
                 <th class="text-xxs font-weight-bolder opacity-7">PAY TIME</th>
-                <th class="text-xxs font-weight-bolder opacity-7">STAUS</th>
+                <th class="text-xxs font-weight-bolder opacity-7">STATUS</th>
                 <th class="text-xxs font-weight-bolder opacity-7">CREATED TIME</th>
                 <th class="opacity-7"></th>
             </tr>
@@ -91,10 +86,7 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->name }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->coin_amount, 2) }}</p>
-                </td>
-                <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->rmb_amount, 2) }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->amount, 2) }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_method ? $item->pay_method : '-' }}</p>
@@ -115,7 +107,7 @@
                     </p>
                 </td>
                 <td class="align-middle">
-                    <span class="font-weight-bold text-sm">{{ $item->created_at->diffForHumans() }}</span>
+                    <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
                 </td>
             </tr>
             @endforeach

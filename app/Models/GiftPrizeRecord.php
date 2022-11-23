@@ -47,4 +47,9 @@ class GiftPrizeRecord extends Model
                 break;
         }
     }
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
 }

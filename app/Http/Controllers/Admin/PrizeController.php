@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\Admin\GiftPrizeFilter;
 use App\Http\Controllers\Controller;
-use App\Models\GiftPrizeRecord;
+use App\Services\Admin\PrizeService;
 
 class PrizeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(PrizeService $prizeService)
     {
-        $prize = GiftPrizeRecord::all();
+        $this->prizeService = $prizeService;
+    }
+
+    public function index(GiftPrizeFilter $filter)
+    {
+        $prize = $this->prizeService->getAll($filter);
 
         return view('admin.prizes.index', compact('prize'));
     }
