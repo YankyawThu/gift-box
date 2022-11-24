@@ -8,7 +8,7 @@
                         <h3 class="mb-0">{{ __('Confirm Payment') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.recharge-orders.update', [$id,'status'=>config('config.rechargePayStatus.2')]) }}" method="POST"
+                        <form action="{{ route('admin.recharge-orders.update', [$id,'status'=>config('config.rechargePayStatus.2'),'amount'=>$item->amount]) }}" method="POST"
                             id="recharge-order-paid-form">
                             @csrf
                             @method('PUT')
@@ -29,7 +29,11 @@
                         </form>
                     </div>
                     <div class="card-footer bg-secondary px-lg-2 px-1 text-center">
-                        <button type="submit" form="recharge-order-paid-form" class="btn btn-success text-white">Paid</button>
+                        @if($item->status != 'paid')
+                            <button type="submit" form="recharge-order-paid-form" class="btn btn-success text-white">Paid</button>
+
+                        @endif
+
 
                         <button type="button" id="edit-delivery-order-cancel-btn" class="btn btn-primary text-white"
                             data-dismiss="modal">Cancel</button>

@@ -107,18 +107,6 @@
                         </td>
                         <td class="align-middle">
 
-                            {{-- <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
-                                data-image="{{$item->voucher}}"
-                                data-image-path={{getFileUrlFromAkoneyaMedia($item->voucher)}}
-                            >
-                                <span class="btn btn-sm btn-success" data-toggle="tooltip"
-                                    data-original-title="Confirm Voucher"><i class="fas fa-edit"></i>
-                                </span>
-                            </a>
-                            @include('admin.recharge_orders.confirm', [
-                            'id' => $item->id,
-                            'item' => $item,
-                            ]) --}}
 
                             <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
 

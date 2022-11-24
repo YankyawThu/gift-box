@@ -2,7 +2,9 @@
 
 namespace App\Services\Admin;
 
+use App\Models\MoneyRecord;
 use App\Repositories\Admin\RechargeOrderRepository;
+use App\User;
 
 class RechargeOrderService
 {
@@ -31,6 +33,22 @@ class RechargeOrderService
 
     public function paymentConfirm($request, $id)
     {
+        $info = $this->rechargeListRepo->getById($id);
+        if (!$info->user) {
+            return redirect()->back()->with('status', 'User not found!');
+        }
+
+        $money_before = $info->user->money;
+
+        User::where('id', $info->user_id)->increment('money', $request->amount);
+
+        MoneyRecord::create([
+            'user_id' => auth()->user()->id,
+            'before' => $money_before,
+            'after' => $info->user->money,
+            'money' => $request->amount,
+            'type' => 'recharge',
+        ]);
         $data['status'] = $request->status;
 
         return $this->rechargeListRepo->update($data, $id);
