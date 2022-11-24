@@ -11,8 +11,8 @@ Vue.component('updateAlert', updateAlert)
 Vue.component('deleteAlert', deleteAlert)
 Vue.component('validateAlert', validateAlert)
 
-// var app_path = '/gift_box_lucky_draw/public'
-var app_path = ''
+var app_path = '/gift_box_lucky_draw/public'
+//var app_path = ''
 
 
 axios.defaults.baseURL = app_path
