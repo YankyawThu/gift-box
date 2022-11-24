@@ -8,6 +8,7 @@ class BannerService
 {
     private $bannerRepo;
     private $uploadPhotoFolder;
+
     public function __construct(BannerRepository $bannerRepo)
     {
         $this->bannerRepo = $bannerRepo;
@@ -19,7 +20,6 @@ class BannerService
     {
         return $this->bannerRepo->getById($id);
     }
-
 
     public function getAll($filter)
     {
@@ -39,10 +39,11 @@ class BannerService
         $data['status'] = $request['status'];
         $data['sort'] = $request['sort'];
         $data['value'] = $request['value'];
-        if (request()->has('value_box')) {
+
+        if (isset($request->value_box) && request()->has('value_box')) {
             $data['value'] = $request['value_box'];
         }
-        if (request()->has('value_link')) {
+        if (isset($request->value_link) && request()->has('value_link')) {
             $data['value'] = $request['value_link'];
         }
 
@@ -74,6 +75,7 @@ class BannerService
         $data['value'] = $request['value'];
         $data['status'] = $request['status'];
         $data['sort'] = $request['sort'];
+
         return $this->bannerRepo->update($data, $id);
     }
 

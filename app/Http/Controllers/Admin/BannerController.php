@@ -108,7 +108,7 @@ class BannerController extends Controller
 
             foreach ($arr as $sortOrder => $id) {
                 $menu = $this->bannerService->getById($id);
-                $menu->sort = $sortOrder;
+                $menu->sort = ++$sortOrder;
                 $menu->save();
             }
 

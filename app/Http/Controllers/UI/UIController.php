@@ -51,7 +51,9 @@ class UIController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Home', ['user' => auth()->user()]);
+        $banners = $this->boxService->getBanners();
+
+        return Inertia::render('Home', ['user' => auth()->user(), 'banners' => $banners]);
     }
 
     public function detail($id)
@@ -140,11 +142,6 @@ class UIController extends Controller
         $this->prizeService->collect($request);
 
         return 'success';
-    }
-
-    public function getBanners()
-    {
-        return response()->json($this->boxService->getBanners());
     }
 
     public function getBoxCabinet(BoxCabinetRequest $request)
