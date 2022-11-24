@@ -16,7 +16,12 @@ class BoxRepository extends BaseRepository
 
     public function getBanners()
     {
-        return $this->bannerModel->orderBy('sort')->pluck('image');
+        $images = $this->bannerModel->orderBy('sort')->pluck('image');
+        $data = [];
+        foreach($images as $image){
+            array_push($data, getFileUrlFromAkoneyaMedia($image));
+        }
+        return $data;
     }
 
     public function increaseSale($boxId, $times)

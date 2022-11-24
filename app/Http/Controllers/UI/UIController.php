@@ -52,7 +52,6 @@ class UIController extends Controller
     public function index()
     {
         $banners = $this->boxService->getBanners();
-
         return Inertia::render('Home', ['user' => auth()->user(), 'banners' => $banners]);
     }
 
