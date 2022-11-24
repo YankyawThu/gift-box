@@ -31,7 +31,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/change-phone', [UserController::class, 'changePhone'])->name('changePhone');
     Route::group(['middleware' => 'phone'], function () {
         Route::group(['namespace' => 'UI'], function () {
-            Route::get('/banner', [UIController::class, 'getBanners']);
             Route::prefix('box')->group(function () {
                 Route::get('/', [UIController::class, 'index'])->name('box');
                 Route::post('/', [UIController::class, 'getAll']);
