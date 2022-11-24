@@ -11,6 +11,8 @@ Vue.component('updateAlert', updateAlert)
 Vue.component('deleteAlert', deleteAlert)
 Vue.component('validateAlert', validateAlert)
 
+Vue.mixin(require('./base'))
+
 var app_path = '/gift_box_lucky_draw/public'
 //var app_path = ''
 

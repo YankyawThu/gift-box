@@ -32,7 +32,7 @@
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
                 <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
-                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">Recharge</div></Link>
+                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">{{__("Recharge")}}</div></Link>
                 <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
                 <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
             </div>

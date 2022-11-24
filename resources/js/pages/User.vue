@@ -1,6 +1,6 @@
 <template>
     <div class="h-screen">
-        <main class="pb-20">
+        <main>
             <div class="flex justify-between user_header pb-12 pt-6 px-4">
                 <div class="flex flex-row">
                     <div><img :src="user.avatar" alt="" class="home_avatar"></div>
@@ -72,6 +72,11 @@
                     </div>
                 </Link>
             </div>
+            <div class="px-4">
+                <button @click="changeLanguage('en')" class="text-white">En</button>
+                <button @click="changeLanguage('zh')" class="text-white">Zh</button>
+                <button @click="changeLanguage('mm')" class="text-white">Mm</button>
+            </div>
         </main>
         <footer>
             <bot></bot>
@@ -83,6 +88,7 @@
 
 import bot from './layouts/Footer.vue'
 import {Link} from '@inertiajs/inertia-vue'
+import axios from 'axios'
 
 export default {
     components: {
@@ -92,6 +98,14 @@ export default {
     props: {
         user: {
             type: Object
+        }
+    },
+    methods: {
+        changeLanguage(lang) {
+            axios.get(`/language/${lang}`)
+            .then(() => {
+                location.reload()
+            })
         }
     }
 }
