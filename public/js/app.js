@@ -3153,7 +3153,15 @@ __webpack_require__.r(__webpack_exports__);
       window.history.back();
     },
     uploadAvatar: function uploadAvatar(event) {
-      this.file = event.target.files[0];
+      if (event.target.files[0] != undefined) {
+        this.file = event.target.files[0];
+      }
+    },
+    fileUpload: function fileUpload() {
+      document.getElementById('file').click();
+    },
+    removeFileUpload: function removeFileUpload() {
+      this.file = '';
     }
   }
 });
@@ -6243,17 +6251,52 @@ var render = function render() {
       }
     })])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "px-4"
+    staticClass: "p-4 flex",
+    on: {
+      click: function click($event) {
+        return _vm.fileUpload();
+      }
+    }
   }, [_c("input", {
     attrs: {
-      type: "file"
+      id: "file",
+      type: "file",
+      hidden: ""
     },
     on: {
       change: function change($event) {
         return _vm.uploadAvatar($event);
       }
     }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "bg-white inline-block rounded-lg mr-3"
+  }, [_c("img", {
+    staticClass: "p-3",
+    attrs: {
+      src: _vm.$asset + "/image/ui/Union.svg"
+    }
   })]), _vm._v(" "), _c("div", {
+    staticClass: "text_c1 self-center"
+  }, [_vm._v("Attach File")])]), _vm._v(" "), _vm.file ? _c("div", {
+    staticClass: "px-2"
+  }, [_c("img", {
+    staticClass: "inline-block p-2",
+    attrs: {
+      src: _vm.$asset + "/image/ui/Attach.svg"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "text-gray-400"
+  }, [_vm._v(_vm._s(_vm.file.name))]), _vm._v(" "), _c("img", {
+    staticClass: "ml-3 inline-block p-2",
+    attrs: {
+      src: _vm.$asset + "/image/ui/DeleteMark.svg"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.removeFileUpload();
+      }
+    }
+  })]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("button", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",

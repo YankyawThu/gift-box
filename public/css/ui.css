@@ -520,3 +520,16 @@ option:before {
     max-height: 100%;
     transition: 1s ease-in-out all;
 }
+
+.file_image_frame {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(111, 111, 111);
+    color: rgb(111, 111, 111);
+    border-style: dashed;
+    text-align: center;
+    border-radius: 10px;
+    width: 180px;
+    height: 180px;
+    margin: 40px auto;
+}

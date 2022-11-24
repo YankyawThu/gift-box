@@ -23,8 +23,17 @@
                 <div class="self-center w-12 text-right"><input type="radio" v-model="select" :value="pay.id" name="payGroup" class="w-5 h-5" :id="'radioChecked'+i"></div>
             </div>
         </div>
-        <div class="px-4">
-            <input type="file" @change="uploadAvatar($event)">
+        <div class="p-4 flex" @click="fileUpload()">
+            <input id="file" type="file" @change="uploadAvatar($event)" hidden>
+            <div class="bg-white inline-block rounded-lg mr-3">
+                <img :src="$asset+'/image/ui/Union.svg'" class="p-3">
+            </div>
+            <div class="text_c1 self-center">Attach File</div>
+        </div>
+        <div v-if="file" class="px-2">
+            <img :src="$asset+'/image/ui/Attach.svg'" class="inline-block p-2">
+            <span class="text-gray-400">{{file.name}}</span>
+            <img :src="$asset+'/image/ui/DeleteMark.svg'" class="ml-3 inline-block p-2" @click="removeFileUpload()">
         </div>
         <div class="absolute w-full bottom-5 px-4">
             <button class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Continue</button>
@@ -90,8 +99,16 @@ export default {
             window.history.back()
         },
         uploadAvatar(event) {
-            this.file = event.target.files[0]
+            if(event.target.files[0] != undefined) {
+                this.file = event.target.files[0]
+            }
         },
+        fileUpload() {
+            document.getElementById('file').click()
+        },
+        removeFileUpload() {
+            this.file = ''
+        }
     }
 }
 </script>
