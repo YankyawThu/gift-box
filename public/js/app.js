@@ -2895,6 +2895,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   props: {
     user: {
       type: Object
+    },
+    banners: {
+      type: Array
     }
   },
   data: function data() {
@@ -5910,19 +5913,14 @@ var render = function render() {
     staticClass: "carousel h-44 md:h-72 rounded-3xl"
   }, [_c("div", {
     staticClass: "slides"
-  }, [_c("img", {
-    attrs: {
-      src: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/international2022/social_sharing/metadata_img.jpg"
-    }
-  }), _vm._v(" "), _c("img", {
-    attrs: {
-      src: "https://staticg.sportskeeda.com/editor/2022/09/3c0ec-16635728532895-1920.jpg"
-    }
-  }), _vm._v(" "), _c("img", {
-    attrs: {
-      src: "https://escorenews.com/media/news/n40297.jpeg"
-    }
-  })])])]), _vm._v(" "), _c("div", {
+  }, _vm._l(_vm.banners, function (img, i) {
+    return _c("img", {
+      key: i,
+      attrs: {
+        src: img
+      }
+    });
+  }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between py-2 mb-3"
   }, [_c("Link", {
     staticClass: "text-left",

@@ -24,9 +24,7 @@
             <div class="my-2">
                 <div class="carousel h-44 md:h-72 rounded-3xl">
                     <div class="slides">
-                        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/international2022/social_sharing/metadata_img.jpg">
-                        <img src="https://staticg.sportskeeda.com/editor/2022/09/3c0ec-16635728532895-1920.jpg">
-                        <img src="https://escorenews.com/media/news/n40297.jpeg">
+                        <img :src="img" v-for="(img,i) in banners" :key="i">
                     </div>
                 </div>
             </div>
@@ -71,6 +69,9 @@ export default {
     props: {
         user: {
             type:Object
+        },
+        banners: {
+            type: Array
         }
     },
     data() {
