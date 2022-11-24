@@ -24,11 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 Auth::routes();
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');
     Route::get('/wrong-phone', [LoginController::class, 'wrongPhone'])->name('wrongPhone');
     Route::get('/verify-otp', [LoginController::class, 'verifyOTP'])->name('verifyOTP');
     Route::post('/change-phone', [UserController::class, 'changePhone'])->name('changePhone');
+    Route::get('/language/{language}', function ($language) {
+        Session()->put('locale', $language);
+        // return true;
+    });
     Route::group(['middleware' => 'phone'], function () {
         Route::group(['namespace' => 'UI'], function () {
             Route::get('/banner', [UIController::class, 'getBanners']);
