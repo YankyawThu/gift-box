@@ -6,7 +6,7 @@ use App\Filters\Filter;
 
 class RechargeOrderFilter extends Filter
 {
-    protected $filters = ['name', 'coin_amount', 'rmb_amount', 'transaction_id', 'pay_method', 'status'];
+    protected $filters = ['name', 'amount', 'rmb_amount', 'transaction_id', 'pay_method', 'status'];
 
     public function name($value)
     {
@@ -18,19 +18,14 @@ class RechargeOrderFilter extends Filter
         );
     }
 
-    public function coin_amount($value)
+    public function amount($value)
     {
-        return $this->builder->where('coin_amount', '>', $value);
+        return $this->builder->where('amount', $value);
     }
 
-    public function rmb_amount($value)
+    public function out_trade_no($value)
     {
-        return $this->builder->where('rmb_amount', '>', $value);
-    }
-
-    public function transaction_id($value)
-    {
-        return $this->builder->where('transaction_id', 'like', "%$value%");
+        return $this->builder->where('out_trade_number', 'like', "%$value%");
     }
 
     public function pay_method($value)

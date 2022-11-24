@@ -7,6 +7,7 @@ use App\Repositories\Admin\AdminRepository;
 class AdminService
 {
     private $adminRepo;
+
     public function __construct(AdminRepository $adminRepo)
     {
         $this->adminRepo = $adminRepo;

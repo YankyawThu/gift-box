@@ -101,7 +101,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'boxes') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.boxes.index') }}">
-                        <i class="ni ni-trophy text-blue"></i> {{ __('Gift Boxes') }}
+                        <i class="ni ni-app text-blue"></i> {{ __('Gift Boxes') }}
                     </a>
                 </li>
 
@@ -115,7 +115,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'prize') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.prize.index') }}">
-                        <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Prize Record') }}
+                        <i class="ni ni-trophy text-blue"></i> {{ __('Gift Prize Record') }}
                     </a>
                 </li>
 

@@ -8,7 +8,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Blind Box Dashboard') }}</title>
+    <title>{{ config('app.name', 'TLBox') }}</title>
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -39,7 +39,7 @@
     </div>
 
     @guest()
-    @include('admin.layouts.footers.guest')
+
     @endguest
 
     <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
