@@ -123,13 +123,11 @@
                     </td>
                     <td class="align-middle">
                         <span class="btn btn-sm btn-secondary handle" data-toggle="tooltip"
-                            data-original-title="Delete Banner">
+                            data-original-title="Sort Banner">
                             <i class="fa fa-arrows-alt"></i>
                         </span>
                         <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
                             data-image="{{ $item->image }}"
-                            {{-- data-image-path="{{ route(" admin.get-file", ['model'=>
-                            'Banner', 'id' => $item->id]) }}" --}}
                             data-image-path={{getFileUrlFromAkoneyaMedia($item->image)}}
                             data-place="{{ $item->place }}" data-type="{{ array_search($item->type,
                             config("config.bannerType")) }}"
@@ -189,7 +187,7 @@
             success:function(response){
                 //do whatever after success
                 $(".se-pre-con").fadeOut("slow");
-                // $("#reload-div").load(location.href + " #reload-div");
+                $("#reload-div").load(location.href + " #reload-div");
             }
         })
     }

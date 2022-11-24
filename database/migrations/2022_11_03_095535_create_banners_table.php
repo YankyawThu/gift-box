@@ -18,7 +18,7 @@ class CreateBannersTable extends Migration
             $table->enum('place', ['index', 'other']);
             $table->string('image');
             $table->enum('type', ['box', 'link', 'word']);
-            $table->longText('value');
+            $table->longText('value')->nullable();
             $table->enum('status', ['normal', 'hidden']);
             $table->integer('sort')->nullable();
             $table->softDeletes();
