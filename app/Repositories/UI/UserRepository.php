@@ -55,10 +55,11 @@ class UserRepository extends BaseRepository
     public function changePhone($request)
     {
         $user = $this->model->where('phone', $request->code.$request->phone)->first();
-        if($user) {
+        if ($user) {
             throw ValidationException::withMessages(['alreadyUser' => ['Already registered phone number!']]);
+        } else {
+            return $this->model->where('id', auth()->user()->id)->update(['phone' => $request->code.$request->phone, 'status' => 'inactive']);
         }
-        else return $this->model->where('id', auth()->user()->id)->update(['phone' => $request->code.$request->phone, 'status' => 'inactive']);
     }
 
     public function changePassword($request, $user)
