@@ -17,13 +17,13 @@ class CreateRechargeOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->double('amount')->default(0);
-            $table->enum('pay_method', ['wechat', 'alipay'])->nullable();
-            $table->double('pay_rmb')->default(0);
+            $table->tinyInteger('pay_method')->nullable();
             $table->string('out_trade_number')->nullable();
             $table->string('transaction_id')->nullable();
             $table->timestamp('pay_time')->nullable();
             $table->enum('status', ['unpay', 'paid']);
             $table->boolean('backend_read')->default(0);
+            $table->string('voucher')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

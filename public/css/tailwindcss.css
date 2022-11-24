@@ -823,6 +823,9 @@ video {
 .w-44 {
   width: 11rem;
 }
+.w-12 {
+  width: 3rem;
+}
 .w-28 {
   width: 7rem;
 }
@@ -1038,6 +1041,10 @@ video {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .py-7 {
   padding-top: 1.75rem;

@@ -1,5 +1,7 @@
 @extends('auth.main')
 
+@section('title', 'OTP')
+
 @section('content')
 <div class="w-96 m-auto">
     <div class="pt-12">

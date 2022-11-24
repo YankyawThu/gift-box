@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\Admin\DeliveryOrderFilter;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Post;
 use App\Services\Admin\DeliveryOrderService;
 use Illuminate\Http\Request;
 
@@ -28,9 +27,7 @@ class DeliveryOrderController extends Controller
 
         $unReadTotal = $this->deliveryOrderService->getUnReadCount();
 
-        $posts = Post::all();
-
-        return view('admin.delivery_orders.index', compact('data', 'posts', 'unReadTotal'));
+        return view('admin.delivery_orders.index', compact('data', 'unReadTotal'));
     }
 
     /**

@@ -17,6 +17,7 @@ class RechargeController extends Controller
     public function index()
     {
         $data = $this->rechargeService->getAll();
+
         return Inertia::render('Recharge', ['data' => $data]);
     }
 
@@ -25,5 +26,11 @@ class RechargeController extends Controller
         $this->rechargeService->rechargeOrder($request);
 
         return true;
+    }
+
+    public function payment($amount)
+    {
+        $data = config('config.payMethod');
+        return Inertia::render('Payment', ['amount' => $amount, 'data' => $data]);
     }
 }

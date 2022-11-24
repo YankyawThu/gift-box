@@ -25,7 +25,8 @@
                         <div class="flex justify-between m-4">
                             <div class="form-check flex flex-row">
                                 <div>
-                                    <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked">
+                                    <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked" hidden>
+                                    <img :src="imgSelectAll" class="mr-2">
                                 </div>
                                 <div class="">
                                     <label class="form-check-label text_c2" for="allChecked">
@@ -37,7 +38,8 @@
                         </div>
                         <div v-for="(prize,i) in pending" :key="i" class="form-check flex flex-row px-4">
                             <div class="self-center mr-3">
-                                <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox">
+                                <input :id="'itemChecked'+i" @click="tick(i)" v-model="prizeIds[i]" class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" hidden>
+                                <img :src="imgSelect[i]">
                             </div>
                             <div class="w-full">
                                 <label class="form-check-label w-full" :for="'itemChecked'+i">
@@ -120,6 +122,8 @@ export default {
             create: false,
             errors: {},
             errorModal: false,
+            imgSelectAll: this.$asset+'/image/ui/SelectAll.svg',
+            imgSelect: []
         }
     },
     methods: {
@@ -133,6 +137,7 @@ export default {
                     this.pending.push(...res.data.data)
                     res.data.data.forEach(item => {
                         this.prizeIds.push(false)
+                        this.imgSelect.push(this.$asset+'/image/ui/Select.svg')
                     })
                     this.lastPage = res.data.pagination.total_pages
                     if(this.page <= this.lastPage) {
@@ -170,9 +175,11 @@ export default {
         },
         tick(i) {
             if(this.prizeIds[i] == false) {
+                this.imgSelect[i] = this.$asset+'/image/ui/SelectTick.svg'
                 this.selects[i] = this.pending[i].id
             }
             else {
+                this.imgSelect[i] = this.$asset+'/image/ui/Select.svg'
                 this.selects[i] = false
             }
         },
@@ -205,23 +212,34 @@ export default {
             this.selects = []
             this.prizeIds = []
             this.selectAll = false
+            this.imgSelect = []
+            this.pending.forEach(item => {
+                this.prizeIds.push(false)
+                this.imgSelect.push(this.$asset+'/image/ui/Select.svg')
+            })
         }
     },
     watch: {
         selectAll: {
             handler() {
                 if(this.selectAll) {
+                    this.imgSelectAll = this.$asset+'/image/ui/SelectAllTick.svg'
                     this.prizeIds = []
                     this.selects = []
+                    this.imgSelect = []
                     this.pending.forEach(item => {
                         this.prizeIds.push(item.id)
                         this.selects.push(item.id)
+                        this.imgSelect.push(this.$asset+'/image/ui/SelectTick.svg')
                     })
                 }
                 else {
-                    this.prizeIds= []
+                    this.imgSelectAll = this.$asset+'/image/ui/SelectAll.svg'
+                    this.prizeIds = []
+                    this.imgSelect = []
                     this.pending.forEach(item => {
                         this.prizeIds.push(false)
+                        this.imgSelect.push(this.$asset+'/image/ui/Select.svg')
                     })
                     this.selects = []
                 }

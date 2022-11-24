@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/tailwindcss.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/ui.css') }}">
     <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
-    <title>Blind Box</title>
+    <title>@yield('title')</title>
 </head>
 <body>
     <img src="{{ asset('/image/ui/Cloudy.svg') }}" class="absolute right-0" style="z-index: -9999;">

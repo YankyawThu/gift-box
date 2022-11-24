@@ -180,6 +180,23 @@ $(function() {
         rechargeUpdateForm.resetForm()
     })
 
+    $('#recharge-order-paid').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+
+        var voucher = button.data('image')
+        var imagePath=''
+        if (voucher){
+            imagePath = button.data('image-path')
+        }
+
+
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #voucher').attr("src", imagePath)
+    })
+
+
     // category
     $('#category-store-form').validate({
         ignore: [],
@@ -729,6 +746,7 @@ $(function() {
     $('#edit-policy-cancel-btn').on('click', function() {
         protocolPolicyForm.resetForm()
     })
+
 
 })
 

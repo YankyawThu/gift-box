@@ -21,15 +21,15 @@ class RechargeService
 
     public function rechargeOrder($request)
     {
-        $money_before = auth()->user()->money;
-        $this->userRepo->increaseMoney($request->amount);
-        MoneyRecord::create([
-            'user_id' => auth()->user()->id,
-            'before' => $money_before,
-            'after' => auth()->user()->money,
-            'money' => $request->amount,
-            'type' => 'recharge',
-        ]);
+        // $money_before = auth()->user()->money;
+        // $this->userRepo->increaseMoney($request->amount);
+        // MoneyRecord::create([
+        //     'user_id' => auth()->user()->id,
+        //     'before' => $money_before,
+        //     'after' => auth()->user()->money,
+        //     'money' => $request->amount,
+        //     'type' => 'recharge',
+        // ]);
 
         return $this->rechargeRepo->rechargeOrder($request);
     }

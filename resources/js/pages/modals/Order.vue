@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="w-full mt-5 mb-2">
-                <button class="btn_one rounded-full py-3 text-center m-auto text-white" @click="submit()">Gold Coin Payment</button>
+                <button class="btn_one rounded-full py-3 text-center m-auto text-white w-full" @click="submit()">Gold Coin Payment</button>
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 @extends('auth.main')
 
+@section('title', 'Register')
+
 @section('content')
 <img src="{{ asset('/image/ui/Login.svg') }}" alt="" class="m-auto">
 <div class="text_c2 text-center text-2xl font-semibold mb-6">Register</div>

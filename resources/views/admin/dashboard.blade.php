@@ -50,59 +50,71 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-xl-3 mb-5 mb-xl-0">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <span class="h-5">Money Box</span>
-                        </div>
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="form-inline">
+                        <i class="ni ni-money-coins"></i>
+                        <span class="mx-2">{{ $paidMoneyRecharge }}</span>
+                    </div>
+                    <div class="form-inline">
+                        <span class="text-sm text-info">Money Recharge <span class="badge badge-success">Paid</span></span>
                         <div class="col text-right">
-                            <span class="btn btn-sm btn-primary">See all</span>
+                            <a class="btn btn-sm btn-primary" href="{{route('admin.recharge-orders.index')}}">See all</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
         <div class="col-xl-3">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <span class="h-5">Money Recharge</span>
-                        </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="form-inline">
+                        <i class="ni ni-money-coins"></i>
+                        <span class="mx-2">{{ $unpaidMoneyRecharge }}</span>
+                    </div>
+                    <div class="form-inline">
+                        <span class="text-sm text-info">Money Recharge <span class="badge badge-danger">Unpay</span></span>
                         <div class="col text-right">
-                            <span class="btn btn-sm btn-primary">See all</span>
+                            <a class="btn btn-sm btn-primary" href="{{route('admin.recharge-orders.index')}}">See all</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
         <div class="col-xl-3">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <span class="h-5">Attachment Count</span>
-                        </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="form-inline">
+                        <i class="ni ni-delivery-fast"></i>
+                        <span class="mx-2">{{$shippingOrder}}</span>
+                    </div>
+                    <div class="form-inline">
+                        <span class="text-sm text-info">Shipping Order</span>
                         <div class="col text-right">
-                            <span class="btn btn-sm btn-primary">See all</span>
+                            <a class="btn btn-sm btn-primary" href="{{route('admin.delivery-orders.index')}}">See all</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
         <div class="col-xl-3">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <span class="h-5">Picture Count</span>
-                        </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="form-inline">
+                        <i class="fa fa-recycle"></i>
+                        <span class="mx-2">{{$recycleOrder}}</span>
+                    </div>
+                    <div class="form-inline">
+                        <span class="text-sm text-info">Recycle Order</span>
                         <div class="col text-right">
-                            <span class="btn btn-sm btn-primary">See all</span>
+                            <a class="btn btn-sm btn-primary" href="{{route('admin.recycle-orders.index')}}">See all</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

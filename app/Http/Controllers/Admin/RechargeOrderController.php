@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Filters\Admin\RechargeOrderFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RechargeCreateRequest;
-use App\Http\Requests\Admin\RechargeUpdateRequest;
 use App\Models\RechargeList;
 use App\Services\Admin\RechargeOrderService;
+use Illuminate\Http\Request;
 
 class RechargeOrderController extends Controller
 {
@@ -75,8 +75,11 @@ class RechargeOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(RechargeUpdateRequest $request, RechargeList $rechargeList)
+    public function update(Request $request, $id)
     {
+        $this->rechargeOrderService->paymentConfirm($request, $id);
+
+        return redirect()->back()->with('status', 'Payment Confirm Successful.');
     }
 
     /**

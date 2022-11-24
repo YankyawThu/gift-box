@@ -1,13 +1,26 @@
 <?php
 
 return [
-
     // key => value
-    'payMethod'      => [
-        '1' => 'WeChat',
-        '2' => 'AliPay',
+    'payMethod' => [
+        [
+            'id' => '1',
+            'name' => 'KPay',
+        ],
+        [
+            'id' => '2',
+            'name' => 'WavePay',
+        ],
     ],
-    'payStatus'      => [
+    'rechargePayMethod' => [
+        1 => 'KPay',
+        2 => 'WavePay',
+    ],
+    'rechargePayStatus' => [
+        1 => 'unpay',
+        2 => 'paid',
+    ],
+    'payStatus' => [
         '1' => 'Pay',
         '2' => 'Unpay',
     ],
@@ -30,5 +43,10 @@ return [
         '1' => 'index',
         '2' => 'other',
     ],
-
+    'prizeStatus' => [
+        1 => 'bag',
+        2 => 'exchange',
+        3 => 'delivery',
+        4 => 'received',
+    ],
 ];
