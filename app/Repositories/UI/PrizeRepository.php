@@ -27,6 +27,7 @@ class PrizeRepository extends BaseRepository
         foreach ($goodsInfo as $goods) {
             $prize = $this->model->create([
                 'user_id' => auth()->user()->id,
+                'out_trade_no' => date('YmdHis').mt_rand(10000, 99999),
                 'gift_log_id' => $log->id,
                 'gift_item_id' => $goods->id,
                 'gift_item_name' => $goods->name,
@@ -134,6 +135,7 @@ class PrizeRepository extends BaseRepository
 
             Recycle::create([
                 'user_id' => auth()->user()->id,
+                'out_trade_no' => $prize->out_trade_no,
                 'gift_prize_id' => $prize->id,
                 'gift_box_id' => optional(optional($prize->giftLog)->giftBox)->id,
                 'gift_log_id' => optional($prize->giftLog)->id,

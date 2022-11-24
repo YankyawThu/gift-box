@@ -70,13 +70,13 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                {{-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="sort" class="form-control-label">Sort</label>
                                         <input type="number" placeholder="Sort" name="sort" id="sort"
                                             value="index" class="form-control form-control-alternative is-valid" />
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </form>
                     </div>

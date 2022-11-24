@@ -46,15 +46,6 @@
                                             class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="sort" class="form-control-label">Sort</label>
-                                        <input type="number" placeholder="sort" name="sort" id="sort" value="1"
-                                            class="form-control form-control-alternative is-valid" />
-                                    </div>
-                                </div>
-
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="is_hot" class="form-control-label">Is Hot</label>

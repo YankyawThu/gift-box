@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(DeliveryOrder::class, function (Faker $faker) {
     return [
-        'order_number' => $faker->randomNumber,
+        'delivery_order_no' => $faker->randomNumber,
         'gift_log_id' => function () {
             return App\Models\GiftLog::inRandomOrder()->first()->id;
         },

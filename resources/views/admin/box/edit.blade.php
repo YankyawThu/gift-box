@@ -53,15 +53,6 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="sort" class="form-control-label">Sort</label>
-                                        <input type="number" placeholder="Sort" name="sort" id="sort"
-                                            value="{{ $box->sort }}"
-                                            class="form-control form-control-alternative is-valid" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
                                         <label for="is_hot" class="form-control-label">Is Hot</label>
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-secondary @if($box->is_hot)active @endif">

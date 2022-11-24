@@ -72,7 +72,7 @@ class RecycleController extends Controller
     {
         $this->recycleService->update($request, $id);
 
-        return response()->json(['success' => 'Success']);
+        return redirect()->back()->with('status', 'Success.');
     }
 
     /**
