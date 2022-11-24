@@ -5,12 +5,20 @@ return [
     'payMethod' => [
         [
             'id' => '1',
-            'name' => 'KPay'
+            'name' => 'KPay',
         ],
         [
             'id' => '2',
-            'name' => 'WavePay'
-        ]
+            'name' => 'WavePay',
+        ],
+    ],
+    'rechargePayMethod' => [
+        1 => 'KPay',
+        2 => 'WavePay',
+    ],
+    'rechargePayStatus' => [
+        1 => 'unpay',
+        2 => 'paid',
     ],
     'payStatus' => [
         '1' => 'Pay',

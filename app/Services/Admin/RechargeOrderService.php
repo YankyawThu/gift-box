@@ -28,4 +28,11 @@ class RechargeOrderService
     {
         return $this->rechargeListRepo->getById($id);
     }
+
+    public function paymentConfirm($request, $id)
+    {
+        $data['status'] = $request->status;
+
+        return $this->rechargeListRepo->update($data, $id);
+    }
 }

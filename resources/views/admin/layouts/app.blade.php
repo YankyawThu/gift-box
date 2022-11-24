@@ -39,7 +39,7 @@
     </div>
 
     @guest()
-    @include('admin.layouts.footers.guest')
+
     @endguest
 
     <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
