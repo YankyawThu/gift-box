@@ -203,6 +203,26 @@ $(function() {
         modal.find('.modal-body #voucher').attr("src", imagePath)
     })
 
+    $('#recharge-order-paid-form').validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'alert-danger',
+        rules: {
+            pay_amount: {
+                required: true,
+            },
+        },
+        messages: {
+            pay_amount: {
+                required: "Pay Amount is Required."
+            },
+        },
+        showErrors: function() {
+            this.defaultShowErrors()
+            $('input[name="pay_amount"]').removeClass('alert-danger')
+        },
+    })
+
 
     // category
     $('#category-store-form').validate({

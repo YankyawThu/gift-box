@@ -40,16 +40,17 @@ class RechargeOrderService
 
         $money_before = $info->user->money;
 
-        User::where('id', $info->user_id)->increment('money', $request->amount);
+        User::where('id', $info->user_id)->increment('money', $request->pay_amount);
 
         MoneyRecord::create([
             'user_id' => auth()->user()->id,
             'before' => $money_before,
             'after' => $info->user->money,
-            'money' => $request->amount,
+            'money' => $request->pay_amount,
             'type' => 'recharge',
         ]);
         $data['status'] = $request->status;
+        $data['pay_amount'] = $request->pay_amount;
 
         return $this->rechargeListRepo->update($data, $id);
     }

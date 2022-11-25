@@ -17,6 +17,7 @@ class CreateRechargeOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->double('amount')->default(0);
+            $table->double('pay_amount')->default(0);
             $table->tinyInteger('pay_method')->nullable();
             $table->string('out_trade_number')->nullable();
             $table->string('transaction_id')->nullable();

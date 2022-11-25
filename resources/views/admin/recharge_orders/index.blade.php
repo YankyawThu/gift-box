@@ -67,6 +67,7 @@
                     <th class="text-xxs font-weight-bolder opacity-7">No</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">AMOUNT</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">PAY AMOUNT</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PAY METHOD</th>
                     <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PAY TIME</th>
@@ -86,6 +87,9 @@
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->amount, 2) }}</p>
+                        </td>
+                        <td>
+                            <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->pay_amount, 2) }}</p>
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_method ? config('config.rechargePayMethod.'.$item->pay_method) : '-' }}</p>

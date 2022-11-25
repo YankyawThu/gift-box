@@ -7,6 +7,7 @@ use App\Repositories\Admin\UserRepository;
 class UserService
 {
     private $userRepo;
+
     public function __construct(UserRepository $userRepo)
     {
         $this->userRepo = $userRepo;
@@ -21,9 +22,6 @@ class UserService
     public function update($request, $id)
     {
         $data['name'] = $request['name'];
-        $data['phone'] = $request['phone'];
-        $data['coin'] = $request['coin'];
-        $data['money'] = $request['money'];
 
         return $this->userRepo->update($data, $id);
     }
