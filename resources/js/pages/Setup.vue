@@ -11,9 +11,20 @@
             </div>
         </div>
         <div class="border_grad2 order_card flex flex-col before:rounded-xl m-4">
+            <div class="flex justify-between py-4 mx-4 text-sm">
+                <div>{{__('Language')}}</div>
+                <div class="self-center ml-5">
+                    <select name="gender" v-model="lang" @change="changeLang()" class="block apperance-none focus:outline-none bg-transparent text_c2">
+                        <option value="en">{{__('English')}}</option>
+                        <option value="zh">{{__('China')}}</option>
+                        <option value="mm">{{__('Myanmar')}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divider mx-4"></div>
             <div class="flex justify-between py-4 mx-4 text-sm" @click="changeAvatar()">
                 <div class="self-center">{{__('Avatar')}}</div>
-                <div class="self-center ml-5"><img :src="user.avatar" alt="" class="w-8 h-8 rounded-full inline-block mr-2"><img :src="$asset+'/image/ui/Vector.svg'" class="inline-block"></div>
+                <div class="self-center ml-5"><img :src="user.avatar_url" alt="" class="w-8 h-8 rounded-full inline-block mr-2"><img :src="$asset+'/image/ui/Vector.svg'" class="inline-block"></div>
                 <input type="file" id="avatar" @change="uploadAvatar($event)" hidden>
             </div>
             <div class="divider mx-4"></div>
@@ -78,6 +89,7 @@ export default {
             cPhone:this.user.phone,
             name: this.user.name,
             nickname: this.user.nickname,
+            lang: this.$page.props.locale
         }
     },
     methods: {
@@ -129,6 +141,12 @@ export default {
         },
         nickNameText(e) {
             this.nickname = e.target.innerText
+        },
+        changeLang() {
+            axios.get(`/language/${this.lang}`)
+            .then(() => {
+                location.reload()
+            })
         }
     },
     mounted() {

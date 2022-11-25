@@ -3258,7 +3258,8 @@ __webpack_require__.r(__webpack_exports__);
       cNickname: this.user.nickname,
       cPhone: this.user.phone,
       name: this.user.name,
-      nickname: this.user.nickname
+      nickname: this.user.nickname,
+      lang: this.$page.props.locale
     };
   },
   methods: {
@@ -3308,6 +3309,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     nickNameText: function nickNameText(e) {
       this.nickname = e.target.innerText;
+    },
+    changeLang: function changeLang() {
+      axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/language/".concat(this.lang)).then(function () {
+        location.reload();
+      });
     }
   },
   mounted: function mounted() {
@@ -3644,11 +3650,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    changeLanguage: function changeLanguage(lang) {
-      axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/language/".concat(lang)).then(function () {
-        location.reload();
-      });
-    },
     logout: function logout() {
       location.reload();
     }
@@ -6381,6 +6382,48 @@ var render = function render() {
   }, [_vm._v("\n            " + _vm._s(_vm.__("Set Up")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 order_card flex flex-col before:rounded-xl m-4"
   }, [_c("div", {
+    staticClass: "flex justify-between py-4 mx-4 text-sm"
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Language")))]), _vm._v(" "), _c("div", {
+    staticClass: "self-center ml-5"
+  }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.lang,
+      expression: "lang"
+    }],
+    staticClass: "block apperance-none focus:outline-none bg-transparent text_c2",
+    attrs: {
+      name: "gender"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.lang = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }, function ($event) {
+        return _vm.changeLang();
+      }]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "en"
+    }
+  }, [_vm._v(_vm._s(_vm.__("English")))]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "zh"
+    }
+  }, [_vm._v(_vm._s(_vm.__("China")))]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "mm"
+    }
+  }, [_vm._v(_vm._s(_vm.__("Myanmar")))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "divider mx-4"
+  }), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between py-4 mx-4 text-sm",
     on: {
       click: function click($event) {
@@ -6394,7 +6437,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "w-8 h-8 rounded-full inline-block mr-2",
     attrs: {
-      src: _vm.user.avatar,
+      src: _vm.user.avatar_url,
       alt: ""
     }
   }), _c("img", {
@@ -7251,30 +7294,7 @@ var render = function render() {
         return _vm.logout();
       }
     }
-  }, [_vm._v(_vm._s(_vm.__("Sign Out")))])], 1), _vm._v(" "), _c("div", {
-    staticClass: "px-4"
-  }, [_c("button", {
-    staticClass: "text-white",
-    on: {
-      click: function click($event) {
-        return _vm.changeLanguage("en");
-      }
-    }
-  }, [_vm._v("En")]), _vm._v(" "), _c("button", {
-    staticClass: "text-white",
-    on: {
-      click: function click($event) {
-        return _vm.changeLanguage("zh");
-      }
-    }
-  }, [_vm._v("Zh")]), _vm._v(" "), _c("button", {
-    staticClass: "text-white",
-    on: {
-      click: function click($event) {
-        return _vm.changeLanguage("mm");
-      }
-    }
-  }, [_vm._v("Mm")])])]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
+  }, [_vm._v(_vm._s(_vm.__("Sign Out")))])], 1)]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

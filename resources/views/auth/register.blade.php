@@ -33,7 +33,7 @@
                     </select>
                 </div>
                 <div class="grow border_grad1 before:rounded-3xl">
-                    <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" required>
+                    <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" required>
                 </div>
             </div>
             @if ($errors->has('phone'))
@@ -69,7 +69,7 @@
 </div>
 <div class="w-80">
     <div class="absolute bottom-5 inset-x-5 text-center">
-        <span class="text_c3 mr-2 text-white">Dont have an account?</span><a href="{{ route('login') }}" class="text_c2">Login Now</a>
+        <span class="text_c3 mr-2 text-white">Already have an account?</span><a href="{{ route('login') }}" class="text_c2">Login Now</a>
     </div>
 </div>
 @endsection

@@ -75,11 +75,6 @@
              <div class="absolute w-full bottom-24 px-4">
                 <Link :href="$url+'/logout'" method="post" as="button" class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="logout()">{{__('Sign Out')}}</Link>
             </div>
-            <div class="px-4">
-                <button @click="changeLanguage('en')" class="text-white">En</button>
-                <button @click="changeLanguage('zh')" class="text-white">Zh</button>
-                <button @click="changeLanguage('mm')" class="text-white">Mm</button>
-            </div>
         </main>
         <footer>
             <bot></bot>
@@ -104,12 +99,6 @@ export default {
         }
     },
     methods: {
-        changeLanguage(lang) {
-            axios.get(`/language/${lang}`)
-            .then(() => {
-                location.reload()
-            })
-        },
         logout() {
             location.reload()
         },

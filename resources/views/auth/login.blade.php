@@ -18,7 +18,7 @@
                     </select>
                 </div>
                 <div class="grow border_grad1 before:rounded-3xl">
-                    <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="text" name="phone" required>
+                    <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" required>
                 </div>
             </div>
             @if ($errors->has('phone'))
@@ -45,22 +45,21 @@
         <div class="flex justify-between my-1">
             <div></div>
             <div>
-                {{-- @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text_c2">
-                <a href="#" class="text_c2">
-                    <small>{{ __('Forgot password?') }}</small>
-                </a>
-                @endif --}}
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="text_c2">
+                        <small>{{ __('Forgot password?') }}</small>
+                    </a>
+                @endif
             </div>
         </div>
         <div class="my-14">
-            <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white">{{ __('Sign in') }}</button>
+            <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white">{{ __('Login') }}</button>
         </div>
     </form>
 </div>
 <div class="w-80">
     <div class="absolute bottom-5 inset-x-5 text-center">
-        <span class="text_c3 mr-2 text-white">Dont have an account?</span><a href="{{ route('register') }}" class="text_c2">Register Now</a>
+        <span class="text_c3 mr-2 text-white">Don't have an account?</span><a href="{{ route('register') }}" class="text_c2">Register Now</a>
     </div>
 </div>
 @endsection
