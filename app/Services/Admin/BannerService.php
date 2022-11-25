@@ -33,11 +33,12 @@ class BannerService
 
     public function store($request)
     {
+        $sequence = $this->bannerRepo->getSequence();
         $data['image'] = fileUploadToAkoneyaMedia(request()->file('image'), $this->uploadPhotoFolder);
         $data['place'] = $request['place'];
         $data['type'] = $request['type'];
         $data['status'] = $request['status'];
-        $data['sort'] = $request['sort'];
+        $data['sort'] = ++$sequence;
         $data['value'] = $request['value'];
 
         if (isset($request->value_box) && request()->has('value_box')) {
@@ -74,7 +75,7 @@ class BannerService
         $data['type'] = $request['type'];
         $data['value'] = $request['value'];
         $data['status'] = $request['status'];
-        $data['sort'] = $request['sort'];
+        // $data['sort'] = $request['sort'];
 
         return $this->bannerRepo->update($data, $id);
     }

@@ -16,4 +16,9 @@ class BannerRepository extends BaseRepository
     {
         return $this->model->filter($filter)->orderBy('sort', 'ASC')->paginate($page ?? config('enums.itemPerPage'));
     }
+
+    public function getSequence()
+    {
+        return $this->model->orderBy('sort', 'desc')->pluck('sort')->first();
+    }
 }

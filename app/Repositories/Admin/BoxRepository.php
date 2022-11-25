@@ -16,4 +16,9 @@ class BoxRepository extends BaseRepository
     {
         // code...
     }
+
+    public function getSequence()
+    {
+        return $this->model->orderBy('sort', 'desc')->pluck('sort')->first();
+    }
 }

@@ -40,12 +40,13 @@
         <table class="align-items-center mb-0 table">
             <thead>
                 <tr>
-                    <th class="text-xxs font-weight-bolder opacity-7">No</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">GOOD NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
-                    {{-- <th class="text-xxs font-weight-bolder opacity-7">STATUS</th> --}}
-                    <th class="opacity-7">STATUS</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">STATUS</th>
+                    <th class="opacity-7"></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,9 @@
                     <tr>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $loop->iteration }}</p>
+                        </td>
+                        <td>
+                            <p class="font-weight-bold mb-0 text-sm">{{ $item->out_trade_no }}</p>
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->name }}</p>
@@ -63,14 +67,14 @@
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $item->price }}</p>
                         </td>
-                        {{-- <td>
+                        <td>
                             <p class="font-weight-bold mb-0 text-sm">
                                 <span
                                     class="badge badge-{{ $item->status == 1 ? 'success' : 'warning' }}">{{ config('enums.recycleStatus.' . $item->status) }}</span>
                             </p>
-                        </td> --}}
+                        </td>
 
-                        <td>
+                        {{-- <td>
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn badge badge-{{ $item->status == 1 ? 'success' : 'warning' }}">
                                     <input type="radio" name="status" class="togBtn" value="1" autocomplete="off"
@@ -83,6 +87,22 @@
                                 </label>
 
                             </div>
+
+                        </td> --}}
+                        <td>
+                            @if ($item->status == 0)
+                                <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
+                                    data-toggle="modal"
+                                    data-target="#recycle-modal">
+                                    <span class="btn btn-sm btn-success" data-toggle="tooltip"
+                                        data-original-title="Confirm Order"><i class="ni ni-check-bold"></i>Confirm
+                                    </span>
+                                </a>
+                                @include('admin.recycle.confirm', [
+                                    'id' => $item->id,
+                                    ])
+                            @endif
+
 
                         </td>
 

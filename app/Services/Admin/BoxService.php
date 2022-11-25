@@ -7,6 +7,7 @@ use App\Repositories\Admin\BoxRepository;
 class BoxService
 {
     private $boxRepo;
+
     public function __construct(BoxRepository $boxRepo)
     {
         $this->boxRepo = $boxRepo;
@@ -21,11 +22,12 @@ class BoxService
 
     public function store($request)
     {
+        $sequence = $this->boxRepo->getSequence();
         $data['category_id'] = $request->categoryId;
         $data['name'] = $request->name;
         $data['image'] = fileUploadToAkoneyaMedia($request->file('image'), $this->uploadPhotoFolder);
         $data['price'] = $request->price;
-        $data['sort'] = $request->sort;
+        $data['sort'] = ++$sequence;
         $data['is_hot'] = $request->is_hot;
         $data['is_cheap'] = $request->is_cheap;
 
@@ -76,7 +78,6 @@ class BoxService
             $data['image'] = $request->image;
         }
         $data['price'] = $request->price;
-        $data['sort'] = $request->sort;
         $data['is_hot'] = $request->is_hot;
         $data['is_cheap'] = $request->is_cheap;
 

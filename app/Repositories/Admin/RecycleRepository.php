@@ -17,7 +17,7 @@ class RecycleRepository extends BaseRepository
     public function changeStatus($request, $id)
     {
         $data = $this->model->where('id', $id)->first();
-        $result = $data->update(['status' => $request->status]);
+        $result = $data->update(['status' => 1]);
         $this->userRepo->increaseMoney($data->price);
 
         return $result;

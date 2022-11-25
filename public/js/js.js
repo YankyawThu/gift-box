@@ -10,6 +10,13 @@ $(function() {
         modal.find('.modal-body #id').val(id)
     })
 
+    $('#recycle-order').on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+    })
+
     // item
     $('#item-image').on('change', function() {
         $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(this.files[0])
