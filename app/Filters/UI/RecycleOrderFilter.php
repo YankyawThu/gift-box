@@ -6,7 +6,7 @@ use App\Filters\Filter;
 
 class RecycleOrderFilter extends Filter
 {
-    protected $filters = ['name', 'gift_item_name', 'status'];
+    protected $filters = ['name', 'gift_item_name', 'status', 'out_trade_no'];
 
     public function name($value)
     {
@@ -28,5 +28,10 @@ class RecycleOrderFilter extends Filter
         $statusList = ['Pending' => 0, 'Approved' => 1];
 
         return $this->builder->where('status', $statusList[$value]);
+    }
+
+    public function out_trade_no($value)
+    {
+        return $this->builder->where('out_trade_no', 'LIKE', $value);
     }
 }

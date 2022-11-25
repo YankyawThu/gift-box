@@ -6,7 +6,7 @@ use App\Filters\Filter;
 
 class DeliveryOrderFilter extends Filter
 {
-    protected $filters = ['name', 'order_number', 'address', 'delivery_time', 'receive_time', 'status'];
+    protected $filters = ['name', 'order_number', 'address', 'delivery_time', 'receive_time', 'status', 'gift_item_name'];
 
     public function name($value)
     {
@@ -47,5 +47,10 @@ class DeliveryOrderFilter extends Filter
     public function status($value)
     {
         return $this->builder->where('status', $value);
+    }
+
+    public function gift_item_name($value)
+    {
+        return $this->builder->where('gift_item_name', 'like', "%{$value}%");
     }
 }

@@ -6,13 +6,17 @@
             <form class="navbar-search navbar-search-light form-inline mr-sm-3"
                 action="{{ route('admin.recycle-orders.index') }}">
                 <div class="col-md-12 form-group mb-0">
-                    <div class="col-md-4 input-group input-group-alternative input-group-merge searching m-1">
+                    <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by User Name" type="text" name="name"
                             value="{{ request('name') }}">
                     </div>
-                    <div class="col-md-4 input-group input-group-alternative input-group-merge searching m-1">
+                    <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Gift Item Name" type="text"
                             name="gift_item_name" value="{{ request('gift_item_name') }}">
+                    </div>
+                    <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
+                        <input class="form-control searching" placeholder="Search by Order NO." type="text"
+                            name="out_trade_no" value="{{ request('out_trade_no') }}">
                     </div>
 
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
@@ -41,7 +45,7 @@
             <thead>
                 <tr>
                     <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">ORDER NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">GOOD NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PRICE</th>
@@ -74,21 +78,6 @@
                             </p>
                         </td>
 
-                        {{-- <td>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn badge badge-{{ $item->status == 1 ? 'success' : 'warning' }}">
-                                    <input type="radio" name="status" class="togBtn" value="1" autocomplete="off"
-                                        data-id="{{ $item->id }}" @if ($item->status == 1) disabled @endif>
-                                    @if ($item->status == 1)
-                                        Approved
-                                    @else
-                                        Pending
-                                    @endif
-                                </label>
-
-                            </div>
-
-                        </td> --}}
                         <td>
                             @if ($item->status == 0)
                                 <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
@@ -117,33 +106,3 @@
 @section('content-pagination')
     {{ $data }}
 @endsection
-
-@push('js')
-    <script>
-        $(function() {
-            $(".togBtn").on('change', function(e) {
-                var status = $(this).val();
-                var id = $(this).data('id');
-                var url = "{{ route('admin.recycle-orders.update', '') }}" + "/" + id;
-                $.ajax({
-                    type: "PUT",
-                    dataType: "json",
-                    url: url,
-                    data: {
-                        'status': status,
-                    },
-                    success: function(data) {
-                        if (data.success) {
-                            toastr.success(data.success);
-                            setInterval('location.reload()', 1000);
-                        } else {
-                            setInterval('location.reload()', 1000);
-                            toastr.error(data.error);
-                        }
-                    }
-                });
-            });
-
-        })
-    </script>
-@endpush

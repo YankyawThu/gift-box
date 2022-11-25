@@ -26,8 +26,12 @@
                             value="{{ request('name') }}">
                     </div>
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
-                        <input class="form-control searching" placeholder="Search by Order Number" type="text"
+                        <input class="form-control searching" placeholder="Search by Order NO." type="text"
                             name="order_number" value="{{ request('order_number') }}">
+                    </div>
+                    <div class="col-lg-2 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
+                        <input class="form-control searching" placeholder="Search by Gift Item Name" type="text"
+                            name="gift_item_name" value="{{ request('gift_item_name') }}">
                     </div>
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <input class="form-control searching" placeholder="Search by Address" type="text" name="address"
@@ -70,9 +74,8 @@
             <tr>
                 <th class="text-xxs font-weight-bolder opacity-7">NO</th>
                 <th class="text-xxs font-weight-bolder opacity-7">ORDER NO</th>
-                <th class="text-xxs font-weight-bolder opacity-7">GIFT PRIZE ID</th>
-                <th class="text-xxs font-weight-bolder opacity-7">GOODS NAME</th>
-                <th class="text-xxs font-weight-bolder opacity-7">GOOD IMAGE</th>
+                <th class="text-xxs font-weight-bolder opacity-7">GIFT ITEM NAME</th>
+                <th class="text-xxs font-weight-bolder opacity-7">GIFT ITEM IMAGE</th>
                 <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">USERNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">MOBILE</th>
@@ -94,17 +97,14 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->delivery_order_no }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ $item->gift_prize_id }}</p>
-                </td>
-                <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->giftItem)->name }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->gift_item_name }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">
                         {{-- <img src="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" class="me-3"
                         width="50" height="50"> --}}
-                        @if (optional($item->giftItem)->image)
-                            <img src="{{ getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image) }}" class="me-3" width="70"
+                        @if ($item->gift_item_image)
+                            <img src="{{ getFileUrlFromAkoneyaMedia($item->gift_item_image) }}" class="me-3" width="70"
                             height="70">
                         @endif
 
@@ -115,10 +115,10 @@
                     <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->nickname }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->name }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->user_name }}</p>
                 </td>
                 <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->phone }}</p>
+                    <p class="font-weight-bold mb-0 text-sm">{{ $item->phone }}</p>
                 </td>
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->address }}</p>
