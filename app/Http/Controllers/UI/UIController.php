@@ -52,7 +52,10 @@ class UIController extends Controller
     public function index()
     {
         $banners = $this->boxService->getBanners();
-        return Inertia::render('Home', ['user' => auth()->user(), 'banners' => $banners]);
+        $user = auth()->user();
+        $user->avatar_url = $user->avatar ? getFileUrlFromAkoneyaMedia($user->avatar) : '';
+
+        return Inertia::render('Home', ['user' => $user, 'banners' => $banners]);
     }
 
     public function detail($id)
