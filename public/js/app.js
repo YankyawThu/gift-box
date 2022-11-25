@@ -4597,7 +4597,7 @@ var render = function render() {
     }, [_c("img", {
       staticClass: "m-auto",
       attrs: {
-        src: _vm.$asset + item.image,
+        src: item.image,
         width: "65",
         height: "65"
       }

@@ -55,7 +55,7 @@
                         <div class="item_precent">0.1 %</div>
                     </div>
                     <div class="box_detail_item_card_body">
-                        <img :src="$asset+item.image" width="65" height="65" class="m-auto">
+                        <img :src="item.image" width="65" height="65" class="m-auto">
                     </div>
                     <div class="box_detail_item_card_footer text-center">
                         <div class="truncate px-2" style="font-size:12px;">{{item.name}}</div>

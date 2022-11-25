@@ -79,7 +79,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'dashboard') == 'active' ? 'active' : '' }}" href="{{ route('admin.home') }}">
 
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('messages.Dashboard') }}
                     </a>
                 </li>
 

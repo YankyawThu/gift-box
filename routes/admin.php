@@ -28,6 +28,10 @@ Route::name('admin.')->group(function () {
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('logout');
 
     Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('/language/{language}', function ($language) {
+            Session()->put('locale', $language);
+            return redirect()->back();
+        });
         Route::get('/dashboard', [AdminHomeController::class, 'index'])->name('home');
 
         Route::resource('admins', AdminController::class)->only(['index']);

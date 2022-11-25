@@ -14,7 +14,7 @@
         <div class="col-lg-5 col-md-7">
             <div class="card bg-secondary shadow border-0">
                 <div class="card-header bg-transparent">
-                    <div class="text-muted text-center mt-2 mb-3"><small>{{ __('Sign in with') }}</small></div>
+                    <div class="text-muted text-center mt-2 mb-3"><small>{{ __('messages.Sign in with') }}</small></div>
                 </div>
                 <div class="card-body px-lg-5 py-lg-5">
                     <form role="form" method="POST" action="{{ route('admin.login') }}">
