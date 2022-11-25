@@ -8,7 +8,7 @@
                     </div>
                 </Link>
                 <div v-show="!showSearch" class="font-bold text-xl self-center text-white">
-                    Tide Play
+                    {{__('Tide Play')}}
                 </div>
                 <div v-show="showSearch" class="self-center">
                     <input v-model="search" type="text" class="bg_grad1 placeholder:text-white focus:outline-none rounded-full w-72 px-5 py-2 text-white" placeholder="Search" autofocus>
@@ -20,13 +20,13 @@
         </div>
         <div class="flex flex-row">
             <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='All' ? 'filter_menu_active rounded-full' : '']" @click="addActive('All')">
-                All
+                {{__('All')}}
             </div>
             <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='New' ? 'filter_menu_active rounded-full' : '']" @click="addActive('New')">
-                New
+                {{__('New')}}
             </div>
             <div class="border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu" :class="[isActive=='Price' ? 'filter_menu_active rounded-full' : '']"  @click="addActive('Price')">
-                Price <img v-if="sort == 'desc' || sort == ''" :src="$asset+'/image/ui/Down.svg'" class="inline-block -mt-1 ml-1"><img v-else :src="$asset+'/image/ui/Up.svg'" class="inline-block -mt-1 ml-1">
+                {{__('Price')}} <img v-if="sort == 'desc' || sort == ''" :src="$asset+'/image/ui/Down.svg'" class="inline-block -mt-1 ml-1"><img v-else :src="$asset+'/image/ui/Up.svg'" class="inline-block -mt-1 ml-1">
             </div>
         </div>
         <div class="flex flex-wrap justify-around py-4">
@@ -39,8 +39,8 @@
                 </div>
                 <div class="text-left text-white py-1 truncate" style="font-size:12px;">{{box.name}}</div>
                 <div class="flex justify-between mb-3">
-                    <div class="text-xs" style="color: #FFC042;">{{box.price}} Ks</div>
-                    <div class="text-gray-300" style="font-size:10px;">{{ box.items.length }} products</div>
+                    <div class="text-xs" style="color: #FFC042;">{{box.price}} {{__('Ks')}}</div>
+                    <div class="text-gray-300" style="font-size:10px;">{{ box.items.length }} {{__('products')}}</div>
                 </div>
             </Link>
         </div>

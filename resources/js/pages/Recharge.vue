@@ -7,22 +7,22 @@
                 </div>
             </Link>
             <div class="font-bold text-xl self-center text-white">
-                Recharge
+                {{__('Recharge')}}
             </div>
         </div>
         <div class="px-4">
-            <div class="text-center pb-2 text_c2 text-sm">Select the Recharge Amount</div>
+            <div class="text-center pb-2 text_c2 text-sm">{{__('Select the Recharge Amount')}}</div>
             <div class="before:rounded-xl py-7 text-center border_grad2 my-2 text-4xl font-bold text-white">
-                {{amount}} Ks
+                {{amount}} {{__('Ks')}}
             </div>
             <div class="flex flex-wrap justify-between my-3">
                 <div class="w-28 h-12 text-center my-2 before:rounded-2xl rounded-2xl py-2 text-lg text-white" :class="[actives[i] ? 'amount_active' : 'border_grad1']" v-for="(price,i) in data" :key="i" @click="pick(price.amount, i)">
-                    {{price.amount}} Ks
+                    {{price.amount}} {{__('Ks')}}
                 </div>
             </div>
         </div>
         <div class="absolute w-full bottom-5 px-4">
-            <Link :href="$url+'/payment/'+amount" as="button" class="py-3 btn_gradient rounded-full w-full text-white text-center">Continue</Link>
+            <Link :href="$url+'/payment/'+amount" as="button" class="py-3 btn_gradient rounded-full w-full text-white text-center">{{__('Continue')}}</Link>
         </div>
     </div>
 </template>

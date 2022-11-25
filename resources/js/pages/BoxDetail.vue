@@ -9,16 +9,16 @@
                     <img :src="$asset+'/image/ui/Icon.svg'">
                 </div>
                 <div class="py-1 px-2 box_detail_target_label">
-                    Lucky Draw
+                    {{__('Lucky Draw')}}
                 </div>
             </div>
             <div></div>
         </div>
         <div class="box_detail_title text-center pt-2">
-            Magic BlindBox
+            {{__('Magic BlindBox')}}
         </div>
         <div class="blind_box_underline my-1 w-56 mx-auto"></div>
-        <div class="box_wish text-center py-2 px-10">Save the wish value and redeem the happy wish prize</div>
+        <div class="box_wish text-center py-2 px-10">{{__('Save the wish value and redeem the happy wish prize')}}</div>
         <div class="-mt-36">
             <img :src="$asset+'/image/ui/Box.svg'" class="m-auto">
         </div>
@@ -26,23 +26,23 @@
             <div class="relative">
                 <div @click="createOrder(1)">
                     <img :src="$asset+'/image/ui/GetOneButton.svg'">
-                    <div class="get_one font-semibold">Get One</div>
-                    <div class="get_one_price top-10 right-14 text-center">{{data.data.price}} Ks</div>
+                    <div class="get_one font-semibold">{{__('Get One')}}</div>
+                    <div class="get_one_price top-10 right-14 text-center">{{data.data.price}} {{__('Ks')}}</div>
                 </div>
             </div>
             <div class="relative">
                 <div @click="createOrder(5)">
                     <img :src="$asset+'/image/ui/GetAllButton.svg'">
-                    <div class="get_one_right font-semibold">Get Five</div>
-                    <div class="get_one_price_right top-10 right-16 text-center">{{data.data.price * 5}} Ks</div>
+                    <div class="get_one_right font-semibold">{{__('Get Five')}}</div>
+                    <div class="get_one_price_right top-10 right-16 text-center">{{data.data.price * 5}} {{__('Ks')}}</div>
                 </div>
             </div>
         </div>
         <div class="px-2 py-1 detail_itembox mx-4">
             <div class="flex justify-between pt-2 px-3">
-                <div class="font-semibold text-lg">Product Preview</div>
+                <div class="font-semibold text-lg">{{__('Product Preview')}}</div>
                 <div class="flex flex-row items-center" @click="ruleModalActive = !ruleModalActive">
-                    <div class="px-1">Rules of Play</div>
+                    <div class="px-1">{{__('Rules of Play')}}</div>
                     <div >
                         <img :src="$asset+'/image/ui/Info.svg'">
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="box_detail_item_card_footer text-center">
                         <div class="truncate px-2" style="font-size:12px;">{{item.name}}</div>
-                        <div class="pb-1" style="font-size:10px;">({{item.price}} Ks)</div>
+                        <div class="pb-1" style="font-size:10px;">({{item.price}} {{__('Ks')}})</div>
                     </div>
                 </div>
             </div>

@@ -7,30 +7,30 @@
                 </div>
             </Link>
             <div class="font-bold text-xl text-white self-center">
-                Add Shipping Address
+                {{__('Add Shipping Address')}}
             </div>
         </div>
         <div class="px-4">
                 <div class="mb-5">
                     <div class="py-2">
-                        <label for="" class="text_c1">Receiver</label>
+                        <label for="" class="text_c1">{{__('Receiver')}}</label>
                     </div>
                     <div class="border_grad2 before:rounded-xl">
-                        <input type="text" v-model="address.name" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Receiver Name">
+                        <input type="text" v-model="address.name" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter Receiver Name')">
                     </div>
                 </div>
             <div class="mb-5">
                 <div class="py-2">
-                    <label for="" class="text_c1">Phone Number</label>
+                    <label for="" class="text_c1">{{__('Phone Number')}}</label>
                 </div>
                 <div class="border_grad2 before:rounded-xl">
-                    <input type="text" v-model="address.phone" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Phone Number">
+                    <input type="text" v-model="address.phone" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter Phone Number')">
                 </div>
             </div>
             <div class="mb-5 grid grid-cols-2 gap-4">
                 <div>
                     <div class="py-2">
-                        <label for="" class="text_c1">Zone</label>
+                        <label for="" class="text_c1">{{__('Zone')}}</label>
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="zone" @change="changeZone()" class="p-4 w-full bg-transparent text-white focus:outline-none">
@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <div class="py-2">
-                        <label for="" class="text_c1">Township</label>
+                        <label for="" class="text_c1">{{__('Township')}}</label>
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
                         <select v-model="address.township" class="p-4 w-full bg-transparent text-white focus:outline-none">
@@ -51,15 +51,15 @@
             </div>
             <div class="mb-5">
                 <div class="py-2">
-                    <label for="" class="text_c1">Address</label>
+                    <label for="" class="text_c1">{{__('Address')}}</label>
                 </div>
                 <div class="border_grad2 before:rounded-xl">
-                    <input type="text" v-model="address.address" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Address">
+                    <input type="text" v-model="address.address" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter Address')">
                 </div>
             </div>
         </div>
         <div class="absolute w-full bottom-5 px-4">
-            <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Add</div>
+            <div class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">{{__('Add')}}</div>
         </div>
         <create-alert v-model="create"></create-alert>
         <validate-alert v-model="errorModal" :errors="errors"></validate-alert>

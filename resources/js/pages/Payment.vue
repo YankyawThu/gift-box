@@ -7,11 +7,11 @@
                 </div>
             </Link>
             <div class="font-bold text-xl self-center text-white">
-                Recharge
+                {{__('Recharge')}}
             </div>
         </div>
         <div class="text_c2 px-4">
-            Select the Payment Method you want to use
+            {{__('Select the Payment Method you want to use')}}
         </div>
         <div class="px-4">
             <div v-for="(pay,i) in data" :key="i" class="border_grad2 flex px-4 my-3 before:rounded-xl">
@@ -28,7 +28,7 @@
             <div class="bg-white inline-block rounded-lg mr-3">
                 <img :src="$asset+'/image/ui/Union.svg'" class="p-3">
             </div>
-            <div class="text_c1 self-center">Attach File</div>
+            <div class="text_c1 self-center">{{__('Attach File')}}</div>
         </div>
         <div v-if="file" class="px-2">
             <img :src="$asset+'/image/ui/Attach.svg'" class="inline-block p-2">
@@ -36,7 +36,7 @@
             <img :src="$asset+'/image/ui/DeleteMark.svg'" class="ml-3 inline-block p-2" @click="removeFileUpload()">
         </div>
         <div class="absolute w-full bottom-5 px-4">
-            <button class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">Continue</button>
+            <button class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">{{__('Continue')}}</button>
         </div>
         <success-modal v-model="success" :modalAmount="amount" :index="0">
         </success-modal>

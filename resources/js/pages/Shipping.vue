@@ -7,19 +7,19 @@
                 </div>
             </Link>
             <div class="font-bold text-xl self-center text-white">
-                Shipping
+                {{__('Shipping')}}
             </div>
         </div>
         <div id="tabs">
             <div class="grid grid-cols-3 text-center" role="tablist" aria-label="Free HTML Tabs">
                 <div class="py-2" role="tab" :aria-selected="[tab == 1 ? true : false]" aria-controls="panel-delivered" id="tab-delivered" :tabindex="[tab == 1 ? 0 : -1]" @click="fetchDelivered()">
-                    To be delivered
+                    {{__('To be delivered')}}
                 </div>
                 <div class="py-2" role="tab" :aria-selected="[tab == 2 ? true : false]" aria-controls="panel-going" id="tab-going" :tabindex="[tab == 2 ? 0 : -1]" @click="fetchGoing()">
-                    On going
+                    {{__('On going')}}
                 </div>
                 <div class="py-2" role="tab" :aria-selected="[tab == 3 ? true : false]" aria-controls="panel-completed" id="tab-completed" :tabindex="[tab == 3 ? 0 : -1]" @click="fetchCompleted()">
-                    Completed
+                    {{__('Completed')}}
                 </div>
             </div>
             <div class="divider"></div>
@@ -30,12 +30,12 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
-                                <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">To be delivered</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">{{__('To be delivered')}}</div>
                         </div>
                     </div>
                 </section>
@@ -45,12 +45,12 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
-                                <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">On going</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">{{__('On going')}}</div>
                         </div>
                     </div>
                 </section>
@@ -60,12 +60,12 @@
                             <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                             <div class="self-center">
                                 <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} Ks</div>
-                                <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">Completed</div>
+                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">{{__('Completed')}}</div>
                         </div>
                     </div>
                 </section>

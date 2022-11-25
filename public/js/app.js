@@ -4267,7 +4267,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            Shipping Address\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Shipping Address")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "pb-20"
   }, _vm._l(_vm.data.data, function (address, i) {
     return _c("div", {
@@ -4281,7 +4281,7 @@ var render = function render() {
       staticClass: "break-words text-white text-sm w-72"
     }, [_vm._v(_vm._s(address.district))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-400 py-1 text-sm"
-    }, [_vm._v("Phone : " + _vm._s(address.phone))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Phone")) + " : " + _vm._s(address.phone))])]), _vm._v(" "), _c("div", {
       staticClass: "absolute w-24 right-3 bottom-4"
     }, [_c("Link", {
       staticClass: "inline-block",
@@ -4311,7 +4311,7 @@ var render = function render() {
     attrs: {
       href: _vm.$url + "/user/shipping-address/create"
     }
-  }, [_vm._v("\n        Add Shipping Address\n    ")]), _vm._v(" "), _c("confirm", {
+  }, [_vm._v("\n        " + _vm._s(_vm.__("Add Shipping Address")) + "\n    ")]), _vm._v(" "), _c("confirm", {
     on: {
       submit: _vm.submit
     },
@@ -4362,13 +4362,13 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            My Balance\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("My Balance")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl"
   }, [_c("div", [_c("div", {
     staticClass: "text-white text-xs"
-  }, [_vm._v("Balance: (Gold Coins)")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-bold"
-  }, [_vm._v(_vm._s(_vm.balance) + " Ks")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-end mb-1"
   }, [_c("Link", {
     staticClass: "px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white",
@@ -4376,13 +4376,13 @@ var render = function render() {
       href: _vm.$url + "/recharge",
       as: "button"
     }
-  }, [_vm._v("\n                Recharge\n            ")]), _vm._v(" "), _c("Link", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Recharge")) + "\n            ")]), _vm._v(" "), _c("Link", {
     staticClass: "px-4 py-2 ml-1 btn_gradient rounded-full text-xs text-white",
     attrs: {
       href: _vm.$url + "/user/wallet",
       as: "button"
     }
-  }, [_vm._v("\n                Go to Wallet\n            ")])], 1)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Go to Wallet")) + "\n            ")])], 1)]), _vm._v(" "), _c("div", {
     attrs: {
       id: "tabs"
     }
@@ -4406,7 +4406,7 @@ var render = function render() {
         return _vm.fetchIncome();
       }
     }
-  }, [_vm._v("\n                Income\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Income")) + "\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "py-2",
     attrs: {
       role: "tab",
@@ -4420,7 +4420,7 @@ var render = function render() {
         return _vm.fetchExpend();
       }
     }
-  }, [_vm._v("\n                Expenditure\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Outcome")) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "divider"
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4"
@@ -4440,9 +4440,9 @@ var render = function render() {
       staticClass: "text-white"
     }, [_vm._v(_vm._s(data.type))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm text-gray-400"
-    }, [_vm._v("Time: " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                        +" + _vm._s(data.money) + " Ks\n                    ")])]);
+    }, [_vm._v("\n                        +" + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                    ")])]);
   }), 0), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
@@ -4460,9 +4460,9 @@ var render = function render() {
       staticClass: "text-white"
     }, [_vm._v(_vm._s(data.type))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm text-gray-400"
-    }, [_vm._v("Time: " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                        " + _vm._s(data.money) + " Ks\n                    ")])]);
+    }, [_vm._v("\n                        " + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                    ")])]);
   }), 0)])])]);
 };
 var staticRenderFns = [];
@@ -4511,13 +4511,13 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "py-1 px-2 box_detail_target_label"
-  }, [_vm._v("\n                Lucky Draw\n            ")])]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Lucky Draw")) + "\n            ")])]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "box_detail_title text-center pt-2"
-  }, [_vm._v("\n        Magic BlindBox\n    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n        " + _vm._s(_vm.__("Magic BlindBox")) + "\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "blind_box_underline my-1 w-56 mx-auto"
   }), _vm._v(" "), _c("div", {
     staticClass: "box_wish text-center py-2 px-10"
-  }, [_vm._v("Save the wish value and redeem the happy wish prize")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Save the wish value and redeem the happy wish prize")))]), _vm._v(" "), _c("div", {
     staticClass: "-mt-36"
   }, [_c("img", {
     staticClass: "m-auto",
@@ -4540,9 +4540,9 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one font-semibold"
-  }, [_vm._v("Get One")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Get One")))]), _vm._v(" "), _c("div", {
     staticClass: "get_one_price top-10 right-14 text-center"
-  }, [_vm._v(_vm._s(_vm.data.data.price) + " Ks")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.data.data.price) + " " + _vm._s(_vm.__("Ks")))])])]), _vm._v(" "), _c("div", {
     staticClass: "relative"
   }, [_c("div", {
     on: {
@@ -4556,15 +4556,15 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "get_one_right font-semibold"
-  }, [_vm._v("Get Five")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Get Five")))]), _vm._v(" "), _c("div", {
     staticClass: "get_one_price_right top-10 right-16 text-center"
-  }, [_vm._v(_vm._s(_vm.data.data.price * 5) + " Ks")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.data.data.price * 5) + " " + _vm._s(_vm.__("Ks")))])])])]), _vm._v(" "), _c("div", {
     staticClass: "px-2 py-1 detail_itembox mx-4"
   }, [_c("div", {
     staticClass: "flex justify-between pt-2 px-3"
   }, [_c("div", {
     staticClass: "font-semibold text-lg"
-  }, [_vm._v("Product Preview")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Product Preview")))]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-row items-center",
     on: {
       click: function click($event) {
@@ -4573,7 +4573,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "px-1"
-  }, [_vm._v("Rules of Play")]), _vm._v(" "), _c("div", [_c("img", {
+  }, [_vm._v(_vm._s(_vm.__("Rules of Play")))]), _vm._v(" "), _c("div", [_c("img", {
     attrs: {
       src: _vm.$asset + "/image/ui/Info.svg"
     }
@@ -4613,7 +4613,7 @@ var render = function render() {
       staticStyle: {
         "font-size": "10px"
       }
-    }, [_vm._v("(" + _vm._s(item.price) + " Ks)")])])]);
+    }, [_vm._v("(" + _vm._s(item.price) + " " + _vm._s(_vm.__("Ks")) + ")")])])]);
   }), 0)]), _vm._v(" "), _c("rule", {
     model: {
       value: _vm.ruleModalActive,
@@ -4742,9 +4742,20 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            Reset Password\n        ")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Reset Password")) + "\n        ")])], 1), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "text_c2 text-2xl mt-10 mb-3"
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Create New Password")) + "\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "text-white text-sm my-5"
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Your password must be strong and can't guess it easily")) + ".\n        ")])]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("New Password")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -4756,7 +4767,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "password",
-      placeholder: "Enter New Password"
+      placeholder: _vm.__("Enter New Password")
     },
     domProps: {
       value: _vm.newPassword
@@ -4769,7 +4780,14 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Confirm Password")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -4781,7 +4799,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "password",
-      placeholder: "Enter Confirm Password"
+      placeholder: _vm.__("Enter Confirm Password")
     },
     domProps: {
       value: _vm.confirmPassword
@@ -4804,7 +4822,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Reset Password")])]), _vm._v(" "), _c("validate-alert", {
+  }, [_vm._v(_vm._s(_vm.__("Reset Password")))])]), _vm._v(" "), _c("validate-alert", {
     attrs: {
       errors: _vm.errors
     },
@@ -4825,37 +4843,7 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "text_c2 text-2xl mt-10 mb-3"
-  }, [_vm._v("\n            Create New Password\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "text-white text-sm my-5"
-  }, [_vm._v("\n            Your password must be strong and can't guess it easily.\n        ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("New Password")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Confirm Password")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -4893,7 +4881,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            My Collection\n        ")])], 1), _vm._v(" "), _c("div", _vm._l(_vm.collections, function (collect, i) {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("My Collection")) + "\n        ")])], 1), _vm._v(" "), _c("div", _vm._l(_vm.collections, function (collect, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2 flex justify-between my-3 p-2 before:rounded-lg w-full"
@@ -4913,9 +4901,9 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(collect.box.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(collect.box.coin) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(collect.box.coin) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(collect.time))])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(collect.time))])])]), _vm._v(" "), _c("div", {
       staticClass: "self-end mr-2"
     }, [_c("div", {
       on: {
@@ -4968,11 +4956,18 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            Add Shipping Address\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Add Shipping Address")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Receiver")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -4984,7 +4979,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Receiver Name"
+      placeholder: _vm.__("Enter Receiver Name")
     },
     domProps: {
       value: _vm.address.name
@@ -4997,7 +4992,14 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Phone Number")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -5009,7 +5011,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Phone Number"
+      placeholder: _vm.__("Enter Phone Number")
     },
     domProps: {
       value: _vm.address.phone
@@ -5022,7 +5024,14 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5 grid grid-cols-2 gap-4"
-  }, [_c("div", [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_c("div", [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Zone")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl pr-2"
   }, [_c("select", {
     directives: [{
@@ -5052,7 +5061,14 @@ var render = function render() {
         value: zone.id
       }
     }, [_vm._v(_vm._s(zone.name))]);
-  }), 0)])]), _vm._v(" "), _c("div", [_vm._m(3), _vm._v(" "), _c("div", {
+  }), 0)])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Township")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl pr-2"
   }, [_c("select", {
     directives: [{
@@ -5082,7 +5098,14 @@ var render = function render() {
     }, [_vm._v(_vm._s(township.name))]);
   }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(4), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Address")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -5094,7 +5117,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Address"
+      placeholder: _vm.__("Enter Address")
     },
     domProps: {
       value: _vm.address.address
@@ -5114,7 +5137,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Add")])]), _vm._v(" "), _c("create-alert", {
+  }, [_vm._v(_vm._s(_vm.__("Add")))])]), _vm._v(" "), _c("create-alert", {
     model: {
       value: _vm.create,
       callback: function callback($$v) {
@@ -5135,62 +5158,7 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Receiver")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Phone Number")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Zone")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Township")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Address")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5228,11 +5196,18 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            Edit Shipping Address\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Edit Shipping Address")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Receiver")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -5244,7 +5219,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Receiver Name"
+      placeholder: _vm.__("Enter Receiver Name")
     },
     domProps: {
       value: _vm.address.name
@@ -5257,7 +5232,14 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Phone Number")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -5269,7 +5251,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Phone Number"
+      placeholder: _vm.__("Enter Phone Number")
     },
     domProps: {
       value: _vm.address.phone
@@ -5282,7 +5264,14 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5 grid grid-cols-2 gap-4"
-  }, [_c("div", [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_c("div", [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Zone")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl pr-2"
   }, [_c("select", {
     directives: [{
@@ -5312,7 +5301,14 @@ var render = function render() {
         value: zone.id
       }
     }, [_vm._v(_vm._s(zone.name))]);
-  }), 0)])]), _vm._v(" "), _c("div", [_vm._m(3), _vm._v(" "), _c("div", {
+  }), 0)])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Township")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl pr-2"
   }, [_c("select", {
     directives: [{
@@ -5342,7 +5338,14 @@ var render = function render() {
     }, [_vm._v(_vm._s(township.name))]);
   }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-5"
-  }, [_vm._m(4), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "py-2"
+  }, [_c("label", {
+    staticClass: "text_c1",
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v(_vm._s(_vm.__("Address")))])]), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 before:rounded-xl"
   }, [_c("input", {
     directives: [{
@@ -5354,7 +5357,7 @@ var render = function render() {
     staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
     attrs: {
       type: "text",
-      placeholder: "Enter Address"
+      placeholder: _vm.__("Enter Address")
     },
     domProps: {
       value: _vm.address.address
@@ -5374,7 +5377,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Update")])]), _vm._v(" "), _c("update-alert", {
+  }, [_vm._v(_vm._s(_vm.__("Update")))])]), _vm._v(" "), _c("update-alert", {
     model: {
       value: _vm.update,
       callback: function callback($$v) {
@@ -5395,62 +5398,7 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Receiver")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Phone Number")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Zone")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Township")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-2"
-  }, [_c("label", {
-    staticClass: "text_c1",
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Address")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5477,7 +5425,14 @@ var render = function render() {
     staticClass: "pb-20"
   }, [_c("div", {
     staticClass: "flex justify-between pt-6 pb-4 px-4"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {}, [_c("img", {
+  }, [_c("div", {
+    staticClass: "self-center font-bold text-lg text-white"
+  }, [_vm._v("\n                " + _vm._s(_vm.__("My Box Cabinet")) + "\n                "), _c("div", {
+    staticClass: "w-10 h-1 rounded-full",
+    staticStyle: {
+      background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
+    }
+  })]), _vm._v(" "), _c("div", {}, [_c("img", {
     attrs: {
       src: _vm.$asset + "/image/ui/Service.svg"
     }
@@ -5505,7 +5460,7 @@ var render = function render() {
         return _vm.fetchPending();
       }
     }
-  }, [_vm._v("\n                    Pending Delivery\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.__("Pending Delivery")) + "\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "py-2",
     attrs: {
       role: "tab",
@@ -5519,7 +5474,7 @@ var render = function render() {
         return _vm.fetchRecycle();
       }
     }
-  }, [_vm._v("\n                    Recycling\n                ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.__("Recycling")) + "\n                ")])]), _vm._v(" "), _c("div", {
     staticClass: "divider"
   }), _vm._v(" "), _c("div", {
     staticClass: "my-2"
@@ -5574,14 +5529,19 @@ var render = function render() {
     attrs: {
       src: _vm.imgSelectAll
     }
-  })]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {}, [_c("label", {
+    staticClass: "form-check-label text_c2",
+    attrs: {
+      "for": "allChecked"
+    }
+  }, [_vm._v("\n                                    " + _vm._s(_vm.__("Select All")) + "\n                                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "text-white",
     on: {
       click: function click($event) {
         return _vm.clearAll();
       }
     }
-  }, [_vm._v("Clear All")])]), _vm._v(" "), _vm._l(_vm.pending, function (prize, i) {
+  }, [_vm._v(_vm._s(_vm.__("Clear All")))])]), _vm._v(" "), _vm._l(_vm.pending, function (prize, i) {
     return _c("div", {
       key: i,
       staticClass: "form-check flex flex-row px-4"
@@ -5651,9 +5611,9 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])])])])]);
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])])])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "fixed flex justify-around bottom-24 w-full"
   }, [_c("div", [_c("div", {
@@ -5663,14 +5623,14 @@ var render = function render() {
         return _vm.recycleSubmit();
       }
     }
-  }, [_vm._v("Recycling")])]), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Recycling")))])]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "btn_gradient py-3 text-center w-44 text-white rounded-full",
     on: {
       click: function click($event) {
         return _vm.shipSubmit();
       }
     }
-  }, [_vm._v("Shipment Apply")])])])], 2), _vm._v(" "), _c("section", {
+  }, [_vm._v(_vm._s(_vm.__("Shipment Apply")))])])])], 2), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-4",
     attrs: {
       id: "panel-recycle",
@@ -5699,19 +5659,19 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [!prize.isApprove ? _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [!prize.isApprove ? _c("div", {
       staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
       staticStyle: {
         color: "#FFC83C"
       }
-    }, [_vm._v("Pending")]) : _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Pending")))]) : _c("div", {
       staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
       staticStyle: {
         color: "#CE25F0"
       }
-    }, [_vm._v("Completed")])])]);
+    }, [_vm._v(_vm._s(_vm.__("Completed")))])])]);
   }), 0)])])]), _vm._v(" "), _c("footer", [_c("bot")], 1), _vm._v(" "), _c("address-modal", {
     attrs: {
       prizes: _vm.selects,
@@ -5751,27 +5711,7 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "self-center font-bold text-lg text-white"
-  }, [_vm._v("\n                My Box Cabinet\n                "), _c("div", {
-    staticClass: "w-10 h-1 rounded-full",
-    staticStyle: {
-      background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
-    }
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {}, [_c("label", {
-    staticClass: "form-check-label text_c2",
-    attrs: {
-      "for": "allChecked"
-    }
-  }, [_vm._v("\n                                    Select All\n                                ")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5809,7 +5749,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n            Helps\n        ")])], 1), _vm._v(" "), _vm._l(_vm.data.data, function (help, i) {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Helps")) + "\n        ")])], 1), _vm._v(" "), _vm._l(_vm.data.data, function (help, i) {
     return _c("div", {
       key: i,
       staticClass: "help_tip_box border_grad2 text-white before:rounded-xl p-3 my-4"
@@ -5867,7 +5807,7 @@ var render = function render() {
     staticClass: "ml-2 self-center"
   }, [_c("div", {
     staticClass: "text-xs text_c2"
-  }, [_vm._v(_vm._s(_vm.user.money) + " Ks")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.user.money) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-lg text-white"
   }, [_vm._v(_vm._s(_vm.user.name))])])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
@@ -5896,7 +5836,7 @@ var render = function render() {
     staticClass: "home_search bg-transparent placeholder:text-white focus:outline-none text-white w-full py-2",
     attrs: {
       type: "text",
-      placeholder: "Search Box..."
+      placeholder: _vm.__("Search Box") + "..."
     },
     domProps: {
       value: _vm.search
@@ -5935,7 +5875,7 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/TidePlay.svg"
     }
-  }), _vm._v("Tide Play")])]), _vm._v(" "), _c("Link", {
+  }), _vm._v(_vm._s(_vm.__("Tide Play")))])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
       href: _vm.$url + "/recharge",
@@ -5961,7 +5901,7 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/Shipping.svg"
     }
-  }), _vm._v("Shipping")])]), _vm._v(" "), _c("Link", {
+  }), _vm._v(_vm._s(_vm.__("Shipping")))])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
       href: _vm.$url + "/helps",
@@ -5974,9 +5914,9 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/Helps.svg"
     }
-  }), _vm._v("Helps")])])], 1), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.__("Helps")))])])], 1), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white"
-  }, [_vm._v("Recommended")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Recommended")))]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-around"
   }, _vm._l(_vm.boxes, function (box, i) {
     return _c("Link", {
@@ -6016,12 +5956,12 @@ var render = function render() {
       staticStyle: {
         color: "#FFC042"
       }
-    }, [_vm._v(_vm._s(box.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(box.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-300",
       staticStyle: {
         "font-size": "10px"
       }
-    }, [_vm._v(_vm._s(box.items.length) + " products")])])]);
+    }, [_vm._v(_vm._s(box.items.length) + " " + _vm._s(_vm.__("products")))])])]);
   }), 1)])]);
 };
 var staticRenderFns = [];
@@ -6208,9 +6148,9 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n            Recharge\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Recharge")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "text_c2 px-4"
-  }, [_vm._v("\n        Select the Payment Method you want to use\n    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n        " + _vm._s(_vm.__("Select the Payment Method you want to use")) + "\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, _vm._l(_vm.data, function (pay, i) {
     return _c("div", {
@@ -6275,7 +6215,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_c1 self-center"
-  }, [_vm._v("Attach File")])]), _vm._v(" "), _vm.file ? _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Attach File")))])]), _vm._v(" "), _vm.file ? _c("div", {
     staticClass: "px-2"
   }, [_c("img", {
     staticClass: "inline-block p-2",
@@ -6303,7 +6243,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Continue")])]), _vm._v(" "), _c("success-modal", {
+  }, [_vm._v(_vm._s(_vm.__("Continue")))])]), _vm._v(" "), _c("success-modal", {
     attrs: {
       modalAmount: _vm.amount,
       index: 0
@@ -6371,13 +6311,13 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n            Recharge\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Recharge")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("div", {
     staticClass: "text-center pb-2 text_c2 text-sm"
-  }, [_vm._v("Select the Recharge Amount")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Select the Recharge Amount")))]), _vm._v(" "), _c("div", {
     staticClass: "before:rounded-xl py-7 text-center border_grad2 my-2 text-4xl font-bold text-white"
-  }, [_vm._v("\n            " + _vm._s(_vm.amount) + " Ks\n        ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.amount) + " " + _vm._s(_vm.__("Ks")) + "\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between my-3"
   }, _vm._l(_vm.data, function (price, i) {
     return _c("div", {
@@ -6389,7 +6329,7 @@ var render = function render() {
           return _vm.pick(price.amount, i);
         }
       }
-    }, [_vm._v("\n                " + _vm._s(price.amount) + " Ks\n            ")]);
+    }, [_vm._v("\n                " + _vm._s(price.amount) + " " + _vm._s(_vm.__("Ks")) + "\n            ")]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("Link", {
@@ -6398,7 +6338,7 @@ var render = function render() {
       href: _vm.$url + "/payment/" + _vm.amount,
       as: "button"
     }
-  }, [_vm._v("Continue")])], 1)]);
+  }, [_vm._v(_vm._s(_vm.__("Continue")))])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -6438,7 +6378,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl text-white self-center"
-  }, [_vm._v("\n            Set Up\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Set Up")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 order_card flex flex-col before:rounded-xl m-4"
   }, [_c("div", {
     staticClass: "flex justify-between py-4 mx-4 text-sm",
@@ -6449,7 +6389,7 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "self-center"
-  }, [_vm._v("Avatar")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Avatar")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5"
   }, [_c("img", {
     staticClass: "w-8 h-8 rounded-full inline-block mr-2",
@@ -6477,7 +6417,7 @@ var render = function render() {
     staticClass: "divider mx-4"
   }), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between py-4 mx-4 text-sm"
-  }, [_c("div", [_vm._v("Gender")]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Gender")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5"
   }, [_c("select", {
     directives: [{
@@ -6507,15 +6447,15 @@ var render = function render() {
     attrs: {
       value: "male"
     }
-  }, [_vm._v("Male")]), _vm._v(" "), _c("option", {
+  }, [_vm._v(_vm._s(_vm.__("Male")))]), _vm._v(" "), _c("option", {
     attrs: {
       value: "female"
     }
-  }, [_vm._v("Female")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Female")))])])])]), _vm._v(" "), _c("div", {
     staticClass: "divider mx-4"
   }), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between py-4 mx-4 text-sm"
-  }, [_c("div", [_vm._v("Username")]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Username")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5"
   }, [_c("span", {
     staticClass: "bg-transparent text_c2 focus:outline-none",
@@ -6529,7 +6469,7 @@ var render = function render() {
     staticClass: "divider mx-4"
   }), _vm._v(" "), _c("div", {
     staticClass: "flex justify-between py-4 mx-4 text-sm"
-  }, [_c("div", [_vm._v("Nickname")]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Nickname")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5 text_c2"
   }, [_c("span", {
     staticClass: "bg-transparent text_c2 focus:outline-none",
@@ -6548,7 +6488,7 @@ var render = function render() {
         return _vm.changePhone();
       }
     }
-  }, [_c("div", [_vm._v("Phone")]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Phone")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5 text_c2"
   }, [_c("span", {
     staticClass: "bg-transparent text_c2 focus:outline-none"
@@ -6560,7 +6500,7 @@ var render = function render() {
       href: _vm.$url + "/user/change-password",
       method: "get"
     }
-  }, [_c("div", [_vm._v("Reset Password")]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v(_vm._s(_vm.__("Reset Password")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center ml-5"
   }, [_c("img", {
     attrs: {
@@ -6580,7 +6520,7 @@ var render = function render() {
         return _vm.logout();
       }
     }
-  }, [_vm._v("Sign Out")])], 1)]);
+  }, [_vm._v(_vm._s(_vm.__("Sign Out")))])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -6625,7 +6565,7 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n            Shipping\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Shipping")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     attrs: {
       id: "tabs"
     }
@@ -6649,7 +6589,7 @@ var render = function render() {
         return _vm.fetchDelivered();
       }
     }
-  }, [_vm._v("\n                To be delivered\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("To be delivered")) + "\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "py-2",
     attrs: {
       role: "tab",
@@ -6663,7 +6603,7 @@ var render = function render() {
         return _vm.fetchGoing();
       }
     }
-  }, [_vm._v("\n                On going\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("On going")) + "\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "py-2",
     attrs: {
       role: "tab",
@@ -6677,7 +6617,7 @@ var render = function render() {
         return _vm.fetchCompleted();
       }
     }
-  }, [_vm._v("\n                Completed\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Completed")) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "divider"
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4"
@@ -6709,9 +6649,14 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.item.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.item.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _vm._m(0, true)]);
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [_c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
+      staticStyle: {
+        color: "#CE25F0"
+      }
+    }, [_vm._v(_vm._s(_vm.__("To be delivered")))])])]);
   }), 0), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
@@ -6741,9 +6686,14 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.item.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.item.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _vm._m(1, true)]);
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [_c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
+      staticStyle: {
+        color: "#FFC83C"
+      }
+    }, [_vm._v(_vm._s(_vm.__("On going")))])])]);
   }), 0), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
@@ -6773,39 +6723,17 @@ var render = function render() {
       staticClass: "text-sm truncate text-white w-36"
     }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.item.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.item.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
-    }, [_vm._v("Time : " + _vm._s(prize.time))])])]), _vm._v(" "), _vm._m(2, true)]);
+    }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])]), _vm._v(" "), _c("div", [_c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
+      staticStyle: {
+        color: "#3BBE44"
+      }
+    }, [_vm._v(_vm._s(_vm.__("Completed")))])])]);
   }), 0)])])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
-    staticStyle: {
-      color: "#CE25F0"
-    }
-  }, [_vm._v("To be delivered")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
-    staticStyle: {
-      color: "#FFC83C"
-    }
-  }, [_vm._v("On going")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad",
-    staticStyle: {
-      color: "#3BBE44"
-    }
-  }, [_vm._v("Completed")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -6851,7 +6779,7 @@ var render = function render() {
       expression: "!showSearch"
     }],
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n                Tide Play\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Tide Play")) + "\n            ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -6902,7 +6830,7 @@ var render = function render() {
         return _vm.addActive("All");
       }
     }
-  }, [_vm._v("\n            All\n        ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("All")) + "\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu",
     "class": [_vm.isActive == "New" ? "filter_menu_active rounded-full" : ""],
     on: {
@@ -6910,7 +6838,7 @@ var render = function render() {
         return _vm.addActive("New");
       }
     }
-  }, [_vm._v("\n            New\n        ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("New")) + "\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "border_grad1 mr-3 py-1 px-4 before:rounded-full filter_menu",
     "class": [_vm.isActive == "Price" ? "filter_menu_active rounded-full" : ""],
     on: {
@@ -6918,7 +6846,7 @@ var render = function render() {
         return _vm.addActive("Price");
       }
     }
-  }, [_vm._v("\n            Price "), _vm.sort == "desc" || _vm.sort == "" ? _c("img", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Price")) + " "), _vm.sort == "desc" || _vm.sort == "" ? _c("img", {
     staticClass: "inline-block -mt-1 ml-1",
     attrs: {
       src: _vm.$asset + "/image/ui/Down.svg"
@@ -6968,12 +6896,12 @@ var render = function render() {
       staticStyle: {
         color: "#FFC042"
       }
-    }, [_vm._v(_vm._s(box.price) + " Ks")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(box.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-300",
       staticStyle: {
         "font-size": "10px"
       }
-    }, [_vm._v(_vm._s(box.items.length) + " products")])])]);
+    }, [_vm._v(_vm._s(box.items.length) + " " + _vm._s(_vm.__("products")))])])]);
   }), 1)]);
 };
 var staticRenderFns = [];
@@ -7014,13 +6942,13 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "font-bold text-xl self-center text-white"
-  }, [_vm._v("\n            Transfer to Wallet\n        ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Transfer to Wallet")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "px-4 mb-8"
   }, [_c("div", {
     staticClass: "text-white text-xs"
-  }, [_vm._v("Balance: (Gold Coins)")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-black"
-  }, [_vm._v(_vm._s(_vm.balance) + " Ks")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("div", {
     staticClass: "before:rounded-xl border_grad2 mt-2 mb-5"
@@ -7034,7 +6962,7 @@ var render = function render() {
     staticClass: "py-7 w-full bg-transparent focus:outline-none text-center text-4xl font-bold text-white placeholder:text-lg",
     attrs: {
       type: "text",
-      placeholder: "Enter the transfer amount"
+      placeholder: _vm.__("Enter the transfer amount")
     },
     domProps: {
       value: _vm.amount
@@ -7045,7 +6973,13 @@ var render = function render() {
         _vm.amount = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "px-5 text-white text-sm py-5"
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Here are the instructions for transferring balances to wallet")) + ":\n            "), _c("div", {}, [_c("div", {
+    staticClass: "text-sm text-gray-500 my-3"
+  }, [_vm._v(_vm._s(_vm.__("1")) + ". " + _vm._s(_vm.__("Money generated by recycling box products can be used for cash withdrawl")) + ".")]), _vm._v(" "), _c("div", {
+    staticClass: "text-sm text-gray-500 my-3"
+  }, [_vm._v(_vm._s(_vm.__("2")) + ". " + _vm._s(_vm.__("The recharge amount cannot be directly used for withdrawal")) + ".")])])])]), _vm._v(" "), _c("div", {
     staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("div", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
@@ -7054,7 +6988,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Submit")])]), _vm._v(" "), _c("success-modal", {
+  }, [_vm._v(_vm._s(_vm.__("Submit")))])]), _vm._v(" "), _c("success-modal", {
     attrs: {
       modalAmount: _vm.amount,
       index: 1
@@ -7079,17 +7013,7 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "px-5 text-white text-sm py-5"
-  }, [_vm._v("\n            Here are the instructions for transferring balances to wallet:\n            "), _c("div", {}, [_c("div", {
-    staticClass: "text-sm text-gray-500 my-3"
-  }, [_vm._v("1.  Gold coins generated by recycling box products can be used for cash with drawl.")]), _vm._v(" "), _c("div", {
-    staticClass: "text-sm text-gray-500 my-3"
-  }, [_vm._v("2.  The recharge amount cannot be directly used for withdrawal")])])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -7147,7 +7071,7 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/TidePlay.svg"
     }
-  }), _vm._v("My Box Cabinet")])]), _vm._v(" "), _c("Link", {
+  }), _vm._v(_vm._s(_vm.__("My Box Cabinet")))])]), _vm._v(" "), _c("Link", {
     staticClass: "text-left",
     attrs: {
       href: "#",
@@ -7160,15 +7084,15 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/Recharge.svg"
     }
-  }), _vm._v("Unboxing Records")])])], 1), _vm._v(" "), _c("div", {
+  }), _vm._v(_vm._s(_vm.__("Unboxing Records")))])])], 1), _vm._v(" "), _c("div", {
     staticClass: "border_grad2 order_card flex flex-col before:rounded-xl m-5"
   }, [_c("div", {
     staticClass: "flex justify-between px-4 py-3 rounded-t-xl"
   }, [_c("div", {
     staticClass: "text_c2"
-  }, [_vm._v("My Order")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("My Order")))]), _vm._v(" "), _c("div", {
     staticClass: "self-center text_c2 text-xs"
-  }, [_vm._v("All Orders"), _c("img", {
+  }, [_vm._v(_vm._s(_vm.__("All Orders"))), _c("img", {
     staticClass: "inline-block ml-2",
     attrs: {
       src: _vm.$asset + "/image/ui/Vector.svg"
@@ -7189,7 +7113,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("To Be Delivered")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("To be delivered")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7211,7 +7135,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("On Going")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("On going")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7233,7 +7157,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("Completed")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Completed")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7255,7 +7179,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("My Balance")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("My Balance")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7277,7 +7201,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("My Collection")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("My Collection")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7299,7 +7223,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("Shipping Address")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Shipping Address")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7321,7 +7245,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "text-xs font-bold"
-  }, [_vm._v("Set Up")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Set Up")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
   }, [_c("img", {
     attrs: {
@@ -7379,7 +7303,14 @@ var render = function render() {
     staticClass: "pb-20 px-4"
   }, [_c("div", {
     staticClass: "flex justify-between pt-6 pb-4"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {}, [_c("img", {
+  }, [_c("div", {
+    staticClass: "self-center font-bold text-white text-lg"
+  }, [_vm._v("\n                " + _vm._s(_vm.__("My Wallet")) + "\n                "), _c("div", {
+    staticClass: "w-10 h-1 rounded-full",
+    staticStyle: {
+      background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
+    }
+  })]), _vm._v(" "), _c("div", {}, [_c("img", {
     attrs: {
       src: _vm.$asset + "/image/ui/Service.svg"
     }
@@ -7387,9 +7318,9 @@ var render = function render() {
     staticClass: "border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl"
   }, [_c("div", [_c("div", {
     staticClass: "text-white text-xs"
-  }, [_vm._v("Balance: (Gold Coins)")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-black"
-  }, [_vm._v(_vm._s(_vm.balance) + " Ks")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-end mb-1"
   }, [_c("Link", {
     staticClass: "px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white",
@@ -7397,9 +7328,9 @@ var render = function render() {
       href: _vm.$url + "/recharge",
       as: "button"
     }
-  }, [_vm._v("\n                    Recharge\n                ")])], 1)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    " + _vm._s(_vm.__("Recharge")) + "\n                ")])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "text-center py-3 text_c1"
-  }, [_vm._v("Billing Details")]), _vm._v(" "), _vm._l(_vm.wallets, function (data, i) {
+  }, [_vm._v(_vm._s(_vm.__("Billing Details")))]), _vm._v(" "), _vm._l(_vm.wallets, function (data, i) {
     return _c("div", {
       key: i,
       staticClass: "flex justify-between py-3 w-full border-b"
@@ -7407,23 +7338,12 @@ var render = function render() {
       staticClass: "text-white"
     }, [_vm._v(_vm._s(data.type))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm text-gray-400"
-    }, [_vm._v("Time: " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                " + _vm._s(data.money > 0 ? "+" : "") + _vm._s(data.money) + " Ks\n            ")])]);
+    }, [_vm._v("\n                " + _vm._s(data.money > 0 ? "+" : "") + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n            ")])]);
   })], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "self-center font-bold text-white text-lg"
-  }, [_vm._v("\n                My Wallet\n                "), _c("div", {
-    staticClass: "w-10 h-1 rounded-full",
-    staticStyle: {
-      background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
-    }
-  })]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -7463,7 +7383,7 @@ var render = function render() {
     }
   }), _c("div", {
     staticClass: "text-sm"
-  }, [_vm._v("Home")])])]), _vm._v(" "), _c("Link", {
+  }, [_vm._v(_vm._s(_vm.__("Home")))])])]), _vm._v(" "), _c("Link", {
     attrs: {
       href: _vm.$url + "/exchange",
       as: "button"
@@ -7480,7 +7400,7 @@ var render = function render() {
     }
   }), _c("div", {
     staticClass: "text-sm"
-  }, [_vm._v("Exchange")])])]), _vm._v(" "), _c("Link", {
+  }, [_vm._v(_vm._s(_vm.__("Exchange")))])])]), _vm._v(" "), _c("Link", {
     attrs: {
       href: _vm.$url + "/wallet",
       as: "button"
@@ -7497,7 +7417,7 @@ var render = function render() {
     }
   }), _c("div", {
     staticClass: "text-sm"
-  }, [_vm._v("Wallet")])])]), _vm._v(" "), _c("Link", {
+  }, [_vm._v(_vm._s(_vm.__("Wallet")))])])]), _vm._v(" "), _c("Link", {
     attrs: {
       href: _vm.$url + "/user",
       as: "button"
@@ -7514,7 +7434,7 @@ var render = function render() {
     }
   }), _c("div", {
     staticClass: "text-sm"
-  }, [_vm._v("Profile")])])])], 1);
+  }, [_vm._v(_vm._s(_vm.__("Profile")))])])])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7627,7 +7547,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     "class": _vm.index == 0 ? "text-black" : "text-white"
-  }, [_vm._v("\n            Select Shipping Address\n            "), _c("div", {
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Select Shipping Address")) + "\n            "), _c("div", {
     staticClass: "w-10 h-1 rounded-full",
     staticStyle: {
       background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
@@ -7651,7 +7571,7 @@ var render = function render() {
       "class": _vm.index == 0 ? "text-black" : "text-white"
     }, [_vm._v(_vm._s(address.district))]), _vm._v(" "), _c("div", {
       staticClass: "text-gray-400 py-1 text-xs"
-    }, [_vm._v("Phone : " + _vm._s(address.phone))])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.__("Phone")) + " : " + _vm._s(address.phone))])])]), _vm._v(" "), _c("div", {
       staticClass: "flex-none self-center w-10"
     }, [_c("input", {
       directives: [{
@@ -7683,7 +7603,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("\n            Continue\n        ")])])]);
+  }, [_vm._v("\n            " + _vm._s(_vm.__("Continue")) + "\n        ")])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7725,9 +7645,9 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_c2 text-center font-bold text-xl py-3 mt-3 my-5"
-  }, [_vm._v("Delete Item")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Delete Item")))]), _vm._v(" "), _c("div", {
     staticClass: "px-8 text-center my-5 text-xs text-white"
-  }, [_vm._v("Are you sure you want to delete?")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Are you sure you want to delete")) + "?")]), _vm._v(" "), _c("div", {
     staticClass: "flex justify-around"
   }, [_c("div", {}, [_c("button", {
     staticClass: "border_grad1 before:rounded-full py-2 w-32 m-2 text-white",
@@ -7736,14 +7656,14 @@ var render = function render() {
         return _vm.$emit("update:model-active", false);
       }
     }
-  }, [_vm._v("Cancel")])]), _vm._v(" "), _c("div", {}, [_c("button", {
+  }, [_vm._v(_vm._s(_vm.__("Cancel")))])]), _vm._v(" "), _c("div", {}, [_c("button", {
     staticClass: "btn_gradient rounded-full py-2 w-32 m-2 text-white",
     on: {
       click: function click($event) {
         return _vm.submit();
       }
     }
-  }, [_vm._v("Delete")])])])])])]);
+  }, [_vm._v(_vm._s(_vm.__("Delete")))])])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7801,7 +7721,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text-center px-5 -mt-5"
-  }, [_vm._v("You have won special prize"), _vm._l(_vm.prizes, function (prize, j) {
+  }, [_vm._v(_vm._s(_vm.__("You have won special prize"))), _vm._l(_vm.prizes, function (prize, j) {
     return _c("span", {
       key: j
     }, [_vm._v(" " + _vm._s(prize.itemName)), j == _vm.prizes.length - 1 ? _c("span") : _c("span", [_vm._v(",")])]);
@@ -7881,7 +7801,7 @@ var render = function render() {
       staticStyle: {
         "font-size": "9px"
       }
-    }, [_vm._v("(" + _vm._s(prize.price) + " Ks)")])])])]);
+    }, [_vm._v("(" + _vm._s(prize.price) + " " + _vm._s(_vm.__("Ks")) + ")")])])])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "flex justify-around"
   }, [_c("div", {}, [_c("button", {
@@ -7891,14 +7811,14 @@ var render = function render() {
         return _vm.sell();
       }
     }
-  }, [_vm._v("Sell")])]), _vm._v(" "), _c("div", {}, [_c("button", {
+  }, [_vm._v(_vm._s(_vm.__("Sell")))])]), _vm._v(" "), _c("div", {}, [_c("button", {
     staticClass: "btn_one rounded-full py-2 w-32 m-2 text-white",
     on: {
       click: function click($event) {
         return _vm.collect();
       }
     }
-  }, [_vm._v("Collect")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Collect")))])])]), _vm._v(" "), _c("div", {
     staticClass: "flex justify-center mt-4 text-center text-sm",
     staticStyle: {
       color: "#8064E1"
@@ -7909,7 +7829,7 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/Share.svg"
     }
-  })]), _vm._v(" "), _c("div", [_vm._v("Share your friends")])])])]);
+  })]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.__("Share your friends")))])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7996,7 +7916,7 @@ var render = function render() {
     staticStyle: {
       color: "#E74549"
     }
-  }, [_vm._v("(" + _vm._s(_vm.order.data.price) + " gold coins) "), _vm.order.coinNotEnough ? _c("span", [_vm._v("Insufficient coin!")]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_vm._v("(" + _vm._s(_vm.order.data.price) + " Ks) "), _vm.order.coinNotEnough ? _c("span", [_vm._v("Insufficient money!")]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "mt-5 text-sm px-2"
   }, [_vm._v("\n            ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit faucibus lobortis phasellus.\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-row text-sm rounded-lg px-3 py-2 my-4 agree_term",
@@ -8142,7 +8062,7 @@ var render = function render() {
     staticClass: "text_c2 text-center font-bold text-xl py-3"
   }, [_vm._v(_vm._s(_vm.modalHead[_vm.index]))]), _vm._v(" "), _c("div", {
     staticClass: "px-8 text-center my-5 text-xs text-white"
-  }, [_vm._v(_vm._s(_vm.modalBody[_vm.index]) + " " + _vm._s(_vm.modalAmount) + " Ks")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.modalBody[_vm.index]) + " " + _vm._s(_vm.modalAmount) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
     staticClass: "w-full my-9"
   }, [_c("div", {
     staticClass: "btn_gradient rounded-full py-3 text-center w-40 m-auto text-white",
@@ -8151,7 +8071,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("OK")])])])])]);
+  }, [_vm._v(_vm._s(_vm.__("OK")))])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8191,7 +8111,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_c2 text-center font-bold text-xl py-3 mt-3 my-5"
-  }, [_vm._v("Created Successfully!")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Created Successfully")) + "!")]), _vm._v(" "), _c("div", {
     staticClass: "w-full my-5"
   }, [_c("div", {
     staticClass: "btn_gradient rounded-full py-3 text-center w-40 m-auto text-white",
@@ -8200,7 +8120,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("OK")])])])])]);
+  }, [_vm._v(_vm._s(_vm.__("OK")))])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8240,7 +8160,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_c2 text-center font-bold text-xl py-3 mt-3 my-5"
-  }, [_vm._v("Deleted Successfully!")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Deleted Successfully")) + "!")]), _vm._v(" "), _c("div", {
     staticClass: "w-full my-5"
   }, [_c("div", {
     staticClass: "btn_gradient rounded-full py-3 text-center w-40 m-auto text-white",
@@ -8249,7 +8169,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("OK")])])])])]);
+  }, [_vm._v(_vm._s(_vm.__("OK")))])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8289,7 +8209,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_c2 text-center font-bold text-xl py-3 mt-3 my-5"
-  }, [_vm._v("Updated Successfully!")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.__("Updated Successfully")) + "!")]), _vm._v(" "), _c("div", {
     staticClass: "w-full my-5"
   }, [_c("div", {
     staticClass: "btn_gradient rounded-full py-3 text-center w-40 m-auto text-white",
@@ -8298,7 +8218,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("OK")])])])])]);
+  }, [_vm._v(_vm._s(_vm.__("OK")))])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8340,7 +8260,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "text_warning text-center font-bold text-xl py-3 mt-3 my-5"
-  }, [_vm._v("Something went wrong!")]), _vm._v(" "), _vm._l(_vm.errors, function (error, i) {
+  }, [_vm._v(_vm._s(_vm.__("Something went wrong")) + "!")]), _vm._v(" "), _vm._l(_vm.errors, function (error, i) {
     return _c("div", {
       key: i,
       staticClass: "px-8 text-center my-2 text-xs text-white"
@@ -8354,7 +8274,7 @@ var render = function render() {
         return _vm.submit();
       }
     }
-  }, [_vm._v("OK")])])], 2)])]);
+  }, [_vm._v(_vm._s(_vm.__("OK")))])])], 2)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

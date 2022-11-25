@@ -7,7 +7,7 @@
                 </div>
             </Link>
             <div class="font-bold text-xl self-center text-white">
-                Helps
+                {{__('Helps')}}
             </div>
         </div>
         <div v-for="(help,i) in data.data" :key="i" class="help_tip_box border_grad2 text-white before:rounded-xl p-3 my-4">

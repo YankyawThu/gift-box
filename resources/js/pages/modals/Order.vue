@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div v-if="order.data" class="pt-2 text-center" style="color: #DF8E44;">{{order.data.name}}</div>
-            <div v-if="order.data" class="py-1 text-center text-sm" style="color: #E74549;">({{order.data.price}} gold coins) <span v-if="order.coinNotEnough">Insufficient coin!</span></div>
+            <div v-if="order.data" class="py-1 text-center text-sm" style="color: #E74549;">({{order.data.price}} Ks) <span v-if="order.coinNotEnough">Insufficient money!</span></div>
             <div class="mt-5 text-sm px-2">
                 ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit faucibus lobortis phasellus.
             </div>

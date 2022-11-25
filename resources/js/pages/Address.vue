@@ -7,7 +7,7 @@
                 </div>
             </Link>
             <div class="font-bold text-xl text-white self-center">
-                Shipping Address
+                {{__('Shipping Address')}}
             </div>
         </div>
         <div class="pb-20">
@@ -15,7 +15,7 @@
                 <div class="pr-5">
                     <div class="break-words text-white text-lg text_c2">{{address.username}}</div>
                     <div class="break-words text-white text-sm w-72">{{address.district}}</div>
-                    <div class="text-gray-400 py-1 text-sm">Phone : {{address.phone}}</div>
+                    <div class="text-gray-400 py-1 text-sm">{{__('Phone')}} : {{address.phone}}</div>
                 </div>
                 <div class="absolute w-24 right-3 bottom-4">
                     <Link :href="$url+'/user/shipping-address/'+address.id+'/detail'" as="button" class="inline-block"><img :src="$asset+'/image/ui/Edit.svg'" alt=""></Link>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <Link :href="$url+'/user/shipping-address/create'" class="btn_gradient fixed bottom-5 py-3 inset-x-5 text-center m-auto rounded-full text-white">
-            Add Shipping Address
+            {{__('Add Shipping Address')}}
         </Link>
         <confirm v-model="confirmModal" @submit="submit"></confirm>
     </div>

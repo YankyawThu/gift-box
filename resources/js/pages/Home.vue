@@ -5,7 +5,7 @@
                 <div class="flex flex-row">
                     <div><img :src="user.avatar" alt="" class="home_avatar"></div>
                     <div class="ml-2 self-center">
-                        <div class="text-xs text_c2">{{user.money}} Ks</div>
+                        <div class="text-xs text_c2">{{user.money}} {{__('Ks')}}</div>
                         <div class="font-bold text-lg text-white">{{user.name}}</div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <img :src="$asset+'/image/ui/Search.svg'" alt="">
                 </div>
                 <div class="grow flex-none">
-                    <input v-model="search" type="text" class="home_search bg-transparent placeholder:text-white focus:outline-none text-white w-full py-2" placeholder="Search Box...">
+                    <input v-model="search" type="text" class="home_search bg-transparent placeholder:text-white focus:outline-none text-white w-full py-2" :placeholder="__('Search Box')+'...'">
                 </div>
             </div>
             <div class="my-2">
@@ -29,12 +29,12 @@
                 </div>
             </div>
             <div class="flex flex-wrap justify-between py-2 mb-3">
-                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">Tide Play</div></Link>
-                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">{{__("Recharge")}}</div></Link>
-                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">Shipping</div></Link>
-                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">Helps</div></Link>
+                <Link :href="$url+'/tide-play'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/TidePlay.svg'">{{__('Tide Play')}}</div></Link>
+                <Link :href="$url+'/recharge'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Recharge.svg'">{{__('Recharge')}}</div></Link>
+                <Link :href="$url+'/shipping/1'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Shipping.svg'">{{__('Shipping')}}</div></Link>
+                <Link :href="$url+'/helps'" as="button" class="text-left"><div class="border_grad1 w-44 p-3 before:rounded-full m-1 text_c1"><img class="inline-block mr-2" :src="$asset+'/image/ui/Helps.svg'">{{__('Helps')}}</div></Link>
             </div>
-            <div class="font-bold text-xl text-white">Recommended</div>
+            <div class="font-bold text-xl text-white">{{__('Recommended')}}</div>
             <div class="flex flex-wrap justify-around">
                 <Link :href="$url+'/box/'+box.id" v-for="(box,i) in boxes" :key="i" class="box_layout border_grad2 before:rounded-3xl shadow-sm my-2 px-3" as="button">
                     <div class="mt-8">
@@ -45,8 +45,8 @@
                     </div>
                     <div class="text-left text-white py-1 truncate" style="font-size:12px;">{{box.name}}</div>
                     <div class="flex justify-between mb-3">
-                        <div class="text-xs" style="color: #FFC042;">{{box.price}} Ks</div>
-                        <div class="text-gray-300" style="font-size:10px;">{{ box.items.length }} products</div>
+                        <div class="text-xs" style="color: #FFC042;">{{box.price}} {{__('Ks')}}</div>
+                        <div class="text-gray-300" style="font-size:10px;">{{ box.items.length }} {{__('products')}}</div>
                     </div>
                 </Link>
             </div>

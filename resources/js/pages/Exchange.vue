@@ -3,7 +3,7 @@
         <main class="pb-20">
             <div class="flex justify-between pt-6 pb-4 px-4">
                 <div class="self-center font-bold text-lg text-white">
-                    My Box Cabinet
+                    {{__('My Box Cabinet')}}
                     <div class="w-10 h-1 rounded-full" style="background: linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%);"></div>
                 </div>
                 <div class="">
@@ -13,10 +13,10 @@
             <div id="tabs">
                 <div class="grid grid-cols-2 text-center mx-4" role="tablist" aria-label="Free HTML Tabs">
                     <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-pending" id="tab-pending" tabindex="0" @click="fetchPending()">
-                        Pending Delivery
+                        {{__('Pending Delivery')}}
                     </div>
                     <div class="py-2" role="tab" aria-selected="false" aria-controls="panel-recycle" id="tab-recycle" tabindex="-1" @click="fetchRecycle()">
-                        Recycling
+                        {{__('Recycling')}}
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -30,11 +30,11 @@
                                 </div>
                                 <div class="">
                                     <label class="form-check-label text_c2" for="allChecked">
-                                        Select All
+                                        {{__('Select All')}}
                                     </label>
                                 </div>
                             </div>
-                            <div class="text-white" @click="clearAll()">Clear All</div>
+                            <div class="text-white" @click="clearAll()">{{__('Clear All')}}</div>
                         </div>
                         <div v-for="(prize,i) in pending" :key="i" class="form-check flex flex-row px-4">
                             <div class="self-center mr-3">
@@ -47,8 +47,8 @@
                                         <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                         <div class="self-center">
                                             <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                            <div class="text-sm py-1 text_gradient">{{prize.price}} Ks</div>
-                                            <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                            <div class="text-sm py-1 text_gradient">{{prize.price}} {{__('Ks')}}</div>
+                                            <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                                         </div>
                                     </div>
                                 </label>
@@ -56,10 +56,10 @@
                         </div>
                         <div class="fixed flex justify-around bottom-24 w-full">
                             <div>
-                                <div class="btn2_gradient py-3 text-center w-44 text-white rounded-full" @click="recycleSubmit()">Recycling</div>
+                                <div class="btn2_gradient py-3 text-center w-44 text-white rounded-full" @click="recycleSubmit()">{{__('Recycling')}}</div>
                             </div>
                             <div>
-                                <div class="btn_gradient py-3 text-center w-44  text-white rounded-full" @click="shipSubmit()">Shipment Apply</div>
+                                <div class="btn_gradient py-3 text-center w-44  text-white rounded-full" @click="shipSubmit()">{{__('Shipment Apply')}}</div>
                             </div>
                         </div>
                     </section>
@@ -69,13 +69,13 @@
                                 <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
                                 <div class="self-center">
                                     <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                    <div class="text-sm py-1 text_gradient">{{prize.price}} Ks</div>
-                                    <div class="text-xs text-gray-400">Time : {{prize.time}}</div>
+                                    <div class="text-sm py-1 text_gradient">{{prize.price}} {{__('Ks')}}</div>
+                                    <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                                 </div>
                             </div>
                             <div>
-                                <div v-if="!prize.isApprove" class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">Pending</div>
-                                <div v-else class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">Completed</div>
+                                <div v-if="!prize.isApprove" class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">{{__('Pending')}}</div>
+                                <div v-else class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">{{__('Completed')}}</div>
                             </div>
                         </div>
                     </section>

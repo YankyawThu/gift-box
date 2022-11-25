@@ -3,10 +3,10 @@
         <div class="dataModal-content">
             <div class="">
                 <div><img :src="$asset+'/image/ui/Success.svg'" class="m-auto"></div>
-                <div class="text_c2 text-center font-bold text-xl py-3 mt-3 my-5">Updated Successfully!</div>
+                <div class="text_c2 text-center font-bold text-xl py-3 mt-3 my-5">{{__('Updated Successfully')}}!</div>
                 <!-- <div class="px-8 text-center my-5 text-xs text-white"></div> -->
                 <div class="w-full my-5">
-                    <div class="btn_gradient rounded-full py-3 text-center w-40 m-auto text-white" @click="submit()">OK</div>
+                    <div class="btn_gradient rounded-full py-3 text-center w-40 m-auto text-white" @click="submit()">{{__('OK')}}</div>
                 </div>
             </div>
         </div>

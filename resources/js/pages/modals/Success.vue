@@ -4,9 +4,9 @@
             <div class="overflow-auto max-h-96">
                 <div><img :src="$asset+'/image/ui/Success.svg'" class="m-auto"></div>
                 <div class="text_c2 text-center font-bold text-xl py-3">{{modalHead[index]}}</div>
-                <div class="px-8 text-center my-5 text-xs text-white">{{modalBody[index]}} {{modalAmount}} Ks</div>
+                <div class="px-8 text-center my-5 text-xs text-white">{{modalBody[index]}} {{modalAmount}} {{__('Ks')}}</div>
                 <div class="w-full my-9">
-                    <div class="btn_gradient rounded-full py-3 text-center w-40 m-auto text-white" @click="submit()">OK</div>
+                    <div class="btn_gradient rounded-full py-3 text-center w-40 m-auto text-white" @click="submit()">{{__('OK')}}</div>
                 </div>
             </div>
         </div>

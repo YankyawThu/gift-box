@@ -7,37 +7,37 @@
                 </div>
             </Link>
             <div class="font-bold text-xl text-white self-center">
-                Reset Password
+                {{__('Reset Password')}}
             </div>
         </div>
         <div>
             <div class="text_c2 text-2xl mt-10 mb-3">
-                Create New Password
+                {{__('Create New Password')}}
             </div>
             <div class="text-white text-sm my-5">
-                Your password must be strong and can't guess it easily.
+                {{__('Your password must be strong and can\'t guess it easily')}}.
             </div>
         </div>
         <div>
             <div class="mb-5">
                 <div class="py-2">
-                    <label for="" class="text_c1">New Password</label>
+                    <label for="" class="text_c1">{{__('New Password')}}</label>
                 </div>
                 <div class="border_grad2 before:rounded-xl">
-                    <input type="password" v-model="newPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter New Password">
+                    <input type="password" v-model="newPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter New Password')">
                 </div>
             </div>
             <div class="mb-5">
                 <div class="py-2">
-                    <label for="" class="text_c1">Confirm Password</label>
+                    <label for="" class="text_c1">{{__('Confirm Password')}}</label>
                 </div>
                 <div class="border_grad2 before:rounded-xl">
-                    <input type="password" v-model="confirmPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" placeholder="Enter Confirm Password">
+                    <input type="password" v-model="confirmPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter Confirm Password')">
                 </div>
             </div>
         </div>
         <div class="py-10">
-            <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white" @click="submit()">Reset Password</button>
+            <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white" @click="submit()">{{__('Reset Password')}}</button>
         </div>
         <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
         <create-alert v-model="create"></create-alert>
