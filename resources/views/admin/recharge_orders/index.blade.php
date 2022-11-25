@@ -14,13 +14,13 @@
                         </div>
                         <div
                             class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
-                            <input class="form-control searching" placeholder="Search by Coin Amount" type="text"
+                            <input class="form-control searching" placeholder="Search by Amount" type="text"
                                 name="amount" value="{{ request('amount') }}">
                         </div>
 
                         <div
                             class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
-                            <input class="form-control searching" placeholder="Search by Out Trade No." type="text"
+                            <input class="form-control searching" placeholder="Search by Order No." type="text"
                                 name="out_trade_no" value="{{ request('out_trade_no') }}">
                         </div>
                         <div
@@ -42,8 +42,8 @@
                                 name="status" id="status">
                                 <option value="" @if (request('status') === null) selected @endif>Pay Status
                                 </option>
-                                @foreach (config('config.payStatus') as $k => $v)
-                                    <option value="{{ $k }}" @if (request('status') == $k) selected @endif>
+                                @foreach (config('config.rechargePayStatus') as $k => $v)
+                                    <option value="{{ $v }}" @if (request('status') == $v) selected @endif>
                                         {{ $v }}
                                     </option>
                                 @endforeach
@@ -67,6 +67,7 @@
                     <th class="text-xxs font-weight-bolder opacity-7">No</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">AMOUNT</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">PAY AMOUNT</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PAY METHOD</th>
                     <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PAY TIME</th>
@@ -86,6 +87,9 @@
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->amount, 2) }}</p>
+                        </td>
+                        <td>
+                            <p class="font-weight-bold mb-0 text-sm">{{ number_format($item->pay_amount, 2) }}</p>
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $item->pay_method ? config('config.rechargePayMethod.'.$item->pay_method) : '-' }}</p>

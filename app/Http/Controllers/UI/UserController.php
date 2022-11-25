@@ -26,7 +26,10 @@ class UserController extends Controller
 
     public function index()
     {
-        return Inertia::render('User', ['user' => auth()->user()]);
+        $user = auth()->user();
+        $user->avatar_url = getFileUrlFromAkoneyaMedia($user->avatar);
+
+        return Inertia::render('User', ['user' => $user]);
     }
 
     public function changeAvatar(UserAvatarRequest $request)
@@ -67,6 +70,7 @@ class UserController extends Controller
     public function changePhone(PhoneChangeRequest $request)
     {
         $this->userService->changePhone($request);
+
         return redirect()->route('otp');
     }
 

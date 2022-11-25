@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     private $userService;
+
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
@@ -36,52 +37,45 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $this->userService->update($request->validated(), $user->id);
+        $this->userService->update($request->validated(), $request->id);
 
         return redirect()->back()->with('status', 'User Updated Successfully!');
     }
@@ -89,12 +83,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        $this->userService->delete($user->id);
+        $this->userService->delete($request->id);
 
         return redirect()->back()->with('status', 'Recharge Deleted Successfully!');
     }

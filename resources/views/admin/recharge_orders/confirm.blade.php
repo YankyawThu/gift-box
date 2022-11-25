@@ -25,6 +25,16 @@
                                     </div>
 
                                 </div>
+                                @if($item->status!= 'paid')
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="name" class="form-control-label">Pay Amount</label>
+                                            <input type="number" placeholder="Pay Amount" id="pay_amount" name="pay_amount"
+                                                class="form-control form-control-alternative is-valid" />
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
                         </form>
                     </div>

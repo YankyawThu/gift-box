@@ -25,17 +25,17 @@
                                     <div class="form-group">
                                         <label for="phone" class="form-control-label">Phone</label>
                                         <input type="text" placeholder="Phone" id="phone" name="phone"
-                                            class="form-control form-control-alternative is-valid" />
+                                            class="form-control form-control-alternative is-valid" disabled/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="money" class="form-control-label">Money</label>
                                         <input type="text" placeholder="Money" id="money" name="money"
-                                            class="form-control form-control-alternative is-valid" />
+                                            class="form-control form-control-alternative is-valid" disabled/>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </form>
                     </div>

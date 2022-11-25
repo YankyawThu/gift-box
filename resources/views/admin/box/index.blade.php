@@ -106,7 +106,7 @@
                     <td class="align-middle">
                         <a href="{{route('admin.boxes.show', $item->id)}}"
                             class="font-weight-bold text-sm text-success px-1">
-                            <span class="btn btn-sm btn-info" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-info" data-toggle="tooltip" data-original-title="View item">
                                 <i class="fas fa-eye"></i>
                             </span>
                         </a>
@@ -121,7 +121,7 @@
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}"
                             data-toggle="modal" data-target="#delete-modal">
-                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Delete item">
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>
