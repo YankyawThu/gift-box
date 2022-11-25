@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\UI\MoneyRecordController;
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 // Auth Routes
 Auth::routes();
 
+Route::get('/forgot-password', [ForgotPasswordController::class, 'reset'])->name('forgetPassword');
+Route::get('/password/{id}/change', [LoginController::class, 'resetPasswordIndex'])->name('resetPassword');
+Route::post('/password/{id}/change', [LoginController::class, 'changePassword'])->name('reset');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');
     Route::get('/wrong-phone', [LoginController::class, 'wrongPhone'])->name('wrongPhone');
@@ -32,7 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/change-phone', [UserController::class, 'changePhone'])->name('changePhone');
     Route::get('/language/{language}', function ($language) {
         Session()->put('locale', $language);
-        // return true;
     });
     Route::group(['middleware' => 'phone'], function () {
         Route::group(['namespace' => 'UI'], function () {

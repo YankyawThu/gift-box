@@ -44,6 +44,13 @@ class UserService
         return $this->userRepo->changePassword($request, $user);
     }
 
+    public function changePasswordNotLogin($request, $id)
+    {
+        $user = $this->userRepo->getById($id);
+
+        return $this->userRepo->changePassword($request, $user);
+    }
+
     public function transferWallet($request)
     {
         return $this->userRepo->transferWallet($request);

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use App\Http\Requests\PhoneChangeRequest;
+use App\User;
+use Illuminate\Validation\ValidationException;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,4 +22,14 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function reset(PhoneChangeRequest $request)
+    {
+        $user = User::where('phone', $request->code.$request->phone)->first();
+
+        if(!$user) {
+            throw ValidationException::withMessages(['alreadyUser' => ['This Phone number is not found']]);
+        }
+        else return view('auth.otpNotLogin', ['user' => $user]);
+    }
 }

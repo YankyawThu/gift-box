@@ -1,62 +1,54 @@
-@extends('layouts.app', ['class' => 'bg-default'])
+@extends('auth.main')
+
+@section('title', 'Forget Password')
 
 @section('content')
-    @include('layouts.headers.guest')
-    
-    <div class="container mt--8 pb-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-md-7">
-                <div class="card bg-secondary shadow border-0">
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <div class="text-center text-muted mb-4">
-                            <small>{{ __('Reset Password') }}</small>
-                        </div>
-                        <form role="form" method="POST" action="{{ route('password.update') }}">
-                            @csrf
-
-                            <input type="hidden" name="token" value="{{ $token }}">
-
-                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
-                                </div>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" required>
-                                </div>
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input class="form-control" placeholder="{{ __('Confirm Password') }}" type="password" name="password_confirmation" required>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary my-4">{{ __('Reset Password') }}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<div class="w-96 m-auto">
+    <div class="pt-12">
+        <div class="border_grad2 before:rounded-xl w-10 h-10">
+            <img src="{{asset('/image/ui/Back2.svg')}}" class="py-3 m-auto" alt="" onclick="window.history.back()">
+        </div>
+        <div>
+            <div class="text_c2 text-2xl mt-10 mb-3">
+                {{__('Create New Password')}}
+            </div>
+            <div class="text-white text-sm my-5">
+                {{__('Your password must be strong and can\'t guess it easily')}}.
             </div>
         </div>
+        <form action="{{ route('reset', ['id' => $id]) }}" method="POST">
+            <div>
+                <div class="mb-5">
+                    <div class="py-2">
+                        <label for="" class="text_c1">{{__('New Password')}}</label>
+                    </div>
+                    <div class="border_grad2 before:rounded-xl">
+                        <input type="password" name="newPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter New Password')">
+                    </div>
+                    @if ($errors->has('newPassword'))
+                        <div class="text-center">
+                            <strong class="text-red-500 text-xs">{{ $errors->first('newPassword') }}</strong>
+                        </div>
+                    @endif
+                </div>
+                <div class="mb-5">
+                    <div class="py-2">
+                        <label for="" class="text_c1">{{__('Confirm Password')}}</label>
+                    </div>
+                    <div class="border_grad2 before:rounded-xl">
+                        <input type="password" name="confirmNewPassword" class="p-4 w-full bg-transparent text-white focus:outline-none" :placeholder="__('Enter Confirm Password')">
+                    </div>
+                    @if ($errors->has('confirmNewPassword'))
+                        <div class="text-center">
+                            <strong class="text-red-500 text-xs">{{ $errors->first('confirmNewPassword') }}</strong>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="py-10">
+                <button type="submit" class="w-full py-4 btn_gradient text-center rounded-full text-white">{{__('Reset Password')}}</button>
+            </div>
+        </form>
     </div>
+</div>
 @endsection
