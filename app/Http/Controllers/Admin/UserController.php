@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $this->userService->update($request->validated(), $user->id);
+        $this->userService->update($request->validated(), $request->id);
 
         return redirect()->back()->with('status', 'User Updated Successfully!');
     }
@@ -85,9 +85,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request)
     {
-        $this->userService->delete($user->id);
+        $this->userService->delete($request->id);
 
         return redirect()->back()->with('status', 'Recharge Deleted Successfully!');
     }
