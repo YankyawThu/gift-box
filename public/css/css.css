@@ -64,6 +64,7 @@ div.input-group.input-group-alternative.input-group-merge.searching{
 }
 button.input-group-text.gift-log-search-btn{
     background-color: rgb(94 114 228 / 50%);
+    z-index: auto;
 }
 .gift-log-search{
     padding: 4px 2px 2px 4px;

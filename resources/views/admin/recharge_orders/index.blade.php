@@ -118,8 +118,8 @@
                                 data-image-path={{getFileUrlFromAkoneyaMedia($item->voucher)}}
                                 data-toggle="modal"
                                 data-target="#recharge-order-paid">
-                                <span class="btn btn-sm btn-success" data-toggle="tooltip"
-                                    data-original-title="Confirm Payment"><i class="fas fa-edit"></i>
+                                <span class="btn btn-sm btn-success"    data-toggle="tooltip"
+                                    data-original-title="Confirm Payment"><i class="ni ni-check-bold"></i>
                                 </span>
                             </a>
                             @include('admin.recharge_orders.confirm', [
