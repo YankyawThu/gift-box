@@ -22,7 +22,7 @@ class CreateRechargeOrdersTable extends Migration
             $table->string('out_trade_number')->nullable();
             $table->string('transaction_id')->nullable();
             $table->timestamp('pay_time')->nullable();
-            $table->enum('status', ['unpay', 'paid']);
+            $table->enum('status', ['pending', 'paid']);
             $table->boolean('backend_read')->default(0);
             $table->string('voucher')->nullable();
             $table->softDeletes();
