@@ -61,7 +61,7 @@
                         </a>
                         <a href="javascript:;" class="font-weight-bold text-sm text-danger px-1" data-id="{{$item->id}}"
                             data-toggle="modal" data-target="#delete-modal">
-                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Edit item">
+                            <span class="btn btn-sm btn-danger" data-toggle="tooltip" data-original-title="Delete item">
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>

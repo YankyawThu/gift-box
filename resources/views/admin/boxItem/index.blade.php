@@ -23,7 +23,7 @@
                     <div class="col-lg-3 order-lg-2">
                         <div class="box_detail_img">
                             <a href="#">
-                                <img src="{{ $data['image'] }}" class="rounded-circle">
+                                <img src="{{ getFileUrlFromAkoneyaMedia($data['image']) }}" class="rounded-circle">
                             </a>
                         </div>
                     </div>

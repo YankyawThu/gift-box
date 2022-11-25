@@ -17,7 +17,7 @@ return [
         2 => 'WavePay',
     ],
     'rechargePayStatus' => [
-        1 => 'unpay',
+        1 => 'pending',
         2 => 'paid',
     ],
     'payStatus' => [
