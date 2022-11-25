@@ -8,4 +8,5 @@ return [
     'Gift Log' => 'Gift Log',
     'Gift Prize Record' => 'Gift Prize Record',
     'Recharge List' => 'Recharge List',
+    '',
 ];
