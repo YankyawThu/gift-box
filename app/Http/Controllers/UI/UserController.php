@@ -81,7 +81,10 @@ class UserController extends Controller
 
     public function setUp()
     {
-        return Inertia::render('Setup', ['user' => auth()->user()]);
+        $user = auth()->user();
+        $user->avatar_url = $user->avatar ? getFileUrlFromAkoneyaMedia($user->avatar) : '';
+
+        return Inertia::render('Setup', ['user' => $user]);
     }
 
     public function transferWallet(GoToWalletRequest $request)

@@ -7072,7 +7072,7 @@ var render = function render() {
   }, [_c("div", [_c("img", {
     staticClass: "home_avatar",
     attrs: {
-      src: _vm.user.avatar,
+      src: _vm.user.avatar_url,
       alt: ""
     }
   })]), _vm._v(" "), _c("div", {

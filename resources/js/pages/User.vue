@@ -3,7 +3,7 @@
         <main>
             <div class="flex justify-between user_header pb-12 pt-6 px-4">
                 <div class="flex flex-row">
-                    <div><img :src="user.avatar" alt="" class="home_avatar"></div>
+                    <div><img :src="user.avatar_url" alt="" class="home_avatar"></div>
                     <div class="ml-2 self-center">
                         <div class="font-bold text-lg text-white">{{ user.name }}</div>
                     </div>
