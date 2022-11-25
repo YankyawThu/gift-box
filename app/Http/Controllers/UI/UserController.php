@@ -27,7 +27,7 @@ class UserController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $user->avatar_url = getFileUrlFromAkoneyaMedia($user->avatar);
+        $user->avatar_url = $user->avatar ? getFileUrlFromAkoneyaMedia($user->avatar) : '';
 
         return Inertia::render('User', ['user' => $user]);
     }
