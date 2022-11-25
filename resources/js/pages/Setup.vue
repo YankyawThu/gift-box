@@ -53,9 +53,6 @@
                 <div class="self-center ml-5"><img :src="$asset+'/image/ui/Vector.svg'"></div>
             </Link>
         </div>
-        <div class="absolute w-full bottom-5 px-4">
-            <Link :href="$url+'/logout'" method="post" as="button" class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="logout()">{{__('Sign Out')}}</Link>
-        </div>
     </div>
 </template>
 
@@ -84,9 +81,6 @@ export default {
         }
     },
     methods: {
-        logout() {
-            location.reload()
-        },
         changeAvatar() {
             document.querySelector('#avatar').click()
         },

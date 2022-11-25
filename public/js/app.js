@@ -3262,9 +3262,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    logout: function logout() {
-      location.reload();
-    },
     changeAvatar: function changeAvatar() {
       document.querySelector('#avatar').click();
     },
@@ -3651,6 +3648,9 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/language/".concat(lang)).then(function () {
         location.reload();
       });
+    },
+    logout: function logout() {
+      location.reload();
     }
   }
 });
@@ -6506,21 +6506,7 @@ var render = function render() {
     attrs: {
       src: _vm.$asset + "/image/ui/Vector.svg"
     }
-  })])])], 1), _vm._v(" "), _c("div", {
-    staticClass: "absolute w-full bottom-5 px-4"
-  }, [_c("Link", {
-    staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
-    attrs: {
-      href: _vm.$url + "/logout",
-      method: "post",
-      as: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.logout();
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.__("Sign Out")))])], 1)]);
+  })])])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7252,6 +7238,20 @@ var render = function render() {
       src: _vm.$asset + "/image/ui/Vector.svg"
     }
   })])])])], 1), _vm._v(" "), _c("div", {
+    staticClass: "absolute w-full bottom-24 px-4"
+  }, [_c("Link", {
+    staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
+    attrs: {
+      href: _vm.$url + "/logout",
+      method: "post",
+      as: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.logout();
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.__("Sign Out")))])], 1), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("button", {
     staticClass: "text-white",
