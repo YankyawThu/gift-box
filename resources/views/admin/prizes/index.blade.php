@@ -15,7 +15,7 @@
                         </div>
                         <div
                             class="col-lg-3 col-xl-2 col-md-4 input-group input-group-alternative input-group-merge searching m-1">
-                            <input class="form-control searching" placeholder="Search by Out Trade No." type="text"
+                            <input class="form-control searching" placeholder="Search by Order No." type="text"
                                 name="out_trade_no" value="{{ request('out_trade_no') }}">
                         </div>
                         <div
@@ -76,7 +76,7 @@
             <thead>
                 <tr>
                     <th class="text-xxs font-weight-bolder opacity-7">ID.</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">OUT TRADE NO.</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">ORDER NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">AVATAR</th>
@@ -98,6 +98,9 @@
                     <tr>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $item->id }}</p>
+                        </td>
+                        <td>
+                            <p class="font-weight-bold mb-0 text-sm">{{ $item->out_trade_no }}</p>
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->name }}</p>
