@@ -8,5 +8,12 @@ return [
     'Gift Log' => 'Gift Log',
     'Gift Prize Record' => 'Gift Prize Record',
     'Recharge List' => 'Recharge List',
-    '',
+    'Shipping Orders' => 'Shipping Orders',
+    'Recycle Orders' => 'Recycle Orders',
+    'Recharge Orders' => 'Recharge Orders',
+    'Settings' => 'Settings',
+    'Banner' => 'Banner',
+    'Protocol Policies' => 'Protocol Policies',
+    'Users' => 'Users',
+    'Admins' => 'Admins'
 ];

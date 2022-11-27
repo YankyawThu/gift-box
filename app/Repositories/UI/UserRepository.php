@@ -78,13 +78,14 @@ class UserRepository extends BaseRepository
         if ($money_before < $request->amount) {
             throw new BadRequestException('Insufficient balance!');
         }
-        $this->decreaseMoney($request->amount);
+        //$this->decreaseMoney($request->amount);
         MoneyRecord::create([
             'user_id' => auth()->user()->id,
             'before' => $money_before,
             'after' => auth()->user()->money,
             'money' => -$request->amount,
-            'type' => 'to_coin',
+            'type' => 'withdraw',
+            'status'=>'pending'
         ]);
 
         return true;

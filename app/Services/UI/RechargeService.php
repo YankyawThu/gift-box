@@ -23,13 +23,14 @@ class RechargeService
     {
         // $money_before = auth()->user()->money;
         // $this->userRepo->increaseMoney($request->amount);
-        // MoneyRecord::create([
-        //     'user_id' => auth()->user()->id,
-        //     'before' => $money_before,
-        //     'after' => auth()->user()->money,
-        //     'money' => $request->amount,
-        //     'type' => 'recharge',
-        // ]);
+        MoneyRecord::create([
+            'user_id' => auth()->user()->id,
+            'before' => $money_before,
+            'after' => auth()->user()->money,
+            'money' => $request->amount,
+            'type' => 'deposit',
+            'status' => 'pending',
+        ]);
 
         return $this->rechargeRepo->rechargeOrder($request);
     }

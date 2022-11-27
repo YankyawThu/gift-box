@@ -154,7 +154,8 @@ class PrizeRepository extends BaseRepository
                 'after' => auth()->user()->money,
                 'money' => optional($prize->giftItem)->sell_price,
                 'prize_id' => $prize->id,
-                'type' => 'box_exchange',
+                'type' => 'recycle',
+                'status' => 'pending'
             ]);
             // }
         }
