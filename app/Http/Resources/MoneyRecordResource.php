@@ -16,18 +16,20 @@ class MoneyRecordResource extends JsonResource
     public function toArray($request)
     {
         $typeList = [
-            'box_exchange' => 'Blind Box Recycling',
-            'no_stock' => 'Insufficient stock, pay back',
-            'withdrawal' => 'Withdrawal',
-            'to_coin' => 'Go to wallet',
-            'pay_delivery' => 'Shipping fee',
-            'recharge' => 'Recharge',
+            'recycle' => 'Recycling',
+            'withdraw' => 'Go to wallet',
+            'deposit' => 'Recharge'
+        ];
+        $mr_status = [
+            'pending' => 'Pending',
+            'approved' => 'Approved',
         ];
 
         return [
             'type' => $typeList[$this->type],
             'money' => $this->money,
             'time' => dateFormat($this->created_at),
+            'status' => $mr_status[$this->status]
         ];
     }
 }
