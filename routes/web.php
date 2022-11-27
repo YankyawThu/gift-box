@@ -26,9 +26,8 @@ use Illuminate\Support\Facades\Route;
 // Auth Routes
 Auth::routes();
 
-Route::get('/forgot-password', [ForgotPasswordController::class, 'reset'])->name('forgetPassword');
-Route::get('/password/{id}/change', [LoginController::class, 'resetPasswordIndex'])->name('resetPassword');
-Route::post('/password/{id}/change', [LoginController::class, 'changePassword'])->name('reset');
+// Route::get('/forgot-password', [ForgotPasswordController::class, 'reset'])->name('forgetPassword');
+Route::get('/password/{id}/change', [ForgotPasswordController::class, 'resetPasswordIndex'])->name('resetPassword');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');

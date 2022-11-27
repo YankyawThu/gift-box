@@ -16,7 +16,7 @@
                 {{__('Your password must be strong and can\'t guess it easily')}}.
             </div>
         </div>
-        <form action="{{ route('reset', ['id' => $id]) }}" method="POST">
+        <form action="{{ route('password.update') }}" method="POST">
             <div>
                 <div class="mb-5">
                     <div class="py-2">

@@ -10,7 +10,7 @@
         </div>
         <div class="text_c2 text-2xl font-bold py-2 mt-10">Forgot Password ?</div>
         <div class="text-white py-2">Don't worry! It occurs. Please enter the phone number linked with your account.</div>
-        <form role="form" method="GET" action="{{ route('forgetPassword') }}">
+        <form role="form" method="GET" action="{{ route('password.email') }}">
             @csrf
             <div class="flex w-full mt-14">
                 <div class="border_grad1 flex-none before:rounded-3xl w-18 mr-2">

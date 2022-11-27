@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Http\Requests\PasswordChangeRequest;
 use App\Services\UI\UserService;
 
 class LoginController extends Controller
@@ -96,16 +95,5 @@ class LoginController extends Controller
     public function wrongPhone()
     {
         return view('auth.wrongPhone');
-    }
-
-    public function resetPasswordIndex(Request $request, $id)
-    {dd($request->all());
-        return view('auth.passwords.reset', ['id' => $id]);
-    }
-
-    public function changePassword(PasswordChangeRequest $request, $id)
-    {
-        $this->userService->changePasswordNotLogin($request, $id);
-        return redirect()->route('login');
     }
 }
