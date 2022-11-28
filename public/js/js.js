@@ -509,7 +509,7 @@ $(function() {
             },
             error :  function(data)
             {
-                alert('{{ url("admin/delivery-orders/update-unread") }}');
+                // alert('{{ url("admin/delivery-orders/update-unread") }}');
             }
         });
 

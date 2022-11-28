@@ -12,7 +12,7 @@
                             id="edit-delivery-order-form">
                             @csrf
                             @method('PUT')
-                            <input type="text" name="id" id="id" hidden>
+                            <input type="hidden" name="id" id="id">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
