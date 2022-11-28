@@ -7360,7 +7360,13 @@ var render = function render() {
       staticClass: "text-sm text-gray-400"
     }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                " + _vm._s(data.money > 0 ? "+" : "") + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n            ")])]);
+    }, [_vm._v("\n                " + _vm._s(data.money > 0 ? "+" : "") + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                "), _c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full px-3 py-1 mt-1 bg_grad",
+      staticStyle: {
+        color: "#FFC83C",
+        "font-size": "8px"
+      }
+    }, [_vm._v(_vm._s(_vm.__(data.status)))])])]);
   })], 2), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
 };
 var staticRenderFns = [];

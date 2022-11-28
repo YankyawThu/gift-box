@@ -24,16 +24,15 @@
             @endif
         </div>
         <div class="mb-3">
-            <div class="flex w-full">
-                <div class="border_grad1 flex-none before:rounded-3xl w-18 mr-2">
-                    <select id="codeSelect" name="code" class="apperance-none focus:outline-none bg-transparent w-14 py-4 text_c1 mx-2">
-                        @foreach (config('countryCodes') as $code)
-                            <option value="{{ $code['dial_code'] }}">{{ $code['dial_code'] }} ({{ $code['name'] }})</option>
-                        @endforeach
-                    </select>
+            <div class="border_grad1 before:rounded-3xl flex">
+                <div class="flex-none self-center ml-3 w-10">
+                    <img src="{{ asset('image/ui/Phone.svg') }}" alt="">
                 </div>
-                <div class="grow border_grad1 before:rounded-3xl">
-                    <input class="w-full px-5 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" required>
+                <div class="grow flex w-full">
+                    <div class="w-10 ml-2 text-gray-500 self-center">09 -</div>
+                    <div class="grow">
+                        <input class="w-full pr-7 py-4 rounded-r-full focus:outline-none bg-transparent text_c1" placeholder="{{ __('Phone Number') }}" type="number" name="phone" required>
+                    </div>
                 </div>
             </div>
             @if ($errors->has('phone'))

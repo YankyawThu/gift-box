@@ -51,7 +51,7 @@ class LoginController extends Controller
     public function attemptLogin(Request $request)
     {
         return Auth::attempt([
-                'phone' => $request->code.$request->phone,
+                'phone' => '+959'.$request->phone,
                 'password' => $request->password,
         ]);
     }

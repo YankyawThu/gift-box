@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use App\User;
 use App\Services\UI\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller
 {
@@ -64,7 +65,8 @@ class ResetPasswordController extends Controller
         $request->validate($this->rules());
 
         $id = User::where('phone', $request->phone)->value('id');
-        $this->userService->changePasswordNotLogin($request, $id);
-        return redirect()->route('login')->with('success', 'Updated Successfully');
+        $response = $this->userService->changePasswordNotLogin($request, $id);
+
+        return redirect()->route('login');
     }
 }

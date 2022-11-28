@@ -26,8 +26,6 @@ use Illuminate\Support\Facades\Route;
 // Auth Routes
 Auth::routes();
 
-Route::get('/password/otp', [ForgotPasswordController::class, 'otpNotLogin'])->name('otpNotLogin');
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/otp', [LoginController::class, 'otp'])->name('otp');
     Route::get('/wrong-phone', [LoginController::class, 'wrongPhone'])->name('wrongPhone');

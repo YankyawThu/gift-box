@@ -27,8 +27,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'alpha_num', 'max:255'],
-            'code' => ['required'],
+            'username' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6'],
         ]);
@@ -36,7 +35,7 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        $existedUser = User::where('phone', $data['code'].$data['phone'])->first();
+        $existedUser = User::where('phone', '+959'.$data['phone'])->first();
 
         if ($existedUser) {
             throw ValidationException::withMessages(['alreadyUser' => ['Already Register!']]);
@@ -45,7 +44,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['username'],
             'nickname' => $data['username'],
-            'phone' => $data['code'].$data['phone'],
+            'phone' => '+959'.$data['phone'],
             'password' => Hash::make($data['password']),
             'status' => 'inactive',
         ]);

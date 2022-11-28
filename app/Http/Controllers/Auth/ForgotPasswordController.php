@@ -26,12 +26,12 @@ class ForgotPasswordController extends Controller
 
     use SendsPasswordResetEmails;
 
-    public function otpNotLogin(PhoneChangeRequest $request)
+    public function sendResetLinkEmail(PhoneChangeRequest $request)
     {
-        $user = User::where('phone', $request->code.$request->phone)->first();
+        $user = User::where('phone', '+959'.$request->phone)->first();
 
         if(!$user) {
-            throw ValidationException::withMessages(['alreadyUser' => ['This Phone number is not found']]);
+            throw ValidationException::withMessages(['alreadyUser' => ['This Phone number was not found']]);
         }
         else return view('auth.otpNotLogin', ['user' => $user, 'token' => $request->_token]);
     }
