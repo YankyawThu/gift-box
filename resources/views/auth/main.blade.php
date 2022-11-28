@@ -16,20 +16,5 @@
     <div class="h-screen">
         @yield('content')
     </div>
-    <script>
-        var val = $("#codeSelect").val();
-        var lbl = $("#codeSelect option:selected").text();
-        $("#codeSelect").prepend("<option value='" + val + "' data-value='selected' selected hidden>" + val + "</option>");
-
-        $("#codeSelect").on('change', function() {
-            var val = $("#codeSelect").val();
-            var lbl = $("#codeSelect option:selected").text();
-            
-            $("#codeSelect option[data-value='selected']").attr('value', val);
-            $("#codeSelect option[data-value='selected']").text(val);
-            
-            $("#codeSelect").val(val);
-        });
-    </script>
 </body>
 </html>

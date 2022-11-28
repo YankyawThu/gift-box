@@ -3817,6 +3817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3824,7 +3825,11 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
+  },
   model: {
     prop: 'modelActive',
     event: 'update:model-active'
@@ -5041,7 +5046,7 @@ var render = function render() {
       value: _vm.zone,
       expression: "zone"
     }],
-    staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
+    staticClass: "p-4 w-full bg-transparent text-gray-500 focus:outline-none",
     on: {
       change: [function ($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -5078,7 +5083,7 @@ var render = function render() {
       value: _vm.address.township,
       expression: "address.township"
     }],
-    staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
+    staticClass: "p-4 w-full bg-transparent text-gray-500 focus:outline-none",
     on: {
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -5281,7 +5286,7 @@ var render = function render() {
       value: _vm.zone,
       expression: "zone"
     }],
-    staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
+    staticClass: "p-4 w-full bg-transparent text-gray-500 focus:outline-none",
     on: {
       change: [function ($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -5318,7 +5323,7 @@ var render = function render() {
       value: _vm.address.township,
       expression: "address.township"
     }],
-    staticClass: "p-4 w-full bg-transparent text-white focus:outline-none",
+    staticClass: "p-4 w-full bg-transparent text-gray-500 focus:outline-none",
     on: {
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -5489,8 +5494,11 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "flex justify-between m-4"
-  }, [_c("div", {
-    staticClass: "form-check flex flex-row"
+  }, [_c("label", {
+    staticClass: "form-check-label flex flex-row",
+    attrs: {
+      "for": "allChecked"
+    }
   }, [_c("div", [_c("input", {
     directives: [{
       name: "model",
@@ -5530,11 +5538,8 @@ var render = function render() {
     attrs: {
       src: _vm.imgSelectAll
     }
-  })]), _vm._v(" "), _c("div", {}, [_c("label", {
-    staticClass: "form-check-label text_c2",
-    attrs: {
-      "for": "allChecked"
-    }
+  })]), _vm._v(" "), _c("div", [_c("span", {
+    staticClass: "text_c2"
   }, [_vm._v("\n                                    " + _vm._s(_vm.__("Select All")) + "\n                                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "text-white",
     on: {
@@ -7580,7 +7585,15 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "overflow-auto h-96 my-5"
-  }, _vm._l(_vm.addresses, function (address, i) {
+  }, [_vm.addresses.length == 0 ? _c("div", {
+    staticClass: "w-full"
+  }, [_c("Link", {
+    staticClass: "btn_gradient py-2 text-center rounded-full text-white text-sm w-full",
+    attrs: {
+      href: _vm.$url + "/user/shipping-address/create",
+      as: "button"
+    }
+  }, [_vm._v("\n                    " + _vm._s(_vm.__("Add Shipping Address")) + "\n                ")])], 1) : _c("div", _vm._l(_vm.addresses, function (address, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2 flex flex-row p-4 my-3 before:rounded-xl"
@@ -7622,7 +7635,7 @@ var render = function render() {
         }
       }
     })])]);
-  }), 0), _vm._v(" "), _c("div", {
+  }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "btn_gradient py-2 text-sm text-center rounded-full text-white",
     on: {
       click: function click($event) {

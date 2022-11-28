@@ -23,17 +23,17 @@
                 <div class="my-2">
                     <section id="panel-pending" role="tabpanel" tabindex="0" aria-labelledby="tab-pending" class="overflow-auto pb-16">
                         <div class="flex justify-between m-4">
-                            <div class="form-check flex flex-row">
+                            <label class="form-check-label flex flex-row" for="allChecked">
                                 <div>
                                     <input class="form-check-input h-5 w-5 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2" type="checkbox" v-model="selectAll" id="allChecked" hidden>
                                     <img :src="imgSelectAll" class="mr-2">
                                 </div>
-                                <div class="">
-                                    <label class="form-check-label text_c2" for="allChecked">
+                                <div>
+                                    <span class="text_c2">
                                         {{__('Select All')}}
-                                    </label>
+                                    </span>
                                 </div>
-                            </div>
+                            </label>
                             <div class="text-white" @click="clearAll()">{{__('Clear All')}}</div>
                         </div>
                         <div v-for="(prize,i) in pending" :key="i" class="form-check flex flex-row px-4">

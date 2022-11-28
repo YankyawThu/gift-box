@@ -33,7 +33,7 @@
                         <label for="" class="text_c1">{{__('Zone')}}</label>
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
-                        <select v-model="zone" @change="changeZone()" class="p-4 w-full bg-transparent text-white focus:outline-none">
+                        <select v-model="zone" @change="changeZone()" class="p-4 w-full bg-transparent text-gray-500 focus:outline-none">
                             <option :value="zone.id" v-for="(zone,i) in zones.data" :key="i">{{zone.name}}</option>
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                         <label for="" class="text_c1">{{__('Township')}}</label>
                     </div>
                     <div class="border_grad2 before:rounded-xl pr-2">
-                        <select v-model="address.township" class="p-4 w-full bg-transparent text-white focus:outline-none">
+                        <select v-model="address.township" class="p-4 w-full bg-transparent text-gray-500 focus:outline-none">
                             <option :value="township.id" v-for="(township,i) in townships" :key="i">{{township.name}}</option>
                         </select>
                     </div>
