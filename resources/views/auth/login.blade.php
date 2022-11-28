@@ -8,6 +8,11 @@
 <div class="w-96 m-auto">
     <form role="form" method="POST" action="{{ route('login') }}">
         @csrf
+        @if (session('success'))
+            <div class="text-center">
+                <strong class="text-green-500 text-xs">{{ session('success') }}</strong>
+            </div>
+        @endif
         <div class="mb-3">
             <div class="flex w-full">
                 <div class="border_grad1 flex-none before:rounded-3xl w-18 mr-2">

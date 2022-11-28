@@ -10,7 +10,9 @@
         </div>
         <div class="text_c2 text-2xl font-bold py-2 mt-10">OTP Verification</div>
         <div class="text-white py-2">Enter the verification code we just sent on your <span class="text_c2">{{$user->phone}}</span>.</div>
-        <form action="{{ route('resetPassword', ['id' => $user->id]) }}" method="GET" id="verifyOTP"> 
+        <form action="{{ route('password.reset', ['token' => $token]) }}" method="GET" id="verifyOTP">
+            @csrf
+            <input type="text" name="phone" value="{{ $user->phone }}" hidden>
             <div class="flex justify-center mt-14">
                 <div class="border_grad2 before:rounded-2xl mx-1">
                     <input class="bg-transparent text_c2 otp_text w-14 text-center p-2 focus:outline-none" type="text" oninput='digitValidate(this)' onkeyup='tabChange(1)' maxlength=1 >

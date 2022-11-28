@@ -17,6 +17,9 @@
             </div>
         </div>
         <form action="{{ route('password.update') }}" method="POST">
+            @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
+            <input type="text" name="phone" value="{{ $phone }}" hidden>
             <div>
                 <div class="mb-5">
                     <div class="py-2">
