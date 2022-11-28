@@ -15,5 +15,5 @@ return [
     'Banner' => 'Banner',
     'Protocol Policies' => 'Protocol Policies',
     'Users' => 'Users',
-    'Admins' => 'Admins'
+    'Admins' => 'Admins',
 ];

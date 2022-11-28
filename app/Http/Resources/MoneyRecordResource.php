@@ -17,8 +17,9 @@ class MoneyRecordResource extends JsonResource
     {
         $typeList = [
             'recycle' => 'Recycling',
+            'deliver' => 'Shipment Applying',
             'withdraw' => 'Go to wallet',
-            'deposit' => 'Recharge'
+            'deposit' => 'Recharge',
         ];
         $mr_status = [
             'pending' => 'Pending',
@@ -29,7 +30,7 @@ class MoneyRecordResource extends JsonResource
             'type' => $typeList[$this->type],
             'money' => $this->money,
             'time' => dateFormat($this->created_at),
-            'status' => $mr_status[$this->status]
+            'status' => $mr_status[$this->status],
         ];
     }
 }

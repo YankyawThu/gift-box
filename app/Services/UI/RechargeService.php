@@ -21,8 +21,10 @@ class RechargeService
 
     public function rechargeOrder($request)
     {
-        // $money_before = auth()->user()->money;
+        $money_before = auth()->user()->money;
         // $this->userRepo->increaseMoney($request->amount);
+
+        $rechargeOrder = $this->rechargeRepo->rechargeOrder($request);
         MoneyRecord::create([
             'user_id' => auth()->user()->id,
             'before' => $money_before,
@@ -30,8 +32,7 @@ class RechargeService
             'money' => $request->amount,
             'type' => 'deposit',
             'status' => 'pending',
+            'order_id' => $rechargeOrder->id,
         ]);
-
-        return $this->rechargeRepo->rechargeOrder($request);
     }
 }

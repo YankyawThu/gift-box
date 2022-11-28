@@ -19,6 +19,6 @@ class RecycleService
 
     public function update($request, $id)
     {
-        return $this->recycleRepo->changeStatus($request, $id);
+        return $this->recycleRepo->changeStatus($request);
     }
 }

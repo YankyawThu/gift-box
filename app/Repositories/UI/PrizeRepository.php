@@ -34,6 +34,7 @@ class PrizeRepository extends BaseRepository
                 'gift_item_buy_price' => $goods->buy_price,
                 'gift_item_sell_price' => $goods->sell_price,
                 'status' => 1,
+                'delivery_fee' => $goods->delivery_fee,
             ]);
             $this->itemRepo->updateQty($goods->id);
             $prizeInfo[] = [
@@ -133,7 +134,7 @@ class PrizeRepository extends BaseRepository
                             'price' => optional($prize->giftItem)->sell_price,
                         ];
 
-            Recycle::create([
+            $recycle = Recycle::create([
                 'user_id' => auth()->user()->id,
                 'out_trade_no' => $prize->out_trade_no,
                 'gift_prize_id' => $prize->id,
@@ -153,9 +154,10 @@ class PrizeRepository extends BaseRepository
                 'before' => $money_before,
                 'after' => auth()->user()->money,
                 'money' => optional($prize->giftItem)->sell_price,
+                'order_id' => $recycle->id,
                 'prize_id' => $prize->id,
                 'type' => 'recycle',
-                'status' => 'pending'
+                'status' => 'pending',
             ]);
             // }
         }
@@ -169,7 +171,7 @@ class PrizeRepository extends BaseRepository
     public function shipmentApply($request)
     {
         $prizeIds = array_unique($request->prizeIds);
-
+        $money_before = auth()->user()->money;
         $delivery_fee = 0;
         $address = Address::where('id', $request->addressId)->first();
         if (!$address) {
@@ -192,6 +194,7 @@ class PrizeRepository extends BaseRepository
             $prize->save();
             $delivery_fee += $prize->delivery_fee;
         }
+
         $trade = DeliveryTrade::create([
             'user_id' => auth()->user()->id,
             'amount' => round($delivery_fee, 2),
@@ -201,7 +204,7 @@ class PrizeRepository extends BaseRepository
         foreach ($prizeIds as $prizeId) {
             $prize = $this->model->where('user_id', auth()->user()->id)->where('id', $prizeId)->first();
 
-            DeliveryOrder::create([
+            $order = DeliveryOrder::create([
                 'gift_log_id' => $prize->gift_log_id,
                 'out_trade_no' => $prize->out_trade_no,
                 'delivery_trade_id' => $trade->id,
@@ -218,6 +221,16 @@ class PrizeRepository extends BaseRepository
                 'township_id' => $address->township_id,
                 'address' => $address->address,
                 'delivery_time' => now(),
+            ]);
+            MoneyRecord::create([
+                'user_id' => auth()->user()->id,
+                'before' => $money_before,
+                'after' => auth()->user()->money,
+                'money' => -(optional($prize->giftItem)->buy_price + $delivery_fee),
+                'prize_id' => $prizeId,
+                'order_id' => $order->id,
+                'type' => 'deliver',
+                'status' => 'pending',
             ]);
         }
 
