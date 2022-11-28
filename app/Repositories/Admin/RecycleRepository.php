@@ -9,9 +9,10 @@ use App\User;
 
 class RecycleRepository extends BaseRepository
 {
-    public function __construct(Recycle $model)
+    public function __construct(Recycle $model, UserRepository $userRepo)
     {
         $this->model = $model;
+        $this->userRepo = $userRepo;
     }
 
     public function changeStatus($request)
