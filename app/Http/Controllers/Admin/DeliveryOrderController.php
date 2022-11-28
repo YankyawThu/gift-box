@@ -39,7 +39,7 @@ class DeliveryOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->deliveryOrderService->update($request, $id);
+        $this->deliveryOrderService->update($request, $request->id);
 
         return redirect()->back()->with('status', 'Delivery Order Updated Successfully!');
     }

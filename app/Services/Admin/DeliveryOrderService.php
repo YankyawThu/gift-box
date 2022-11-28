@@ -2,16 +2,20 @@
 
 namespace App\Services\Admin;
 
+use App\Models\MoneyRecord;
 use App\Repositories\Admin\DeliveryOrderRepository;
+use App\Repositories\Admin\UserRepository;
+use App\User;
 
 class DeliveryOrderService
 {
     private $deliveryOrderRepo;
 
-    public function __construct(DeliveryOrderRepository $deliveryOrderRepo)
+    public function __construct(DeliveryOrderRepository $deliveryOrderRepo, UserRepository $userRepo)
     {
         $this->deliveryOrderRepo = $deliveryOrderRepo;
         $this->itemPerPage = config('enums.itemPerPage');
+        $this->userRepo = $userRepo;
     }
 
     public function getAll($filter)
@@ -33,9 +37,23 @@ class DeliveryOrderService
     {
         // $data['post_id'] = $request['post_id'];
         // $data['delivery_number'] = $request['delivery_number'];
+
+        if ($request->status == 'finished') {
+            $order = $this->deliveryOrderRepo->getById($request->id);
+            $amount = optional($order->giftPrize)->gift_item_buy_price + optional(optional($order->giftPrize)->giftItem)->delivery_fee;
+            User::where('id', $order->user_id)->decrement('money', $amount);
+            $user = $this->userRepo->getById(auth()->user()->id);
+            MoneyRecord::where('user_id', $user->id)->where('type', 'deliver')->where('order_id', $request->id)->update(
+                [
+                    'after' => $user->money,
+                    'status' => 'approved',
+                ]
+            );
+        }
+
         $data['status'] = $request->status;
 
-        return $this->deliveryOrderRepo->update($data, $id);
+        return $this->deliveryOrderRepo->update($data, $request->id);
     }
 
     public function getUnReadCount()

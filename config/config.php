@@ -28,7 +28,7 @@ return [
         '1' => 'undelivered',
         '2' => 'unreceived',
         '3' => 'finished',
-        '5' => 'unpay',
+        '4' => 'unpay',
     ],
     'bannerType' => [
         '1' => 'box',

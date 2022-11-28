@@ -87,49 +87,43 @@
 
                     <a class="nav-link {{ activeSegment(2, 'category') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.category.index') }}">
-                        <i class="ni ni-palette text-blue"></i> {{ __('Box Category') }}
+                        <i class="ni ni-palette text-blue"></i> {{ __('messages.Box Category') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'items') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.items.index') }}">
-                        <i class="ni ni-books text-blue"></i> {{ __('Gift Items') }}
+                        <i class="ni ni-books text-blue"></i> {{ __('messages.Gift Item') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'boxes') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.boxes.index') }}">
-                        <i class="ni ni-app text-blue"></i> {{ __('Gift Boxes') }}
+                        <i class="ni ni-app text-blue"></i> {{ __('messages.Gift Box') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'giftLog') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.giftLog.index') }}">
-                        <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('Gift Logs') }}
+                        <i class="ni ni-bullet-list-67 text-blue"></i> {{ __('messages.Gift Log') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'prize') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.prize.index') }}">
-                        <i class="ni ni-trophy text-blue"></i> {{ __('Gift Prize Record') }}
+                        <i class="ni ni-trophy text-blue"></i> {{ __('messages.Gift Prize Record') }}
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {{ activeSegment(2, 'recharge-lists') == 'active' ? 'active' : '' }}"
-                        href="{{ route('admin.recharge-lists.index') }}">
-                        <i class="fas fa-money-bill-wave text-blue"></i> {{ __('Recharges Lists') }}
-                    </a>
-                </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'delivery-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.delivery-orders.index') }}">
-                        <i class="fas fa-truck text-blue"></i> {{ __('Shipping Orders') }}
+                        <i class="fas fa-truck text-blue"></i> {{ __('messages.Shipping Orders') }}
                         <span class="badge badge-warning" id="delivery-order-unread"></span>
                     </a>
                 </li>
@@ -137,7 +131,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'recycle-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.recycle-orders.index') }}">
-                        <i class="fa fa-recycle text-blue"></i> {{ __('Recycle Orders') }}
+                        <i class="fa fa-recycle text-blue"></i> {{ __('messages.Recycle Orders') }}
                         <span class="badge badge-warning" id="delivery-order-unread"></span>
                     </a>
                 </li>
@@ -145,42 +139,49 @@
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'recharge-orders') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.recharge-orders.index') }}">
-                        <i class="fas fa-battery-full text-blue"></i> {{ __('Recharge Orders') }}
+                        <i class="fas fa-battery-full text-blue"></i> {{ __('messages.Recharge Orders') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'recharge-lists') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.recharge-lists.index') }}">
+                        <i class="fas fa-money-bill-wave text-blue"></i> {{ __('messages.Recharge List') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'settings') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.settings.index') }}">
-                        <i class="fa fa-cog text-blue"></i> {{ __('Settings') }}
+                        <i class="fa fa-cog text-blue"></i> {{ __('messages.Settings') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'banners') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.banners.index') }}">
-                        <i class="fas fa-image text-blue"></i> {{ __('Banner') }}
+                        <i class="fas fa-image text-blue"></i> {{ __('messages.Banner') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'rule-policies') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.rule-policies.index') }}">
-                        <i class="fas fa-balance-scale text-blue"></i> {{ __('Protocol Policies') }}
+                        <i class="fas fa-balance-scale text-blue"></i> {{ __('messages.Protocol Policies') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'users') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.users.index') }}">
-                        <i class="fas fa-users text-blue"></i> {{ __('Users') }}
+                        <i class="fas fa-users text-blue"></i> {{ __('messages.Users') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'admins') == 'active' ? 'active' : '' }}"
                         href="{{ route('admin.admins.index') }}">
-                        <i class="fa fa-user-cog text-blue"></i> {{ __('Admins') }}
+                        <i class="fa fa-user-cog text-blue"></i> {{ __('messages.Admins') }}
                     </a>
                 </li>
             </ul>

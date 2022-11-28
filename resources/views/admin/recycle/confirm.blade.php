@@ -11,7 +11,7 @@
                         <form action="{{ route('admin.recycle-orders.update', $id) }}" method="POST" id='recycle-model'>
                             @csrf
                             @method('PUT')
-
+                            <input type="hidden" name="id" id="id">
                         </form>
                         <p class="mb-0">Are you sure you want to confirm this item?</p>
                     </div>

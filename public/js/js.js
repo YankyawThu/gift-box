@@ -10,7 +10,7 @@ $(function() {
         modal.find('.modal-body #id').val(id)
     })
 
-    $('#recycle-order').on('show.bs.modal', function(e) {
+    $('#recycle-modal').on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget)
         var id = button.data('id')
         modal = $(this)
@@ -539,7 +539,6 @@ $(function() {
 
         var button = $(e.relatedTarget)
         var id = button.data('id')
-
         var goods_name = button.data('goods-name')
         var goods_image = button.data('goods-image')
         var name = button.data('name')
