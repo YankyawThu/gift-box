@@ -77,7 +77,7 @@ class RechargeOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->rechargeOrderService->paymentConfirm($request, $id);
+        $this->rechargeOrderService->paymentConfirm($request);
 
         return redirect()->back()->with('status', 'Payment Confirm Successful.');
     }

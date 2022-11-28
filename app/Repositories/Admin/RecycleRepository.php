@@ -14,11 +14,19 @@ class RecycleRepository extends BaseRepository
         $this->userRepo = $userRepo;
     }
 
-    public function changeStatus($request, $id)
+    public function changeStatus($request)
     {
-        $data = $this->model->where('id', $id)->first();
+        $data = $this->model->where('id', $request->id)->first();
         $result = $data->update(['status' => 1]);
         $this->userRepo->increaseMoney($data->price);
+        $this->userRepo->
+        MoneyRecord::where('user_id', auth()->user()->id)->where('type', 'recycle')->where('order_id', $request->id)->update(
+            [
+                'after' => $user->money,
+                'money' => $request->pay_amount,
+                'status' => 'approved',
+            ]
+        );
 
         return $result;
     }

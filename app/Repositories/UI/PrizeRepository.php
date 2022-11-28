@@ -133,7 +133,7 @@ class PrizeRepository extends BaseRepository
                             'price' => optional($prize->giftItem)->sell_price,
                         ];
 
-            Recycle::create([
+            $recycle = Recycle::create([
                 'user_id' => auth()->user()->id,
                 'out_trade_no' => $prize->out_trade_no,
                 'gift_prize_id' => $prize->id,
@@ -153,9 +153,10 @@ class PrizeRepository extends BaseRepository
                 'before' => $money_before,
                 'after' => auth()->user()->money,
                 'money' => optional($prize->giftItem)->sell_price,
+                'order_id' => $recycle->id,
                 'prize_id' => $prize->id,
                 'type' => 'recycle',
-                'status' => 'pending'
+                'status' => 'pending',
             ]);
             // }
         }
@@ -169,7 +170,7 @@ class PrizeRepository extends BaseRepository
     public function shipmentApply($request)
     {
         $prizeIds = array_unique($request->prizeIds);
-
+        $money_before = auth()->user()->money;
         $delivery_fee = 0;
         $address = Address::where('id', $request->addressId)->first();
         if (!$address) {
@@ -218,6 +219,15 @@ class PrizeRepository extends BaseRepository
                 'township_id' => $address->township_id,
                 'address' => $address->address,
                 'delivery_time' => now(),
+            ]);
+            MoneyRecord::create([
+                'user_id' => auth()->user()->id,
+                'before' => $money_before,
+                'after' => auth()->user()->money,
+                'money' => optional($prize->giftItem)->buy_price,
+                'prize_id' => $prizeId,
+                'type' => 'deliver',
+                'status' => 'pending',
             ]);
         }
 

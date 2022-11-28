@@ -31,9 +31,9 @@ class RechargeOrderService
         return $this->rechargeListRepo->getById($id);
     }
 
-    public function paymentConfirm($request, $id)
+    public function paymentConfirm($request)
     {
-        $info = $this->rechargeListRepo->getById($id);
+        $info = $this->rechargeListRepo->getById($request->id);
         if (!$info->user) {
             return redirect()->back()->with('status', 'User not found!');
         }
@@ -41,17 +41,18 @@ class RechargeOrderService
         $money_before = $info->user->money;
 
         User::where('id', $info->user_id)->increment('money', $request->pay_amount);
+        $user = User::where('id', $info->user_id)->first();
+        MoneyRecord::where('user_id', auth()->user()->id)->where('type', 'deposit')->where('order_id', $request->id)->update(
+            [
+                'after' => $user->money,
+                'money' => $request->pay_amount,
+                'status' => 'approved',
+            ]
+        );
 
-        MoneyRecord::create([
-            'user_id' => auth()->user()->id,
-            'before' => $money_before,
-            'after' => $info->user->money,
-            'money' => $request->pay_amount,
-            'type' => 'recharge',
-        ]);
         $data['status'] = $request->status;
         $data['pay_amount'] = $request->pay_amount;
 
-        return $this->rechargeListRepo->update($data, $id);
+        return $this->rechargeListRepo->update($data, $request->id);
     }
 }
