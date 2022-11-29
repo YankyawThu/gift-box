@@ -110,7 +110,7 @@
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">
-                                <img src="{{optional($item->user)->avatar ? getFileUrlFromAkoneyaMedia(optional($item->user)->avatar) : ''}}" alt="">
+                                <img src="{{optional($item->user)->avatar ? getFileUrlFromAkoneyaMedia(optional($item->user)->avatar) : ''}}" alt="" width="50" height="50">
 
                             </p>
                         </td>
@@ -122,7 +122,7 @@
                         </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">
-                                <img src="{{$item->gift_item_image ? getFileUrlFromAkoneyaMedia($item->gift_item_image) : '' }}" alt="">
+                                <img src="{{optional($item->giftItem)->image ? getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image) : '' }}" alt="" width="50" height="50">
                             </p>
                         </td>
                         <td>
