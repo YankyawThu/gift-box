@@ -3167,12 +3167,14 @@ __webpack_require__.r(__webpack_exports__);
       success: false,
       file: '',
       errors: {},
-      errorModal: false
+      errorModal: false,
+      disabled: false
     };
   },
   methods: {
     submit: function submit() {
       var _this = this;
+      this.disabled = true;
       var formData = new FormData();
       formData.append('payId', this.select);
       formData.append('amount', this.$props.amount);
@@ -3195,6 +3197,7 @@ __webpack_require__.r(__webpack_exports__);
         }
         _this.errorModal = true;
       });
+      this.disabled = false;
     },
     back: function back() {
       window.history.back();
@@ -6336,6 +6339,9 @@ var render = function render() {
     staticClass: "absolute w-full bottom-5 px-4"
   }, [_c("button", {
     staticClass: "py-3 btn_gradient rounded-full w-full text-white text-center",
+    attrs: {
+      disabled: false
+    },
     on: {
       click: function click($event) {
         return _vm.submit();

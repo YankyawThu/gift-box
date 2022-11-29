@@ -36,7 +36,7 @@
             <img :src="$asset+'/image/ui/DeleteMark.svg'" class="ml-3 inline-block p-2" @click="removeFileUpload()">
         </div>
         <div class="absolute w-full bottom-5 px-4">
-            <button class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()">{{__('Continue')}}</button>
+            <button class="py-3 btn_gradient rounded-full w-full text-white text-center" @click="submit()" :disabled="false">{{__('Continue')}}</button>
         </div>
         <success-modal v-model="success" :modalAmount="amount" :index="0">
         </success-modal>
@@ -66,10 +66,12 @@ export default {
             file: '',
             errors: {},
             errorModal: false,
+            disabled: false,
         }
     },
     methods: {
         submit() {
+            this.disabled = true
             let formData = new FormData()
             formData.append('payId', this.select)
             formData.append('amount', this.$props.amount)
@@ -94,6 +96,7 @@ export default {
                 }
                 this.errorModal = true
             })
+            this.disabled = false
         },
         back() {
             window.history.back()
