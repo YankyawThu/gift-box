@@ -27,7 +27,7 @@ class BoxCabinetResource extends JsonResource
                 'id' => $this->id,
                 'item' => [
                     'name' => $this->gift_item_name,
-                    'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
+                    'image' => optional($this->giftItem)->image ? getFileUrlFromAkoneyaMedia(optional($this->giftItem)->image) : '',
                 ],
                 'price' => $price,
                 'time' => $time,
@@ -37,7 +37,7 @@ class BoxCabinetResource extends JsonResource
                 'id' => $this->id,
                 'item' => [
                     'name' => $this->gift_item_name,
-                    'image' => $this->gift_item_image ? getFileUrlFromAkoneyaMedia($this->gift_item_image) : '',
+                    'image' => optional($this->giftItem)->image ? getFileUrlFromAkoneyaMedia(optional($this->giftItem)->image) : '',
                 ],
                 'price' => $price,
                 'time' => $time,

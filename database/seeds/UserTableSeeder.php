@@ -19,12 +19,12 @@ class UserTableSeeder extends Seeder
                     'name' => 'client',
                     'nickname' => 'client',
                     'email' => 'client@gmail.com',
-                    'password' => Hash::make('123456'),
+                    'password' => Hash::make('12345'),
                     'phone' => '+959123123123',
                     'gender' => 1,
                     'level' => 1,
                     'status' => 'active',
-                    'created_at' => now()
+                    'created_at' => now(),
                 ],
             ]
         );
