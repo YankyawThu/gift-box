@@ -96,14 +96,14 @@
 <script>
     $(function() {
     var ck_editor = $("#edit-ck-editor")
-
+    
     $('#edit-banner-type').on('change', function() {
         var type_box = $("#edit_type_box")
         if($(this).val() == 1){
             ck_editor.addClass("d-none")
             $(type_box).html(`
             <label for="type_" class="form-control-label">Box</label>
-            <input type="text" placeholder="Enter Box" name="value" id="type_" class="form-control form-control-alternative is-valid" />
+            <input type="text" placeholder="Enter Box" name="value_box" id="type_" class="form-control form-control-alternative is-valid" />
             `);
         }
 
@@ -111,7 +111,7 @@
             ck_editor.addClass("d-none")
             $(type_box).html(`
             <label for="type_" class="form-control-label">Link</label>
-            <input type="text" placeholder="https://example.com" name="value" id="type_" class="form-control form-control-alternative is-valid" />
+            <input type="text" placeholder="https://example.com" name="value_link" id="type_" class="form-control form-control-alternative is-valid" />
             `);
 
         }

@@ -87,7 +87,7 @@
                             </span>
                         </a>
                         @include('admin.users.edit', ['id' => $item->id, 'item' => $item])
-                        @include('admin.layouts.delete', [
+                        @include('admin.users.delete', [
                         'route' => 'users.destroy',
                         'id' => $item->id,
                         'name' => 'Delete User',

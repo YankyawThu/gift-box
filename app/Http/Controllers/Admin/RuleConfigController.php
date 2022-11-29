@@ -10,6 +10,7 @@ use App\Services\Admin\RuleConfigService;
 class RuleConfigController extends Controller
 {
     private $ruleConfigService;
+
     public function __construct(RuleConfigService $ruleConfig)
     {
         $this->ruleConfigService = $ruleConfig;
@@ -24,13 +25,13 @@ class RuleConfigController extends Controller
     {
         $data = $this->ruleConfigService->allItems();
 
+
         return view('admin.rule_configs.index', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Admin\RuleConfigRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(RuleConfigRequest $request)
@@ -43,7 +44,6 @@ class RuleConfigController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Admin\RuleConfigRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function update(RuleConfigRequest $request, RuleConfiguration $ruleConfig)

@@ -149,7 +149,7 @@
                         @include('admin.banners.edit', ['id' => 0, 'item' => $item])
                         @endif
 
-                        @include('admin.layouts.delete', [
+                        @include('admin.banners.delete', [
                         'route' => 'banners.destroy',
                         'id' => $item->id,
                         'name' => 'Delete Banner',

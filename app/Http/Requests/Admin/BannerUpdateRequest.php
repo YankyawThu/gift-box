@@ -27,9 +27,11 @@ class BannerUpdateRequest extends FormRequest
             'place' => 'required',
             // 'image' =>  empty(request('image')) ? 'nullable' : 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
             'type' => 'required',
+            'value_box' => 'nullable',
+            'value_link' => 'nullable',
             'value' => 'nullable',
             'status' => 'required',
-            'sort' => 'nullable|numeric',
+            // 'sort' => 'nullable|numeric',
         ];
     }
 }

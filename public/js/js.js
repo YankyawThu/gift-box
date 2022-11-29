@@ -609,9 +609,9 @@ $(function() {
             image: {
                 required: true,
             },
-            sort: {
-                required: true,
-            },
+            // sort: {
+            //     required: true,
+            // },
         },
         messages: {
             type: {
@@ -623,16 +623,16 @@ $(function() {
             status: {
                 required: "Status is Required."
             },
-            sort: {
-                required: "Price is Required."
-            },
+            // sort: {
+            //     required: "Price is Required."
+            // },
         },
         showErrors: function() {
             this.defaultShowErrors()
             $('input[name="type"]').removeClass('alert-danger')
             $('input[name="status"]').removeClass('alert-danger')
             $('input[name="image"]').removeClass('alert-danger')
-            $('select[name="sort"]').removeClass('alert-danger')
+            // $('select[name="sort"]').removeClass('alert-danger')
         },
     })
 
@@ -647,6 +647,7 @@ $(function() {
         var image = button.data('image')
         var sort = button.data('sort')
         var value = button.data('value')
+
         var imagePath=''
         if (image){
             imagePath = button.data('image-path')
@@ -668,17 +669,18 @@ $(function() {
         }
         //
         var type_box = $("#edit_type_box")
+
         if (type == 1) {
             $(type_box).html(`
             <label for="type_" class="form-control-label">Box</label>
-            <input type="text" placeholder="Enter Box" name="value" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+            <input type="text" placeholder="Enter Box" name="value_box" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
             `);
         }
 
         if (type == 2) {
             $(type_box).html(`
             <label for="type_" class="form-control-label">Link</label>
-            <input type="text" placeholder="https://example.com" name="value" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+            <input type="text" placeholder="https://example.com" name="value_link" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
             `);
 
         }
