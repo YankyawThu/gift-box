@@ -4569,8 +4569,9 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "flex justify-between pb-1 mt-5"
   }, [_c("div", {
-    staticClass: "self-center px-4"
+    staticClass: "self-center"
   }, [_c("Link", {
+    staticClass: "px-4",
     attrs: {
       href: _vm.$url + "/tide-play",
       as: "button"

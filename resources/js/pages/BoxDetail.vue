@@ -1,8 +1,8 @@
 <template>
     <div class="box_detail h-auto py-4">
         <div class="flex justify-between pb-1 mt-5">
-            <div class="self-center px-4">
-                <Link :href="$url+'/tide-play'" as="button"><img :src="$asset+'/image/ui/Back.svg'"></Link>
+            <div class="self-center">
+                <Link :href="$url+'/tide-play'" as="button" class="px-4"><img :src="$asset+'/image/ui/Back.svg'"></Link>
             </div>
             <div class="flex flex-row box_detail_target">
                 <div class="self-center">
