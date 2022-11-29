@@ -42,7 +42,7 @@ class RechargeOrderService
 
         User::where('id', $info->user_id)->increment('money', $request->pay_amount);
         $user = User::where('id', $info->user_id)->first();
-        MoneyRecord::where('user_id', auth()->user()->id)->where('type', 'deposit')->where('order_id', $request->id)->update(
+        MoneyRecord::where('user_id', $info->user_id)->where('type', 'deposit')->where('order_id', $request->id)->update(
             [
                 'after' => $user->money,
                 'money' => $request->pay_amount,
