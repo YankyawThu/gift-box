@@ -19,7 +19,9 @@
             <div class="border_grad2 order_card flex flex-col before:rounded-xl m-5">
                 <div class="flex justify-between px-4 py-3 rounded-t-xl">
                     <div class="text_c2">{{__('My Order')}}</div>
-                    <div class="self-center text_c2 text-xs">{{__('All Orders')}}<img :src="$asset+'/image/ui/Vector.svg'" class="inline-block ml-2"></div>
+                    <div class="self-center text_c2 text-xs">{{__('All Orders')}}
+                        <!-- <img :src="$asset+'/image/ui/Vector.svg'" class="inline-block ml-2"> -->
+                    </div>
                 </div>
                 <div class="divider mx-1"></div>
                 <Link :href="$url+'/shipping/1'" as="button">
@@ -51,13 +53,13 @@
                     </div>
                 </Link>
                 <div class="divider mx-4"></div>
-                <Link :href="$url+'/user/collection'" as="button">
+                <!-- <Link :href="$url+'/user/collection'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm">
                         <div><img :src="$asset+'/image/ui/Collection.svg'" class="inline-block mr-3"><span class="text-xs font-bold">{{__('My Collection')}}</span></div>
                         <div class="self-center"><img :src="$asset+'/image/ui/Vector.svg'"></div>
                     </div>
                 </Link>
-                <div class="divider mx-4"></div>
+                <div class="divider mx-4"></div> -->
                 <Link :href="$url+'/user/shipping-address'" as="button">
                     <div class="flex justify-between py-3 mx-4 text-sm">
                         <div><img :src="$asset+'/image/ui/Address.svg'" class="inline-block mr-3"><span class="text-xs font-bold">{{__('Shipping Address')}}</span></div>

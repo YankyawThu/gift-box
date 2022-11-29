@@ -1,7 +1,7 @@
 <template>
     <div class="py-4">
         <div class="flex flex-row my-5 px-4">
-           <Link :href="$url+'/user/shipping-address'" as="button">
+           <Link href="#" as="button" @click="back()">
                 <div class="p-2 pl-0 mr-2">
                     <img :src="$asset+'/image/ui/BackArrow.svg'">
                 </div>

@@ -101,5 +101,12 @@
     "Language": "Language",
     "English": "English",
     "China": "中國",
-    "Myanmar": "မြန်မာ"
+    "Myanmar": "မြန်မာ",
+    "Are you sure you want to recycle this selected items ?": "Are you sure you want to recycle this selected items ?",
+    "Recycle": "Recycle",
+    "Payment": "Payment",
+    "Insufficient money!": "Insufficient money!",
+    "Note": "Note: If you use KPay/WavePay to pay directly, the purchase may fail due to insufficient inventory during the payment process. The refunded amount will be included in your gold coin balance and will not be returned to the original payment account. Please choose carefully.",
+    "Terms&Conditions": "I have read and agree to the \"Instructions for Buyers of TLBox\"",
+    "Money Payment": "Money Payment"
 }

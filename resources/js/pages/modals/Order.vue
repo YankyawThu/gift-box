@@ -4,7 +4,7 @@
             <span class="close-modal" @click="close()"><img :src="$asset+'/image/ui/Cross.svg'"></span>
             <div><img :src="$asset+'/image/ui/Pocket.svg'" class="modal_header_img"></div>
             <div class="text-lg py-2 font-bold text-center">
-                Payment
+                {{__('Payment')}}
             </div>
             <div class="px-10 py-2" v-if="order.data">
                 <div v-if="order.data.items">
@@ -18,20 +18,20 @@
                 </div>
             </div>
             <div v-if="order.data" class="pt-2 text-center" style="color: #DF8E44;">{{order.data.name}}</div>
-            <div v-if="order.data" class="py-1 text-center text-sm" style="color: #E74549;">({{order.data.price}} Ks) <span v-if="order.coinNotEnough">Insufficient money!</span></div>
+            <div v-if="order.data" class="py-1 text-center text-sm" style="color: #E74549;">({{order.data.price}} Ks) <span v-if="order.coinNotEnough">{{__('Insufficient money!')}}</span></div>
             <div class="mt-5 text-sm px-2">
-                ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit faucibus lobortis phasellus.
+                {{__('Note')}}
             </div>
             <div class="flex flex-row text-sm rounded-lg px-3 py-2 my-4 agree_term" @click="isAgree = !isAgree">
                 <div class="self-center mr-3">
                     <input v-model="isAgree" type="checkbox" class="w-5 h-5">
                 </div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                <div class="text-xs">
+                   {{__('Terms&Conditions')}}
                 </div>
             </div>
             <div class="w-full mt-5 mb-2">
-                <button class="btn_one rounded-full py-3 text-center m-auto text-white w-full" @click="submit()">Gold Coin Payment</button>
+                <button class="btn_one rounded-full py-3 text-center m-auto text-white w-full" @click="submit()">{{__('Money Payment')}}</button>
             </div>
         </div>
     </div>

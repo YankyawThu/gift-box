@@ -101,6 +101,12 @@
     "Language": "語言",
     "English": "English",
     "China": "中國",
-    "Myanmar": "မြန်မာ"
-
+    "Myanmar": "မြန်မာ",
+    "Are you sure you want to recycle this selected items ?": "您確定要回收此選定項目嗎？",
+    "Recycle": "回收",
+    "Payment": "支付",
+    "Insufficient money!": "錢不夠！",
+    "Note": "注意：如果您使用KPay/WavePay直接支付，在支付過程中可能會因為庫存不足導致購買失敗。 退款金額將計入您的金幣餘額，不會退回原支付賬戶。 請謹慎選擇。",
+    "Terms&Conditions": "我已閱讀並同意《TLBox買家須知》",
+    "Money Payment": "金錢支付"
 }
