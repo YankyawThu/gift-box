@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /resources/js/app.js
+/resources/views/app.blade.php
 .env
 .env.backup
 .phpunit.result.cache
