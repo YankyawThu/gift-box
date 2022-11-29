@@ -89,6 +89,6 @@ class UserController extends Controller
     {
         $this->userService->delete($request->id);
 
-        return redirect()->back()->with('status', 'Recharge Deleted Successfully!');
+        return redirect()->back()->with('status', 'User Deleted Successfully!');
     }
 }

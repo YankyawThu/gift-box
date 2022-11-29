@@ -45,7 +45,7 @@
                                 <option value="" @if (request('status') === null) selected @endif>Select Status
                                 </option>
                                 @foreach (config('config.prizeStatus') as $k => $v)
-                                    <option value="{{ $k }}" @if (request('status') == $k) selected @endif>
+                                    <option value="{{ $v }}" @if (request('status') == $v) selected @endif>
                                         {{ $v }}
                                     </option>
                                 @endforeach

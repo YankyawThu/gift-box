@@ -41,10 +41,10 @@ class BannerService
         $data['sort'] = ++$sequence;
         $data['value'] = $request['value'];
 
-        if (isset($request->value_box) && request()->has('value_box')) {
+        if (request()->has('value_box')) {
             $data['value'] = $request['value_box'];
         }
-        if (isset($request->value_link) && request()->has('value_link')) {
+        if (request()->has('value_link')) {
             $data['value'] = $request['value_link'];
         }
 
@@ -75,6 +75,15 @@ class BannerService
         $data['type'] = $request['type'];
         $data['value'] = $request['value'];
         $data['status'] = $request['status'];
+        $data['value'] = $request['value'];
+
+        if (request()->has('value_box')) {
+            $data['value'] = $request['value_box'];
+        }
+        if (request()->has('value_link')) {
+            $data['value'] = $request['value_link'];
+        }
+
         // $data['sort'] = $request['sort'];
 
         return $this->bannerRepo->update($data, $id);

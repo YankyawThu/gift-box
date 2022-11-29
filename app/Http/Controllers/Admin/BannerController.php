@@ -94,9 +94,9 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy(Request $request)
     {
-        $this->bannerService->delete($banner->id);
+        $this->bannerService->delete($request->id);
 
         return redirect()->back()->with('status', 'Banner Deleted Successfully!');
     }

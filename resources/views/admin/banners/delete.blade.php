@@ -13,7 +13,7 @@
                             @method('DELETE')
                             <input type="text" name="id" id="id" hidden>
                         </form>
-                        <p class="mb-0">Are you sure you want to delete this item?</p>
+                        <p class="mb-0">Are you sure you want to delete this Banner?</p>
                     </div>
                     <div class="card-footer bg-secondary text-center px-lg-2 px-1">
                         <button type="submit" form="delete-row" class="btn btn-success text-white">Delete</a>

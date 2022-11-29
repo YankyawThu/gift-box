@@ -8,6 +8,7 @@ class RuleConfigService
 {
     private $ruleConfig;
     private $uploadPhotoFolder;
+
     public function __construct(RuleConfigRepository $ruleConfig)
     {
         $this->ruleConfig = $ruleConfig;
@@ -19,7 +20,6 @@ class RuleConfigService
         return $this->ruleConfig->getById($id);
     }
 
-
     public function getAll($filter)
     {
         return $this->ruleConfig->getPaginatedWithFilter($this->itemPerPage, $filter);
@@ -27,7 +27,7 @@ class RuleConfigService
 
     public function allItems()
     {
-        return $this->ruleConfig->getPaginated();
+        return $this->ruleConfig->getPaginated($this->itemPerPage);
     }
 
     public function store($request)
