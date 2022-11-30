@@ -110,22 +110,39 @@
                             <span class="font-weight-bold text-sm">{{ $item->created_at }}</span>
                         </td>
                         <td class="align-middle">
+                            @if ($item->status=='pending')
+                                <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
+
+                                    data-image="{{$item->voucher}}"
+                                    data-image-path={{getFileUrlFromAkoneyaMedia($item->voucher)}}
+                                    data-toggle="modal"
+                                    data-target="#recharge-order-paid">
+                                    <span class="btn btn-sm btn-success"   data-toggle="tooltip"
+                                        data-original-title="Confirm Payment"><i class="ni ni-check-bold"></i>
+                                    </span>
+                                </a>
+                            @endif
 
 
-                            <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
-
-                                data-image="{{$item->voucher}}"
-                                data-image-path={{getFileUrlFromAkoneyaMedia($item->voucher)}}
-                                data-toggle="modal"
-                                data-target="#recharge-order-paid">
-                                <span class="btn btn-sm btn-success"   data-toggle="tooltip"
-                                    data-original-title="Confirm Payment"><i class="ni ni-check-bold"></i>
-                                </span>
-                            </a>
+                            @if ($item->status != 'paid' && $item->status=='pending')
+                                <a href="javascript:;" class="font-weight-bold px-1 text-sm" data-id="{{ $item->id }}"
+                                    data-toggle="modal"
+                                    data-target="#recharge-order-reject">
+                                    <span class="btn btn-sm btn-danger" data-toggle="tooltip"
+                                        data-original-title="Reject Payment"><i class="ni ni-fat-remove"></i>
+                                    </span>
+                                </a>
+                            @endif
+                            @include('admin.recharge_orders.reject', [
+                                'id' => $item->id,
+                                'item' => $item,
+                                ])
                             @include('admin.recharge_orders.confirm', [
                                 'id' => $item->id,
                                 'item' => $item,
                                 ])
+
+
 
 
                         </td>

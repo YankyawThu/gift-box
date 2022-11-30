@@ -190,18 +190,24 @@ $(function() {
     $('#recharge-order-paid').on('show.bs.modal', function (e) {
         var button = $(e.relatedTarget)
         var id = button.data('id')
-
+        console.log(id)
         var voucher = button.data('image')
         var imagePath=''
         if (voucher){
             imagePath = button.data('image-path')
         }
-
-
         modal = $(this)
         modal.find('.modal-body #id').val(id)
         modal.find('.modal-body #voucher').attr("src", imagePath)
     })
+
+    $('#recharge-order-reject').on('show.bs.modal',function(e){
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+    })
+
 
     $('#recharge-order-paid-form').validate({
         ignore: [],

@@ -38,20 +38,23 @@ class RechargeOrderService
             return redirect()->back()->with('status', 'User not found!');
         }
 
-        $money_before = $info->user->money;
+        if ($request->status == 'paid') {
+            $money_before = $info->user->money;
+            User::where('id', $info->user_id)->increment('money', $request->pay_amount);
+            $user = User::where('id', $info->user_id)->first();
+            MoneyRecord::where('user_id', $info->user_id)->where('type', 'deposit')->where('order_id', $request->id)->update(
+                [
+                    'after' => $user->money,
+                    'money' => $request->pay_amount,
+                    'status' => 'approved',
+                ]
+            );
 
-        User::where('id', $info->user_id)->increment('money', $request->pay_amount);
-        $user = User::where('id', $info->user_id)->first();
-        MoneyRecord::where('user_id', $info->user_id)->where('type', 'deposit')->where('order_id', $request->id)->update(
-            [
-                'after' => $user->money,
-                'money' => $request->pay_amount,
-                'status' => 'approved',
-            ]
-        );
-
-        $data['status'] = $request->status;
-        $data['pay_amount'] = $request->pay_amount;
+            $data['status'] = $request->status;
+            $data['pay_amount'] = $request->pay_amount;
+        } else {
+            $data['status'] = $request->status;
+        }
 
         return $this->rechargeListRepo->update($data, $request->id);
     }

@@ -17,12 +17,14 @@ return [
         2 => 'WavePay',
     ],
     'rechargePayStatus' => [
-        1 => 'pending',
-        2 => 'paid',
+        '1' => 'pending',
+        '2' => 'paid',
+        '3' => 'reject',
     ],
     'payStatus' => [
-        '1' => 'Pay',
-        '2' => 'Unpay',
+        '1' => 'pending',
+        '2' => 'paid',
+        '3' => 'reject',
     ],
     'deliveryStatus' => [
         '1' => 'undelivered',
