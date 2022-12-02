@@ -26,7 +26,7 @@ class BannerCreateRequest extends FormRequest
         return [
             'place' => 'required',
             'image' => 'required|image|file|max:'.config('filesystems.imageSizeLimit'),
-            'type' => 'required',
+            // 'type' => 'required',
             'value_box' => 'nullable',
             'value_link' => 'nullable',
             'value' => 'nullable',

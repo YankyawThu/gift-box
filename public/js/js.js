@@ -644,11 +644,11 @@ $(function() {
 
     $('#edit-banner-modal').on('show.bs.modal', function (e) {
         // remove existing dom ele
-        $("#edit-ck-editor").find(".ck-editor").remove()
+        // $("#edit-ck-editor").find(".ck-editor").remove()
 
         var button = $(e.relatedTarget)
         var id = button.data('id')
-        var type = button.data('type')
+        // var type = button.data('type')
         var status = button.data('status')
         var image = button.data('image')
         var sort = button.data('sort')
@@ -660,7 +660,7 @@ $(function() {
         }
         modal = $(this)
         modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #edit-banner-type').val(type)
+        // modal.find('.modal-body #edit-banner-type').val(type)
         modal.find('.modal-body #image').val(image)
         modal.find('.modal-body #sort').val(sort)
         modal.find('.modal-body #value').val(value)
@@ -674,36 +674,36 @@ $(function() {
             modal.find('.modal-body #status_hidden').prop("checked", true);
         }
         //
-        var type_box = $("#edit_type_box")
+        // var type_box = $("#edit_type_box")
 
-        if (type == 1) {
-            $(type_box).html(`
-            <label for="type_" class="form-control-label">Box</label>
-            <input type="text" placeholder="Enter Box" name="value_box" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
-            `);
-        }
+        // if (type == 1) {
+        //     $(type_box).html(`
+        //     <label for="type_" class="form-control-label">Box</label>
+        //     <input type="text" placeholder="Enter Box" name="value_box" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+        //     `);
+        // }
 
-        if (type == 2) {
-            $(type_box).html(`
-            <label for="type_" class="form-control-label">Link</label>
-            <input type="text" placeholder="https://example.com" name="value_link" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
-            `);
+        // if (type == 2) {
+        //     $(type_box).html(`
+        //     <label for="type_" class="form-control-label">Link</label>
+        //     <input type="text" placeholder="https://example.com" name="value_link" value="${value}" id="type_" class="form-control form-control-alternative is-valid" />
+        //     `);
 
-        }
+        // }
 
-        if (type == 3) {
-            $(type_box).html(`
-            <label for="type_" class="form-control-label">Word</label>
-            `
-            );
-            $("#edit-ck-editor").removeClass("d-none")
-            ClassicEditor.create( document.querySelector( '#edit-editor' ) )
-            .then( editor => {
-                editor.setData(value)
-            } ) .catch( error => {
-                console.error( error );
-            } );
-        }
+        // if (type == 3) {
+        //     $(type_box).html(`
+        //     <label for="type_" class="form-control-label">Word</label>
+        //     `
+        //     );
+        //     $("#edit-ck-editor").removeClass("d-none")
+        //     ClassicEditor.create( document.querySelector( '#edit-editor' ) )
+        //     .then( editor => {
+        //         editor.setData(value)
+        //     } ) .catch( error => {
+        //         console.error( error );
+        //     } );
+        // }
     })
 
     $('#banner-image',).on('change', function () {

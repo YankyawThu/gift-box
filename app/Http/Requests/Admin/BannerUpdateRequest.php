@@ -26,7 +26,7 @@ class BannerUpdateRequest extends FormRequest
         return [
             'place' => 'required',
             // 'image' =>  empty(request('image')) ? 'nullable' : 'required|image|file|max:' . config('filesystems.imageSizeLimit'),
-            'type' => 'required',
+            // 'type' => 'required',
             'value_box' => 'nullable',
             'value_link' => 'nullable',
             'value' => 'nullable',

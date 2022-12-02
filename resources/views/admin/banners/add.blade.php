@@ -29,7 +29,7 @@
                                 <img src="{{ asset('image/default.png') }}" id="img_url" alt="your image" width="100"
                                     height="100" class="pl-3">
 
-                                <div class="col-md-12">
+                                {{-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="type" for="type" class="form-control-label">Type</label>
                                         <select class="form-select form-control form-control-alternative"
@@ -40,17 +40,17 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="col-md-12 mb-2">
+                                {{-- <div class="col-md-12 mb-2">
                                     <div class="form-group" id="type_box">
                                     </div>
                                     <div class="d-none" id="ck-editor">
                                         <textarea name="value" id="editor" rows="10"></textarea>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-4">
                                     <div class="form-group">
                                         <label for="is_hot" class="form-control-label">Status</label>
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">

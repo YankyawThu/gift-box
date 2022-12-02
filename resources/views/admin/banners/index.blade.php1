@@ -206,40 +206,40 @@
 
 
     // text-editor
-    // ClassicEditor
-    //     .create( document.querySelector( '#editor' ) )
-    //     .catch( error => {
-    //     console.error( error );
-    // });
-    // var ck_editor = $("#ck-editor")
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+        console.error( error );
+    });
+    var ck_editor = $("#ck-editor")
 
-    // $('#banner-type').on('change', function() {
-    //     var type_box = $("#type_box")
-    //     if($(this).val() == 1){
-    //         ck_editor.addClass("d-none")
-    //         $(type_box).html(`
-    //         <label for="type_" class="form-control-label">Box</label>
-    //         <input type="text" placeholder="Enter Box" name="value_box" id="type_" class="form-control form-control-alternative is-valid" />
-    //         `);
-    //     }
+    $('#banner-type').on('change', function() {
+        var type_box = $("#type_box")
+        if($(this).val() == 1){
+            ck_editor.addClass("d-none")
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Box</label>
+            <input type="text" placeholder="Enter Box" name="value_box" id="type_" class="form-control form-control-alternative is-valid" />
+            `);
+        }
 
-    //     if($(this).val() == 2){
-    //         ck_editor.addClass("d-none")
-    //         $(type_box).html(`
-    //         <label for="type_" class="form-control-label">Link</label>
-    //         <input type="text" placeholder="https://example.com" name="value_link" id="type_" class="form-control form-control-alternative is-valid" />
-    //         `);
+        if($(this).val() == 2){
+            ck_editor.addClass("d-none")
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Link</label>
+            <input type="text" placeholder="https://example.com" name="value_link" id="type_" class="form-control form-control-alternative is-valid" />
+            `);
 
-    //     }
+        }
 
-    //     if($(this).val() == 3){
-    //         ck_editor.removeClass("d-none")
-    //         $(type_box).html(`
-    //         <label for="type_" class="form-control-label">Word</label>
-    //         `
-    //         );
-    //     }
-    // })
+        if($(this).val() == 3){
+            ck_editor.removeClass("d-none")
+            $(type_box).html(`
+            <label for="type_" class="form-control-label">Word</label>
+            `
+            );
+        }
+    })
 
 
 });

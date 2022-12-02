@@ -33,7 +33,7 @@
                                 <img src="" id="edit-banner-img-url" alt="your image" width="100" height="100"
                                     class="pl-3">
 
-                                <div class="col-md-12">
+                                {{-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="type" for="type" class="form-control-label">Type</label>
                                         <select class="form-select form-control form-control-alternative"
@@ -44,16 +44,17 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="col-md-12 mb-3">
+                                {{-- <div class="col-md-12 mb-3">
                                     <div class="" id="edit_type_box">
                                         <input type="text" id="value" class="form-control form-control-alternative is-valid" />
                                     </div>
                                     <div class="d-none" id="edit-ck-editor">
                                         <textarea name="value" id="edit-editor" rows="10"></textarea>
                                     </div>
-                                </div>
+                                </div> --}}
+
 
                                 <div class="col-md-12">
                                     <div class="form-group" id="radio-edit">
@@ -91,14 +92,24 @@
 </div>
 </div>
 
-@push('js')
+{{-- @push('js')
 
 <script>
     $(function() {
+
+    ClassicEditor
+        .create( document.querySelector( '#edit-editor' ) )
+        .catch( error => {
+        console.error( error );
+    });
+
     var ck_editor = $("#edit-ck-editor")
-    
+
     $('#edit-banner-type').on('change', function() {
         var type_box = $("#edit_type_box")
+        var type = $("#edit-banner-type").val()
+        // alert($(this).val());
+        // alert(type);
         if($(this).val() == 1){
             ck_editor.addClass("d-none")
             $(type_box).html(`
@@ -122,11 +133,13 @@
             <label for="type_" class="form-control-label">Word</label>
             `
             );
+
         }
+
     })
 
 
 });
 </script>
 
-@endpush
+@endpush --}}
