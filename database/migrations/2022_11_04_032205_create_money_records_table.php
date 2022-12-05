@@ -20,7 +20,7 @@ class CreateMoneyRecordsTable extends Migration
             $table->double('after')->default(0);
             $table->double('money')->default(0);
             $table->enum('type', ['recycle', 'deliver', 'withdraw', 'deposit']);
-            $table->enum('status', ['pending', 'approved']);
+            $table->enum('status', ['pending', 'approved', 'reject']);
             $table->unsignedBigInteger('order_id')->nullable();
             $table->unsignedBigInteger('prize_id')->nullable();
             $table->softDeletes();
