@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
+use App\User;
+use Carbon\Carbon;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
-
     use RegistersUsers;
 
     protected $redirectTo = RouteServiceProvider::HOME;
@@ -47,6 +45,7 @@ class RegisterController extends Controller
             'phone' => '+959'.$data['phone'],
             'password' => Hash::make($data['password']),
             'status' => 'inactive',
+            'join_time' => Carbon::now(),
         ]);
     }
 }

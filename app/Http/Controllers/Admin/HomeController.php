@@ -9,6 +9,7 @@ use App\Models\GiftLog;
 use App\Models\GiftPrizeRecord;
 use App\Models\RechargeOrder;
 use App\User;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -34,8 +35,8 @@ class HomeController extends Controller
             'totalOpenBoxOrder' => GiftLog::count(),
             'totalgoods' => GiftItem::count(),
             'totalbox' => GiftBox::count(),
-            'todayusersignup' => User::whereDate('join_time', now())->count(),
-            'todayuserlogin' => User::whereDate('login_time', now())->count(),
+            'todayusersignup' => User::whereDate('join_time', Carbon::today())->count(),
+            'todayuserlogin' => User::whereDate('login_time', Carbon::today())->count(),
             'unpaidMoneyRecharge' => RechargeOrder::where('status', config('config.rechargePayStatus.1'))->sum('amount'),
             'paidMoneyRecharge' => RechargeOrder::where('status', config('config.rechargePayStatus.2'))->sum('amount'),
             'shippingOrder' => GiftPrizeRecord::where('status', 'delivery')->count(),

@@ -168,9 +168,8 @@
 @endsection
 
 @push('js')
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
-<script src="{{ asset('ckeditor/build/ckeditor.js') }}"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
     $(function() {
 
@@ -187,7 +186,7 @@
             success:function(response){
                 //do whatever after success
                 $(".se-pre-con").fadeOut("slow");
-                $("#reload-div").load(location.href + " #reload-div");
+                // $("#reload-div").load(location.href + " #reload-div");
             }
         })
     }
