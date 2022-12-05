@@ -43,7 +43,7 @@
     <div id="recaptcha-container"></div>
 </div>
 <div class="w-96">
-    <div class="absolute bottom-5 inset-x-5 text-center -z-10">
+    <div class="absolute bottom-5 inset-x-5 text-center">
         <span class="text_c3 mr-2 text-white">Dont receive code?</span><button class="text_c2" onclick="sendOTP()">Resend</button>
     </div>
 </div>

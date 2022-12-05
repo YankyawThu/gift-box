@@ -45,7 +45,7 @@ body {
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    z-index: -999;
+    z-index: -1;
 }
 
 .border_grad2 {
@@ -67,7 +67,7 @@ body {
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    z-index: -999;
+    z-index: -1;
 }
 
 .border_grad1_show {

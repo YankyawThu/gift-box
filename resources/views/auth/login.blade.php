@@ -5,7 +5,7 @@
 @section('content')
 <img src="{{ asset('/image/ui/Login.svg') }}" alt="" class="m-auto">
 <div class="text_c2 text-center text-2xl font-semibold mb-6">Login</div>
-<div class="w-96 m-auto">
+<div class="w-96 m-auto relative z-10">
     <form role="form" method="POST" action="{{ route('login') }}">
         @csrf
         @if (session('success'))
