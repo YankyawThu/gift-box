@@ -27,10 +27,10 @@
         <div id="tabs">
             <div class="grid grid-cols-2 text-center" role="tablist" aria-label="Free HTML Tabs">
                 <div class="py-2" role="tab" aria-selected="true" aria-controls="panel-income" id="tab-income" tabindex="0" @click="fetchIncome()">
-                    {{__('Income')}}
+                    {{__('Deposit')}}
                 </div>
                 <div class="py-2" role="tab" aria-selected="false" aria-controls="panel-expend" id="tab-expend" tabindex="-1" @click="fetchExpend()">
-                    {{__('Outcome')}}
+                    {{__('Withdraw')}}
                 </div>
             </div>
             <div class="divider"></div>

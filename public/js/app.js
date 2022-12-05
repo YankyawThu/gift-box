@@ -4487,7 +4487,7 @@ var render = function render() {
         return _vm.fetchIncome();
       }
     }
-  }, [_vm._v("\n                " + _vm._s(_vm.__("Income")) + "\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Deposit")) + "\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "py-2",
     attrs: {
       role: "tab",
@@ -4501,7 +4501,7 @@ var render = function render() {
         return _vm.fetchExpend();
       }
     }
-  }, [_vm._v("\n                " + _vm._s(_vm.__("Outcome")) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Withdraw")) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "divider"
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4"
