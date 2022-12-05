@@ -182,6 +182,9 @@ class PrizeRepository extends BaseRepository
             if (!$prize) {
                 throw new BadRequestException('Wrong blind box selected!');
             }
+            if ($money_before < $prize->delivery_fee) {
+                throw new BadRequestException('Not Enough Your Amount!');
+            }
 
             // $pendingDeliver = PendingDeliver::where('user_id', auth()->user()->id)->where('id', $prizeId)->where('status', 'bag')->first();
             // if ($pendingDeliver) {

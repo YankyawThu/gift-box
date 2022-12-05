@@ -75,6 +75,7 @@
         <table class="align-items-center mb-0 table">
             <thead>
                 <tr>
+                    <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">ID.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">ORDER NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">USER NAME</th>
@@ -96,6 +97,9 @@
             <tbody>
                 @foreach ($prize as $key => $item)
                     <tr>
+                        <td>
+                            <p class="font-weight-bold mb-0 text-sm">{{ $prize->firstItem() + $key}}</p>
+                        </td>
                         <td>
                             <p class="font-weight-bold mb-0 text-sm">{{ $item->id }}</p>
                         </td>

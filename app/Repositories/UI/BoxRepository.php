@@ -16,11 +16,12 @@ class BoxRepository extends BaseRepository
 
     public function getBanners()
     {
-        $images = $this->bannerModel->orderBy('sort')->pluck('image');
+        $images = $this->bannerModel->where('status', 'normal')->orderBy('sort')->pluck('image');
         $data = [];
-        foreach($images as $image){
+        foreach ($images as $image) {
             array_push($data, getFileUrlFromAkoneyaMedia($image));
         }
+
         return $data;
     }
 
@@ -40,4 +41,3 @@ class BoxRepository extends BaseRepository
         }
     }
 }
-

@@ -43,6 +43,7 @@
         <table class="align-items-center mb-0 table">
             <thead>
                 <tr>
+                    <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
                     <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">Quantity</th>
@@ -57,6 +58,9 @@
             <tbody>
                 @foreach ($data as $key => $item)
                 <tr>
+                    <td>
+                        <p class="font-weight-bold mb-0 text-sm">{{ $data->firstItem() + $key}}</p>
+                    </td>
                     <td>
                         <div class="d-flex py-1">
                             <div>

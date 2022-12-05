@@ -38,6 +38,7 @@
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
+                    <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">NAME</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                     <th class="opacity-7"></th>
@@ -46,6 +47,9 @@
             <tbody>
                 @foreach ($data as $key => $item)
                 <tr>
+                    <td>
+                        <p class="font-weight-bold mb-0 text-sm">{{ $data->firstItem() + $key}}</p>
+                    </td>
                     <td>
                         <p class="text-sm font-weight-bold mb-0">{{$item->name}}</p>
                     </td>
