@@ -12,7 +12,7 @@
         </div>
         <div class="px-4 mb-8">
             <div class="text-white text-xs">{{__('Balance')}}:</div>
-            <div class="text-2xl text_c2 font-black">{{balance}} {{__('Ks')}}</div>
+            <div class="text-2xl text_c2 font-black">{{balance.toLocaleString('en-US')}} {{__('Ks')}}</div>
         </div>
         <div class="px-4">
             <div class="before:rounded-xl border_grad2 mt-2 mb-5">

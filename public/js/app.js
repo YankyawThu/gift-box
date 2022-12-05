@@ -4449,7 +4449,7 @@ var render = function render() {
     staticClass: "text-white text-xs"
   }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-bold"
-  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance.toLocaleString("en-US")) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-end mb-1"
   }, [_c("Link", {
     staticClass: "px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white",
@@ -7084,7 +7084,7 @@ var render = function render() {
     staticClass: "text-white text-xs"
   }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-black"
-  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance.toLocaleString("en-US")) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "px-4"
   }, [_c("div", {
     staticClass: "before:rounded-xl border_grad2 mt-2 mb-5"
@@ -7412,7 +7412,7 @@ var render = function render() {
     staticClass: "text-white text-xs"
   }, [_vm._v(_vm._s(_vm.__("Balance")) + ":")]), _vm._v(" "), _c("div", {
     staticClass: "text-2xl text_c2 font-black"
-  }, [_vm._v(_vm._s(_vm.balance) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.balance.toLocaleString("en-US")) + " " + _vm._s(_vm.__("Ks")))])]), _vm._v(" "), _c("div", {
     staticClass: "self-end mb-1"
   }, [_c("Link", {
     staticClass: "px-4 py-2 mr-1 btn_gradient rounded-full text-xs text-white",
