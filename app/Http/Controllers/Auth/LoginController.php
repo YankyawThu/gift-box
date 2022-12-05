@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Services\UI\UserService;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Services\UI\UserService;
 
 class LoginController extends Controller
 {
@@ -50,10 +51,15 @@ class LoginController extends Controller
 
     public function attemptLogin(Request $request)
     {
-        return Auth::attempt([
+        $auth = Auth::attempt([
                 'phone' => '+959'.$request->phone,
                 'password' => $request->password,
         ]);
+        if ($auth) {
+            User::where('phone', '+959'.$request->phone)->update(['login_time' => Carbon::now()]);
+        }
+
+        return $auth;
     }
 
     public function logout(Request $request)
@@ -78,12 +84,13 @@ class LoginController extends Controller
 
     public function otp()
     {
-        return view('auth.otp',['phone' => auth()->user()->phone]);
+        return view('auth.otp', ['phone' => auth()->user()->phone]);
     }
 
     public function verifyOTP()
     {
-        User::where('id' , auth()->user()->id)->update(['status' => 'active' ]);
+        User::where('id', auth()->user()->id)->update(['status' => 'active', 'login_time' => Carbon::now()]);
+
         return redirect()->route('box');
     }
 
