@@ -58,7 +58,7 @@ class RechargeOrderService
             MoneyRecord::where('user_id', $info->user_id)->where('type', 'deposit')->where('order_id', $request->id)->update(
                 [
                     'after' => $user->money,
-                    'money' => $request->pay_amount,
+                    'money' => $info->amount,
                     'status' => $request->status,
                 ]
             );
