@@ -94,7 +94,7 @@
                 @foreach ($data as $key => $item)
                 <tr data-id="{{ $item->id }}">
                     <td>
-                        <p class="font-weight-bold mb-0 text-sm">{{ $loop->iteration }}</p>
+                        <p class="font-weight-bold mb-0 text-sm">{{ $data->firstItem() + $key}}</p>
                     </td>
                     <td>
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->place }}</p>

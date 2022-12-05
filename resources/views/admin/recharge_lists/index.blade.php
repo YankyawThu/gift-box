@@ -42,7 +42,7 @@
         <table class="align-items-center mb-0 table">
             <thead>
                 <tr>
-                    <th class="text-xxs font-weight-bolder opacity-7">No</th>
+                    <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
                     <th class="text-xxs font-weight-bolder opacity-7">AMOUNT</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
                     <th class="opacity-7"></th>

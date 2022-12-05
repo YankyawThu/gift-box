@@ -29,7 +29,7 @@
             <table class="align-items-center mb-0 table">
                 <thead>
                     <tr>
-                        <th class="text-xxs font-weight-bolder opacity-7">No</th>
+                        <th class="text-xxs font-weight-bolder opacity-7">NO.</th>
                         <th class="text-xxs font-weight-bolder opacity-7">Type</th>
                         <th class="text-xxs font-weight-bolder opacity-7">Title</th>
                         <th class="text-xxs font-weight-bolder opacity-7">Text</th>
@@ -41,7 +41,7 @@
                     @foreach ($data as $key => $item)
                         <tr>
                             <td>
-                                <p class="font-weight-bold mb-0 text-sm">{{ $loop->iteration }}</p>
+                                <p class="font-weight-bold mb-0 text-sm">{{ $data->firstItem() + $key }}</p>
                             </td>
                             <td>
                                 <p class="font-weight-bold mb-0 text-sm">
