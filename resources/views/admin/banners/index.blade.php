@@ -35,7 +35,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
+                    {{-- <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <select class="form-select form-control form-control-alternative" aria-label="Select Type"
                             name="type" id="type">
                             <option value="" @if (request('type')===null) selected @endif>Place
@@ -46,7 +46,7 @@
                             </option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="col-md-2 input-group input-group-alternative input-group-merge searching m-1">
                         <select class="form-select form-control form-control-alternative" aria-label="Select Status"
                             name="status" id="status">
@@ -83,7 +83,7 @@
                     <th class="text-xxs font-weight-bolder opacity-7">NO</th>
                     <th class="text-xxs font-weight-bolder opacity-7">PLACE</th>
                     <th class="text-xxs font-weight-bolder opacity-7">IMAGE</th>
-                    <th class="text-xxs font-weight-bolder opacity-7">TYPE</th>
+                    {{-- <th class="text-xxs font-weight-bolder opacity-7">TYPE</th> --}}
                     <th class="text-xxs font-weight-bolder opacity-7">STATUS</th>
                     <th class="text-xxs font-weight-bolder opacity-7">SORT</th>
                     <th class="text-xxs font-weight-bolder opacity-7">CREATED</th>
@@ -109,9 +109,9 @@
                                 @endif
                         </p>
                     </td>
-                    <td>
+                    {{-- <td>
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->type }}</p>
-                    </td>
+                    </td> --}}
                     <td>
                         <p class="font-weight-bold mb-0 text-sm">{{ $item->status }}</p>
                     </td>
@@ -164,7 +164,7 @@
 @endsection
 
 @section('content-pagination')
-{{ $data }}
+{{ $data->appends($_GET)->links() }}
 @endsection
 
 @push('js')

@@ -36,17 +36,16 @@ class BannerService
         $sequence = $this->bannerRepo->getSequence();
         $data['image'] = fileUploadToAkoneyaMedia(request()->file('image'), $this->uploadPhotoFolder);
         $data['place'] = $request['place'];
-        $data['type'] = $request['type'];
         $data['status'] = $request['status'];
         $data['sort'] = ++$sequence;
-        $data['value'] = $request['value'];
+        // $data['value'] = $request['value'];
 
-        if (request()->has('value_box')) {
-            $data['value'] = $request['value_box'];
-        }
-        if (request()->has('value_link')) {
-            $data['value'] = $request['value_link'];
-        }
+        // if (request()->has('value_box')) {
+        //     $data['value'] = $request['value_box'];
+        // }
+        // if (request()->has('value_link')) {
+        //     $data['value'] = $request['value_link'];
+        // }
 
         return $this->bannerRepo->create($data);
     }
@@ -72,17 +71,15 @@ class BannerService
         }
 
         $data['place'] = $request['place'];
-        $data['type'] = $request['type'];
-        $data['value'] = $request['value'];
         $data['status'] = $request['status'];
-        $data['value'] = $request['value'];
+        // $data['value'] = $request['value'];
 
-        if (request()->has('value_box')) {
-            $data['value'] = $request['value_box'];
-        }
-        if (request()->has('value_link')) {
-            $data['value'] = $request['value_link'];
-        }
+        // if (request()->has('value_box')) {
+        //     $data['value'] = $request['value_box'];
+        // }
+        // if (request()->has('value_link')) {
+        //     $data['value'] = $request['value_link'];
+        // }
 
         // $data['sort'] = $request['sort'];
 

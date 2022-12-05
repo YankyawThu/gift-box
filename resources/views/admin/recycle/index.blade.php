@@ -104,5 +104,5 @@
 @endsection
 
 @section('content-pagination')
-    {{ $data }}
+{{ $data->appends($_GET)->links() }}
 @endsection

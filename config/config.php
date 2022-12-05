@@ -21,11 +21,6 @@ return [
         '2' => 'paid',
         '3' => 'reject',
     ],
-    'payStatus' => [
-        '1' => 'pending',
-        '2' => 'paid',
-        '3' => 'reject',
-    ],
     'deliveryStatus' => [
         '1' => 'undelivered',
         '2' => 'unreceived',

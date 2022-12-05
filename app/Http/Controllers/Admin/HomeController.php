@@ -36,8 +36,8 @@ class HomeController extends Controller
             'totalbox' => GiftBox::count(),
             'todayusersignup' => User::whereDate('join_time', now())->count(),
             'todayuserlogin' => User::whereDate('login_time', now())->count(),
-            'unpaidMoneyRecharge' => RechargeOrder::where('status', 'unpay')->sum('amount'),
-            'paidMoneyRecharge' => RechargeOrder::where('status', 'paid')->sum('amount'),
+            'unpaidMoneyRecharge' => RechargeOrder::where('status', config('config.rechargePayStatus.1'))->sum('amount'),
+            'paidMoneyRecharge' => RechargeOrder::where('status', config('config.rechargePayStatus.2'))->sum('amount'),
             'shippingOrder' => GiftPrizeRecord::where('status', 'delivery')->count(),
             'recycleOrder' => GiftPrizeRecord::where('status', 'exchange')->count(),
         ]);
