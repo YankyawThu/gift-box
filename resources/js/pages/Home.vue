@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="self-center">
-                    <img :src="$asset+'/image/ui/Service.svg'">
+                    <!-- <img :src="$asset+'/image/ui/Service.svg'"> -->
                 </div>
             </div>
             <div class="flex my-3 bg_grad1 rounded-full px-5 py-2">

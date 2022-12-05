@@ -43,6 +43,7 @@
                         </div>
                         <div class="self-center text_c2">
                             +{{data.money}} {{__('Ks')}}
+                            <div class="border_grad2_show before:rounded-full rounded-full py-1 px-3 mt-1 bg_grad text-center" style="color: #FFC83C;font-size:8px;">{{__(data.status)}}</div>
                         </div>
                     </div>
                 </section>
@@ -54,6 +55,7 @@
                         </div>
                         <div class="self-center text_c2">
                             {{data.money}} {{__('Ks')}}
+                            <div class="border_grad2_show before:rounded-full rounded-full py-1 px-3 mt-1 bg_grad text-center" style="color: #FFC83C;font-size:8px;">{{__(data.status)}}</div>
                         </div>
                     </div>
                 </section>

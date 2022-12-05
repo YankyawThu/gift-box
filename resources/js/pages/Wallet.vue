@@ -7,7 +7,7 @@
                     <div class="w-10 h-1 rounded-full" style="background: linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%);"></div>
                 </div>
                 <div class="">
-                    <img :src="$asset+'/image/ui/Service.svg'">
+                    <!-- <img :src="$asset+'/image/ui/Service.svg'"> -->
                 </div>
             </div>
             <div class="border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl">

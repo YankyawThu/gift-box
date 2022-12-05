@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="self-center">
-                    <img :src="$asset+'/image/ui/Service.svg'">
+                    <!-- <img :src="$asset+'/image/ui/Service.svg'"> -->
                 </div>
             </div>
             <div class="flex justify-around -mt-7">

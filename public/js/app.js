@@ -4523,7 +4523,13 @@ var render = function render() {
       staticClass: "text-sm text-gray-400"
     }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                        +" + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                    ")])]);
+    }, [_vm._v("\n                        +" + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                        "), _c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full py-1 px-3 mt-1 bg_grad text-center",
+      staticStyle: {
+        color: "#FFC83C",
+        "font-size": "8px"
+      }
+    }, [_vm._v(_vm._s(_vm.__(data.status)))])])]);
   }), 0), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
@@ -4543,7 +4549,13 @@ var render = function render() {
       staticClass: "text-sm text-gray-400"
     }, [_vm._v(_vm._s(_vm.__("Time")) + ": " + _vm._s(data.time))])]), _vm._v(" "), _c("div", {
       staticClass: "self-center text_c2"
-    }, [_vm._v("\n                        " + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                    ")])]);
+    }, [_vm._v("\n                        " + _vm._s(data.money) + " " + _vm._s(_vm.__("Ks")) + "\n                        "), _c("div", {
+      staticClass: "border_grad2_show before:rounded-full rounded-full py-1 px-3 mt-1 bg_grad text-center",
+      staticStyle: {
+        color: "#FFC83C",
+        "font-size": "8px"
+      }
+    }, [_vm._v(_vm._s(_vm.__(data.status)))])])]);
   }), 0)])])]);
 };
 var staticRenderFns = [];
@@ -5519,11 +5531,7 @@ var render = function render() {
     staticStyle: {
       background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
     }
-  })]), _vm._v(" "), _c("div", {}, [_c("img", {
-    attrs: {
-      src: _vm.$asset + "/image/ui/Service.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {})]), _vm._v(" "), _c("div", {
     attrs: {
       id: "tabs"
     }
@@ -5912,11 +5920,7 @@ var render = function render() {
     staticClass: "font-bold text-lg text-white"
   }, [_vm._v(_vm._s(_vm.user.name))])])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$asset + "/image/ui/Service.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "flex my-3 bg_grad1 rounded-full px-5 py-2"
   }, [_c("div", {
     staticClass: "self-center w-10"
@@ -7184,11 +7188,7 @@ var render = function render() {
     staticClass: "font-bold text-lg text-white"
   }, [_vm._v(_vm._s(_vm.user.name))])])]), _vm._v(" "), _c("div", {
     staticClass: "self-center"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.$asset + "/image/ui/Service.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "flex justify-around -mt-7"
   }, [_c("Link", {
     staticClass: "text-left",
@@ -7406,11 +7406,7 @@ var render = function render() {
     staticStyle: {
       background: "linear-gradient(97.86deg, #FF8D8D -38.38%, #F7FC0E 71.88%)"
     }
-  })]), _vm._v(" "), _c("div", {}, [_c("img", {
-    attrs: {
-      src: _vm.$asset + "/image/ui/Service.svg"
-    }
-  })])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {})]), _vm._v(" "), _c("div", {
     staticClass: "border_grad1 flex justify-between p-5 mb-4 mt-2 before:rounded-xl"
   }, [_c("div", [_c("div", {
     staticClass: "text-white text-xs"
