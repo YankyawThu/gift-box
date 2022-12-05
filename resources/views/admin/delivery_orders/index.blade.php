@@ -107,8 +107,8 @@
                     <p class="font-weight-bold mb-0 text-sm">
                         {{-- <img src="{{ route("admin.get-file", ['model'=> 'DeliveryOrder', 'id' => $item->id]) }}" class="me-3"
                         width="50" height="50"> --}}
-                        @if ($item->gift_item_image)
-                            <img src="{{ getFileUrlFromAkoneyaMedia($item->gift_item_image) }}" class="me-3" width="70"
+                        @if (optional($item->giftItem)->image)
+                            <img src="{{ getFileUrlFromAkoneyaMedia(optional($item->giftItem)->image) }}" class="me-3" width="70"
                             height="70">
                         @endif
 

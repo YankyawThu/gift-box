@@ -56,7 +56,7 @@
                                 </div> --}}
 
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-4">
                                     <div class="form-group" id="radio-edit">
                                         <label for="is_hot" class="form-control-label">Status</label>
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons" id="status">
