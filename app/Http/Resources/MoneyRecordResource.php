@@ -24,6 +24,7 @@ class MoneyRecordResource extends JsonResource
         $mr_status = [
             'pending' => 'Pending',
             'approved' => 'Approved',
+            'reject' => 'Reject',
         ];
 
         return [
