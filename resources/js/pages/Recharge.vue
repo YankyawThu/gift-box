@@ -12,8 +12,13 @@
         </div>
         <div class="px-4">
             <div class="text-center pb-2 text_c2 text-sm">{{__('Select the Recharge Amount')}}</div>
-            <div class="before:rounded-xl py-7 text-center border_grad2 my-2 text-4xl font-bold text-white">
-                {{amount}} {{__('Ks')}}
+            <div class="flex justify-center before:rounded-xl py-7 text-center border_grad2 my-2 font-bold text-white">
+                <div>
+                    <input type="number" v-model="amount" class="focus:outline-none bg-transparent text-4xl text-right inline-block w-40"> 
+                </div>
+                <div class="text-4xl text-left w-40 ml-1">
+                    {{__('Ks')}}
+                </div>
             </div>
             <div class="flex flex-wrap justify-between my-3">
                 <div class="w-28 h-12 text-center my-2 before:rounded-2xl rounded-2xl py-2 text-lg text-white" :class="[actives[i] ? 'amount_active' : 'border_grad1']" v-for="(price,i) in data" :key="i" @click="pick(price.amount, i)">

@@ -6424,8 +6424,30 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "text-center pb-2 text_c2 text-sm"
   }, [_vm._v(_vm._s(_vm.__("Select the Recharge Amount")))]), _vm._v(" "), _c("div", {
-    staticClass: "before:rounded-xl py-7 text-center border_grad2 my-2 text-4xl font-bold text-white"
-  }, [_vm._v("\n            " + _vm._s(_vm.amount) + " " + _vm._s(_vm.__("Ks")) + "\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "flex justify-center before:rounded-xl py-7 text-center border_grad2 my-2 font-bold text-white"
+  }, [_c("div", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.amount,
+      expression: "amount"
+    }],
+    staticClass: "focus:outline-none bg-transparent text-4xl text-right inline-block w-40",
+    attrs: {
+      type: "number"
+    },
+    domProps: {
+      value: _vm.amount
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.amount = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-4xl text-left w-40 ml-1"
+  }, [_vm._v("\n                " + _vm._s(_vm.__("Ks")) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "flex flex-wrap justify-between my-3"
   }, _vm._l(_vm.data, function (price, i) {
     return _c("div", {
