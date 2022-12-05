@@ -54,6 +54,7 @@ class RechargeOrderService
             $data['pay_amount'] = $request->pay_amount;
         } else {
             $data['status'] = $request->status;
+            $user = User::where('id', $info->user_id)->first();
             MoneyRecord::where('user_id', $info->user_id)->where('type', 'deposit')->where('order_id', $request->id)->update(
                 [
                     'after' => $user->money,
