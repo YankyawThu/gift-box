@@ -2337,6 +2337,25 @@ __webpack_require__.r(__webpack_exports__);
     showAddress: function showAddress(ids) {
       this.prizeIds = ids;
       this.addressModalActive = true;
+    },
+    shipSubmit: function shipSubmit(address) {
+      var _this3 = this;
+      axios__WEBPACK_IMPORTED_MODULE_4__["default"].post("/shipment-apply", {
+        'addressId': address,
+        'prizeIds': this.prizeIds.filter(Boolean)
+      }).then(function (res) {
+        _this3.create = true;
+        // location.reload()
+      })["catch"](function (error) {
+        if (error.response.data.errors) {
+          _this3.errors = error.response.data.errors;
+        } else {
+          var message = [];
+          message.push(error.response.data.message);
+          _this3.errors['message'] = message;
+        }
+        _this3.errorModal = true;
+      });
     }
   }
 });
@@ -4741,7 +4760,8 @@ var render = function render() {
       alert: function alert($event) {
         _vm.create = true;
       },
-      validate: _vm.validate
+      validate: _vm.validate,
+      submit: _vm.shipSubmit
     },
     model: {
       value: _vm.addressModalActive,

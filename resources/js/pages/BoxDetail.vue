@@ -66,7 +66,7 @@
         </div>
         <rule v-model="ruleModalActive" />
         <order-modal v-model="orderModalActive" :order="order" @openBox="submit()"></order-modal>
-        <address-modal v-model="addressModalActive" :prizes="prizeIds" :index="0" @alert="create=true" @validate="validate"></address-modal>
+        <address-modal v-model="addressModalActive" :prizes="prizeIds" :index="0" @alert="create=true" @validate="validate" @submit="shipSubmit"></address-modal>
         <validate-alert v-model="errorModal" :errors="errors"></validate-alert>
         <create-alert v-model="create"></create-alert>
         <transition name="bounce">
@@ -181,6 +181,25 @@ export default {
         showAddress(ids) {
             this.prizeIds = ids
             this.addressModalActive = true
+        },
+        shipSubmit(address) {
+            axios.post(`/shipment-apply`, {
+                'addressId': address,
+                'prizeIds': this.prizeIds.filter(Boolean)
+            }).then(res => {
+                this.create = true
+                // location.reload()
+            }).catch(error => {
+                if(error.response.data.errors) {
+                    this.errors = error.response.data.errors
+                }
+                else {
+                    let message = []
+                    message.push(error.response.data.message)
+                    this.errors['message'] = message
+                }
+                this.errorModal = true
+            })
         }
     },
 }
