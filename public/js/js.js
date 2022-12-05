@@ -664,7 +664,7 @@ $(function() {
         modal.find('.modal-body #image').val(image)
         modal.find('.modal-body #sort').val(sort)
         modal.find('.modal-body #value').val(value)
-        // modal.find('.modal-body #edit-banner-img-url').attr("src", imagePath)
+        modal.find('.modal-body #edit-banner-img-url').attr("src", imagePath)
         if (status == 'normal') {
             document.querySelectorAll('#radio-edit .btn-secondary')[0].classList.add("active")
             modal.find('.modal-body #status_normal').prop("checked", true);

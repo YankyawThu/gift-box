@@ -165,7 +165,7 @@
 @endsection
 
 @section('content-pagination')
-    {{ $prize }}
+    {{ $prize->appends($_GET)->links() }}
 @endsection
 
 @push('js')

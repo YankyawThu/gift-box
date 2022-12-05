@@ -75,7 +75,7 @@
                         <span class="mx-2">{{ $unpaidMoneyRecharge }}</span>
                     </div>
                     <div class="form-inline">
-                        <span class="text-sm text-info">Money Recharge <span class="badge badge-danger">Unpay</span></span>
+                        <span class="text-sm text-info">Money Recharge <span class="badge badge-danger">Pending</span></span>
                         <div class="col text-right">
                             <a class="btn btn-sm btn-primary" href="{{route('admin.recharge-orders.index')}}">See all</a>
                         </div>
