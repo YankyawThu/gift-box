@@ -783,6 +783,14 @@ $(function() {
         protocolPolicyForm.resetForm()
     })
 
+    $('#wallet-approved').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+
+    })
+
 
 })
 

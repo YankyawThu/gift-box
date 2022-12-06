@@ -9,4 +9,14 @@ class MoneyRecord extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
+
+    public function scopeFilter($query, $filters)
+    {
+        $filters->apply($query);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

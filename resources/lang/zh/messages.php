@@ -16,4 +16,5 @@ return [
     'Protocol Policies' => '协议策略',
     'Users' => '用户',
     'Admins' => '管理员',
+    'Go To Wallet' => '前往钱包',
 ];
