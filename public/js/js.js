@@ -76,6 +76,7 @@ $(function() {
         var buy_price = button.data('buy_price')
         var sell_price = button.data('sell_price')
         var qty = button.data('qty')
+        var deli_fee = button.data('delivery_fee')
         var image = button.data('image')
         if (image){
             imagePath = button.data('image_path')
@@ -86,6 +87,7 @@ $(function() {
         modal.find('.modal-body #buy_price').val(buy_price)
         modal.find('.modal-body #sell_price').val(sell_price)
         modal.find('.modal-body #qty').val(qty)
+        modal.find('.modal-body #delivery_fee').val(deli_fee)
         modal.find('.modal-body #image').val(image)
         modal.find('.modal-body #edit_item_img_url').attr("src", imagePath)
     })
@@ -779,6 +781,14 @@ $(function() {
 
     $('#edit-policy-cancel-btn').on('click', function() {
         protocolPolicyForm.resetForm()
+    })
+
+    $('#wallet-approved').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget)
+        var id = button.data('id')
+        modal = $(this)
+        modal.find('.modal-body #id').val(id)
+
     })
 
 

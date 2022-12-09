@@ -103,7 +103,7 @@
                             data-name="{{ $item->name }}" data-qty="{{ $item->qty }}" data-image="{{ $item->image }}"
                             {{-- data-image_path="{{ route("admin.get-file", ["model" => "GiftItem", "id" => $item->id]) }}" --}}
                             data-image_path="{{ getFileUrlFromAkoneyaMedia($item->image) }}"
-                            data-buy_price="{{ $item->buy_price }}" data-sell_price="{{ $item->sell_price }}" data-toggle="modal" data-target="#edit-item-modal">
+                            data-buy_price="{{ $item->buy_price }}" data-sell_price="{{ $item->sell_price }}" data-delivery_fee="{{$item->delivery_fee}}" data-toggle="modal" data-target="#edit-item-modal">
                             <span class="btn btn-sm btn-success" data-toggle="tooltip" data-original-title="Edit item">
                                 <i class="fas fa-edit"></i>
                             </span>

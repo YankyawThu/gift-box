@@ -16,4 +16,5 @@ return [
     'Protocol Policies' => 'ပရိုတိုကော မူဝါဒများ',
     'Users' => 'အသုံးပြုသူများ',
     'Admins' => 'စီမံခန့်ခွဲသူများ',
+    'Go To Wallet' => 'Wallet မှတ်တမ်း',
 ];

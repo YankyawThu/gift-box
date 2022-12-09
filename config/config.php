@@ -46,4 +46,8 @@ return [
         3 => 'delivery',
         4 => 'received',
     ],
+    'withdrawStatus' => [
+        'pending' => 'pending',
+        'approved' => 'approved',
+    ],
 ];

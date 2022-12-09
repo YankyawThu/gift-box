@@ -150,12 +150,12 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-item">
-                    <a class="nav-link {{ activeSegment(2, 'settings') == 'active' ? 'active' : '' }}"
-                        href="{{ route('admin.settings.index') }}">
-                        <i class="fa fa-cog text-blue"></i> {{ __('messages.Settings') }}
+                <li class="nav-item">
+                    <a class="nav-link {{ activeSegment(2, 'wallet') == 'active' ? 'active' : '' }}"
+                        href="{{ route('admin.wallet.index') }}">
+                        <i class="ni ni-money-coins text-blue"></i> {{ __('messages.Go To Wallet') }}
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ activeSegment(2, 'banners') == 'active' ? 'active' : '' }}"

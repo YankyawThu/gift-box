@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\UI\MoneyRecordController;
 use App\Http\Controllers\UI\OrderController;
 use App\Http\Controllers\UI\RechargeController;

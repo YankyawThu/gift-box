@@ -62,8 +62,7 @@
                                         <label for="delivery_fee" class="form-control-label">Delivery
                                             Fee</label>
                                         <input type="number" placeholder="Delivery Fee" name="delivery_fee"
-                                            id="delivery-fee" value="{{ $item->delivery_fee }}"
-                                            class="form-control form-control-alternative is-valid" />
+                                            id="delivery_fee" class="form-control form-control-alternative is-valid" />
                                     </div>
                                 </div>
 

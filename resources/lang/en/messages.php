@@ -16,4 +16,5 @@ return [
     'Protocol Policies' => 'Protocol Policies',
     'Users' => 'Users',
     'Admins' => 'Admins',
+    'Go To Wallet' => 'Wallet Record',
 ];
