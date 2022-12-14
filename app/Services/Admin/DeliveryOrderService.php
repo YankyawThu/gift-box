@@ -49,6 +49,7 @@ class DeliveryOrderService
                     'status' => 'approved',
                 ]
             );
+            $data['receive_time'] = now();
         }
 
         $data['status'] = $request->status;
