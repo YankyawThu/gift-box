@@ -4369,7 +4369,9 @@ var render = function render() {
     staticClass: "font-bold text-xl text-white self-center"
   }, [_vm._v("\n            " + _vm._s(_vm.__("Shipping Address")) + "\n        ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "pb-20"
-  }, _vm._l(_vm.data.data, function (address, i) {
+  }, [_vm.data.data.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n            No data\n        ")]) : _c("div", _vm._l(_vm.data.data, function (address, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2 p-4 my-3 before:rounded-xl relative"
@@ -4406,7 +4408,7 @@ var render = function render() {
         src: _vm.$asset + "/image/ui/Delete.svg"
       }
     })])], 1)]);
-  }), 0), _vm._v(" "), _c("Link", {
+  }), 0)]), _vm._v(" "), _c("Link", {
     staticClass: "btn_gradient fixed bottom-5 py-3 inset-x-5 text-center m-auto rounded-full text-white",
     attrs: {
       href: _vm.$url + "/user/shipping-address/create"
@@ -5656,7 +5658,9 @@ var render = function render() {
         return _vm.clearAll();
       }
     }
-  }, [_vm._v(_vm._s(_vm.__("Clear All")))])]), _vm._v(" "), _vm._l(_vm.pending, function (prize, i) {
+  }, [_vm._v(_vm._s(_vm.__("Clear All")))])]), _vm._v(" "), _vm.pending.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n                        No data\n                    ")]) : _c("div", _vm._l(_vm.pending, function (prize, i) {
     return _c("label", {
       key: i,
       staticClass: "form-check-label flex flex-row px-4",
@@ -5729,7 +5733,7 @@ var render = function render() {
     }, [_vm._v(_vm._s(prize.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])])])])]);
-  }), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _c("div", {
     staticClass: "fixed flex justify-around bottom-24 w-full"
   }, [_c("div", [_c("div", {
     staticClass: "btn2_gradient py-3 text-center w-44 text-white rounded-full",
@@ -5745,7 +5749,7 @@ var render = function render() {
         return _vm.shipModal();
       }
     }
-  }, [_vm._v(_vm._s(_vm.__("Shipment Apply")))])])])], 2), _vm._v(" "), _c("section", {
+  }, [_vm._v(_vm._s(_vm.__("Shipment Apply")))])])])]), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-4",
     attrs: {
       id: "panel-recycle",
@@ -5754,7 +5758,9 @@ var render = function render() {
       "aria-labelledby": "tab-recycle",
       hidden: ""
     }
-  }, _vm._l(_vm.recycle, function (prize, i) {
+  }, [_vm.recycle.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n                        No data\n                    ")]) : _c("div", _vm._l(_vm.recycle, function (prize, i) {
     return _c("div", {
       key: i,
       staticClass: "flex justify-between border_grad2_show my-3 p-2 before:rounded-lg w-full bg_grad1"
@@ -5787,7 +5793,7 @@ var render = function render() {
         color: "#CE25F0"
       }
     }, [_vm._v(_vm._s(_vm.__("Completed")))])])]);
-  }), 0)])])]), _vm._v(" "), _c("footer", [_c("bot")], 1), _vm._v(" "), _c("recycle-modal", {
+  }), 0)])])])]), _vm._v(" "), _c("footer", [_c("bot")], 1), _vm._v(" "), _c("recycle-modal", {
     attrs: {
       prizes: _vm.recyclePrizes,
       index: 1
@@ -6807,7 +6813,9 @@ var render = function render() {
       tabindex: "0",
       "aria-labelledby": "tab-delivered"
     }
-  }, _vm._l(_vm.toBeDelivered, function (prize, i) {
+  }, [_vm.toBeDelivered.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n                    No data\n                ")]) : _c("div", _vm._l(_vm.toBeDelivered, function (prize, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1"
@@ -6835,7 +6843,7 @@ var render = function render() {
         color: "#CE25F0"
       }
     }, [_vm._v(_vm._s(_vm.__("To be delivered")))])])]);
-  }), 0), _vm._v(" "), _c("section", {
+  }), 0)]), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
       id: "panel-going",
@@ -6844,7 +6852,9 @@ var render = function render() {
       "aria-labelledby": "tab-going",
       hidden: ""
     }
-  }, _vm._l(_vm.onGoing, function (prize, i) {
+  }, [_vm.onGoing.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n                    No data\n                ")]) : _c("div", _vm._l(_vm.onGoing, function (prize, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1"
@@ -6872,7 +6882,7 @@ var render = function render() {
         color: "#FFC83C"
       }
     }, [_vm._v(_vm._s(_vm.__("On going")))])])]);
-  }), 0), _vm._v(" "), _c("section", {
+  }), 0)]), _vm._v(" "), _c("section", {
     staticClass: "overflow-auto px-1",
     attrs: {
       id: "panel-completed",
@@ -6881,7 +6891,9 @@ var render = function render() {
       "aria-labelledby": "tab-completed",
       hidden: ""
     }
-  }, _vm._l(_vm.completed, function (prize, i) {
+  }, [_vm.completed.length == 0 ? _c("div", {
+    staticClass: "text-center text-gray-500 py-5"
+  }, [_vm._v("\n                    No data\n                ")]) : _c("div", _vm._l(_vm.completed, function (prize, i) {
     return _c("div", {
       key: i,
       staticClass: "border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1"
@@ -6909,7 +6921,7 @@ var render = function render() {
         color: "#3BBE44"
       }
     }, [_vm._v(_vm._s(_vm.__("Completed")))])])]);
-  }), 0)])])]);
+  }), 0)])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

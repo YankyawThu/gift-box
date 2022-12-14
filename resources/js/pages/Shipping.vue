@@ -25,47 +25,62 @@
             <div class="divider"></div>
             <div class="my-4">
                 <section id="panel-delivered" role="tabpanel" tabindex="0" aria-labelledby="tab-delivered" class="overflow-auto px-1">
-                    <div v-for="(prize,i) in toBeDelivered" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
-                        <div class="flex flex-row">
-                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
-                            <div class="self-center">
-                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
-                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                    <div v-if="toBeDelivered.length == 0" class="text-center text-gray-500 py-5">
+                        No data
+                    </div>
+                    <div v-else>
+                        <div v-for="(prize,i) in toBeDelivered" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
+                            <div class="flex flex-row">
+                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                                <div class="self-center">
+                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
+                                    <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                    <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">{{__('To be delivered')}}</div>
+                            <div>
+                                <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #CE25F0;">{{__('To be delivered')}}</div>
+                            </div>
                         </div>
                     </div>
                 </section>
                 <section id="panel-going" role="tabpanel" tabindex="0" aria-labelledby="tab-going" hidden class="overflow-auto px-1">
-                    <div v-for="(prize,i) in onGoing" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
-                        <div class="flex flex-row">
-                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
-                            <div class="self-center">
-                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
-                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                    <div v-if="onGoing.length == 0" class="text-center text-gray-500 py-5">
+                        No data
+                    </div>
+                    <div v-else>
+                        <div v-for="(prize,i) in onGoing" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
+                            <div class="flex flex-row">
+                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                                <div class="self-center">
+                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
+                                    <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                    <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">{{__('On going')}}</div>
+                            <div>
+                                <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #FFC83C;">{{__('On going')}}</div>
+                            </div>
                         </div>
                     </div>
                 </section>
                 <section id="panel-completed" role="tabpanel" tabindex="0" aria-labelledby="tab-completed" hidden class="overflow-auto px-1">
-                    <div v-for="(prize,i) in completed" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
-                        <div class="flex flex-row">
-                            <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
-                            <div class="self-center">
-                                <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                                <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
-                                <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                    <div v-if="completed.length == 0" class="text-center text-gray-500 py-5">
+                        No data
+                    </div>
+                    <div v-else>
+                        <div v-for="(prize,i) in completed" :key="i" class="border_grad2_show flex justify-between my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
+                            <div class="flex flex-row">
+                                <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                                <div class="self-center">
+                                    <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
+                                    <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                                    <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">{{__('Completed')}}</div>
+                            <div>
+                                <div class="border_grad2_show before:rounded-full rounded-full px-3 py-2 text-xs mt-1 bg_grad" style="color: #3BBE44;">{{__('Completed')}}</div>
+                            </div>
                         </div>
                     </div>
                 </section>
