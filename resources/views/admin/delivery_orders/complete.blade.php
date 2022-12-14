@@ -8,11 +8,12 @@
                         <h3 class="mb-0">{{ __('Update Order Delivery') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.delivery-orders.update-status', [$id,'status'=>config('config.deliveryStatus.3')]) }}" method="POST"
-                            id="edit-delivery-order-form">
+                        <form action="{{ route('admin.delivery-orders.complete-deliver') }}" method="POST"
+                            id="complete-delivery-order-form">
                             @csrf
                             @method('PUT')
-
+                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="status" value={{config("config.deliveryStatus.3")}}>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -59,14 +60,14 @@
                                     </div> --}}
                                 </div>
                             </div>
-                            <input type="hidden" name="id" id="id">
+
                         </form>
                     </div>
                     <div class="card-footer bg-secondary px-lg-2 px-1 text-center">
-                        <button type="submit" form="edit-delivery-order-form" class="btn btn-success text-white">Complete
+                        <button type="submit" form="complete-delivery-order-form" class="btn btn-success text-white">Complete
                             Delivery</button>
 
-                        <button type="button" id="edit-delivery-order-cancel-btn" class="btn btn-primary text-white"
+                        <button type="button" id="complete-delivery-order-cancel-btn" class="btn btn-primary text-white"
                             data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

@@ -8,11 +8,11 @@
                         <h3 class="mb-0">{{ __('Update Order Delivery') }}</h3>
                     </div>
                     <div class="card-body bg-secondary">
-                        <form action="{{ route('admin.delivery-orders.update-status', [$id,'status'=>config('config.deliveryStatus.2')]) }}" method="POST"
+                        <form action="{{ route('admin.delivery-orders.update-status', [0,'status'=>config('config.deliveryStatus.2')]) }}" method="POST"
                             id="edit-delivery-order-form">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="id" id="edit-id">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

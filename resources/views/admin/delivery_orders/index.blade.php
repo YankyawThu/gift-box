@@ -78,7 +78,6 @@
                 <th class="text-xxs font-weight-bolder opacity-7">GIFT ITEM IMAGE</th>
                 <th class="text-xxs font-weight-bolder opacity-7">GIFT ITEM PRICE</th>
                 <th class="text-xxs font-weight-bolder opacity-7">DELIVERY FEE</th>
-                <th class="text-xxs font-weight-bolder opacity-7">TOTAL AMOUNT</th>
                 <th class="text-xxs font-weight-bolder opacity-7">NICKNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">USERNAME</th>
                 <th class="text-xxs font-weight-bolder opacity-7">MOBILE</th>
@@ -121,9 +120,7 @@
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ $item->giftItem->delivery_fee }}</p>
                 </td>
-                <td>
-                    <p class="font-weight-bold mb-0 text-sm">{{ $item->giftItem->buy_price+$item->giftItem->delivery_fee }}</p>
-                </td>
+
                 <td>
                     <p class="font-weight-bold mb-0 text-sm">{{ optional($item->user)->nickname }}</p>
                 </td>
@@ -167,16 +164,10 @@
                         </span>
                     </a>
                         @if ($item->status=='unreceived')
-                            @include('admin.delivery_orders.complete', [
-                            'id' => $item->id,
-                            'item' => $item,
-                            ])
+                            @include('admin.delivery_orders.complete')
 
-                            @elseif ($item->status=='undelivered')
-                                @include('admin.delivery_orders.edit', [
-                                    'id' => $item->id,
-                                    'item' => $item,
-                                ])
+                        @elseif ($item->status=='undelivered')
+                                @include('admin.delivery_orders.edit')
                         @endif
 
 

@@ -12,5 +12,6 @@ $factory->define(GiftItem::class, function (Faker $faker) {
         'buy_price' => $faker->randomNumber(2),
         'sell_price' => $faker->randomNumber(2),
         'qty' => $faker->randomDigit(),
+        'delivery_fee' => 100,
     ];
 });
