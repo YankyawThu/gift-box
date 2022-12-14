@@ -40,7 +40,7 @@ class DeliveryOrderService
 
         if ($request->status == 'finished') {
             $order = $this->deliveryOrderRepo->getById($request->id);
-            $amount = optional($order->giftPrize)->gift_item_buy_price + optional(optional($order->giftPrize)->giftItem)->delivery_fee;
+            $amount = optional(optional($order->giftPrize)->giftItem)->delivery_fee;
             User::where('id', $order->user_id)->decrement('money', $amount);
             $user = $this->userRepo->getById($order->user_id);
             MoneyRecord::where('user_id', $user->id)->where('type', 'deliver')->where('order_id', $request->id)->update(

@@ -534,7 +534,7 @@ $(function() {
 
 
         modal = $(this)
-        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #edit-id').val(id)
         modal.find('.modal-body #goods-name').val(goods_name)
         modal.find('.modal-body #goods_image').val(goods_image)
         modal.find('.modal-body #name').val(name)
@@ -547,6 +547,7 @@ $(function() {
 
         var button = $(e.relatedTarget)
         var id = button.data('id')
+
         var goods_name = button.data('goods-name')
         var goods_image = button.data('goods-image')
         var name = button.data('name')
@@ -600,6 +601,11 @@ $(function() {
 
     $('#edit-delivery-order-cancel-btn').on('click', function() {
         deliveryOrderUpdateForm.resetForm()
+    })
+
+
+    $('#complete-delivery-order-cancel-btn').on('click', function() {
+        $('#complete-delivery-order-form').resetForm()
     })
 
     // Banner

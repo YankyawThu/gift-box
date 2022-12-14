@@ -55,4 +55,11 @@ class DeliveryOrderController extends Controller
             ]);
         }
     }
+
+    public function completeDeliver(Request $request)
+    {
+        $this->deliveryOrderService->update($request, $request->id);
+
+        return redirect()->back()->with('status', 'Delivery Order Updated Successfully!');
+    }
 }
