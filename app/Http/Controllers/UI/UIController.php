@@ -179,4 +179,9 @@ class UIController extends Controller
     {
         return Inertia::render('Wallet');
     }
+
+    public function unBoxIndex()
+    {
+        return Inertia::render('Unboxing');
+    }
 }

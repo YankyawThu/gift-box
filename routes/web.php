@@ -86,6 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/shipping/{num}', [OrderController::class, 'index']);
             Route::get('/order-list', [OrderController::class, 'getAll']);
             Route::get('/exchange', [UIController::class, 'exchangeIndex']);
+            Route::get('/unbox', [UIController::class, 'unBoxIndex']);
+            Route::get('/unbox-list', [UserController::class, 'getUnbox']);
             Route::get('/box-cabinet', [UIController::class, 'getBoxCabinet']);
             Route::get('/wallet', [UIController::class, 'walletIndex']);
             Route::get('/wallet-list', [UserController::class, 'getWallet']);
