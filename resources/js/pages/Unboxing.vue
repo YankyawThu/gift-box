@@ -58,7 +58,6 @@ export default {
     },
     beforeMount() {
         this.fetch()
-        console.log(this.unboxes)
     },
     mounted() {
         window.onscroll = () => {

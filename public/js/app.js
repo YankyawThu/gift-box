@@ -3733,7 +3733,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   beforeMount: function beforeMount() {
     this.fetch();
-    console.log(this.unboxes);
   },
   mounted: function mounted() {
     var _this2 = this;
