@@ -15,10 +15,10 @@
             </div>
             <div v-else>
                 <div v-for="(prize,i) in unboxes" :key="i" class="flex flex-row border_grad2_show my-3 p-2 before:rounded-lg rounded-lg w-full bg_grad1">
-                    <div class="p-2 rounded mr-3"><img :src="prize.item.image" width="50" height="50"></div>
+                    <div class="p-2 rounded mr-3"><img :src="prize.box.image" width="50" height="50"></div>
                     <div class="self-center">
-                        <div class="text-sm truncate text-white w-36">{{prize.item.name}}</div>
-                        <div class="text-sm py-1 text_gradient">{{prize.item.price}} {{__('Ks')}}</div>
+                        <div class="text-sm truncate text-white w-36">{{prize.box.name}}</div>
+                        <div class="text-sm py-1 text_gradient">{{prize.box.price}} {{__('Ks')}}</div>
                         <div class="text-xs text-gray-400">{{__('Time')}} : {{prize.time}}</div>
                     </div>
                 </div>
@@ -58,6 +58,7 @@ export default {
     },
     beforeMount() {
         this.fetch()
+        console.log(this.unboxes)
     },
     mounted() {
         window.onscroll = () => {

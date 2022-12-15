@@ -21,8 +21,10 @@ class UnboxResource extends JsonResource
                 'id' => optional(optional($this->giftLog)->giftBox)->id,
                 'name' => optional(optional($this->giftLog)->giftBox)->name,
                 'image' => optional(optional($this->giftLog)->giftBox)->image ? getFileUrlFromAkoneyaMedia(optional(optional($this->giftLog)->giftBox)->image) : null,
+                'price' => optional(optional($this->giftLog)->giftBox)->price
             ],
             'status' => $this->status,
+            'time' => dateFormat($this->created_at)
         ];
     }
 }

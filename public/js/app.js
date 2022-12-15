@@ -3733,6 +3733,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   beforeMount: function beforeMount() {
     this.fetch();
+    console.log(this.unboxes);
   },
   mounted: function mounted() {
     var _this2 = this;
@@ -7306,7 +7307,7 @@ var render = function render() {
       staticClass: "p-2 rounded mr-3"
     }, [_c("img", {
       attrs: {
-        src: prize.item.image,
+        src: prize.box.image,
         width: "50",
         height: "50"
       }
@@ -7314,9 +7315,9 @@ var render = function render() {
       staticClass: "self-center"
     }, [_c("div", {
       staticClass: "text-sm truncate text-white w-36"
-    }, [_vm._v(_vm._s(prize.item.name))]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.box.name))]), _vm._v(" "), _c("div", {
       staticClass: "text-sm py-1 text_gradient"
-    }, [_vm._v(_vm._s(prize.item.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(prize.box.price) + " " + _vm._s(_vm.__("Ks")))]), _vm._v(" "), _c("div", {
       staticClass: "text-xs text-gray-400"
     }, [_vm._v(_vm._s(_vm.__("Time")) + " : " + _vm._s(prize.time))])])]);
   }), 0)]), _vm._v(" "), _c("footer", [_c("bot")], 1)]);
