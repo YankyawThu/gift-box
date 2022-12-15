@@ -264,4 +264,9 @@ class PrizeRepository extends BaseRepository
 
         return true;
     }
+
+    public function getUnboxByUserId($userId)
+    {
+        return $this->model->where('user_id', $userId)->paginate(config('enums.itemPerPage'));
+    }
 }

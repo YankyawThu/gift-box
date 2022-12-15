@@ -36,4 +36,9 @@ class PrizeService
     {
         return $this->prizeRepo->collect($request);
     }
+
+    public function getUnboxByUserId($userId)
+    {
+        return $this->prizeRepo->getUnboxByUserId($userId);
+    }
 }

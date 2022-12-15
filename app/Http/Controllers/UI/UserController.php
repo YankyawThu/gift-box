@@ -12,16 +12,19 @@ use App\Http\Requests\UserNameChangeRequest;
 use App\Http\Requests\UserNicknameRequest;
 use App\Http\Resources\CollectionResourceCollection;
 use App\Http\Resources\MoneyRecordResourceCollection;
+use App\Http\Resources\UnboxResourceCollection;
 use App\Services\UI\CollectionService;
+use App\Services\UI\PrizeService;
 use App\Services\UI\UserService;
 use Inertia\Inertia;
 
 class UserController extends Controller
 {
-    public function __construct(UserService $userService, CollectionService $collectService)
+    public function __construct(UserService $userService, CollectionService $collectService, PrizeService $prizeService)
     {
         $this->userService = $userService;
         $this->collectService = $collectService;
+        $this->prizeService = $prizeService;
     }
 
     public function index()
@@ -116,6 +119,6 @@ class UserController extends Controller
 
     public function getUnbox()
     {
-        
+        return response()->json(new UnboxResourceCollection($this->prizeService->getUnboxByUserId(auth()->user()->id)));
     }
 }
